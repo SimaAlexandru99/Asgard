@@ -1,13 +1,17 @@
-﻿using Asgard.ViewModels;
-using System;
-using System.ComponentModel;
-using System.Threading;
-using System.Windows;
+﻿// <copyright file="SplashScreen.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Windows
 {
+    using System;
+    using System.ComponentModel;
+    using System.Threading;
+    using System.Windows;
+    using Asgard.ViewModels;
+
     /// <summary>
-    /// Interaction logic for SplashScreen.xaml
+    /// Interaction logic for SplashScreen.xaml.
     /// </summary>
     public partial class SplashScreen : Window
     {
@@ -24,14 +28,14 @@ namespace Asgard.Windows
         {
             BackgroundWorker worker = new BackgroundWorker
             {
-                WorkerReportsProgress = true
+                WorkerReportsProgress = true,
             };
             worker.DoWork += Worker_DoWork;
             worker.ProgressChanged += Worker_ProgressChanged;
             worker.RunWorkerAsync();
         }
 
-        void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
 
@@ -43,7 +47,7 @@ namespace Asgard.Windows
             }
         }
 
-        void Worker_DoWork(object sender, DoWorkEventArgs e)
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i <= 100; i++)
             {
@@ -51,6 +55,5 @@ namespace Asgard.Windows
                 Thread.Sleep(80);
             }
         }
-
     }
 }

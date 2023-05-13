@@ -4,7 +4,6 @@ using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System;
-using System.Media;
 using System.Security.Authentication;
 using System.Text.RegularExpressions;
 using System.Windows;

@@ -18,7 +18,7 @@ namespace Asgard.CustomControls
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ModelTextBoxAdd.Text == "" || SerieTextBoxAdd.Text == "" || AgentTextBoxAdd.Text == ""  || StatusTextBoxAdd.Text == "" || StareTextBoxAdd.Text == "" || CategorieTextBoxAdd.Text == "")
+            if (ModelTextBoxAdd.Text == "" || SerieTextBoxAdd.Text == "" || AgentTextBoxAdd.Text == "" || StatusTextBoxAdd.Text == "" || StareTextBoxAdd.Text == "" || CategorieTextBoxAdd.Text == "")
             {
 
                 Prompt dialog = new Prompt();

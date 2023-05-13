@@ -40,7 +40,7 @@ namespace Asgard.CustomControls
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                 // Set the parameter values
-                cmd.Parameters.AddWithValue("@ID", gestiune.selectedId);
+                cmd.Parameters.AddWithValue("@ID", gestiune.SelectedId);
                 cmd.Parameters.AddWithValue("@MODEL", ModelTextBoxAdd.Text);
                 cmd.Parameters.AddWithValue("@SERIE", SerieTextBoxAdd.Text);
                 cmd.Parameters.AddWithValue("@AGENT", AgentTextBoxAdd.Text);
@@ -123,7 +123,7 @@ namespace Asgard.CustomControls
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-               DragMove();
+                DragMove();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

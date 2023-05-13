@@ -4,7 +4,6 @@ using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System;
-using System.Media;
 using System.Net.Security;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
@@ -1145,7 +1144,7 @@ namespace Asgard.Tickets.Vodafone
                                "CNP: " + CNP.Text + "\r\n" +
                                "ID Propunere: " + idPropunere.Text + "\r\n" +
                                "Data repostare FR: " + repostareFR.Text + "\r\n" +
-                               "Descriere: " + "Va rog sa ma ajutati cu repostare FR" 
+                               "Descriere: " + "Va rog sa ma ajutati cu repostare FR"
                     };
                     string emailAddress = "asgard@optimacall.ro";
                     string password = "Optima#321";

@@ -5,15 +5,11 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using MySql.Data.MySqlClient;
 using System;
-using System.Media;
-using System.Net.Security;
 using System.Security.Authentication;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 
 namespace Asgard.Tickets.Vodafone
 {

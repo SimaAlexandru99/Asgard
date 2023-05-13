@@ -28,7 +28,7 @@ namespace Asgard.Repositories
                     command.CommandText = "select *from users where Username=@Username and Password=@Password";
                     command.Parameters.Add("@Username", MySqlDbType.VarChar).Value = credential.UserName;
                     command.Parameters.Add("@Password", MySqlDbType.VarChar).Value = credential.Password;
-                    validUser = 
+                    validUser =
                         command.ExecuteScalar() != null;
                 }
                 catch (MySqlException ex)

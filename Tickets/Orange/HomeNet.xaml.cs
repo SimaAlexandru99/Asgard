@@ -136,7 +136,7 @@ namespace Asgard.Tickets.Orange
                     };
                 }
 
-                    SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
+                SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                 try
                 {
                     client.CheckCertificateRevocation = false;
@@ -196,7 +196,7 @@ namespace Asgard.Tickets.Orange
         {
             if (step1Panel.Visibility == Visibility.Visible)
             {
-                if (telefonclient.Text == string.Empty || idsfa.Text == string.Empty ||  comboboxTipClient.Text == string.Empty)
+                if (telefonclient.Text == string.Empty || idsfa.Text == string.Empty || comboboxTipClient.Text == string.Empty)
                 {
 
                     CustomControls.Prompt dialog = new CustomControls.Prompt();

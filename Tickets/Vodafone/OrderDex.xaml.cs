@@ -5,7 +5,6 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using MySql.Data.MySqlClient;
 using System;
-using System.Media;
 using System.Security.Authentication;
 using System.Text.RegularExpressions;
 using System.Windows;

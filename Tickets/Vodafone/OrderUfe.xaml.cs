@@ -6,7 +6,6 @@ using MimeKit;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Media;
 using System.Security.Authentication;
 using System.Text.RegularExpressions;
 using System.Windows;

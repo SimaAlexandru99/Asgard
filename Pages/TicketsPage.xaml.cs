@@ -51,7 +51,7 @@ namespace Asgard.Pages
                             break;
                     }
                     break;
-                    case "EON":
+                case "EON":
                     MainTickets.Content = new Tickets.TicketsEon();
                     break;
             }

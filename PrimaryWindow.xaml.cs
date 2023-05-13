@@ -1,4 +1,5 @@
-﻿using Asgard.Repositories;
+﻿using Asgard.Commands;
+using Asgard.Repositories;
 using Asgard.Themes;
 using Asgard.ViewModels;
 using Asgard.Windows;
@@ -50,9 +51,9 @@ namespace Asgard
             Style = (Style)FindResource("CustomWindowStyle");
             DataContext = this;
 
-            MinimizeCommand = new Commands.RelayCommand(Minimize);
-            MaximizeCommand = new Commands.RelayCommand(Maximize);
-            CloseCommand = new Commands.RelayCommand(Close);
+            MinimizeCommand = new RelayCommand(Minimize);
+            MaximizeCommand = new RelayCommand(Maximize);
+            CloseCommand = new RelayCommand(Close);
             // Get the current screen resolution
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
