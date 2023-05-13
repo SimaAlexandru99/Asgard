@@ -1,0 +1,1038 @@
+﻿<Page x:Class="Asgard.Tickets.EON.TicketContracte"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:local="clr-namespace:Asgard.Tickets.EON"
+				  xmlns:val="clr-namespace:Asgard.Validations"
+			xmlns:models="clr-namespace:Asgard.ViewModels"      
+	  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	  mc:Ignorable="d" 
+	  d:DesignHeight="1400
+	  " d:DesignWidth="800"
+	  Title="TicketContracte"
+	  Background="{DynamicResource BackgroundColor}">
+
+    <Page.DataContext>
+        <val:Verifications/>
+    </Page.DataContext>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="{DynamicResource BackgroundMargins}" Margin="2,2,0,0">
+                <Grid Margin="35,0,35,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <MenuItem x:Name="HomeButton" Header="Acasă" Style="{StaticResource NavigationMenu}"/>
+                        <iconPacks:PackIconFeatherIcons
+									Foreground="{DynamicResource TextColor}"
+									Width="7"
+									Height="7"
+									Kind="ChevronRight" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="Tickete" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource TextColor}" FontSize="12" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        <iconPacks:PackIconFeatherIcons
+									Foreground="{DynamicResource TextColor}"
+									Width="7"
+									Height="7"
+									Kind="ChevronRight" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="Tickete Backoffice" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource VodafoneBackgroundColor}" FontSize="12" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <StackPanel Grid.Row="2" Margin="35 0 35 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Contract EON" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" FontSize="25"/>
+                <TextBlock Text="Generează un contract nou" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" FontSize="12" Margin="0,5,0,0"/>
+            </StackPanel>
+            <Grid Grid.Row="3" Margin="35,20,35,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel
+				Grid.Row="0"
+				Grid.Column="0">
+                    <TextBlock Text="Contract" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+						x:Name="comboboxContract"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="50"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="0"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <ComboBoxItem>Actual Assist Electric</ComboBoxItem>
+                        <ComboBoxItem>Actual Electric</ComboBoxItem>
+                        <ComboBoxItem>Actual Assist Gaz</ComboBoxItem>
+                        <ComboBoxItem>Actual Gaz</ComboBoxItem>
+                        <ComboBoxItem>Actual Duo Assist Pro</ComboBoxItem>
+                        <ComboBoxItem>Actual Duo Assist</ComboBoxItem>
+                        <ComboBoxItem>Actual Duo</ComboBoxItem>
+                        <ComboBoxItem>Contract asistenta tehnica</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="2"
+				Grid.Column="0">
+                    <TextBlock Text="Nume" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="NumeClient"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="Name"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="4"
+				Grid.Column="0">
+                    <TextBlock Text="Prenume" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="PrenumeClient"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="Prenume"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="6"
+				Grid.Column="0">
+                    <TextBlock Text="Adresa client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						Height="80"
+						x:Name="AdresaClient"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
+			 HorizontalScrollBarVisibility="Auto" >
+                        <TextBox.Text>
+                            <Binding
+							Path="Adresa"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+
+
+
+
+                <StackPanel
+				Grid.Row="0"
+				Grid.Column="2">
+                    <TextBlock Text="CNP" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="CNP"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="CNP"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="13" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="2"
+				Grid.Column="2">
+                    <TextBlock Text="Serie" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="Serie"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="Serie"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="8" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="4"
+				Grid.Column="2">
+                    <TextBlock Text="Telefon" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="Telefon"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="Telefon"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="9" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+
+                <StackPanel
+				Grid.Row="6"
+				Grid.Column="2">
+                    <TextBlock Text="Adresa corespondenta" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="AdresaCorespondenta"
+						Height="80"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}"  TextWrapping="Wrap"
+					   AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
+			 HorizontalScrollBarVisibility="Auto">
+                        <TextBox.Text>
+                            <Binding
+							Path="AdresaCorespondenta"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+                <StackPanel
+				Grid.Row="8"
+				Grid.Column="2">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Data semnare (zz/ll/aaa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="DataSemnare"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="DataSemnare"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="5" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+
+
+                <StackPanel
+				Grid.Row="0"
+				Grid.Column="4">
+                    <TextBlock Text="IBAN (Optional)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="IBAN"
+						Style="{StaticResource TextBoxCustom}">
+
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="2"
+				Grid.Column="4">
+                    <TextBlock Text="Banca (Optional)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="Banca"
+						Style="{StaticResource TextBoxCustom}">
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="4"
+				Grid.Column="4">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Format factură" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+						x:Name="comboboxFormat"
+						SelectedValuePath="Content"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						Height="50"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						Cursor="Hand"                       
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="0"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}">
+                        <ComboBoxItem  IsSelected="True">Electronic</ComboBoxItem>
+                        <ComboBoxItem >Tipărit</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="6"
+				Grid.Column="4">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxFormat, Path=SelectedValue}" Value="Electronic">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Email" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="Email"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="Email"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="8"
+				Grid.Column="4">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Contract asistenta tehnica">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Tip pachet servicii tehnice" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+						x:Name="comboboxPachetServicii"
+						SelectedValuePath="Content"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						Height="50"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						Cursor="Hand"                       
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="0"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}">
+                        <ComboBoxItem >EON ServExpress</ComboBoxItem>
+                        <ComboBoxItem >EON ServExpress Pro</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="8"
+				Grid.Column="0">
+                    <TextBlock Text="Data intrare in viguare (zz/ll/aaa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="DataImplementare"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="DataIntrare"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="5" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+
+                <StackPanel Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Text="Datele de identificare" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="12"
+				Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Cod client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="CodClient"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="CodClientEon"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="12"
+				Grid.Column="2">
+                    <TextBlock Text="Adresa loc de consum" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="AdresaLocConsum"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="AdresaLocConsum"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+                <StackPanel
+				Grid.Row="12"
+				Grid.Column="4">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Valabilitate act spațiu" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="ValabilitateActSpatiu"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="ValabilitateActSpatiu"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Informații energie electrică" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="16"
+				Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="CLC" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="CLC"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="CLC"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="18"
+				Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Cosum anual prognozat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="ConsumAnualPrognozat"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="ConsumAnual"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="2" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="16"
+				Grid.Column="2">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="POD" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="POD"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="POD"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="16"
+				Grid.Column="4">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Electric">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Nivel Tensiune" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="NivelTensiune"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="NivelTensiune"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+
+                <StackPanel Grid.Row="20" Grid.ColumnSpan="5">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Informații gaz" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="22"
+				Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Cod loc de consum" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="CodLocConsumBox"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="CodConsumGaz"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="24"
+				Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Consum anual prognozat gaz" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="ConsumAnualPrognozatGazBox"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="ConsumAnualGaz"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="2" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="22"
+				Grid.Column="2">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="CLC Gaz" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="CLCGazBox"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="CLCGaz"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+				Grid.Row="22"
+				Grid.Column="4">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Assist Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Gaz">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist Pro">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo Assist">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName= comboboxContract , Path=SelectedValue}" Value="Actual Duo">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Categorie Consum" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+						x:Name="CategorieConsumBox"
+						Style="{StaticResource TextBoxCustom}"
+						Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+							Path="CategorieConsumGaz"
+							UpdateSourceTrigger="LostFocus"
+							ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+
+                <!--  Main button  -->
+                <StackPanel Grid.Row="28"
+						Margin="0 0 0 10"
+						Grid.Column="4" VerticalAlignment="Center">
+                    <Button x:Name="SendButton" Content="Trimite" Style="{StaticResource SendButton}" Click="Button_Click"/>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

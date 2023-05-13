@@ -1,0 +1,518 @@
+﻿<Page x:Class="Asgard.Tickets.Vodafone.OrderUfe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:val="clr-namespace:Asgard.Validations"
+      xmlns:local="clr-namespace:Asgard.Tickets.Vodafone"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      Title="Comanda UFE" Loaded="Page_Loaded">
+    <Page.DataContext>
+        <val:Verifications/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="{DynamicResource BackgroundThirdColor}" Margin="2,2,0,0">
+                <Grid Margin="35,0,35,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <MenuItem x:Name="HomeButton" Header="Acasă" Style="{StaticResource NavigationMenu}" Click="HomeButton_Click" Width="40"/>
+                        <iconPacks:PackIconFeatherIcons
+                                    Foreground="{DynamicResource TextColor}"
+                                    Width="7"
+                                    Height="7"
+                                    Kind="ChevronRight" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <MenuItem x:Name="TicketeButton" Header="Tickete" Style="{StaticResource NavigationMenu}" Width="60"/>
+                        <iconPacks:PackIconFeatherIcons
+                                    Foreground="{DynamicResource TextColor}"
+                                    Width="7"
+                                    Height="7"
+                                    Kind="ChevronRight" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="Comandă UFE" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource VodafoneBackgroundColor}" FontSize="12" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <StackPanel Grid.Row="2" Margin="35 0 35 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Comandă UFE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" FontSize="25" />
+                <TextBlock Text="Crează o comandă nouă" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" FontSize="12" Margin="0,5,0,0"/>
+            </StackPanel>
+            <Grid Grid.Row="3" Margin="35,20,35,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="0">
+                    <TextBlock Text="Nume și prenume client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="nameClient"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+                            Path="Name"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="3" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="2"
+                Grid.Column="0">
+                    <TextBlock Text="Număr impactat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="phoneClient"
+                        MaxLength="9"
+                        PreviewTextInput="Text_PreviewTextInput"
+                        Style="{StaticResource TextBoxCustom}"
+                        Padding="15"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}" TextChanged="phoneClient_TextChanged">
+                        <Binding
+                        Path="Phone"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="9" />
+                                <val:MaximumCharacterRule MaximumCharacters="9" />
+                                <val:StartsWithRule7/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="0">
+                    <TextBlock Text="CNP" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="cnpClient"
+                        MaxLength="13"
+                        PreviewTextInput="Text_PreviewTextInput"
+                        Style="{StaticResource TextBoxCustom}"
+                        Padding="15"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <TextBox.Text>
+                            <Binding
+                            Path="CNP"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="13" />
+                                    <val:NotEmptyRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="6"
+                Grid.Column="0">
+                    <TextBlock Text="Județ" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <ComboBox
+                        x:Name="comboboxJudet"
+                        SelectedValuePath="Content"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        SelectionChanged="judetCombo_SelectionChanged"  IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="8"
+                Grid.Column="0">
+                    <TextBlock Text="Oraș" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <ComboBox
+                        x:Name="comboboxLocalitate"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        SelectedValuePath="Content"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        IsEditable="True">
+
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="2">
+                    <TextBlock Text="Adresă completă" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="adressClient"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                        Path="Adresa"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="3" />
+                                <val:NotEmptyRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="2"
+                Grid.Column="2">
+                    <TextBlock Text="Număr contact" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="contactClient"
+                        PreviewTextInput="Text_PreviewTextInput"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="Contact"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="9" />
+                                <val:MaximumCharacterRule MaximumCharacters="9" />
+                                <val:StartsWithRule7 />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="2">
+                    <TextBlock Text="Abonament" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+                        x:Name="comboboxAbonament"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Loaded="comboboxAbonament_Loaded" SelectionChanged="comboboxAbonament_SelectionChanged"
+                        >
+
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="6"
+                Grid.Column="2">
+                    <TextBlock Text="Cod Device" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <ComboBox
+                        x:Name="comboboxDevice"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        IsEditable="True">
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="8"
+                Grid.Column="2">
+                    <TextBlock Text="Rata telefon" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,0"/>
+                    <TextBox
+                        x:Name="rataTelefon"
+                        TextChanged="rataTelefon_TextChanged"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="Rata"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:NotEmptyRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="4">
+                    <TextBlock Text="Preț de lista (Euro)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="pretdelistaEuro"
+                        
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="PretDeListaEuro"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:NotEmptyRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="2"
+                Grid.Column="4">
+                    <TextBlock Text="Cod Reducere" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+                        x:Name="ComboboxCod"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}" >
+                        <ComboBoxItem Content="FĂRĂ" IsSelected="True" />
+                        <ComboBoxItem Content="DCBUTEL" />
+                        <ComboBoxItem Content="DCEXCEPTII" />
+                        <ComboBoxItem Content="DCPRICEUP" />
+                        <ComboBoxItem Content="DRED100" />
+                        <ComboBoxItem Content="DRET1" />
+                        <ComboBoxItem Content="DRET7" />
+                        <ComboBoxItem Content="DRPORTOU" />
+                        <ComboBoxItem Content="DSPEC30" />
+                        <ComboBoxItem Content="DTCIB" />
+                        <ComboBoxItem Content="DTCIB2" />
+                        <ComboBoxItem Content="DTPROMOB" />
+                        <ComboBoxItem Content="DTPROMOC" />
+                        <ComboBoxItem Content="DTPROMOD" />
+                        <ComboBoxItem Content="DTPROMOSD1" />
+                        <ComboBoxItem Content="DTPROMOSD2" />
+                        <ComboBoxItem Content="DTPROMOSD3" />
+                        <ComboBoxItem Content="DTPROMOSD4" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="4">
+                    <TextBlock Text="Valoare reducere (Euro)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="reducereEuro"
+                        
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="CodDeReducere"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:NotEmptyRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="6"
+                Grid.Column="4">
+                    <TextBlock Text="Preț final (Lei)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,0"/>
+                    <TextBox
+                        x:Name="pretFinal"
+                        
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="PretFinal"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:NotEmptyRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+
+                <!--IF Method signature-->
+                <StackPanel
+                Grid.Row="8"
+                Grid.Column="4">
+                    <TextBlock Text="Metodă de semnare" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <ComboBox
+                        x:Name="signatureCombo"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <ComboBoxItem Content="Digital" IsSelected="True" />
+                        <ComboBoxItem Content="Digital Post" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="6">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=signatureCombo, Path=SelectedValue}" Value="Digital Post">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Email client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="emailClient"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="Email"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="1" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="6">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=signatureCombo, Path=SelectedValue}" Value="Digital">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Adresă poștală client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="postaClient"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                            Path="Posta"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="1" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+
+
+                <StackPanel
+                Grid.Row="2"
+                Grid.Column="6">
+                    <TextBlock Text="Acord PCM" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+                        x:Name="acordPCM"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <ComboBoxItem>DA</ComboBoxItem>
+                        <ComboBoxItem>NU</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="6">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=signatureCombo, Path=SelectedValue}" Value="Digital Post">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Asigurare device" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+                        x:Name="comboAsigurare"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <ComboBoxItem>DA</ComboBoxItem>
+                        <ComboBoxItem>NU</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="10"
+                        Margin="0 0 0 10"
+                        Grid.Column="6" VerticalAlignment="Center">
+                    <Button x:Name="SendButton" Content="Trimite" Style="{StaticResource SendButton}" Click="SendButton_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

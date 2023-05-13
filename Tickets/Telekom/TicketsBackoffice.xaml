@@ -1,0 +1,529 @@
+﻿<Page x:Class="Asgard.Tickets.Telekom.TicketsBackoffice"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Asgard.Tickets.Telekom"
+      xmlns:val="clr-namespace:Asgard.Validations"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="1000"
+      Title="TicketsBackoffice" Loaded="Page_Loaded">
+    <Page.DataContext>
+        <val:Verifications/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="{DynamicResource BackgroundThirdColor}" Margin="2,2,0,0">
+                <Grid Margin="35,0,35,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <MenuItem x:Name="HomeButton" Header="Acasă" Style="{StaticResource NavigationMenu}" Click="HomeButton_Click" Width="40"/>
+                        <iconPacks:PackIconFeatherIcons
+                                    Foreground="{DynamicResource TextColor}"
+                                    Width="7"
+                                    Height="7"
+                                    Kind="ChevronRight" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <MenuItem x:Name="TicketeButton" Header="Tickete" Style="{StaticResource NavigationMenu}" Width="60"/>
+                        <iconPacks:PackIconFeatherIcons
+                                    Foreground="{DynamicResource TextColor}"
+                                    Width="7"
+                                    Height="7"
+                                    Kind="ChevronRight" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="Tickete Support" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource TelekomBackgroundColor}" FontSize="12" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <StackPanel Grid.Row="2" Margin="35 0 35 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Tickete Suport" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" FontSize="25"/>
+                <TextBlock Text="Crează un ticket către suport" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" FontSize="12" Margin="0,5,0,0"/>
+            </StackPanel>
+            <Grid Grid.Row="3" Margin="36,20,34,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="0">
+                    <TextBlock Text="Place Bria" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="codAgent"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="2"
+                Grid.Column="0">
+                    <TextBlock Text="Ticket" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+                        x:Name="comboboxTickete"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxTickete_SelectionChanged">
+                        <ComboBoxItem >Exceptare plata depozit</ComboBoxItem>
+                        <ComboBoxItem >Anulare cereri la curier RPA</ComboBoxItem>
+                        <ComboBoxItem >Anulare cerere cu echipament Curier DPD/URGENT CARGUS</ComboBoxItem>
+                        <ComboBoxItem >Urgentare cerere cu echipament Curier DPD/URGENT CARGUS</ComboBoxItem>
+                        <ComboBoxItem >Schimbare adresa livrare Curier DPD/URGENT CARGUS</ComboBoxItem>
+                        <ComboBoxItem >Urgentare incident</ComboBoxItem>
+                        <ComboBoxItem >Ticket de semnal</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Exceptare plata depozit">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Număr Cerere" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="idCerere"
+                        MaxLength="9"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                        Path="IDCerere"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="9" />
+                                <val:MaximumCharacterRule MaximumCharacters="9" />
+                                <val:StartsWithRule18/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Anulare cereri la curier RPA">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Urgentare cerere cu echipament Curier DPD/URGENT CARGUS">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Anulare cerere cu echipament Curier DPD/URGENT CARGUS">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Schimbare adresa livrare Curier DPD/URGENT CARGUS">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="ID Sursa" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="idSursa"
+                    MaxLength="9"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        <Binding
+                        Path="IDSursa"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <val:MinimumCharacterRule MinimumCharacters="9" />
+                                <val:MaximumCharacterRule MaximumCharacters="9" />
+                                <val:StartsWithRule10/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Urgentare incident">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="ID Incident" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="idIncident"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel
+                Grid.Row="6"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Exceptare plata depozit">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Eticheta risc" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <ComboBox
+                        x:Name="etichetaRisk"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxTickete_SelectionChanged">
+                        <ComboBoxItem >VHR</ComboBoxItem>
+                        <ComboBoxItem >HR</ComboBoxItem>
+                        <ComboBoxItem >MR</ComboBoxItem>
+                        <ComboBoxItem >LR</ComboBoxItem>
+                        <ComboBoxItem >OLD_VHR</ComboBoxItem>
+                        <ComboBoxItem >OLD_HR</ComboBoxItem>
+                        <ComboBoxItem >OLD_MR</ComboBoxItem>
+                        <ComboBoxItem >OLD_LR</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <Grid 
+                Grid.Row="6"
+                Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Urgentare cerere cu echipament Curier DPD/URGENT CARGUS">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Anulare cerere cu echipament Curier DPD/URGENT CARGUS">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Schimbare adresa livrare Curier DPD/URGENT CARGUS">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="Are AWB?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                        <ComboBox
+                        x:Name="comboboxAWB"
+                        SelectedValuePath="Content"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxAWB_SelectionChanged">
+                            <ComboBoxItem>DA</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">NU</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel x:Name="awbStack" Grid.Column="1">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Urgentare cerere cu echipament Curier DPD/URGENT CARGUS">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Anulare cerere cu echipament Curier DPD/URGENT CARGUS">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Schimbare adresa livrare Curier DPD/URGENT CARGUS">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxAWB, Path=SelectedValue}" Value="NU">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="AWB" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5" />
+                        <TextBox
+                        x:Name="awb"            
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"/>
+                    </StackPanel>
+                </Grid>
+                <StackPanel
+                Grid.Row="8"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Schimbare adresa livrare Curier DPD/URGENT CARGUS">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Adresa nouă" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="schimbareAdresa"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="10"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Schimbare adresa livrare Curier DPD/URGENT CARGUS">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Număr contact" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="numarContact"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+
+                <!--Ticket semnal-->
+                <StackPanel
+                Grid.Row="4"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Adresa la care clientul nu are semnal (  Localitate, Judet, strada, numar )" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="adresaSemnal"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="6"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Data de cand clientul are probleme cu semnalul" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="dataProblemeSemnal"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"/>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="8"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Problema este indoor/outdoor (indoor - intr-o incapere / outdoor - inafara incaperii):" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                    <ComboBox
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        x:Name="comboboxIndoorOutdoor"
+                        SelectedValuePath="Content"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                        <ComboBoxItem >Indoor</ComboBoxItem>
+                        <ComboBoxItem >Outdoor</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="10"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Cand a fost ultima data cand clientul si-a schimbat cartela?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="dataUltimaData"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="12"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Numarul pe care clientul intampina problema cu semnalul" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="numarClient"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel
+                Grid.Row="14"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Numar de contact pe care colegii de la tehnic sa il contacteze" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        x:Name="numarClientContact"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel               
+                Grid.Row="16"
+                Grid.Column="0">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboboxTickete, Path=SelectedValue}" Value="Ticket de semnal">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock Text="Detalii despre problema intampinata" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                    <TextBox
+                        Height="150"
+                        x:Name="descriereProblemaSemnal"
+                        Style="{StaticResource TextBoxCustom}"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        VerticalScrollBarVisibility="Auto"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    </TextBox>
+                </StackPanel>
+
+
+
+
+
+                <StackPanel Grid.Row="18"
+                        Margin="0 0 0 20"
+                        Grid.Column="0" VerticalAlignment="Center">
+                    <Button x:Name="SendButton" Content="Trimite" Style="{StaticResource SendButton}" Click="SendButton_Click"/>
+                </StackPanel>
+
+
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

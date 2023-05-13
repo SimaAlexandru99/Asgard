@@ -1,0 +1,228 @@
+﻿<Window x:Class="Asgard.CustomControls.UpdateDeviceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Asgard.CustomControls"
+            xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        Title="UpdateDeviceWindow" Height="600" Width="1200" MouseDown="Window_MouseDown" Loaded="Window_Loaded" Closed="Window_Closed">
+
+
+    <Border Background="{DynamicResource BackgroundColor}" BorderThickness="1" BorderBrush="{DynamicResource PromptsBorder}" CornerRadius="10" Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="700"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="0,10,10,0">
+                <Button x:Name="CloseButton" Style="{StaticResource CloseNotification}" Click="CloseButton_Click" HorizontalAlignment="Right">
+                    <iconPacks:FeatherIcons Kind="X" Width="15" Height="15"/>
+                </Button>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" 
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,0,10,15" VerticalAlignment="Center" Style="{StaticResource TextPopup}">EDITEAZĂ DISPOZITIV</TextBlock>
+
+                <!--Model textbox-->
+                <TextBlock Grid.Row="2" 
+                       Style="{StaticResource TextPopup}" 
+                       Grid.Column="0" Margin="0,0,10,0" VerticalAlignment="Center">MODEL:</TextBlock>
+                <TextBox Grid.Row="2" 
+                     Grid.Column="1"  
+                     Style="{StaticResource TextBoxCustom}" Name="ModelTextBoxAdd" />
+                <!--Serie textbox-->
+                <TextBlock Grid.Row="4" Style="{StaticResource TextPopup}" 
+                       Grid.Column="0" Margin="0,10,10,0" VerticalAlignment="Center">SERIE:</TextBlock>
+                <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxCustom}"  Name="SerieTextBoxAdd"/>
+                <!--Agent textbox-->
+                <TextBlock Grid.Row="6" 
+                       Style="{StaticResource TextPopup}"
+                       Grid.Column="0" Margin="0,10,10,0" VerticalAlignment="Center">AGENT:</TextBlock>
+                <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBoxCustom}"  Name="AgentTextBoxAdd"/>
+                <!--Anydesk textbox-->
+                <TextBlock Grid.Row="8" Style="{StaticResource TextPopup}" Grid.Column="0" Margin="0,10,10,0" VerticalAlignment="Center">ANYDESK:</TextBlock>
+                <TextBox Grid.Row="8" Grid.Column="1" Style="{StaticResource TextBoxCustom}"  Name="AnydeskTextBoxAdd"/>
+                <!--Status textbox-->
+                <TextBlock Grid.Row="10" Style="{StaticResource TextPopup}" Grid.Column="0" Margin="0,10,10,0" VerticalAlignment="Center">STATUS:</TextBlock>
+                <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource TextBoxCustom}"  Name="StatusTextBoxAdd"/>
+
+                <TextBlock Grid.Row="12" Style="{StaticResource TextPopup}" Grid.Column="0" Margin="0,10,10,0" VerticalAlignment="Center">Internet Wireless:</TextBlock>
+
+                <ComboBox
+                    Grid.Row="12"
+                    Grid.Column="1"
+                    x:Name="Internet"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem Content="NU" />
+                    <ComboBoxItem Content="Stick Vodafone" />
+                    <ComboBoxItem Content="Stick Orange\Telekom" />
+                </ComboBox>
+
+
+
+                <!-- Second Column -->
+
+                <!--Stare textbox-->
+                <TextBlock Grid.Row="2" Style="{StaticResource TextPopup}" Grid.Column="2" Margin="10,10,10,0" VerticalAlignment="Center">STARE:</TextBlock>
+                <TextBox Grid.Row="2" Grid.Column="3"  Style="{StaticResource TextBoxCustom}"  Name="StareTextBoxAdd"/>
+
+                <!--Categorie textbox-->
+                <TextBlock Grid.Row="4" Style="{StaticResource TextPopup}" Grid.Column="2" Margin="10,10,10,0" VerticalAlignment="Center">CATEGORIE:</TextBlock>
+                
+                <ComboBox
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    x:Name="CategorieTextBoxAdd"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem Content="LAPTOP" />
+                    <ComboBoxItem Content="UNITATE" />
+                </ComboBox>
+
+                <!--Mouse textbox-->
+                <TextBlock Grid.Row="6" Style="{StaticResource TextPopup}" Grid.Column="2" Margin="10,10,10,0" VerticalAlignment="Center">MOUSE:</TextBlock>
+                
+                <ComboBox
+                    Grid.Row="6"
+                    Grid.Column="3"
+                    x:Name="MouseTextBoxAdd"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem Content="DA" />
+                    <ComboBoxItem Content="NU" />
+                </ComboBox>
+
+                <!--Tastatura textbox-->
+                <TextBlock Grid.Row="8" Style="{StaticResource TextPopup}" Grid.Column="2" Margin="10,10,10,0" VerticalAlignment="Center">TASTATURA:</TextBlock>
+                
+                <ComboBox
+                    Grid.Row="8"
+                    Grid.Column="3"
+                    x:Name="TastaturaTextBoxAdd"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem Content="DA" />
+                    <ComboBoxItem Content="NU" />
+                </ComboBox>
+
+                <!--Casti textbox-->
+                <TextBlock Grid.Row="10" Style="{StaticResource TextPopup}" Grid.Column="2" Margin="10,10,10,0" VerticalAlignment="Center">CASTI:</TextBlock>
+                
+                <ComboBox
+                    Grid.Row="10"
+                    Grid.Column="3"
+                    x:Name="CastiTextBoxAdd"
+                        SelectedValuePath="Content"
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem Content="DA" />
+                    <ComboBoxItem Content="NU" />
+                </ComboBox>
+
+
+                <!--Licenta textbox-->
+                <TextBlock Grid.Row="12" Style="{StaticResource TextPopup}" Grid.Column="2" Margin="10,10,10,0" VerticalAlignment="Center">LICENTA:</TextBlock>
+                <TextBox Grid.Row="12" Grid.Column="3" Style="{StaticResource TextBoxCustom}"  Name="LicentaAdd"/>
+                
+
+
+
+
+
+
+
+                <StackPanel Grid.Row="24" Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Button x:Name="AddButton" Content="ADAUGĂ" Width="100" Style="{StaticResource SendButton}" Margin="0,10,10,0" Click="SaveButton_Click"/>
+                    <Button x:Name="CancelButton" Content="ANULEAZĂ" Width="100" Style="{StaticResource SendButton}" Margin="0,10,0,0" Click="CancelButton_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Grid.Row="0" 
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,10,10,15" VerticalAlignment="Center" Style="{StaticResource TextPopup}">ISTORIC DISPOZITIV</TextBlock>
+                    <DataGrid x:Name="HistoryDatGrid" ItemsSource="{Binding}" />
+                </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+    </Border>
+</Window>

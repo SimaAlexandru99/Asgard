@@ -1,0 +1,181 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
+    <Style x:Key="CustomWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome ResizeBorderThickness="6"
+                                    CaptionHeight="10"
+                                    GlassFrameThickness="0"
+                                    UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+
+
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
+                                Background="{DynamicResource BackgroundThirdColor}"
+                                Name="BorderMenu">
+                            <StackPanel Orientation="Horizontal" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Right"
+                                Margin="0,-2,-2,0"
+                                Name="StackPanelTop">
+                                <Button Name="MinimizeButton" 
+                                Width="45px"
+                                Cursor="Hand"
+                                Command="{Binding Path=MinimizeCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                Style="{DynamicResource ResizeControlButton}">
+                                    <iconPacks:PackIconFontAwesome
+                                Width="15"
+                                Height="15"
+                                Margin="10,8,10,8"
+                                Foreground="{DynamicResource TextColor}"
+                                Kind="WindowMinimizeRegular" />
+                                </Button>
+                                <Button Name="MaximizeButton" 
+                                Width="45px"
+                                Cursor="Hand"
+                                Style="{DynamicResource ResizeControlButton}"
+                                Command="{Binding Path=MaximizeCommand, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <iconPacks:PackIconBoxIcons x:Name="MaximizeIcon" 
+                                Width="15"
+                                Height="15"
+                                Margin="10,8,10,8"
+                                Foreground="{DynamicResource TextColor}"
+                                Kind="RegularSquareRounded" />
+                                </Button>
+                                <Button Name="CloseButton" 
+                                Width="45px"
+                                Cursor="Hand"
+                                Style="{DynamicResource CloseControlButton2}"
+                                Command="{Binding Path=CloseCommand, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <iconPacks:PackIconModern
+                                Width="15"
+                                Height="15"
+                                Margin="10,8,10,8"
+                                Foreground="{DynamicResource TextColor}"
+                                Kind="Close" />
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="{DynamicResource Background}"
+                            Grid.Row="1"
+                            Name="BorderContent">
+                            <AdornerDecorator>
+                                <Border 
+                                        BorderThickness="1 0 0 1"
+                                        BorderBrush="{DynamicResource BackgroundThirdColor}"
+                                        >
+                                    <ContentPresenter/>
+                                </Border>
+                            </AdornerDecorator>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="StackPanelTop" Property="Margin" Value="0,0,0,0"/>
+                            <Setter TargetName="MaximizeIcon" Property="Kind" Value="RegularCopy"/>
+                            <Setter TargetName="BorderMenu" Property="CornerRadius" Value="0"/>
+                            <Setter TargetName="BorderContent" Property="CornerRadius" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--  Start: Resize Controls Buttons  -->
+    <Style x:Key="ResizeControlButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Black"
+                        BorderThickness="0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource FocusColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--  End: Resize Controls Buttons  -->
+
+    <!--  Start: Close Controls Buttons  -->
+    <Style x:Key="CloseControlButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Black"
+                        BorderThickness="0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#e62e4c" />
+                            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}" />
+                            <Setter TargetName="Border" Property="CornerRadius" Value="10 0 0 0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  End: Close Controls Buttons  -->
+
+    <!--  Start: Close Controls Buttons  -->
+    <Style x:Key="CloseControlButton2" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Black"
+                        BorderThickness="0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#e62e4c" />
+                            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextColor}" />
+                            <Setter TargetName="Border" Property="CornerRadius" Value="0 10 0 0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--  End: Close Controls Buttons  -->
+</ResourceDictionary>

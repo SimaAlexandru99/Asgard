@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EEC992F-9AC2-4FF4-A466-27AD18DED4C3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Asgard</RootNamespace>
+    <AssemblyName>Asgard</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>Z:\ASGARD V2\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\10.203.243.11\Public\ASGARD V2\</InstallUrl>
+    <UpdateUrl>\\10.203.243.11\Public\ASGARD V2\</UpdateUrl>
+    <SupportUrl>https://eoverart.ro/</SupportUrl>
+    <ProductName>Asgard</ProductName>
+    <PublisherName>Asgard</PublisherName>
+    <MinimumRequiredVersion>1.2.8.0</MinimumRequiredVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.2.8.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Asgard.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>86D9C80A68E0EFA21B4EFF02744BD5667EF0D50F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Asgard_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AsgardLogoIco.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\FontSizeConverter.cs" />
+    <Compile Include="Converters\MarginConverter.cs" />
+    <Compile Include="Converters\StringToUpperConverter.cs" />
+    <Compile Include="Converters\WidthConverter.cs" />
+    <Compile Include="CustomControls\AddDeviceWindow.xaml.cs">
+      <DependentUpon>AddDeviceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\BindablePassword.xaml.cs">
+      <DependentUpon>BindablePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Prompt.xaml.cs">
+      <DependentUpon>Prompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\UpdateDeviceWindow.xaml.cs">
+      <DependentUpon>UpdateDeviceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comenzi.cs" />
+    <Compile Include="Models\IUserRepository.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Pages\ComingSoon.xaml.cs">
+      <DependentUpon>ComingSoon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FrontPage.xaml.cs">
+      <DependentUpon>FrontPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Gestiune.xaml.cs">
+      <DependentUpon>Gestiune.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TicketsPage.xaml.cs">
+      <DependentUpon>TicketsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrimaryWindow.xaml.cs">
+      <DependentUpon>PrimaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\DeviceModel.cs" />
+    <Compile Include="Repositories\DeviceModel2.cs" />
+    <Compile Include="Repositories\Mail.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\UserAccountModel.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Themes\ThemesController.cs" />
+    <Compile Include="Tickets\EON\TicketContracte.xaml.cs">
+      <DependentUpon>TicketContracte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Orange\HomeNet.xaml.cs">
+      <DependentUpon>HomeNet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Telekom\TicketsBackoffice.xaml.cs">
+      <DependentUpon>TicketsBackoffice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\TicketeVodafone.xaml.cs">
+      <DependentUpon>TicketeVodafone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\TicketsEon.xaml.cs">
+      <DependentUpon>TicketsEon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\TicketsOrange.xaml.cs">
+      <DependentUpon>TicketsOrange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\TicketsTelekom.xaml.cs">
+      <DependentUpon>TicketsTelekom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\TicketsVodafoneAchizitie.xaml.cs">
+      <DependentUpon>TicketsVodafoneAchizitie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Vodafone\OrderAchizitie.xaml.cs">
+      <DependentUpon>OrderAchizitie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Vodafone\OrderDex.xaml.cs">
+      <DependentUpon>OrderDex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Vodafone\OrderUfe.xaml.cs">
+      <DependentUpon>OrderUfe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Vodafone\TicketRetur.xaml.cs">
+      <DependentUpon>TicketRetur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\Vodafone\TicketsBackoffice.xaml.cs">
+      <DependentUpon>TicketsBackoffice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validations\MaximumCharacterRule.cs" />
+    <Compile Include="Validations\MinimumCharacterRule.cs" />
+    <Compile Include="Validations\NotEmptyRule.cs" />
+    <Compile Include="Validations\ObservableObjects.cs" />
+    <Compile Include="Validations\SelectionValidationRule.cs" />
+    <Compile Include="Validations\StartsWithRule07.cs" />
+    <Compile Include="Validations\StartsWithRule10.cs" />
+    <Compile Include="Validations\StartsWithRule18.cs" />
+    <Compile Include="Validations\StartsWithRule2.cs" />
+    <Compile Include="Validations\StartsWithRule7.cs" />
+    <Compile Include="Validations\StartsWithRule8.cs" />
+    <Compile Include="Validations\Verifications.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelCommand.cs" />
+    <Compile Include="Windows\RecoverPasswordWindow.xaml.cs">
+      <DependentUpon>RecoverPasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SignIn.xaml.cs">
+      <DependentUpon>SignIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CustomControls\AddDeviceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\BindablePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\Prompt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\UpdateDeviceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\ComingSoon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\FrontPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Gestiune.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\TicketsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrimaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\CustomWindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MainStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DarkTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\EON\TicketContracte.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Orange\HomeNet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Telekom\TicketsBackoffice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketeVodafone.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketsEon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketsOrange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketsTelekom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketsVodafoneAchizitie.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Vodafone\OrderAchizitie.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Vodafone\OrderDex.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Vodafone\OrderUfe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Vodafone\TicketRetur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Vodafone\TicketsBackoffice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\RecoverPasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SignIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SplashScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Asgard_TemporaryKey.pfx" />
+    <Content Include="Assets\Contracte EON\Actual_Assist_Electric.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\Actual_Assist_Gas.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\Actual_Duo.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\Actual_Duo_Assist.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\Actual_Duo_Assist_Pro.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\Actual_Electric.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\Actual_Gas.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Contracte EON\ServExpress_D2D.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\IT\Proces_Verbal_de_primire_laptop.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Fonts\Montserrat-Black.ttf" />
+    <Resource Include="Fonts\Montserrat-BlackItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-Bold.ttf" />
+    <Resource Include="Fonts\Montserrat-BoldItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-ExtraBold.ttf" />
+    <Resource Include="Fonts\Montserrat-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-ExtraLight.ttf" />
+    <Resource Include="Fonts\Montserrat-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-Italic.ttf" />
+    <Resource Include="Fonts\Montserrat-Light.ttf" />
+    <Resource Include="Fonts\Montserrat-LightItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-Medium.ttf" />
+    <Resource Include="Fonts\Montserrat-MediumItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-Regular.ttf" />
+    <Resource Include="Fonts\Montserrat-SemiBold.ttf" />
+    <Resource Include="Fonts\Montserrat-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\Montserrat-Thin.ttf" />
+    <Resource Include="Fonts\Montserrat-ThinItalic.ttf" />
+    <Resource Include="Fonts\Rubik-Black.ttf" />
+    <Resource Include="Fonts\Rubik-BlackItalic.ttf" />
+    <Resource Include="Fonts\Rubik-Bold.ttf" />
+    <Resource Include="Fonts\Rubik-BoldItalic.ttf" />
+    <Resource Include="Fonts\Rubik-ExtraBold.ttf" />
+    <Resource Include="Fonts\Rubik-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\Rubik-Italic.ttf" />
+    <Resource Include="Fonts\Rubik-Light.ttf" />
+    <Resource Include="Fonts\Rubik-LightItalic.ttf" />
+    <Resource Include="Fonts\Rubik-Medium.ttf" />
+    <Resource Include="Fonts\Rubik-MediumItalic.ttf" />
+    <Resource Include="Fonts\Rubik-Regular.ttf" />
+    <Resource Include="Fonts\Rubik-SemiBold.ttf" />
+    <Resource Include="Fonts\Rubik-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\Segoe MDL2 Assets.ttf" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="iTextSharp">
+      <Version>5.5.13.3</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro.IconPacks">
+      <Version>4.11.0</Version>
+    </PackageReference>
+    <PackageReference Include="MailKit">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignColors">
+      <Version>2.1.4</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignThemes">
+      <Version>4.9.0</Version>
+    </PackageReference>
+    <PackageReference Include="MimeKit">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MySql.Data">
+      <Version>8.0.33</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\AsgardBanner.png" />
+    <Resource Include="Assets\AsgardLogoBlack.png" />
+    <Resource Include="Assets\AsgardLogoBlackBorders.png" />
+    <Resource Include="Assets\AsgardLogoWhite.png" />
+    <Resource Include="Assets\AsgardLogoWhiteBorders.png" />
+    <Resource Include="Assets\background-futuristic.jpg" />
+    <Resource Include="Assets\background.jpg" />
+    <Resource Include="Assets\background.png" />
+    <Resource Include="Assets\banner-background.jpg" />
+    <Resource Include="Assets\banner.jpg" />
+    <Resource Include="Assets\banner2.jpg" />
+    <Resource Include="Assets\banner_signin.png" />
+    <Resource Include="Assets\eonlogo.png" />
+    <Resource Include="Assets\logo_vodafone_white.png" />
+    <Resource Include="Assets\optimalogo.png" />
+    <Resource Include="Assets\orange_logo.png" />
+    <Resource Include="Assets\Post1.png" />
+    <Resource Include="Assets\Post2.png" />
+    <Resource Include="Assets\telekomlogo.jpg" />
+    <Resource Include="Assets\telekomlogo2.jpg" />
+    <Content Include="Assets\video_prezentare.mp4" />
+    <Resource Include="Assets\vodafonelogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AsgardLogoIco.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
