@@ -84,7 +84,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        SelectionChanged="comboboxTicketeRetentie_SelectionChanged">
+                        SelectionChanged="ComboboxTicketeRetentie_SelectionChanged">
                         <ComboBoxItem >Rollback</ComboBoxItem>
                         <ComboBoxItem >Desecurizare</ComboBoxItem>
                         <ComboBoxItem >Anulare order</ComboBoxItem>
@@ -602,7 +602,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxTipRefund_SelectionChanged"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="ComboboxTipRefund_SelectionChanged"
                         >
                         <ComboBoxItem>În contul de plăți</ComboBoxItem>
                         <ComboBoxItem>În magazin Vodafone</ComboBoxItem>

@@ -1,23 +1,33 @@
-﻿using Asgard.Repositories;
-using Asgard.ViewModels;
-using MailKit;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="OrderUfe.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.Vodafone
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for OrderUfe.xaml
+    /// Interaction logic for OrderUfe.xaml.
     /// </summary>
     public partial class OrderUfe : Page
     {
+        public void Clear()
+        {
+            nameClient.Text = phoneClient.Text = cnpClient.Text = adressClient.Text = contactClient.Text = comboboxAbonament.Text =
+            rataTelefon.Text = pretdelistaEuro.Text = ComboboxCod.Text = reducereEuro.Text = pretFinal.Text = signatureCombo.Text = postaClient.Text = acordPCM.Text = comboAsigurare.Text = string.Empty;
+        }
+
         public OrderUfe()
         {
             InitializeComponent();
@@ -29,7 +39,7 @@ namespace Asgard.Tickets.Vodafone
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void comboboxAbonament_Loaded(object sender, RoutedEventArgs e)
+        private void ComboboxAbonament_Loaded(object sender, RoutedEventArgs e)
         {
             List<string> data = new List<string>();
             data.Add("WOW 3");
@@ -62,43 +72,45 @@ namespace Asgard.Tickets.Vodafone
             combo.SelectedIndex = 0;
         }
 
-        private void comboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedcomboitem = sender as ComboBox;
-            string name = selectedcomboitem.SelectedItem as string;
+            _ = selectedcomboitem.SelectedItem as string;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var connection = RepositoryBase.GetConnectionPublic();
-            var command = new MySqlCommand();
-            var command2 = new MySqlCommand();
-            command.Connection = connection;
-            command2.Connection = connection;
-            command.CommandText = "SELECT * FROM judete";
-            command2.CommandText = "SELECT * FROM telefoane";
-            /*MySqlCommand cmd = new MySqlCommand("SELECT * FROM judete", connection);*/
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var connection = RepositoryBase.GetConnectionPublic())
             {
-                comboboxJudet.Items.Add(reader.GetString(1));
+                using (var command = new MySqlCommand("SELECT judet_name FROM judete", connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            comboboxJudet.Items.Add(reader.GetString(0));
+                        }
+                    }
+                }
 
+                using (var command2 = new MySqlCommand("SELECT device_name FROM telefoane", connection))
+                {
+                    using (var reader2 = command2.ExecuteReader())
+                    {
+                        while (reader2.Read())
+                        {
+                            comboboxDevice.Items.Add(reader2.GetString(0));
+                        }
+                    }
+                }
             }
-            connection.Close();
-            connection.Open();
-            MySqlDataReader reader2 = command2.ExecuteReader();
-            while (reader2.Read())
-            {
-                comboboxDevice.Items.Add(reader2.GetString(1));
-            }
-            connection.Close();
         }
 
-        private void rataTelefon_TextChanged(object sender, TextChangedEventArgs e)
+        private void RataTelefon_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
 
-        private void judetCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void JudetCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (comboboxJudet.SelectedItem.ToString().Trim())
             {
@@ -14080,9 +14092,8 @@ namespace Asgard.Tickets.Vodafone
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            if (nameClient.Text == "" || phoneClient.Text == "" || cnpClient.Text == "" || comboboxJudet.Text == "" || comboboxLocalitate.Text == "" || adressClient.Text == "" || contactClient.Text == "" || comboboxAbonament.Text == "" || comboboxAbonament.Text == "" || comboboxDevice.Text == "" || rataTelefon.Text == "" || pretdelistaEuro.Text == "" || ComboboxCod.Text == "" || reducereEuro.Text == "" || pretFinal.Text == "" || signatureCombo.Text == "" || acordPCM.Text == "" || comboAsigurare.Text == "")
+            if (string.IsNullOrEmpty(nameClient.Text) || string.IsNullOrEmpty(phoneClient.Text) || string.IsNullOrEmpty(cnpClient.Text) || string.IsNullOrEmpty(comboboxJudet.Text) || string.IsNullOrEmpty(comboboxLocalitate.Text) || string.IsNullOrEmpty(adressClient.Text) || string.IsNullOrEmpty(contactClient.Text) || string.IsNullOrEmpty(comboboxAbonament.Text) || string.IsNullOrEmpty(comboboxDevice.Text) || string.IsNullOrEmpty(rataTelefon.Text) || string.IsNullOrEmpty(pretdelistaEuro.Text) || string.IsNullOrEmpty(ComboboxCod.Text) || string.IsNullOrEmpty(reducereEuro.Text) || string.IsNullOrEmpty(pretFinal.Text) || string.IsNullOrEmpty(signatureCombo.Text) || string.IsNullOrEmpty(acordPCM.Text) || string.IsNullOrEmpty(comboAsigurare.Text))
             {
-
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
                 {
@@ -14091,7 +14102,6 @@ namespace Asgard.Tickets.Vodafone
                     dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                 };
                 dialog.ShowDialog();
-
             }
             else
             {
@@ -14113,20 +14123,15 @@ namespace Asgard.Tickets.Vodafone
                     {
                         if (string.IsNullOrEmpty(emailClient.Text))
                         {
-
-
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
                             {
-
                                 dialog.Title = "Informare";
                                 dialog.Status.Text = "Nu ai intrdous adresa de email";
                                 dialog.Descriere.Text = "Verifică adresa de email pentru ca, clientul să poată beneficia de asigurare";
-
                             };
                             dialog.ShowDialog();
                             return;
-
                         }
                     }
                     else if (comboAsigurare.Text == "NU")
@@ -14157,9 +14162,8 @@ namespace Asgard.Tickets.Vodafone
                     "Email: " + emailClient.Text + "\r\n" +
                     "Acord PCM: " + acordPCM.Text + "\r\n" +
                     "Agent: " + email + "\r\n" +
-                    "Asigurare: " + signatureCombo.Text
+                    "Asigurare: " + signatureCombo.Text,
                     };
-
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                     try
@@ -14170,8 +14174,6 @@ namespace Asgard.Tickets.Vodafone
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -14180,6 +14182,8 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
                         };
                         dialog.ShowDialog();
+
+                        Clear();
                     }
                     catch (Exception ex)
                     {
@@ -14200,7 +14204,6 @@ namespace Asgard.Tickets.Vodafone
                         client.Disconnect(true);
                         client.Dispose();
                     }
-
                 }
                 else if (signatureCombo.Text == "Digital Post")
                 {
@@ -14223,10 +14226,8 @@ namespace Asgard.Tickets.Vodafone
                     "Metoda de semnare: " + signatureCombo.Text + "\r\n" +
                     "Posta: " + postaClient.Text + "\r\n" +
                     "Acord PCM: " + acordPCM.Text + "\r\n" +
-                    "Agent: " + email
+                    "Agent: " + email,
                     };
-
-
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                     try
                     {
@@ -14236,8 +14237,6 @@ namespace Asgard.Tickets.Vodafone
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -14246,6 +14245,8 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
                         };
                         dialog.ShowDialog();
+
+                        Clear();
                     }
                     catch (Exception ex)
                     {
@@ -14257,27 +14258,19 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Title = "Eroare";
                             dialog.Status.Text = "Ticket-ul nu a fost trimis";
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
                         client.Disconnect(true);
                         client.Dispose();
                     }
-
                 }
             }
-
         }
 
-        public void Clear()
-        {
-            nameClient.Text = phoneClient.Text = cnpClient.Text = adressClient.Text = contactClient.Text = comboboxAbonament.Text =
-            rataTelefon.Text = pretdelistaEuro.Text = ComboboxCod.Text = reducereEuro.Text = pretFinal.Text = signatureCombo.Text = postaClient.Text = acordPCM.Text = comboAsigurare.Text = string.Empty;
-        }
+
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -14291,9 +14284,8 @@ namespace Asgard.Tickets.Vodafone
             window.Main.Navigate(new Tickets.TicketeVodafone());
         }
 
-        private void phoneClient_TextChanged(object sender, TextChangedEventArgs e)
+        private void PhoneClient_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
     }
 }

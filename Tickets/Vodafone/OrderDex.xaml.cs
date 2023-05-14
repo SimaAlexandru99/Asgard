@@ -1,19 +1,23 @@
-﻿using Asgard.Repositories;
-using Asgard.ViewModels;
-using MailKit;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MySql.Data.MySqlClient;
-using System;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="OrderDex.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.Vodafone
 {
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
+    using System;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
+
     /// <summary>
-    /// Interaction logic for OrderDex.xaml
+    /// Interaction logic for OrderDex.xaml.
     /// </summary>
     public partial class OrderDex : Page
     {
@@ -22,13 +26,20 @@ namespace Asgard.Tickets.Vodafone
             InitializeComponent();
         }
 
+        public void Clear()
+        {
+            nameClient.Text = phoneClient.Text = comboboxLocalitate.Text = adressClient.Text = contactClient.Text =
+            comboboxDevice.Text = avansClient.Text = emailClient.Text = postaClient.Text =
+            acordPCM.Text = comboAsigurare.Text = string.Empty;
+        }
+
         private void Text_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void judetCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void JudetCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboboxJudet.SelectedItem == null)
             {
@@ -14029,8 +14040,8 @@ namespace Asgard.Tickets.Vodafone
             while (reader.Read())
             {
                 comboboxJudet.Items.Add(reader.GetString(1));
-
             }
+
             connection.Close();
             connection.Open();
             MySqlDataReader reader2 = command2.ExecuteReader();
@@ -14038,14 +14049,17 @@ namespace Asgard.Tickets.Vodafone
             {
                 comboboxDevice.Items.Add(reader2.GetString(1));
             }
+
             connection.Close();
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            if (nameClient.Text == "" || phoneClient.Text == "" || comboboxJudet.Text == "" || comboboxLocalitate.Text == "" || adressClient.Text == "" || contactClient.Text == "" || comboboxDevice.Text == "" || avansClient.Text == "" || signatureCombo.Text == "" || acordPCM.Text == "")
-            {
+            bool isAnyFieldEmpty = string.IsNullOrEmpty(nameClient.Text) || string.IsNullOrEmpty(phoneClient.Text) || string.IsNullOrEmpty(comboboxJudet.Text) || string.IsNullOrEmpty(comboboxLocalitate.Text) || string.IsNullOrEmpty(adressClient.Text) || string.IsNullOrEmpty(contactClient.Text) || string.IsNullOrEmpty(comboboxDevice.Text) || string.IsNullOrEmpty(avansClient.Text) || string.IsNullOrEmpty(signatureCombo.Text) || string.IsNullOrEmpty(acordPCM.Text);
 
+            if (isAnyFieldEmpty)
+            {
+                // Show error message using a dialog box
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
                 {
@@ -14054,7 +14068,6 @@ namespace Asgard.Tickets.Vodafone
                     dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                 };
                 dialog.ShowDialog();
-
             }
             else
             {
@@ -14063,10 +14076,10 @@ namespace Asgard.Tickets.Vodafone
                 string email = user.CurrentUserAccount.Email.ToString();
                 string emailAddress = "asgard@optimacall.ro";
                 string password = "Optima#321";
-
-
-                MimeMessage message = new MimeMessage();
-                message.Subject = "Comanda terminal - Ticket-ul cu numarul: " + phoneClient.Text;
+                MimeMessage message = new MimeMessage
+                {
+                    Subject = "Comanda terminal - Ticket-ul cu numarul: " + phoneClient.Text,
+                };
                 message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                 message.To.Add(MailboxAddress.Parse(email));
                 message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
@@ -14077,8 +14090,6 @@ namespace Asgard.Tickets.Vodafone
                     {
                         if (string.IsNullOrEmpty(emailClient.Text))
                         {
-
-
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
                             {
@@ -14089,7 +14100,6 @@ namespace Asgard.Tickets.Vodafone
                             };
                             dialog.ShowDialog();
                             return;
-
                         }
                     }
                     else if (comboAsigurare.Text == "NU")
@@ -14115,7 +14125,7 @@ namespace Asgard.Tickets.Vodafone
                     "Posta: " + postaClient.Text + "\r\n" +
                     "Acord PCM: " + acordPCM.Text + "\r\n" +
                     "Agent: " + email + "\r\n" +
-                    "Asigurare: " + comboAsigurare.Text
+                    "Asigurare: " + comboAsigurare.Text,
                     };
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                     try
@@ -14126,8 +14136,6 @@ namespace Asgard.Tickets.Vodafone
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -14160,7 +14168,6 @@ namespace Asgard.Tickets.Vodafone
                     }
 
                     Clear();
-
                 }
                 else if (signatureCombo.Text == "Digital Post")
                 {
@@ -14179,10 +14186,8 @@ namespace Asgard.Tickets.Vodafone
                                 "Posta: " + postaClient.Text + "\r\n" +
                                 "Acord PCM: " + acordPCM.Text + "\r\n" +
                                 "Agent: " + email + "\r\n" +
-                                "Asigurare: " + comboAsigurare.Text
+                                "Asigurare: " + comboAsigurare.Text,
                     };
-
-
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                     try
                     {
@@ -14192,8 +14197,6 @@ namespace Asgard.Tickets.Vodafone
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -14215,7 +14218,6 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -14226,16 +14228,6 @@ namespace Asgard.Tickets.Vodafone
                     Clear();
                 }
             }
-
-
-
-        }
-
-        public void Clear()
-        {
-            nameClient.Text = phoneClient.Text = comboboxLocalitate.Text = adressClient.Text = contactClient.Text =
-            comboboxDevice.Text = avansClient.Text = emailClient.Text = postaClient.Text =
-            acordPCM.Text = comboAsigurare.Text = string.Empty;
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)

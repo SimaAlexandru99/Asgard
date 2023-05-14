@@ -129,7 +129,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        SelectionChanged="judetCombo_SelectionChanged"  IsReadOnly="True"/>
+                        SelectionChanged="JudetCombo_SelectionChanged"  IsReadOnly="True"/>
                 </StackPanel>
                 <StackPanel
                 Grid.Row="6"

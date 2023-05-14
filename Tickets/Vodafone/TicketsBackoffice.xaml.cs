@@ -22,6 +22,12 @@ namespace Asgard.Tickets.Vodafone
             InitializeComponent();
         }
 
+        public void Clear()
+        {
+            phoneClient.Text = NumeClient.Text = CNP.Text = idPropunere.Text = orderID.Text = comboboxDesecurizare.Text = RefundMethodTextBox.Text = DenumireOptiune.Text = comboboxOptiune.Text = OptiuneData.Text = SumaAjustari.Text = MotivAjustare.Text = comboboxFacturaAjustare.Text = OfertaManuala.Text = CodDealer.Text = string.Empty;
+
+        }
+
         private void Text_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -1263,24 +1269,15 @@ namespace Asgard.Tickets.Vodafone
             }
         }
 
-
-        public void Clear()
-        {
-            phoneClient.Text = NumeClient.Text = CNP.Text = idPropunere.Text = orderID.Text = comboboxDesecurizare.Text = RefundMethodTextBox.Text = DenumireOptiune.Text = comboboxOptiune.Text = OptiuneData.Text = SumaAjustari.Text = MotivAjustare.Text = comboboxFacturaAjustare.Text = OfertaManuala.Text = CodDealer.Text = string.Empty;
-
-        }
-
         private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-
         }
 
-        private void comboboxTipRefund_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxTipRefund_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             string selectedValue = selectedItem.Content.ToString();
-
 
             if (selectedValue == "În magazin Vodafone")
             {
@@ -1291,7 +1288,6 @@ namespace Asgard.Tickets.Vodafone
             {
                 RefundMethod.Text = "IBAN cont client";
                 StackpanelRefund.Visibility = System.Windows.Visibility.Visible;
-
             }
             else if (selectedValue == string.Empty)
             {
@@ -1303,10 +1299,9 @@ namespace Asgard.Tickets.Vodafone
                 RefundMethod.Text = string.Empty;
                 StackpanelRefund.Visibility = System.Windows.Visibility.Collapsed;
             }
-
         }
 
-        private void comboboxTicketeRetentie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxTicketeRetentie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
@@ -1315,8 +1310,6 @@ namespace Asgard.Tickets.Vodafone
             {
                 StackpanelRefund.Visibility = System.Windows.Visibility.Collapsed;
                 comboboxTipRefund.SelectedIndex = 0;
-
-
             }
             else
             {
@@ -1331,7 +1324,5 @@ namespace Asgard.Tickets.Vodafone
             window.Main.Navigate(new FrontPage());
             window.ButtonHome.IsChecked = true;
         }
-
-
     }
 }

@@ -109,7 +109,7 @@
                         PreviewTextInput="Text_PreviewTextInput"
                         Style="{StaticResource TextBoxCustom}"
                         Padding="15"
-                        Validation.ErrorTemplate="{StaticResource errorTemplate}" TextChanged="phoneClient_TextChanged">
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}" TextChanged="PhoneClient_TextChanged">
                         <Binding
                         Path="Phone"
                         UpdateSourceTrigger="LostFocus"
@@ -162,7 +162,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        SelectionChanged="judetCombo_SelectionChanged"  IsReadOnly="True"/>
+                        SelectionChanged="JudetCombo_SelectionChanged"  IsReadOnly="True"/>
                 </StackPanel>
                 <StackPanel
                 Grid.Row="8"
@@ -239,7 +239,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Loaded="comboboxAbonament_Loaded" SelectionChanged="comboboxAbonament_SelectionChanged"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" Loaded="ComboboxAbonament_Loaded" SelectionChanged="ComboboxAbonament_SelectionChanged"
                         >
 
                     </ComboBox>
@@ -269,7 +269,7 @@
                     <TextBlock Text="Rata telefon" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,0"/>
                     <TextBox
                         x:Name="rataTelefon"
-                        TextChanged="rataTelefon_TextChanged"
+                        TextChanged="RataTelefon_TextChanged"
                         Style="{StaticResource TextBoxCustom}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}">
                         <Binding

@@ -174,7 +174,7 @@
                         Foreground="{DynamicResource TextColor}"
                         IsReadOnly="True"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                        SelectionChanged="comboboxJudet_SelectionChanged">
+                        SelectionChanged="ComboboxJudet_SelectionChanged">
 
                         </ComboBox>
                     </StackPanel>
@@ -374,7 +374,7 @@
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                        SelectionChanged="tipAbonament_SelectionChanged"
+                        SelectionChanged="TipAbonament_SelectionChanged"
 >
                             <ComboBoxItem Content="Activare noua" />
                             <ComboBoxItem Content="Migrare" />
@@ -483,7 +483,7 @@
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                            SelectionChanged="comboboxAbonament_SelectionChanged"/>
+                            SelectionChanged="ComboboxAbonament_SelectionChanged"/>
                     </StackPanel>
                     <StackPanel
                 Grid.Row="3"
@@ -749,7 +749,7 @@
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                        VerticalAlignment="Top" SelectionChanged="comboboxGDPR1_SelectionChanged">
+                        VerticalAlignment="Top" SelectionChanged="ComboboxGDPR1_SelectionChanged">
                                     <ComboBoxItem Content="Da" />
                                     <ComboBoxItem Content="Nu" />
                                 </ComboBox>
@@ -906,7 +906,7 @@ contactarea pentru transmiterea de mesaje de marketing cu privire la serviciile 
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                         VerticalAlignment="Top" SelectionChanged="comboboxGDPR3_SelectionChanged">
+                         VerticalAlignment="Top" SelectionChanged="ComboboxGDPR3_SelectionChanged">
                                 <ComboBoxItem Content="Da" />
                                 <ComboBoxItem Content="Nu" />
                             </ComboBox>
@@ -964,7 +964,7 @@ contactarea pentru transmiterea de mesaje de marketing cu privire la serviciile 
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                         VerticalAlignment="Top" SelectionChanged="comboboxGDPR4_SelectionChanged">
+                         VerticalAlignment="Top" SelectionChanged="ComboboxGDPR4_SelectionChanged">
                                     <ComboBoxItem Content="Da" />
                                     <ComboBoxItem Content="Nu" />
                                 </ComboBox>
@@ -1122,7 +1122,7 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                         VerticalAlignment="Top" SelectionChanged="comboboxGDPR6_SelectionChanged">
+                         VerticalAlignment="Top" SelectionChanged="ComboboxGDPR6_SelectionChanged">
                                 <ComboBoxItem Content="Da" />
                                 <ComboBoxItem Content="Nu" />
                             </ComboBox>

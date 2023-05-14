@@ -1,20 +1,23 @@
-﻿using Asgard.Repositories;
-using MySql.Data.MySqlClient;
-using System;
-using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Interop;
+﻿// <copyright file="RecoverPasswordWindow.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Windows
 {
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Windows;
+    using System.Windows.Input;
+    using System.Windows.Interop;
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for LoginWindow.xaml.
     /// </summary>
     public partial class RecoverPasswordWindow : Window
     {
         // int count = 0;
-
         public RecoverPasswordWindow()
         {
             InitializeComponent();
@@ -28,6 +31,9 @@ namespace Asgard.Windows
             Width = screenWidth * 0.3; // set the width to 80% of the screen width
             Height = screenHeight * 0.4; // set the height to 80% of the screen height
         }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -51,15 +57,6 @@ namespace Asgard.Windows
         {
             WindowState = WindowState.Minimized;
         }
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void TopMenu_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -139,7 +136,7 @@ namespace Asgard.Windows
                 string userEmail = txtUser2.Text;
 
                 // Define a variable to store the username
-                string userName = "";
+                string userName = string.Empty;
 
                 // Retrieve a database connection object
                 using (MySqlConnection connection = RepositoryBase.GetConnectionPublic())
@@ -163,10 +160,10 @@ namespace Asgard.Windows
                         }
                     }
                 }
+
                 // Check if a username was found for the given email
                 if (!string.IsNullOrEmpty(userName))
                 {
-
                     // Display the username in the Prompt
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -179,7 +176,6 @@ namespace Asgard.Windows
                 }
                 else
                 {
-
                     // Display the username in the Prompt
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -190,26 +186,15 @@ namespace Asgard.Windows
                     };
                     dialog.ShowDialog();
                 }
-
-
             }
-
-
         }
 
         private void RevinoBtn_Click(object sender, RoutedEventArgs e)
         {
-
             var loginwindow = new SignIn();
             loginwindow.Show();
 
             this.Close();
-
-        }
-
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void TopPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

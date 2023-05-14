@@ -1,33 +1,29 @@
-﻿using Asgard.ViewModels;
-using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="TicketsPage.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Pages
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.ViewModels;
+
     /// <summary>
-    /// Interaction logic for TicketsPage.xaml
+    /// Interaction logic for TicketsPage.xaml.
     /// </summary>
     public partial class TicketsPage : Page
     {
-        // Retrieve the current date and time
-        DateTime currentDate = DateTime.Now;
-
-        public MainViewModel user;
+        private readonly MainViewModel user;
 
         public TicketsPage()
         {
             InitializeComponent();
 
             user = new MainViewModel();
-
-
-
-
-
         }
 
-        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             string project = user.CurrentUserAccount.Proiect.ToString();
             string subproject = user.CurrentUserAccount.Subproiect.ToString();
@@ -50,19 +46,17 @@ namespace Asgard.Pages
                             MainTickets.Content = new Tickets.TicketsVodafoneAchizitie();
                             break;
                     }
+
                     break;
                 case "EON":
                     MainTickets.Content = new Tickets.TicketsEon();
                     break;
             }
-
-
-
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            PrimaryWindow window = System.Windows.Window.GetWindow(this) as PrimaryWindow;
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
             window.Main.Navigate(new FrontPage());
             window.ButtonHome.IsChecked = true;
         }

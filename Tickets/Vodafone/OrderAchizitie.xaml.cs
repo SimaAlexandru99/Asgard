@@ -1,28 +1,38 @@
-﻿using Asgard.Repositories;
-using Asgard.ViewModels;
-using MailKit;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MySql.Data.MySqlClient;
-using System;
-using System.ComponentModel;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
-using System.Windows.Controls;
+﻿// <copyright file="OrderAchizitie.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.Vodafone
 {
+    using System;
+    using System.ComponentModel;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for OrderAchizitie.xaml
+    /// Interaction logic for OrderAchizitie.xaml.
     /// </summary>
     public partial class OrderAchizitie : Page
     {
-
         public OrderAchizitie()
         {
             InitializeComponent();
+        }
 
+        // INotifyPropertyChanged event
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void Text_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -31,15 +41,14 @@ namespace Asgard.Tickets.Vodafone
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void NextButtonClick(object sender, System.Windows.RoutedEventArgs e)
+        private void NextButtonClick(object sender, RoutedEventArgs e)
         {
-            if (step1Panel.Visibility == System.Windows.Visibility.Visible)
+            if (step1Panel.Visibility == Visibility.Visible)
             {
                 if (comboboxClient.Text == "Client nou")
                 {
                     if (nameClient.Text == string.Empty || cnp.Text == string.Empty || serie.Text == string.Empty || comboboxJudet.Text == string.Empty || comboboxLocalitate.Text == string.Empty || emis.Text == string.Empty || numar_existent.Text == string.Empty)
                     {
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -52,8 +61,8 @@ namespace Asgard.Tickets.Vodafone
                     }
                     else
                     {
-                        step1Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        stepInfoAdress.Visibility = System.Windows.Visibility.Visible;
+                        step1Panel.Visibility = Visibility.Collapsed;
+                        stepInfoAdress.Visibility = Visibility.Visible;
                     }
                 }
                 else
@@ -73,13 +82,12 @@ namespace Asgard.Tickets.Vodafone
                     }
                     else
                     {
-                        step1Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step2Panel.Visibility = System.Windows.Visibility.Visible;
+                        step1Panel.Visibility = Visibility.Collapsed;
+                        step2Panel.Visibility = Visibility.Visible;
                     }
                 }
-
             }
-            else if (stepInfoAdress.Visibility == System.Windows.Visibility.Visible)
+            else if (stepInfoAdress.Visibility == Visibility.Visible)
             {
                 if (combobox_strada.Text == string.Empty || nume_strada_text.Text == string.Empty || numar_strada_text.Text == string.Empty || bloc_text.Text == string.Empty || scara_text.Text == string.Empty || etaj_text.Text == string.Empty || apartament_text.Text == string.Empty)
                 {
@@ -96,13 +104,11 @@ namespace Asgard.Tickets.Vodafone
                 }
                 else
                 {
-                    stepInfoAdress.Visibility = System.Windows.Visibility.Collapsed;
-                    step2Panel.Visibility = System.Windows.Visibility.Visible;
+                    stepInfoAdress.Visibility = Visibility.Collapsed;
+                    step2Panel.Visibility = Visibility.Visible;
                 }
-
-
             }
-            else if (step2Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step2Panel.Visibility == Visibility.Visible)
             {
                 if (client_comun_combo.Text == string.Empty || tipAbonament.Text == string.Empty || numar_impactat.Text == string.Empty || comboboxAbonament.Text == string.Empty || comboboxCostAbonament.Text == string.Empty || comboboxDeviceChoice.Text == string.Empty || comboboxKid.Text == string.Empty)
                 {
@@ -123,38 +129,36 @@ namespace Asgard.Tickets.Vodafone
                     {
                         if (comboboxKid.Text == "Da")
                         {
-                            step2Panel.Visibility = System.Windows.Visibility.Collapsed;
-                            step3Panel.Visibility = System.Windows.Visibility.Visible;
+                            step2Panel.Visibility = Visibility.Collapsed;
+                            step3Panel.Visibility = Visibility.Visible;
                         }
                         else if (comboboxKid.Text == "Nu")
                         {
-                            step2Panel.Visibility = System.Windows.Visibility.Collapsed;
-                            step3Panel.Visibility = System.Windows.Visibility.Visible;
+                            step2Panel.Visibility = Visibility.Collapsed;
+                            step3Panel.Visibility = Visibility.Visible;
                         }
-
                     }
                     else if (comboboxDeviceChoice.Text == "Nu")
                     {
                         if (comboboxKid.Text == "Da")
                         {
-                            step2Panel.Visibility = System.Windows.Visibility.Collapsed;
-                            step5Panel.Visibility = System.Windows.Visibility.Visible;
+                            step2Panel.Visibility = Visibility.Collapsed;
+                            step5Panel.Visibility = Visibility.Visible;
                         }
                         else if (comboboxKid.Text == "Nu")
                         {
-                            step2Panel.Visibility = System.Windows.Visibility.Collapsed;
-                            step4Panel.Visibility = System.Windows.Visibility.Visible;
+                            step2Panel.Visibility = Visibility.Collapsed;
+                            step4Panel.Visibility = Visibility.Visible;
                         }
 
                     }
                 }
 
             }
-            else if (step3Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step3Panel.Visibility == Visibility.Visible)
             {
                 if (comboboxDevice.Text == string.Empty || cost_rata.Text == string.Empty || cost_total.Text == string.Empty || discount_code.Text == string.Empty || avans.Text == string.Empty || comboboxAsigurare.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -169,18 +173,18 @@ namespace Asgard.Tickets.Vodafone
                 {
                     if (comboboxKid.Text == "Da")
                     {
-                        step3Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step5Panel.Visibility = System.Windows.Visibility.Visible;
+                        step3Panel.Visibility = Visibility.Collapsed;
+                        step5Panel.Visibility = Visibility.Visible;
                     }
                     else if (comboboxKid.Text == "Nu")
                     {
-                        step3Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step4Panel.Visibility = System.Windows.Visibility.Visible;
+                        step3Panel.Visibility = Visibility.Collapsed;
+                        step4Panel.Visibility = Visibility.Visible;
                     }
                 }
 
             }
-            else if (step4Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step4Panel.Visibility == Visibility.Visible)
             {
                 if (comboboxGDPR1.Text == string.Empty || comboboxGDPR2.Text == string.Empty || comboboxGDPR3.Text == string.Empty || comboboxGDPR4.Text == string.Empty || comboboxGDPR5.Text == string.Empty || comboboxGDPR6.Text == string.Empty)
                 {
@@ -261,67 +265,55 @@ namespace Asgard.Tickets.Vodafone
                 }
                 else
                 {
-                    step4Panel.Visibility = System.Windows.Visibility.Collapsed;
-                    step5Panel.Visibility = System.Windows.Visibility.Visible;
+                    step4Panel.Visibility = Visibility.Collapsed;
+                    step5Panel.Visibility = Visibility.Visible;
                 }
-
-
             }
         }
 
-        private void PreviousButtonClick(object sender, System.Windows.RoutedEventArgs e)
+        private void PreviousButtonClick(object sender, RoutedEventArgs e)
         {
-            if (stepInfoAdress.Visibility == System.Windows.Visibility.Visible)
+            if (stepInfoAdress.Visibility == Visibility.Visible)
             {
-                stepInfoAdress.Visibility = System.Windows.Visibility.Collapsed;
-                step1Panel.Visibility = System.Windows.Visibility.Visible;
+                stepInfoAdress.Visibility = Visibility.Collapsed;
+                step1Panel.Visibility = Visibility.Visible;
             }
-
-            else if (step2Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step2Panel.Visibility == Visibility.Visible)
             {
-                step2Panel.Visibility = System.Windows.Visibility.Collapsed;
-                stepInfoAdress.Visibility = System.Windows.Visibility.Visible;
+                step2Panel.Visibility = Visibility.Collapsed;
+                stepInfoAdress.Visibility = Visibility.Visible;
             }
-
-
-            else if (step3Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step3Panel.Visibility == Visibility.Visible)
             {
-                step3Panel.Visibility = System.Windows.Visibility.Collapsed;
-                step2Panel.Visibility = System.Windows.Visibility.Visible;
-
+                step3Panel.Visibility = Visibility.Collapsed;
+                step2Panel.Visibility = Visibility.Visible;
             }
-
-            else if (step4Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step4Panel.Visibility == Visibility.Visible)
             {
                 if (comboboxDeviceChoice.Text == "Da")
                 {
-                    step4Panel.Visibility = System.Windows.Visibility.Collapsed;
-                    step3Panel.Visibility = System.Windows.Visibility.Visible;
+                    step4Panel.Visibility = Visibility.Collapsed;
+                    step3Panel.Visibility = Visibility.Visible;
                 }
                 else if (comboboxDeviceChoice.Text == "Nu")
                 {
-                    step4Panel.Visibility = System.Windows.Visibility.Collapsed;
-                    step2Panel.Visibility = System.Windows.Visibility.Visible;
+                    step4Panel.Visibility = Visibility.Collapsed;
+                    step2Panel.Visibility = Visibility.Visible;
                 }
-
-
-
-
             }
-
-            else if (step5Panel.Visibility == System.Windows.Visibility.Visible)
+            else if (step5Panel.Visibility == Visibility.Visible)
             {
                 if (comboboxDeviceChoice.Text == "Da")
                 {
                     if (comboboxKid.Text == "Da")
                     {
-                        step5Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step3Panel.Visibility = System.Windows.Visibility.Visible;
+                        step5Panel.Visibility = Visibility.Collapsed;
+                        step3Panel.Visibility = Visibility.Visible;
                     }
                     else if (comboboxKid.Text == "Nu")
                     {
-                        step5Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step4Panel.Visibility = System.Windows.Visibility.Visible;
+                        step5Panel.Visibility = Visibility.Collapsed;
+                        step4Panel.Visibility = Visibility.Visible;
                     }
 
                 }
@@ -329,188 +321,160 @@ namespace Asgard.Tickets.Vodafone
                 {
                     if (comboboxKid.Text == "Da")
                     {
-                        step5Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step2Panel.Visibility = System.Windows.Visibility.Visible;
+                        step5Panel.Visibility = Visibility.Collapsed;
+                        step2Panel.Visibility = Visibility.Visible;
                     }
                     else if (comboboxKid.Text == "Nu")
                     {
-                        step5Panel.Visibility = System.Windows.Visibility.Collapsed;
-                        step4Panel.Visibility = System.Windows.Visibility.Visible;
+                        step5Panel.Visibility = Visibility.Collapsed;
+                        step4Panel.Visibility = Visibility.Visible;
                     }
-
                 }
             }
-
         }
-        // INotifyPropertyChanged event
-        public event PropertyChangedEventHandler PropertyChanged;
 
         // Helper method to raise PropertyChanged event
-        protected void OnPropertyChanged(string propertyName)
+        private void Expand_Button_Click(object sender, RoutedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void Expand_Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-
-
-            if (ExpandedTab.Visibility == System.Windows.Visibility.Visible)
+            if (ExpandedTab.Visibility == Visibility.Visible)
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab.Visibility = Visibility.Collapsed;
                 Expand_Button.Content = "+";
             }
             else
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab.Visibility = Visibility.Visible;
                 Expand_Button.Content = "-";
-
-
             }
         }
 
-        private void comboboxGDPR1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxGDPR1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             // Get the selected item
-            ComboBoxItem selectedItem = comboboxGDPR1.SelectedItem as ComboBoxItem;
-
             // Check if the selected item is "Yes"
-            if (selectedItem != null && selectedItem.Content.ToString() == "Nu")
+            if (comboboxGDPR1.SelectedItem is ComboBoxItem selectedItem && selectedItem.Content.ToString() == "Nu")
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab.Visibility = Visibility.Visible;
                 Expand_Button.Content = "-";
             }
             else
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab.Visibility = Visibility.Collapsed;
                 Expand_Button.Content = "+";
             }
         }
 
-        private void Expand2_Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Expand2_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ExpandedTab2.Visibility == System.Windows.Visibility.Visible)
+            if (ExpandedTab2.Visibility == Visibility.Visible)
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab2.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab2.Visibility = Visibility.Collapsed;
                 Expand_Button2.Content = "+";
             }
             else
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab2.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab2.Visibility = Visibility.Visible;
                 Expand_Button2.Content = "-";
-
-
             }
         }
 
-        private void comboboxGDPR3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxGDPR3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Get the selected item
-            ComboBoxItem selectedItem = comboboxGDPR3.SelectedItem as ComboBoxItem;
-
             // Check if the selected item is "Yes"
-            if (selectedItem != null && selectedItem.Content.ToString() == "Nu")
+            if (comboboxGDPR3.SelectedItem is ComboBoxItem selectedItem && selectedItem.Content.ToString() == "Nu")
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab2.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab2.Visibility = Visibility.Visible;
                 Expand_Button2.Content = "-";
             }
             else
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab2.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab2.Visibility = Visibility.Collapsed;
                 Expand_Button2.Content = "+";
             }
         }
 
-        private void Expand_Button3_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Expand_Button3_Click(object sender, RoutedEventArgs e)
         {
-            if (ExpandedTab3.Visibility == System.Windows.Visibility.Visible)
+            if (ExpandedTab3.Visibility == Visibility.Visible)
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab3.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab3.Visibility = Visibility.Collapsed;
                 Expand_Button3.Content = "+";
             }
             else
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab3.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab3.Visibility = Visibility.Visible;
                 Expand_Button3.Content = "-";
-
-
             }
         }
 
-        private void comboboxGDPR4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxGDPR4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Get the selected item
-            ComboBoxItem selectedItem = comboboxGDPR4.SelectedItem as ComboBoxItem;
-
             // Check if the selected item is "Yes"
-            if (selectedItem != null && selectedItem.Content.ToString() == "Nu")
+            if (comboboxGDPR4.SelectedItem is ComboBoxItem selectedItem && selectedItem.Content.ToString() == "Nu")
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab3.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab3.Visibility = Visibility.Visible;
                 Expand_Button3.Content = "-";
             }
             else
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab3.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab3.Visibility = Visibility.Collapsed;
                 Expand_Button3.Content = "+";
             }
         }
 
-        private void Expand_Button4_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Expand_Button4_Click(object sender, RoutedEventArgs e)
         {
-            if (ExpandedTab4.Visibility == System.Windows.Visibility.Visible)
+            if (ExpandedTab4.Visibility == Visibility.Visible)
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab4.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab4.Visibility = Visibility.Collapsed;
                 Expand_Button4.Content = "+";
             }
             else
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab4.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab4.Visibility = Visibility.Visible;
                 Expand_Button4.Content = "-";
-
-
             }
         }
 
-        private void comboboxGDPR6_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxGDPR6_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Get the selected item
-            ComboBoxItem selectedItem = comboboxGDPR6.SelectedItem as ComboBoxItem;
-
             // Check if the selected item is "Yes"
-            if (selectedItem != null && selectedItem.Content.ToString() == "Nu")
+            if (comboboxGDPR6.SelectedItem is ComboBoxItem selectedItem && selectedItem.Content.ToString() == "Nu")
             {
                 // Set the visibility of the expanded tab to Visible
-                ExpandedTab4.Visibility = System.Windows.Visibility.Visible;
+                ExpandedTab4.Visibility = Visibility.Visible;
                 Expand_Button4.Content = "-";
             }
             else
             {
                 // Set the visibility of the collapsed tab to Collapsed
-                ExpandedTab4.Visibility = System.Windows.Visibility.Collapsed;
+                ExpandedTab4.Visibility = Visibility.Collapsed;
                 Expand_Button4.Content = "+";
             }
         }
 
-        private void comboboxJudet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxJudet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboboxJudet.SelectedItem == null)
             {
-
+                comboboxLocalitate.Items.Clear();
             }
             else
             {
@@ -14493,42 +14457,42 @@ namespace Asgard.Tickets.Vodafone
             }
         }
 
-        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var connection = RepositoryBase.GetConnectionPublic();
-            var command = new MySqlCommand();
-            var command2 = new MySqlCommand();
-            command.Connection = connection;
-            command2.Connection = connection;
-            command.CommandText = "SELECT * FROM judete";
-            command2.CommandText = "SELECT * FROM telefoane";
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var connection = RepositoryBase.GetConnectionPublic())
             {
-                comboboxJudet.Items.Add(reader.GetString(1));
+                var command = new MySqlCommand("SELECT Name FROM judete", connection);
+                var command2 = new MySqlCommand("SELECT Cod FROM telefoane", connection);
 
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        comboboxJudet.Items.Add(reader.GetString(0));
+                    }
+                }
+
+                using (var reader2 = await command2.ExecuteReaderAsync())
+                {
+                    while (await reader2.ReadAsync())
+                    {
+                        comboboxDevice.Items.Add(reader2.GetString(0));
+                    }
+                }
             }
-            connection.Close();
-            connection.Open();
-            MySqlDataReader reader2 = command2.ExecuteReader();
-            while (reader2.Read())
-            {
-                comboboxDevice.Items.Add(reader2.GetString(1));
-            }
-            connection.Close();
         }
 
-        private void SendButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void SendButton_Click(object sender, RoutedEventArgs e)
         {
             var user = new MainViewModel();
             string username = user.CurrentUserAccount.Username.ToString();
             string email = user.CurrentUserAccount.Email.ToString();
             string emailAddress = "asgard@optimacall.ro";
             string password = "Optima#321";
-
-
-            MimeMessage message = new MimeMessage();
-            message.Subject = "Comanda noua achizitie: " + cnp.Text;
+            MimeMessage message = new MimeMessage
+            {
+                Subject = "Comanda noua achizitie: " + cnp.Text
+            };
             message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
             message.To.Add(MailboxAddress.Parse(email));
             message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
@@ -14587,11 +14551,7 @@ namespace Asgard.Tickets.Vodafone
                     "Numar contact: " + numar_contact_text.Text + "\r\n" +
                     "Client comun id: " + id_client_comun.Text + "\r\n" +
                     "Tip client: " + comboboxClient.Text + "\r\n" +
-                    "Asigurare: " + comboboxAsigurare.Text
-
-
-
-
+                    "Asigurare: " + comboboxAsigurare.Text,
             };
             SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
             try
@@ -14602,8 +14562,6 @@ namespace Asgard.Tickets.Vodafone
                 client.Connect("zmail.optimacall.ro", 465, true);
                 client.Authenticate(emailAddress, password);
                 client.Send(message);
-
-
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
                 {
@@ -14623,10 +14581,8 @@ namespace Asgard.Tickets.Vodafone
                     dialog.Title = "Eroare";
                     dialog.Status.Text = "Ticket-ul nu a fost trimis";
                     dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                 };
                 dialog.ShowDialog();
-
             }
             finally
             {
@@ -14635,16 +14591,11 @@ namespace Asgard.Tickets.Vodafone
             }
         }
 
-        private void tipAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TipAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem selectedItem = (ComboBoxItem)tipAbonament.SelectedItem;
-
             comboboxAbonament.Items.Clear();
-
             comboboxCostAbonament.Items.Clear();
-
-
-
             switch (selectedItem.Content.ToString())
             {
                 case "Migrare":
@@ -14697,13 +14648,11 @@ namespace Asgard.Tickets.Vodafone
                     comboboxCostAbonament.Items.Add("2 EURO");
                     serie_sim.Clear();
                     break;
-
             }
         }
 
-        private void comboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
     }
-
 }

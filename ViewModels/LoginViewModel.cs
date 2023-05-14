@@ -1,104 +1,119 @@
-﻿using Asgard.Models;
-using Asgard.Repositories;
-using System;
-using System.Net;
-using System.Security;
-using System.Security.Principal;
-using System.Threading;
-using System.Windows.Input;
-
+﻿// <copyright file="LoginViewModel.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.ViewModels
 {
+    using System;
+    using System.Net;
+    using System.Security;
+    using System.Security.Principal;
+    using System.Threading;
+    using System.Windows.Input;
+    using Asgard.Models;
+    using Asgard.Repositories;
+
     public class LoginViewModel : ViewModelBase
     {
-
-        //Fields
-        private string _username;
-        private SecureString _password;
-        private string _errorMessage;
-        private bool _isViewVisible = true;
-
-        //properties
-
-
-        public string Username
-        {
-            get
-            {
-                return _username;
-            }
-            set
-            {
-                _username = value;
-                OnPropertyChanged(nameof(Username));
-            }
-        }
-        public SecureString Password
-        {
-            get
-            {
-                return _password;
-            }
-            set
-            {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
-        }
-        public string ErrorMessage
-        {
-            get
-            {
-                return _errorMessage;
-            }
-            set
-            {
-                _errorMessage = value;
-                OnPropertyChanged(nameof(ErrorMessage));
-            }
-        }
-        public bool IsViewVisible
-        {
-            get
-            {
-                return _isViewVisible;
-            }
-            set
-            {
-                _isViewVisible = value;
-                OnPropertyChanged(nameof(IsViewVisible));
-            }
-        }
-
-        //-> Commands
-        public ICommand LoginCommand { get; }
-        public ICommand RecoverPasswordCommand { get; }
-        public ICommand ShowPasswordCommand { get; }
-        public ICommand RememberPasswordCommand { get; }
-
+        // Fields
         private readonly IUserRepository userRepository;
+        private string username;
+        private SecureString password;
+        private string errorMessage;
+        private bool isViewVisible = true;
 
-        //Builder
+        // Builder
         public LoginViewModel()
         {
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand(""));
+            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand(string.Empty));
         }
+
+        // -> Commands
+        public ICommand LoginCommand { get; }
+
+        public ICommand RecoverPasswordCommand { get; }
+
+        public ICommand ShowPasswordCommand { get; }
+
+        public ICommand RememberPasswordCommand { get; }
+
+        // properties
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+
+        public SecureString Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return errorMessage;
+            }
+
+            set
+            {
+                errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+            }
+        }
+
+        public bool IsViewVisible
+        {
+            get
+            {
+                return isViewVisible;
+            }
+
+            set
+            {
+                isViewVisible = value;
+                OnPropertyChanged(nameof(IsViewVisible));
+            }
+        }
+
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validData;
             if (string.IsNullOrWhiteSpace(Username) || Username.Length < 3 ||
                 Password == null || Password.Length < 3)
+            {
                 validData = false;
+            }
             else
+            {
                 validData = true;
+            }
+
             return validData;
         }
+
         private void ExecuteLoginCommand(object obj)
         {
-
             if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password?.ToString()))
             {
                 ErrorMessage = "* Nume utilizator sau parolă invalidă";
@@ -133,15 +148,10 @@ namespace Asgard.ViewModels
                 };
                 dialog.ShowDialog();
             }
-
-
-
-
-
         }
+
         private void ExecuteRecoverPassCommand(string username)
         {
-
         }
     }
 }

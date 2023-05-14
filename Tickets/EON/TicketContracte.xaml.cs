@@ -153,10 +153,7 @@ namespace Asgard.Tickets.EON
                 acroFields.SetField("ConsumAnualPrognozat", ConsumAnualPrognozat.Text);
                 acroFields.SetField("Data_semnari", DataSemnare.Text);
                 acroFields.SetField("IDContract", IDContractBun);
-
-
                 pdfStamper.Close();
-
 
                 // Show message box to confirm that PDF was saved
                 MessageBox.Show("PDF salvat.");
@@ -164,10 +161,8 @@ namespace Asgard.Tickets.EON
                 // Code to open the saved PDF file
                 Process.Start(newFileName);
             }
-
             else if (comboboxContract.Text == "Actual Assist Gaz")
             {
-
                 string fileName = "Assets/Contracte EON/Actual_Assist_Gas.pdf";
                 PdfReader pdfReader = new PdfReader(fileName);
                 /*            string fileSave = "Assets/Contracte EON/Generat/";*/
@@ -197,6 +192,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -209,7 +205,6 @@ namespace Asgard.Tickets.EON
                 acroFields.SetField("IDContract", IDContractBun);
 
                 pdfStamper.Close();
-
 
                 // Show message box to confirm that PDF was saved
                 MessageBox.Show("PDF salvat.");
@@ -248,6 +243,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -260,7 +256,6 @@ namespace Asgard.Tickets.EON
                 acroFields.SetField("IDContract", IDContractBun);
                 pdfStamper.Close();
 
-
                 // Show message box to confirm that PDF was saved
                 MessageBox.Show("PDF salvat.");
 
@@ -269,9 +264,6 @@ namespace Asgard.Tickets.EON
             }
             else if (comboboxContract.Text == "Actual Duo Assist Pro")
             {
-
-
-
                 string fileName = "Assets/Contracte EON/Actual_Duo_Assist_Pro.pdf";
                 PdfReader pdfReader = new PdfReader(fileName);
                 /*            string fileSave = "Assets/Contracte EON/Generat/";*/
@@ -317,7 +309,6 @@ namespace Asgard.Tickets.EON
                 acroFields.SetField("IDContract", IDContractBun);
                 pdfStamper.Close();
 
-
                 // Show message box to confirm that PDF was saved
                 MessageBox.Show("PDF salvat.");
 
@@ -326,9 +317,6 @@ namespace Asgard.Tickets.EON
             }
             else if (comboboxContract.Text == "Actual Duo Assist")
             {
-
-
-
                 string fileName = "Assets/Contracte EON/Actual_Duo_Assist.pdf";
                 PdfReader pdfReader = new PdfReader(fileName);
                 /*            string fileSave = "Assets/Contracte EON/Generat/";*/

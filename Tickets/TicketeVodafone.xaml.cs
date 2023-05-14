@@ -1,18 +1,22 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿// <copyright file="TicketeVodafone.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets
 {
+    using System;
+    using System.Diagnostics;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Navigation;
+
     /// <summary>
-    /// Interaction logic for TicketeVodafone.xaml
+    /// Interaction logic for TicketeVodafone.xaml.
     /// </summary>
     public partial class TicketeVodafone : Page
     {
         // Retrieve the current date and time
-        DateTime currentDate = DateTime.Now;
+        private readonly DateTime currentDate = DateTime.Now;
 
         public TicketeVodafone()
         {
@@ -26,8 +30,7 @@ namespace Asgard.Tickets
         private void ButtonDex_Click(object sender, RoutedEventArgs e)
         {
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
-            window.Main.Navigate(new Vodafone.OrderDex());
-
+            _ = window.Main.Navigate(new Vodafone.OrderDex());
         }
 
         private void ButtonUfe_Click(object sender, RoutedEventArgs e)
@@ -47,7 +50,6 @@ namespace Asgard.Tickets
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
             window.Main.Navigate(new Vodafone.TicketRetur());
         }
-
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {

@@ -113,6 +113,9 @@
     <Compile Include="CustomControls\BindablePassword.xaml.cs">
       <DependentUpon>BindablePassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\Notifications.xaml.cs">
+      <DependentUpon>Notifications.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\Prompt.xaml.cs">
       <DependentUpon>Prompt.xaml</DependentUpon>
     </Compile>
@@ -216,6 +219,10 @@
     <Page Include="CustomControls\BindablePassword.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\Notifications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomControls\Prompt.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -348,6 +355,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Assets\wifi-problem.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -381,6 +389,7 @@
     <Content Include="Assets\IT\Proces_Verbal_de_primire_laptop.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="stylecop.json" />
     <Resource Include="Fonts\Montserrat-Black.ttf" />
     <Resource Include="Fonts\Montserrat-BlackItalic.ttf" />
     <Resource Include="Fonts\Montserrat-Bold.ttf" />

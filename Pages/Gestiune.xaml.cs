@@ -4,11 +4,6 @@
 
 namespace Asgard.Pages
 {
-    using Asgard.CustomControls;
-    using Asgard.Repositories;
-    using Asgard.ViewModels;
-    using iTextSharp.text.pdf;
-    using MySql.Data.MySqlClient;
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
@@ -18,6 +13,11 @@ namespace Asgard.Pages
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using Asgard.CustomControls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using iTextSharp.text.pdf;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for Gestiune.xaml.
@@ -28,8 +28,6 @@ namespace Asgard.Pages
 
         public ObservableCollection<DeviceModel2> MyDataList2;
 
-        private readonly MainViewModel user;
-
         // Declare a variable to store the ID value of the selected row
         public int SelectedId;
         public string SelectedCategory;
@@ -37,9 +35,11 @@ namespace Asgard.Pages
         private string selectedTastatura;
         private string selectedCasti;
 
-        private int currentPage = 1;
+        private readonly MainViewModel user;
 
-        private int rowsPerPage = 20;
+        private readonly int rowsPerPage = 20;
+
+        private int currentPage = 1;
 
         public Gestiune()
         {
