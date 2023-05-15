@@ -6,11 +6,10 @@
 	  xmlns:local="clr-namespace:Asgard.Tickets.CEC"
 	  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   
 	  mc:Ignorable="d" 
-	  Width="1050"
+
 	  Background="{DynamicResource BackgroundColor}"
-	  Height="1000"
 	  Title="Formular">
-	<ScrollViewer>
+	<ScrollViewer HorizontalScrollBarVisibility="Auto">
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>

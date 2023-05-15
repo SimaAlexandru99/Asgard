@@ -405,7 +405,5 @@ namespace Asgard.Pages
 
             public string Column13 { get; set; }
         }
-    }
-
-   
+    } 
 }
