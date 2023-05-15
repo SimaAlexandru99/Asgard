@@ -17,9 +17,9 @@
     StateChanged="Window_StateChanged"
     Loaded="Window_Loaded">
     <Window.Resources>
-        <conv:FontSizeConverter x:Key="FontSizeConverter" />
-        <conv:MarginConverter x:Key="MarginConverter" />
-    </Window.Resources>
+		<conv:FontSizeConverter x:Key="FontSizeConverter" />
+		<conv:MarginConverter x:Key="MarginConverter" />
+	</Window.Resources>
 
     <Window.DataContext>
         <viewModel:MainViewModel />

@@ -64,10 +64,11 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>86D9C80A68E0EFA21B4EFF02744BD5667EF0D50F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1291638B382827C51B78F5A0CB6DCBA9A32B4BB1</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Asgard_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
