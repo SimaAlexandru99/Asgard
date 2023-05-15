@@ -408,4 +408,6 @@ namespace Asgard.Pages
     }
 
     // Aici a fost vlad
+
+    // Aici a fost Sima
 }
