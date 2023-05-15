@@ -1,12 +1,17 @@
-﻿using MySql.Data.MySqlClient;
-using System.Data;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="Formular.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.CEC
 {
+    using System.Data;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for Formular.xaml
+    /// Interaction logic for Formular.xaml.
     /// </summary>
     public partial class Formular : Page
     {
@@ -118,6 +123,7 @@ namespace Asgard.Tickets.CEC
         {
             Stack10.Visibility = Visibility.Collapsed;
         }
+
         private void Drop_produs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -158,7 +164,6 @@ namespace Asgard.Tickets.CEC
                 Stack38.Visibility = Visibility.Collapsed;
                 Stack39.Visibility = Visibility.Collapsed;
                 Stack40.Visibility = Visibility.Collapsed;
-
             }
             if (selectedItem.Name == "Var8" || selectedItem.Name == "Var9")
             {
@@ -193,7 +198,6 @@ namespace Asgard.Tickets.CEC
                 Stack43.Visibility = Visibility.Collapsed;
                 Stack44.Visibility = Visibility.Collapsed;
                 Stack45.Visibility = Visibility.Collapsed;
-
             }
             if (selectedItem.Name == "Var10" || selectedItem.Name == "Var11" || selectedItem.Name == "Var12" || selectedItem.Name == "Var13" || selectedItem.Name == "Var14")
             {
@@ -224,9 +228,7 @@ namespace Asgard.Tickets.CEC
                 Stack47.Visibility = Visibility.Collapsed;
                 Stack48.Visibility = Visibility.Collapsed;
                 Stack49.Visibility = Visibility.Collapsed;
-
             }
-
         }
 
         private void Q3_1_1_bifa_1_Checked(object sender, RoutedEventArgs e)
@@ -894,29 +896,9 @@ namespace Asgard.Tickets.CEC
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             string selectedValue = selectedItem.Content.ToString();
-
         }
 
-
-
-        public static MySqlConnection GetConnectionPublic()
-        {
-
-            string sql = "datasource=192.168.100.18;port=3306;username=eoverart;password=P3CZV4pgc7jtT4z;database=asgard";
-            MySqlConnection con = new MySqlConnection(sql);
-            try
-            {
-                con.Open();
-
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("MySQL Connection! \n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            return con;
-        }
-
-        public void Clear()
+        private void Clear()
         {
             ID_client_text.Text = string.Empty;
             T1_Da.IsChecked = false;
@@ -1141,12 +1123,15 @@ namespace Asgard.Tickets.CEC
             B7_Nu.IsChecked = false;
             Freetext_B8.Text = string.Empty;
             Drop_tip_sondaj.Text = " ";
+            Stack51.Visibility = Visibility.Collapsed;
+            Stack52.Visibility = Visibility.Collapsed;
+            Stack54.Visibility = Visibility.Collapsed;
+            Stack56.Visibility = Visibility.Collapsed;
         }
 
         private void Trimite_Click(object sender, RoutedEventArgs e)
         {
-
-            string T1 = "";
+            string T1 = string.Empty;
             if (T1_Da.IsChecked == true)
             {
                 T1 = "Da";
@@ -1160,7 +1145,7 @@ namespace Asgard.Tickets.CEC
                 T1 = "Nu";
             }
 
-            string T2_1 = "";
+            string T2_1 = string.Empty;
             if (T2_1_Da.IsChecked == true)
             {
                 T2_1 = "Da";
@@ -1170,7 +1155,7 @@ namespace Asgard.Tickets.CEC
                 T2_1 = "Nu";
             }
 
-            string T2_2 = "";
+            string T2_2 = string.Empty;
             if (T2_2_Da.IsChecked == true)
             {
                 T2_2 = "Da";
@@ -1180,7 +1165,7 @@ namespace Asgard.Tickets.CEC
                 T2_2 = "Nu";
             }
 
-            string T3 = "";
+            string T3 = string.Empty;
             if (T3_Da.IsChecked == true)
             {
                 T3 = "Da";
@@ -1190,7 +1175,7 @@ namespace Asgard.Tickets.CEC
                 T3 = "Nu";
             }
 
-            string T4 = "";
+            string T4 = string.Empty;
             if (T4_Da.IsChecked == true)
             {
                 T4 = "Da";
@@ -1200,7 +1185,7 @@ namespace Asgard.Tickets.CEC
                 T4 = "Nu";
             }
 
-            string Q1 = "";
+            string Q1 = string.Empty;
             if (Q1_bifa1.IsChecked == true)
             {
                 Q1 = "1";
@@ -1226,7 +1211,7 @@ namespace Asgard.Tickets.CEC
                 Q1 = "Nu stiu/ Nu raspund";
             }
 
-            string Q2 = "";
+            string Q2 = string.Empty;
             if (Q2_bifa1.IsChecked == true)
             {
                 Q2 = "1";
@@ -1252,7 +1237,7 @@ namespace Asgard.Tickets.CEC
                 Q2 = "Nu stiu/ nu raspund";
             }
 
-            string Q3_1_1 = "";
+            string Q3_1_1 = string.Empty;
             if (Q3_1_1_bifa_1.IsChecked == true || Q3_2_1_bifa_1.IsChecked == true || Q3_3_1_bifa_1.IsChecked == true)
             {
                 Q3_1_1 = "1";
@@ -1278,7 +1263,7 @@ namespace Asgard.Tickets.CEC
                 Q3_1_1 = "Nu stiu/ nu raspund";
             }
 
-            string Q3_1_2 = "";
+            string Q3_1_2 = string.Empty;
             if (Q3_1_2_bifa_1.IsChecked == true || Q3_2_2_bifa_1.IsChecked == true || Q3_3_2_bifa_1.IsChecked == true)
             {
                 Q3_1_2 = "1";
@@ -1304,7 +1289,7 @@ namespace Asgard.Tickets.CEC
                 Q3_1_2 = "Nu stiu/ nu raspund";
             }
 
-            string Q3_1_3 = "";
+            string Q3_1_3 = string.Empty;
             if (Q3_1_3_bifa_1.IsChecked == true || Q3_2_3_bifa_1.IsChecked == true || Q3_3_3_bifa_1.IsChecked == true)
             {
                 Q3_1_3 = "1";
@@ -1330,7 +1315,7 @@ namespace Asgard.Tickets.CEC
                 Q3_1_3 = "Nu stiu/ nu raspund";
             }
 
-            string Q3_1_4 = "";
+            string Q3_1_4 = string.Empty;
             if (Q3_1_4_bifa_1.IsChecked == true || Q3_2_4_bifa_1.IsChecked == true || Q3_3_4_bifa_1.IsChecked == true)
             {
                 Q3_1_4 = "1";
@@ -1356,7 +1341,7 @@ namespace Asgard.Tickets.CEC
                 Q3_1_4 = "Nu stiu/ nu raspund";
             }
 
-            string Q3_1_5 = "";
+            string Q3_1_5 = string.Empty;
             if (Q3_1_5_bifa_1.IsChecked == true || Q3_2_5_bifa_1.IsChecked == true || Q3_3_5_bifa_1.IsChecked == true)
             {
                 Q3_1_5 = "1";
@@ -1382,7 +1367,7 @@ namespace Asgard.Tickets.CEC
                 Q3_1_5 = "Nu stiu/ nu raspund";
             }
 
-            string Q3_1_6 = "";
+            string Q3_1_6 = string.Empty;
             if (Q3_1_6_bifa_1.IsChecked == true || Q3_2_6_bifa_1.IsChecked == true)
             {
                 Q3_1_6 = "1";
@@ -1408,7 +1393,7 @@ namespace Asgard.Tickets.CEC
                 Q3_1_6 = "Nu stiu/ nu raspund";
             }
 
-            string Q4_1_1 = "";
+            string Q4_1_1 = string.Empty;
             if (Q4_1_1_bifa_1.IsChecked == true || Q4_2_1_bifa_1.IsChecked == true || Q4_3_1_bifa_1.IsChecked == true)
             {
                 Q4_1_1 = "1";
@@ -1434,7 +1419,7 @@ namespace Asgard.Tickets.CEC
                 Q4_1_1 = "Nu stiu/ nu raspund";
             }
 
-            string Q4_1_2 = "";
+            string Q4_1_2 = string.Empty;
             if (Q4_1_2_bifa_1.IsChecked == true || Q4_2_2_bifa_1.IsChecked == true || Q4_3_2_bifa_1.IsChecked == true)
             {
                 Q4_1_2 = "1";
@@ -1460,7 +1445,7 @@ namespace Asgard.Tickets.CEC
                 Q4_1_2 = "Nu stiu/ nu raspund";
             }
 
-            string Q4_1_3 = "";
+            string Q4_1_3 = string.Empty;
             if (Q4_1_3_bifa_1.IsChecked == true || Q4_2_3_bifa_1.IsChecked == true || Q4_3_3_bifa_1.IsChecked == true)
             {
                 Q4_1_3 = "1";
@@ -1486,7 +1471,7 @@ namespace Asgard.Tickets.CEC
                 Q4_1_3 = "Nu stiu/ nu raspund";
             }
 
-            string Q4_1_4 = "";
+            string Q4_1_4 = string.Empty;
             if (Q4_1_4_bifa_1.IsChecked == true || Q4_2_4_bifa_1.IsChecked == true)
             {
                 Q4_1_4 = "1";
@@ -1512,7 +1497,7 @@ namespace Asgard.Tickets.CEC
                 Q4_1_4 = "Nu stiu/ nu raspund";
             }
 
-            string Q4_1_5 = "";
+            string Q4_1_5 = string.Empty;
             if (Q4_1_5_bifa_1.IsChecked == true)
             {
                 Q4_1_5 = "1";
@@ -1538,7 +1523,7 @@ namespace Asgard.Tickets.CEC
                 Q4_1_5 = "Nu stiu/ nu raspund";
             }
 
-            string Q5 = "";
+            string Q5 = string.Empty;
             if (Q5_bifa_1.IsChecked == true)
             {
                 Q5 = "1";
@@ -1564,7 +1549,7 @@ namespace Asgard.Tickets.CEC
                 Q5 = "Nu stiu/ nu raspund";
             }
 
-            string Q6 = "";
+            string Q6 = string.Empty;
             if (Q6_bifa_0.IsChecked == true)
             {
                 Q6 = "0";
@@ -1610,7 +1595,7 @@ namespace Asgard.Tickets.CEC
                 Q6 = "10";
             }
 
-            string B7 = "";
+            string B7 = string.Empty;
             if (B7_Da.IsChecked == true)
             {
                 B7 = "Da";
@@ -1629,7 +1614,7 @@ namespace Asgard.Tickets.CEC
                         if ((Q3_1_1_bifa_1.IsChecked == true || Q3_1_1_bifa_2.IsChecked == true || Q3_1_1_bifa_3.IsChecked == true || Q3_1_1_bifa_4.IsChecked == true || Q3_1_1_bifa_5.IsChecked == true || Q3_1_1_bifa_6.IsChecked == true) && (Q3_1_2_bifa_1.IsChecked == true || Q3_1_2_bifa_2.IsChecked == true || Q3_1_2_bifa_3.IsChecked == true || Q3_1_2_bifa_4.IsChecked == true || Q3_1_2_bifa_5.IsChecked == true || Q3_1_2_bifa_6.IsChecked == true) && (Q3_1_3_bifa_1.IsChecked == true || Q3_1_3_bifa_2.IsChecked == true || Q3_1_3_bifa_3.IsChecked == true || Q3_1_3_bifa_4.IsChecked == true || Q3_1_3_bifa_5.IsChecked == true || Q3_1_3_bifa_6.IsChecked == true) && (Q3_1_4_bifa_1.IsChecked == true || Q3_1_4_bifa_2.IsChecked == true || Q3_1_4_bifa_3.IsChecked == true || Q3_1_4_bifa_4.IsChecked == true || Q3_1_4_bifa_5.IsChecked == true || Q3_1_4_bifa_6.IsChecked == true) && (Q3_1_5_bifa_1.IsChecked == true || Q3_1_5_bifa_2.IsChecked == true || Q3_1_5_bifa_3.IsChecked == true || Q3_1_5_bifa_4.IsChecked == true || Q3_1_5_bifa_5.IsChecked == true || Q3_1_5_bifa_6.IsChecked == true) && (Q3_1_6_bifa_1.IsChecked == true || Q3_1_6_bifa_2.IsChecked == true || Q3_1_6_bifa_3.IsChecked == true || Q3_1_6_bifa_4.IsChecked == true || Q3_1_6_bifa_5.IsChecked == true || Q3_1_6_bifa_6.IsChecked == true) && (Q4_1_1_bifa_1.IsChecked == true || Q4_1_1_bifa_2.IsChecked == true || Q4_1_1_bifa_3.IsChecked == true || Q4_1_1_bifa_4.IsChecked == true || Q4_1_1_bifa_5.IsChecked == true || Q4_1_1_bifa_6.IsChecked == true) && (Q4_1_2_bifa_1.IsChecked == true || Q4_1_2_bifa_2.IsChecked == true || Q4_1_2_bifa_3.IsChecked == true || Q4_1_2_bifa_4.IsChecked == true || Q4_1_2_bifa_5.IsChecked == true || Q4_1_2_bifa_6.IsChecked == true) && (Q4_1_3_bifa_1.IsChecked == true || Q4_1_3_bifa_2.IsChecked == true || Q4_1_3_bifa_3.IsChecked == true || Q4_1_3_bifa_4.IsChecked == true || Q4_1_3_bifa_5.IsChecked == true || Q4_1_3_bifa_6.IsChecked == true) && (Q4_1_4_bifa_1.IsChecked == true || Q4_1_4_bifa_2.IsChecked == true || Q4_1_4_bifa_3.IsChecked == true || Q4_1_4_bifa_4.IsChecked == true || Q4_1_4_bifa_5.IsChecked == true || Q4_1_4_bifa_6.IsChecked == true) && (Q4_1_5_bifa_1.IsChecked == true || Q4_1_5_bifa_2.IsChecked == true || Q4_1_5_bifa_3.IsChecked == true || Q4_1_5_bifa_4.IsChecked == true || Q4_1_5_bifa_5.IsChecked == true || Q4_1_5_bifa_6.IsChecked == true) && (Q5_bifa_1.IsChecked == true || Q5_bifa_2.IsChecked == true || Q5_bifa_3.IsChecked == true || Q5_bifa_4.IsChecked == true || Q5_bifa_5.IsChecked == true || Q5_bifa_6.IsChecked == true) && (Q6_bifa_0.IsChecked == true || Q6_bifa_1.IsChecked == true || Q6_bifa_2.IsChecked == true || Q6_bifa_3.IsChecked == true || Q6_bifa_4.IsChecked == true || Q6_bifa_5.IsChecked == true || Q6_bifa_6.IsChecked == true || Q6_bifa_7.IsChecked == true || Q6_bifa_8.IsChecked == true || Q6_bifa_9.IsChecked == true || Q6_bifa_10.IsChecked == true) && (B7_Da.IsChecked == true || B7_Nu.IsChecked == true))
                         {
                             string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
-                            MySqlConnection connection = GetConnectionPublic();
+                            MySqlConnection connection = RepositoryBase.GetConnectionPublic();
                             MySqlCommand cmd = new MySqlCommand(sql, connection);
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
@@ -1663,18 +1648,45 @@ namespace Asgard.Tickets.CEC
                             {
                                 cmd.ExecuteNonQuery();
                             }
-
-                            catch (MySqlException ex)
+                            catch (MySqlException)
                             {
-                                MessageBox.Show("Eroare conectare baza, te rog sa iei legatura cu administratorul de retea \n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Eroare conectare baza";
+                                    dialog.Descriere.Text = "Eroare conectare baza, te rog sa iei legatura cu administratorul de retea";
+                                };
+                                dialog.ShowDialog();
+                                return;
                             }
-                            connection.Close();
-                            MessageBox.Show("Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj", "Sondaj complet trimis", MessageBoxButton.OK);
-                            Clear();
+                            finally
+                            {
+                                connection.Close();
+
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Felicitări";
+                                    dialog.Status.Text = "Ai înregistrat un formular";
+                                    dialog.Descriere.Text = "Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj";
+                                };
+                                dialog.ShowDialog();
+
+                                Clear();
+                            }
                         }
                         else
                         {
-                            MessageBoxResult result = MessageBox.Show("Mai baga o fisa, ai uitat sa completezi ceva", "Ai uitat sa completezi ceva", MessageBoxButton.OK);
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Ai uitat să completezi ceva";
+                                dialog.Descriere.Text = "Verifică formularul și completează câmpul gol";
+                            };
+                            dialog.ShowDialog();
+                            return;
                         }
 
                     }
@@ -1683,7 +1695,7 @@ namespace Asgard.Tickets.CEC
                         if ((Q3_2_1_bifa_1.IsChecked == true || Q3_2_1_bifa_2.IsChecked == true || Q3_2_1_bifa_3.IsChecked == true || Q3_2_1_bifa_4.IsChecked == true || Q3_2_1_bifa_5.IsChecked == true || Q3_2_1_bifa_6.IsChecked == true) && (Q3_2_2_bifa_1.IsChecked == true || Q3_2_2_bifa_2.IsChecked == true || Q3_2_2_bifa_3.IsChecked == true || Q3_2_2_bifa_4.IsChecked == true || Q3_2_2_bifa_5.IsChecked == true || Q3_2_2_bifa_6.IsChecked == true) && (Q3_2_3_bifa_1.IsChecked == true || Q3_2_3_bifa_2.IsChecked == true || Q3_2_3_bifa_3.IsChecked == true || Q3_2_3_bifa_4.IsChecked == true || Q3_2_3_bifa_5.IsChecked == true || Q3_2_3_bifa_6.IsChecked == true) && (Q3_2_4_bifa_1.IsChecked == true || Q3_2_4_bifa_2.IsChecked == true || Q3_2_4_bifa_3.IsChecked == true || Q3_2_4_bifa_4.IsChecked == true || Q3_2_4_bifa_5.IsChecked == true || Q3_2_4_bifa_6.IsChecked == true) && (Q3_2_5_bifa_1.IsChecked == true || Q3_2_5_bifa_2.IsChecked == true || Q3_2_5_bifa_3.IsChecked == true || Q3_2_5_bifa_4.IsChecked == true || Q3_2_5_bifa_5.IsChecked == true || Q3_2_5_bifa_6.IsChecked == true) && (Q3_2_6_bifa_1.IsChecked == true || Q3_2_6_bifa_2.IsChecked == true || Q3_2_6_bifa_3.IsChecked == true || Q3_2_6_bifa_4.IsChecked == true || Q3_2_6_bifa_5.IsChecked == true || Q3_2_6_bifa_6.IsChecked == true) && (Q4_2_1_bifa_1.IsChecked == true || Q4_2_1_bifa_2.IsChecked == true || Q4_2_1_bifa_3.IsChecked == true || Q4_2_1_bifa_4.IsChecked == true || Q4_2_1_bifa_5.IsChecked == true || Q4_2_1_bifa_6.IsChecked == true) && (Q4_2_2_bifa_1.IsChecked == true || Q4_2_2_bifa_2.IsChecked == true || Q4_2_2_bifa_3.IsChecked == true || Q4_2_2_bifa_4.IsChecked == true || Q4_2_2_bifa_5.IsChecked == true || Q4_2_2_bifa_6.IsChecked == true) && (Q4_2_3_bifa_1.IsChecked == true || Q4_2_3_bifa_2.IsChecked == true || Q4_2_3_bifa_3.IsChecked == true || Q4_2_3_bifa_4.IsChecked == true || Q4_2_3_bifa_5.IsChecked == true || Q4_2_3_bifa_6.IsChecked == true) && (Q4_2_4_bifa_1.IsChecked == true || Q4_2_4_bifa_2.IsChecked == true || Q4_2_4_bifa_3.IsChecked == true || Q4_2_4_bifa_4.IsChecked == true || Q4_2_4_bifa_5.IsChecked == true || Q4_2_4_bifa_6.IsChecked == true) && (Q5_bifa_1.IsChecked == true || Q5_bifa_2.IsChecked == true || Q5_bifa_3.IsChecked == true || Q5_bifa_4.IsChecked == true || Q5_bifa_5.IsChecked == true || Q5_bifa_6.IsChecked == true) && (Q6_bifa_0.IsChecked == true || Q6_bifa_1.IsChecked == true || Q6_bifa_2.IsChecked == true || Q6_bifa_3.IsChecked == true || Q6_bifa_4.IsChecked == true || Q6_bifa_5.IsChecked == true || Q6_bifa_6.IsChecked == true || Q6_bifa_7.IsChecked == true || Q6_bifa_8.IsChecked == true || Q6_bifa_9.IsChecked == true || Q6_bifa_10.IsChecked == true) && (B7_Da.IsChecked == true || B7_Nu.IsChecked == true))
                         {
                             string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
-                            MySqlConnection connection = GetConnectionPublic();
+                            MySqlConnection connection = RepositoryBase.GetConnectionPublic();
                             MySqlCommand cmd = new MySqlCommand(sql, connection);
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
@@ -1717,18 +1729,45 @@ namespace Asgard.Tickets.CEC
                             {
                                 cmd.ExecuteNonQuery();
                             }
-
-                            catch (MySqlException ex)
+                            catch (MySqlException)
                             {
-                                MessageBox.Show("Eroare conectare baza, te rog sa iei legatura cu administratorul de retea \n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Eroare conectare baza";
+                                    dialog.Descriere.Text = "Eroare conectare baza, te rog sa iei legatura cu administratorul de retea";
+                                };
+                                dialog.ShowDialog();
+                                return;
                             }
-                            connection.Close();
-                            MessageBox.Show("Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj", "Sondaj complet trimis", MessageBoxButton.OK);
-                            Clear();
+                            finally
+                            {
+                                connection.Close();
+
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Felicitări";
+                                    dialog.Status.Text = "Ai înregistrat un formular";
+                                    dialog.Descriere.Text = "Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj";
+                                };
+                                dialog.ShowDialog();
+
+                                Clear();
+                            }
                         }
                         else
                         {
-                            MessageBoxResult result = MessageBox.Show("Mai baga o fisa, ai uitat sa completezi ceva", "Ai uitat sa completezi ceva", MessageBoxButton.OK);
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Ai uitat să completezi ceva";
+                                dialog.Descriere.Text = "Verifică formularul și completează câmpul gol";
+                            };
+                            dialog.ShowDialog();
+                            return;
                         }
                     }
                     else if (Drop_produs.Text == "depunere numerar" || Drop_produs.Text == "lichidare depozit" || Drop_produs.Text == "efectuarea unui schimb valutar" || Drop_produs.Text == "solicitarea unui extras de cont" || Drop_produs.Text == "constituirea unui depozit]")
@@ -1736,7 +1775,7 @@ namespace Asgard.Tickets.CEC
                         if ((Q3_3_1_bifa_1.IsChecked == true || Q3_3_1_bifa_2.IsChecked == true || Q3_3_1_bifa_3.IsChecked == true || Q3_3_1_bifa_4.IsChecked == true || Q3_3_1_bifa_5.IsChecked == true || Q3_3_1_bifa_6.IsChecked == true) && (Q3_3_2_bifa_1.IsChecked == true || Q3_3_2_bifa_2.IsChecked == true || Q3_3_2_bifa_3.IsChecked == true || Q3_3_2_bifa_4.IsChecked == true || Q3_3_2_bifa_5.IsChecked == true || Q3_3_2_bifa_6.IsChecked == true) && (Q3_3_3_bifa_1.IsChecked == true || Q3_3_3_bifa_2.IsChecked == true || Q3_3_3_bifa_3.IsChecked == true || Q3_3_3_bifa_4.IsChecked == true || Q3_3_3_bifa_5.IsChecked == true || Q3_3_3_bifa_6.IsChecked == true) && (Q3_3_4_bifa_1.IsChecked == true || Q3_3_4_bifa_2.IsChecked == true || Q3_3_4_bifa_3.IsChecked == true || Q3_3_4_bifa_4.IsChecked == true || Q3_3_4_bifa_5.IsChecked == true || Q3_3_4_bifa_6.IsChecked == true) && (Q3_3_5_bifa_1.IsChecked == true || Q3_3_5_bifa_2.IsChecked == true || Q3_3_5_bifa_3.IsChecked == true || Q3_3_5_bifa_4.IsChecked == true || Q3_3_5_bifa_5.IsChecked == true || Q3_3_5_bifa_6.IsChecked == true) && (Q4_3_1_bifa_1.IsChecked == true || Q4_3_1_bifa_2.IsChecked == true || Q4_3_1_bifa_3.IsChecked == true || Q4_3_1_bifa_4.IsChecked == true || Q4_3_1_bifa_5.IsChecked == true || Q4_3_1_bifa_6.IsChecked == true) && (Q4_3_2_bifa_1.IsChecked == true || Q4_3_2_bifa_2.IsChecked == true || Q4_3_2_bifa_3.IsChecked == true || Q4_3_2_bifa_4.IsChecked == true || Q4_3_2_bifa_5.IsChecked == true || Q4_3_2_bifa_6.IsChecked == true) && (Q4_3_3_bifa_1.IsChecked == true || Q4_3_3_bifa_2.IsChecked == true || Q4_3_3_bifa_3.IsChecked == true || Q4_3_3_bifa_4.IsChecked == true || Q4_3_3_bifa_5.IsChecked == true || Q4_3_3_bifa_6.IsChecked == true) && (Q5_bifa_1.IsChecked == true || Q5_bifa_2.IsChecked == true || Q5_bifa_3.IsChecked == true || Q5_bifa_4.IsChecked == true || Q5_bifa_5.IsChecked == true || Q5_bifa_6.IsChecked == true) && (Q6_bifa_0.IsChecked == true || Q6_bifa_1.IsChecked == true || Q6_bifa_2.IsChecked == true || Q6_bifa_3.IsChecked == true || Q6_bifa_4.IsChecked == true || Q6_bifa_5.IsChecked == true || Q6_bifa_6.IsChecked == true || Q6_bifa_7.IsChecked == true || Q6_bifa_8.IsChecked == true || Q6_bifa_9.IsChecked == true || Q6_bifa_10.IsChecked == true) && (B7_Da.IsChecked == true || B7_Nu.IsChecked == true))
                         {
                             string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
-                            MySqlConnection connection = GetConnectionPublic();
+                            MySqlConnection connection = RepositoryBase.GetConnectionPublic();
                             MySqlCommand cmd = new MySqlCommand(sql, connection);
                             cmd.CommandType = CommandType.Text;
                             cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
@@ -1770,31 +1809,66 @@ namespace Asgard.Tickets.CEC
                             {
                                 cmd.ExecuteNonQuery();
                             }
-
-                            catch (MySqlException ex)
+                            catch (MySqlException)
                             {
-                                MessageBox.Show("Eroare conectare baza, te rog sa iei legatura cu administratorul de retea \n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Eroare conectare baza";
+                                    dialog.Descriere.Text = "Eroare conectare baza, te rog sa iei legatura cu administratorul de retea";
+                                };
+                                dialog.ShowDialog();
+                                return;
                             }
-                            connection.Close();
-                            MessageBox.Show("Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj", "Sondaj complet trimis", MessageBoxButton.OK);
-                            Clear();
+                            finally
+                            {
+                                connection.Close();
+
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Felicitări";
+                                    dialog.Status.Text = "Ai înregistrat un formular";
+                                    dialog.Descriere.Text = "Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj";
+                                };
+                                dialog.ShowDialog();
+
+                                Clear();
+                            }
                         }
                         else
                         {
-                            MessageBoxResult result = MessageBox.Show("Mai baga o fisa, ai uitat sa completezi ceva", "Ai uitat sa completezi ceva", MessageBoxButton.OK);
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Ai uitat să completezi ceva";
+                                dialog.Descriere.Text = "Verifică formularul și completează câmpul gol";
+                            };
+                            dialog.ShowDialog();
+                            return;
                         }
                     }
                 }
                 else
                 {
-                    MessageBoxResult result = MessageBox.Show("Mai baga o fisa, ai uitat sa completezi ceva", "Ai uitat sa completezi ceva", MessageBoxButton.OK);
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Ai uitat să completezi ceva";
+                        dialog.Descriere.Text = "Verifică formularul și completează câmpul gol";
+                    };
+                    dialog.ShowDialog();
+                    return;
                 }
 
             }
             else if (Drop_tip_sondaj.Text == "Sondaj Incomplet" && ID_client_text.Text != string.Empty)
             {
                 string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
-                MySqlConnection connection = GetConnectionPublic();
+                MySqlConnection connection = RepositoryBase.GetConnectionPublic();
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
@@ -1828,21 +1902,46 @@ namespace Asgard.Tickets.CEC
                 {
                     cmd.ExecuteNonQuery();
                 }
-
-                catch (MySqlException ex)
+                catch (MySqlException)
                 {
-                    MessageBox.Show("Eroare conectare baza, te rog sa iei legatura cu administratorul de retea \n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Eroare conectare baza";
+                        dialog.Descriere.Text = "Eroare conectare baza, te rog sa iei legatura cu administratorul de retea";
+                    };
+                    dialog.ShowDialog();
+                    return;
                 }
-                connection.Close();
-                MessageBox.Show("Felicitari, ai trimis un sondaj incomplet \n Apasa pe ok pentru a introduce un alt sondaj", "Sondaj complet trimis", MessageBoxButton.OK);
-                Clear();
+                finally
+                {
+                    connection.Close();
+
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Felicitări";
+                        dialog.Status.Text = "Ai înregistrat un formular";
+                        dialog.Descriere.Text = "Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj";
+                    };
+                    dialog.ShowDialog();
+
+                    Clear();
+                }
             }
             else if (Drop_tip_sondaj.Text == "Sondaj Incomplet" && ID_client_text.Text == string.Empty)
             {
-                MessageBoxResult result = MessageBox.Show("Mai baga o fisa, ai uitat sa completezi ceva", "Ai uitat sa completezi ceva", MessageBoxButton.OK);
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Ai uitat să completezi ceva";
+                    dialog.Descriere.Text = "Verifică formularul și completează câmpul gol";
+                };
+                dialog.ShowDialog();
+                return;
             }
-
         }
-
     }
 }

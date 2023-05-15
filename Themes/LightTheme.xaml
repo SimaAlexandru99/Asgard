@@ -7,6 +7,10 @@
     <SolidColorBrush x:Key="VodafoneSecondBackgroundColor" Color="#a50404" />
     <SolidColorBrush x:Key="VodafoneForegroundColor" Color="#FFFFFF" />
 
+    <SolidColorBrush x:Key="CECBackgroundColor" Color="#045e27" />
+    <SolidColorBrush x:Key="CECSecondaryBackgroundColor" Color="#eae89b" />
+    <SolidColorBrush x:Key="CECForegroundColor" Color="#000000" />
+
     <SolidColorBrush x:Key="TelekomBackgroundColor" Color="#e30074" />
     <SolidColorBrush x:Key="TelekomForegroundColor" Color="#FFFFFF" />
 
