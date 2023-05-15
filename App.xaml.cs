@@ -70,6 +70,7 @@ namespace Asgard
 
         private void ShowConnectionDialog(bool isConnected)
         {
+            // Create a new dialog window
             Notifications notifications = new Notifications();
             notifications.Loaded += async (s, ea) =>
             {
@@ -105,7 +106,7 @@ namespace Asgard
             // Set dialog message based on the connection status
             notifications.Description.Text = isConnected ? "Conexiunea la VPN este disponibilă, tot ce-ți rămâne de făcut este să-ți introduci datele de logare!" : "Dacă nu te poți conecta la Asgard, există posibilitatea să nu te fi conectat la VPN Optima, intră în FortiClient și conectează-te!";
 
-            notifications.ShowDialog();
+            notifications.Show();
         }
 
         private async Task<bool> CheckConnectionAsync()
@@ -134,7 +135,7 @@ namespace Asgard
                         // Perform additional checks or operations if needed
                         return true;
                     }
-                    catch (MySqlException ex)
+                    catch (MySqlException)
                     {
                         // Handle the exception here or log it
                         // ...
@@ -151,7 +152,7 @@ namespace Asgard
                 ShowConnectionDialog(false);
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Handle any other exceptions here
                 // ...

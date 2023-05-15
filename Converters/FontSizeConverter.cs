@@ -1,9 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
+﻿// <copyright file="FontSizeConverter.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Converters
 {
+    using System;
+    using System.Globalization;
+    using System.Windows.Data;
+
     public class FontSizeConverter : IValueConverter
     {
         private const double InitialFontSize = 8.0;

@@ -1,51 +1,42 @@
-﻿using Asgard.Commands;
-using Asgard.Repositories;
-using Asgard.Themes;
-using Asgard.ViewModels;
-using Asgard.Windows;
-using MaterialDesignThemes.Wpf;
-using MySql.Data.MySqlClient;
-using System;
-using System.Runtime.InteropServices;
-using System.Security.Principal;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media.Imaging;
+﻿// <copyright file="PrimaryWindow.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard
 {
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Security.Principal;
+    using System.Windows;
+    using System.Windows.Input;
+    using System.Windows.Interop;
+    using System.Windows.Media.Imaging;
+    using Asgard.Commands;
+    using Asgard.Repositories;
+    using Asgard.Themes;
+    using Asgard.ViewModels;
+    using Asgard.Windows;
+    using MaterialDesignThemes.Wpf;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for PrimaryWindowVodafone.xaml
+    /// Interaction logic for PrimaryWindowVodafone.xaml.
     /// </summary>
     public partial class PrimaryWindow : Window
     {
-
-        public MainViewModel user;
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        // Define three ICommand properties for minimizing, maximizing, and closing the window
-        public ICommand MinimizeCommand { get; set; }
-        public ICommand MaximizeCommand { get; set; }
-        public ICommand CloseCommand { get; set; }
+        private MainViewModel user;
 
         public PrimaryWindow()
         {
             InitializeComponent();
 
-
             // Access the Windows identity from the DataContext
-
             // Do something with the Windows identity
             if (DataContext is WindowsIdentity identity)
             {
                 // Get the Windows user token
                 IntPtr userToken = identity.Token;
             }
-
-
 
             user = new MainViewModel();
             Style = (Style)FindResource("CustomWindowStyle");
@@ -54,6 +45,7 @@ namespace Asgard
             MinimizeCommand = new RelayCommand(Minimize);
             MaximizeCommand = new RelayCommand(Maximize);
             CloseCommand = new RelayCommand(Close);
+
             // Get the current screen resolution
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
@@ -65,8 +57,17 @@ namespace Asgard
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
             Main.Content = new Pages.FrontPage();
-
         }
+
+        // Define three ICommand properties for minimizing, maximizing, and closing the window
+        public ICommand MinimizeCommand { get; set; }
+
+        public ICommand MaximizeCommand { get; set; }
+
+        public ICommand CloseCommand { get; set; }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void Minimize()
         {
@@ -78,9 +79,8 @@ namespace Asgard
             WindowState = (WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
         }
 
-        new void Close()
+        private new void Close()
         {
-
             string username = user.CurrentUserAccount.Username.ToString();
 
             // Set Status to Offline
@@ -93,9 +93,7 @@ namespace Asgard
 
             // Close App
             Application.Current.Shutdown();
-
         }
-
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -106,7 +104,6 @@ namespace Asgard
                 this.DragMove();
             }
         }
-
 
         private void TopBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -124,13 +121,10 @@ namespace Asgard
             if (this.WindowState == WindowState.Normal)
             {
                 this.WindowState = WindowState.Maximized;
-                /*MaximizeIcon.Kind = MahApps.Metro.IconPacks.PackIconBoxIconsKind.RegularCopy;*/
-
             }
             else if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
-                /*MaximizeIcon.Kind = MahApps.Metro.IconPacks.PackIconBoxIconsKind.RegularSquareRounded;*/
             }
         }
 
@@ -148,20 +142,10 @@ namespace Asgard
 
             // Close App
             Application.Current.Shutdown();
-
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == WindowState.Normal)
-            {
-                /*MaximizeIcon.Kind = MahApps.Metro.IconPacks.PackIconBoxIconsKind.RegularSquareRounded;*/
-
-            }
-            else if (this.WindowState == WindowState.Maximized)
-            {
-                /*MaximizeIcon.Kind = MahApps.Metro.IconPacks.PackIconBoxIconsKind.RegularCopy;*/
-            }
         }
 
         private void ProfileLetter_TargetUpdated(object sender, System.Windows.Data.DataTransferEventArgs e)
@@ -186,10 +170,6 @@ namespace Asgard
             // Open LoginWindow
             SignIn loginWindow = new SignIn();
             loginWindow.Show();
-
-
-
-
         }
 
         private void TogglePopupButton_Click(object sender, RoutedEventArgs e)
@@ -199,7 +179,6 @@ namespace Asgard
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             string username = user.CurrentUserAccount.Username;
             string displayname = user.CurrentUserAccount.DisplayName;
             string email = user.CurrentUserAccount.Email;
@@ -275,7 +254,6 @@ namespace Asgard
 
             ThemesController.ChangeTheme(themeUri);
             logoImage.Source = logo;
-
         }
     }
 }

@@ -1,22 +1,26 @@
-﻿using Asgard.Repositories;
-using Asgard.ViewModels;
-using MailKit;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MySql.Data.MySqlClient;
-using System;
-using System.Security.Authentication;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="HomeNet.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.Orange
 {
+    using System;
+    using System.Security.Authentication;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for HomeNet.xaml
+    /// Interaction logic for HomeNet.xaml.
     /// </summary>
     public partial class HomeNet : Page
     {
-        public MainViewModel user;
+        private MainViewModel user;
 
         public HomeNet()
         {
@@ -76,7 +80,7 @@ namespace Asgard.Tickets.Orange
 
                 MimeMessage message = new MimeMessage
                 {
-                    Subject = "Comanda noua Home Net: " + telefonclient.Text
+                    Subject = "Comanda noua Home Net: " + telefonclient.Text,
                 };
                 message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                 message.To.Add(MailboxAddress.Parse(email));
@@ -103,7 +107,7 @@ namespace Asgard.Tickets.Orange
                                 "GDPR 3: " + gdpr3.Text + "\r\n" +
                                 "GDPR 4: " + gdpr4.Text + "\r\n" +
                                 "Abonament: " + abonament.Text + "\r\n" +
-                                "Comentarii: " + comentarii.Text + "\r\n"
+                                "Comentarii: " + comentarii.Text + "\r\n",
                     };
                 }
                 else if (comboboxTipClient.Text == "Client nou")
@@ -132,7 +136,7 @@ namespace Asgard.Tickets.Orange
                                 "GDPR 3: " + gdpr3.Text + "\r\n" +
                                 "GDPR 4: " + gdpr4.Text + "\r\n" +
                                 "Abonament: " + abonament.Text + "\r\n" +
-                                "Comentarii: " + comentarii.Text + "\r\n"
+                                "Comentarii: " + comentarii.Text + "\r\n",
                     };
                 }
 
@@ -145,7 +149,6 @@ namespace Asgard.Tickets.Orange
                     client.Connect("zmail.optimacall.ro", 465, true);
                     client.Authenticate(emailAddress, password);
                     client.Send(message);
-
 
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -178,6 +181,7 @@ namespace Asgard.Tickets.Orange
                 }
             }
         }
+
         private void PreviousButtonClick(object sender, RoutedEventArgs e)
         {
             if (step2Panel.Visibility == Visibility.Visible)
@@ -14232,14 +14236,14 @@ namespace Asgard.Tickets.Orange
             var command = new MySqlCommand
             {
                 Connection = connection,
-                CommandText = "SELECT * FROM judete"
+                CommandText = "SELECT * FROM judete",
             };
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 comboboxJudet.Items.Add(reader.GetString(1));
-
             }
+
             connection.Close();
         }
     }

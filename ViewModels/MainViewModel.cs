@@ -1,39 +1,43 @@
-﻿using Asgard.Models;
-using Asgard.Repositories;
-using System.Threading;
+﻿// <copyright file="MainViewModel.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.ViewModels
 {
+    using System.Threading;
+    using Asgard.Models;
+    using Asgard.Repositories;
+
     public class MainViewModel : ViewModelBase
     {
+        // Fields
+        private readonly IUserRepository userRepository;
+        private UserAccountModel currentUserAccount;
 
-        //Fields
-        private UserAccountModel _currentUserAccount;
-        private readonly IUserRepository _userRepository;
+        public MainViewModel()
+        {
+            userRepository = new UserRepository();
+            CurrentUserAccount = new UserAccountModel();
+            LoadCurrentUserData();
+        }
 
         public UserAccountModel CurrentUserAccount
         {
             get
             {
-                return _currentUserAccount;
+                return currentUserAccount;
             }
+
             set
             {
-                _currentUserAccount = value;
+                currentUserAccount = value;
                 OnPropertyChanged(nameof(CurrentUserAccount));
             }
         }
 
-        public MainViewModel()
-        {
-            _userRepository = new UserRepository();
-            CurrentUserAccount = new UserAccountModel();
-            LoadCurrentUserData();
-        }
-
         public void LoadCurrentUserData()
         {
-            var user = _userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if (user != null)
             {
                 CurrentUserAccount.Username = user.Username;
@@ -48,16 +52,13 @@ namespace Asgard.ViewModels
                 CurrentUserAccount.Status = user.Status;
                 CurrentUserAccount.Name = user.Name;
                 CurrentUserAccount.LastName = user.LastName;
-
-
             }
             else
             {
                 CurrentUserAccount.DisplayName = "User invalid, nu ai fost logat";
-                //Hide child views.
+
+                // Hide child views.
             }
         }
-
-
     }
 }

@@ -13,6 +13,7 @@
         }
 
         private string _phone;
+
         public string Phone
         {
             get { return _phone; }
@@ -548,6 +549,7 @@
         public string AdresaLocConsum
         {
             get { return _adresalocconsum; }
+
             set
             {
                 OnPropertyChanged(ref _adresalocconsum, value);
@@ -574,25 +576,20 @@
             }
         }
 
-        private string _pod;
+        private string pod;
+
         public string POD
         {
-            get { return _pod; }
-            set
-            {
-                OnPropertyChanged(ref _pod, value);
-            }
+            get { return pod; }
+            set { OnPropertyChanged(ref pod, value); }
         }
 
-        private string _niveltensiune;
+        private string niveltensiune;
+
         public string NivelTensiune
         {
-            get { return _niveltensiune; }
-            set
-            {
-                OnPropertyChanged(ref _niveltensiune, value);
-            }
+            get { return niveltensiune; }
+            set { OnPropertyChanged(ref niveltensiune, value); }
         }
-
     }
 }

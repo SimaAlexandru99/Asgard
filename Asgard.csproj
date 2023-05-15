@@ -64,11 +64,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1291638B382827C51B78F5A0CB6DCBA9A32B4BB1</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>86D9C80A68E0EFA21B4EFF02744BD5667EF0D50F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>Asgard_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -149,6 +148,9 @@
     <Compile Include="Repositories\UserAccountModel.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Themes\ThemesController.cs" />
+    <Compile Include="Tickets\CEC\Formular.xaml.cs">
+      <DependentUpon>Formular.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tickets\EON\TicketContracte.xaml.cs">
       <DependentUpon>TicketContracte.xaml</DependentUpon>
     </Compile>
@@ -160,6 +162,9 @@
     </Compile>
     <Compile Include="Tickets\TicketeVodafone.xaml.cs">
       <DependentUpon>TicketeVodafone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\TicketsCEC.xaml.cs">
+      <DependentUpon>TicketsCEC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tickets\TicketsEon.xaml.cs">
       <DependentUpon>TicketsEon.xaml</DependentUpon>
@@ -277,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Tickets\CEC\Formular.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Tickets\EON\TicketContracte.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -292,6 +301,10 @@
     <Page Include="Tickets\TicketeVodafone.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketsCEC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tickets\TicketsEon.xaml">
       <Generator>MSBuild:Compile</Generator>

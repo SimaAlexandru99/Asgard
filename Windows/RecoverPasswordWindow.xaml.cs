@@ -45,7 +45,6 @@ namespace Asgard.Windows
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
-
             }
             else if (WindowState == WindowState.Maximized)
             {

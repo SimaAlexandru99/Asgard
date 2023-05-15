@@ -11,3 +11,6 @@ dotnet_diagnostic.SA1600.severity = none
 
 # SA1636: File header copyright text should match
 dotnet_diagnostic.SA1636.severity = none
+
+# SA1404: Code analysis suppression should have justification
+dotnet_diagnostic.SA1404.severity = none
