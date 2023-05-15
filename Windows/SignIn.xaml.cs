@@ -9,8 +9,11 @@ namespace Asgard.Windows
     using System.Runtime.InteropServices;
     using System.Security.Principal;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Interop;
+    using System.Windows.Media.Effects;
+    using System.Windows.Media;
     using Asgard.CustomControls;
     using Asgard.Repositories;
     using MySql.Data.MySqlClient;
@@ -20,12 +23,28 @@ namespace Asgard.Windows
     /// </summary>
     public partial class SignIn : Window
     {
+        private void ApplyDefaultShadowEffect(UIElement element)
+        {
+            DropShadowEffect shadowEffect = new DropShadowEffect
+            {
+                BlurRadius = 10,
+                Color = Colors.Black,
+                Opacity = 0.3,
+                ShadowDepth = 0,
+                Direction = 270,
+            };
+
+            element.Effect = shadowEffect;
+        }
+
         public SignIn()
         {
             InitializeComponent();
 
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+            ApplyDefaultShadowEffect(Border); // Apply shadow effect to the button
 
             if (screenWidth >= 1920 && screenHeight >= 1080)
             {

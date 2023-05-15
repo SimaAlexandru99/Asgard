@@ -53,8 +53,10 @@ namespace Asgard.Repositories
         {
             string sql = "INSERT INTO comenzi VALUES (NULL, @Agent, @Telefon, @Model, @Semnare, NULL)";
             MySqlConnection con = GetConnectionPublic();
-            MySqlCommand cmd = new MySqlCommand(sql, con);
-            cmd.CommandType = CommandType.Text;
+            MySqlCommand cmd = new MySqlCommand(sql, con)
+            {
+                CommandType = CommandType.Text,
+            };
             cmd.Parameters.Add("@Agent", MySqlDbType.VarChar).Value = order.Agent;
             cmd.Parameters.Add("@Telefon", MySqlDbType.VarChar).Value = order.Telefon;
             cmd.Parameters.Add("@Model", MySqlDbType.VarChar).Value = order.Model;

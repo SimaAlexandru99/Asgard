@@ -6,12 +6,17 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        Topmost="True" Loaded="Window_Loaded">
+        Topmost="True" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <Storyboard x:Key="SlideInAnimation">
             <DoubleAnimation Storyboard.TargetName="MessageBoxBorder" 
                          Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
-                         From="540" To="0" Duration="0:0:0.2" />
+                         From="540" To="0" Duration="0:0:0.4" />
+        </Storyboard>
+        <Storyboard x:Key="SlideOutAnimation">
+            <DoubleAnimation Storyboard.TargetName="MessageBoxBorder" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                             From="0" To="540" Duration="0:0:0.4" />
         </Storyboard>
     </Window.Resources>
     <Grid>
@@ -39,10 +44,10 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" HorizontalAlignment="Left">
-                        <TextBlock Text="PROBLEME LA CONEXIUNE:  Verifică conexiunea la VPN" HorizontalAlignment="Right" FontFamily="/Fonts/#Rubik Bold" FontSize="12"/>
+                        <TextBlock x:Name="Title" Text="PROBLEME LA CONEXIUNE:  Verifică conexiunea la VPN" FontFamily="/Fonts/#Rubik Bold" FontSize="12"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Left">
-                        <TextBlock Text="Dacă nu te poți conecta la Asgard, există posibilitatea să nu te fi conectat la VPN Optima, intră în FortiClient și conectează-te!" TextWrapping="Wrap" HorizontalAlignment="Right" FontFamily="/Fonts/#Rubik Light" FontSize="13"/>
+                        <TextBlock x:Name="Description" Text="Dacă nu te poți conecta la Asgard, există posibilitatea să nu te fi conectat la VPN Optima, intră în FortiClient și conectează-te!" TextWrapping="Wrap" HorizontalAlignment="Right" FontFamily="/Fonts/#Rubik Light" FontSize="13"/>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="2" Margin="0,14,14,0" VerticalAlignment="Top">
