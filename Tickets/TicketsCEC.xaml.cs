@@ -10,7 +10,7 @@ namespace Asgard.Tickets
     using System.Windows.Navigation;
 
     /// <summary>
-    /// Interaction logic for TicketsCEC.xaml
+    /// Interaction logic for TicketsCEC.xaml.
     /// </summary>
     public partial class TicketsCEC : Page
     {

@@ -87,8 +87,8 @@
 			<StackPanel  Margin="10 10 0 0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Bold" x:Name="T1"  FontSize="18" Text="T1. Buna ziua. Numele meu este ……………… si va sun din partea CEC Bank. As putea vorbi cu dl./ dna...........?" Margin="4" />
 				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  x:Name="T1_Da"  Content="Da" GroupName="T1" Checked="T1_Da_Checked" Unchecked="T1_Da_Unchecked" />
-                <RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  x:Name="T1_Da_credit"  Content="Da, credit" GroupName="T1" Checked="T1_Da_credit_Checked" Unchecked="T1_Da_credit_Unchecked"/>
-                <RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  x:Name="T1_Nu"  Content="Nu" GroupName="T1" Checked="T1_Nu_Checked" Unchecked="T1_Nu_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  x:Name="T1_Da_credit"  Content="Da, credit" GroupName="T1" Checked="T1_Da_credit_Checked" Unchecked="T1_Da_credit_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  x:Name="T1_Nu"  Content="Nu" GroupName="T1" Checked="T1_Nu_Checked" Unchecked="T1_Nu_Unchecked"/>
 			</StackPanel>
 			<StackPanel Margin="10 10 0 0" x:Name="Stack3" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
 				<StackPanel.Style>
