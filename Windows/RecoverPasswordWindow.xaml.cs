@@ -7,8 +7,11 @@ namespace Asgard.Windows
     using System;
     using System.Runtime.InteropServices;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Interop;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
     using Asgard.Repositories;
     using MySql.Data.MySqlClient;
 
@@ -27,9 +30,55 @@ namespace Asgard.Windows
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
 
-            // Set the window size based on the screen resolution
-            Width = screenWidth * 0.3; // set the width to 80% of the screen width
-            Height = screenHeight * 0.4; // set the height to 80% of the screen height
+            if (screenWidth >= 1920 && screenHeight >= 1080)
+            {
+                RecoverPassword.Width = 1000;
+                RecoverPassword.Height = 600;
+                Button.Height = 50;
+                Button.Width = 400;
+                Button.FontSize = 12;
+                ForgotPasswordRadioButton.Height = 70;
+                ForgotPasswordRadioButton.Width = 400;
+                ForgotUsernameRadioButton.Height = 70;
+                ForgotUsernameRadioButton.Width = 400;
+                TextIForgetPassword.FontSize = 16;
+                TextIForgetUsername.FontSize = 16;
+                TextIForgetPasswordHelper.FontSize = 10;
+                TextIForgetUsernameHelper.FontSize = 10;
+
+                CheckPassword.Height = 15;
+                CheckPassword.Width = 15;
+
+                CheckUsername.Height = 15;
+                CheckUsername.Width = 15;
+
+                Header.FontSize = 35;
+                Header2.FontSize = 35;
+                Header3.FontSize = 35;
+                Subheading.FontSize = 15;
+                Subheading2.FontSize = 15;
+                Subheading3.FontSize = 15;
+
+                txtUser.Height = 40;
+                txtUser2.Height = 40;
+                parolaConfirm.Height = 40;
+                parolaNoua.Height = 40;
+
+                TextComeBack.FontSize = 10;
+                ButtonComeback.FontSize = 10;
+            }
+            else if (screenWidth <= 1366 && screenHeight <= 768)
+            {
+                // Set the size for lower-resolution displays
+                RecoverPassword.Width = 800;
+                RecoverPassword.Height = 500;
+            }
+            else
+            {
+                // Set the default size for lower-resolution displays
+                RecoverPassword.Width = 800;
+                RecoverPassword.Height = 500;
+            }
         }
 
         [DllImport("user32.dll")]
@@ -59,7 +108,67 @@ namespace Asgard.Windows
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ticketReset.Text == "Parola")
+        }
+
+        private void RevinoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var loginwindow = new SignIn();
+            loginwindow.Show();
+
+            this.Close();
+        }
+
+        private void TopPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+            SendMessage(helper.Handle, 161, 2, 0);
+        }
+
+        private void ForgotPasswordRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            PasswordImage.Source = new BitmapImage(new Uri("/Assets/Icons/keyselected.png", UriKind.Relative));
+            CheckPassword.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void ForgotPasswordRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            PasswordImage.Source = new BitmapImage(new Uri("/Assets/Icons/keynoselected.png", UriKind.Relative));
+            CheckPassword.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+        }
+
+        private void ForgotUsernameRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            UserImage.Source = new BitmapImage(new Uri("/Assets/Icons/userselected.png", UriKind.Relative));
+            CheckUsername.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void ForgotUsernameRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            UserImage.Source = new BitmapImage(new Uri("/Assets/Icons/usernoselected.png", UriKind.Relative));
+            CheckUsername.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Panel1.Visibility == Visibility.Visible)
+            {
+                if (ForgotPasswordRadioButton.IsChecked == true)
+                {
+                    Panel1.Visibility = Visibility.Collapsed;
+                    Panel2.Visibility = Visibility.Visible;
+                    Button.Content = "Resetează parola";
+                }
+                else if (ForgotUsernameRadioButton.IsChecked == true)
+                {
+                    Panel1.Visibility = Visibility.Collapsed;
+                    Panel3.Visibility = Visibility.Visible;
+                    Button.Content = "Află nume de utilizator";
+                }
+
+                Indicator.Background = new SolidColorBrush(Color.FromRgb(217, 217, 217));
+                Indicator2.Background = new SolidColorBrush(Color.FromRgb(0, 127, 255));
+            }
+            else if (Panel2.Visibility == Visibility.Visible)
             {
                 string username = txtUser.Text;
                 string newPassword = parolaNoua.Password;
@@ -129,7 +238,7 @@ namespace Asgard.Windows
                     dialog.ShowDialog();
                 }
             }
-            else if (ticketReset.Text == "Username")
+            else if (Panel3.Visibility == Visibility.Visible)
             {
                 // Define the user's email
                 string userEmail = txtUser2.Text;
@@ -188,18 +297,38 @@ namespace Asgard.Windows
             }
         }
 
-        private void RevinoBtn_Click(object sender, RoutedEventArgs e)
+        private void Indicator_Click(object sender, RoutedEventArgs e)
         {
-            var loginwindow = new SignIn();
-            loginwindow.Show();
+            if (Panel1.Visibility == Visibility.Visible)
+            {
+            }
+            else if (Panel2.Visibility == Visibility.Visible)
+            {
+                Panel2.Visibility = Visibility.Collapsed;
+                Panel1.Visibility = Visibility.Visible;
+                Button.Content = "Mai departe";
+            }
+            else if (Panel3.Visibility == Visibility.Visible)
+            {
+                Panel3.Visibility = Visibility.Collapsed;
+                Panel1.Visibility = Visibility.Visible;
+                Button.Content = "Mai departe";
+            }
 
-            this.Close();
+            Indicator.Background = new SolidColorBrush(Color.FromRgb(0, 127, 255));
+            Indicator2.Background = new SolidColorBrush(Color.FromRgb(217, 217, 217));
         }
 
-        private void TopPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Indicator2_Click(object sender, RoutedEventArgs e)
         {
-            WindowInteropHelper helper = new WindowInteropHelper(this);
-            SendMessage(helper.Handle, 161, 2, 0);
+        }
+
+        private void ButtonComeback_Click(object sender, RoutedEventArgs e)
+        {
+            var signin = new SignIn();
+            signin.Show();
+
+            Close();
         }
     }
 }

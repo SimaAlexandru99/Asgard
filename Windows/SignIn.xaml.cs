@@ -5,15 +5,11 @@
 namespace Asgard.Windows
 {
     using System;
-    using System.Data;
     using System.Runtime.InteropServices;
     using System.Security.Principal;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Interop;
-    using System.Windows.Media;
-    using System.Windows.Media.Effects;
     using Asgard.CustomControls;
     using Asgard.Repositories;
     using MySql.Data.MySqlClient;
@@ -30,15 +26,16 @@ namespace Asgard.Windows
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
 
-            ApplyDefaultShadowEffect(Border); // Apply shadow effect to the button
-
             if (screenWidth >= 1920 && screenHeight >= 1080)
             {
                 SignInPage.Width = 1000;
                 SignInPage.Height = 600;
                 TextAboutAccount.FontSize = 12;
                 CreeazaCont.FontSize = 12;
-                loginBtn.Height = 70;
+                loginBtn.Height = 50;
+
+                txtUser.Height = 40;
+                txtPassword.Height = 40;
             }
             else if (screenWidth <= 1366 && screenHeight <= 768)
             {
@@ -60,20 +57,6 @@ namespace Asgard.Windows
 
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void ApplyDefaultShadowEffect(Border border)
-        {
-            DropShadowEffect shadowEffect = new DropShadowEffect
-            {
-                BlurRadius = 10,
-                Color = Colors.Black,
-                Opacity = 0.3,
-                ShadowDepth = 0,
-                Direction = 270,
-            };
-
-            border.Effect = shadowEffect;
-        }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {

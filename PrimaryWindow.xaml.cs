@@ -4,13 +4,6 @@
 
 namespace Asgard
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Security.Principal;
-    using System.Windows;
-    using System.Windows.Input;
-    using System.Windows.Interop;
-    using System.Windows.Media.Imaging;
     using Asgard.Commands;
     using Asgard.Repositories;
     using Asgard.Themes;
@@ -18,6 +11,13 @@ namespace Asgard
     using Asgard.Windows;
     using MaterialDesignThemes.Wpf;
     using MySql.Data.MySqlClient;
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Security.Principal;
+    using System.Windows;
+    using System.Windows.Input;
+    using System.Windows.Interop;
+    using System.Windows.Media.Imaging;
 
     /// <summary>
     /// Interaction logic for PrimaryWindowVodafone.xaml.

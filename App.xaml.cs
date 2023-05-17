@@ -4,16 +4,14 @@
 
 namespace Asgard
 {
-    using System;
-    using System.Data;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Windows;
-    using System.Windows.Media.Animation;
     using Asgard.CustomControls;
     using Asgard.Repositories;
     using Asgard.Windows;
     using MySql.Data.MySqlClient;
+    using System;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Media.Animation;
 
     /// <summary>
     /// Interaction logic for App.xaml.

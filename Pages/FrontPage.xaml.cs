@@ -1,18 +1,21 @@
-﻿using Asgard.ViewModels;
-using System;
-using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+﻿// <copyright file="FrontPage.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Pages
 {
+    using Asgard.ViewModels;
+    using System;
+    using System.Diagnostics;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+
     public partial class FrontPage : Page
     {
-        public MainViewModel user;
-
+        private readonly MainViewModel user;
 
         public FrontPage()
         {
@@ -34,6 +37,18 @@ namespace Asgard.Pages
                     LogoBanner.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Assets/telekomlogo2.jpg"));
                     BannerText.Text = "IN CURAND";
                     HyperlinkBanner.NavigateUri = new Uri("https://www.telekom.ro/");
+                    break;
+
+                case "CEC":
+                    TextHeader.Text = "Formulare";
+                    LogoBrand1.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Assets/cec-logo.jpg"));
+                    TextBrand1.Text = "Formular";
+                    SubtextBrand1.Text = "CEC";
+                    BorderBrand2.Visibility = Visibility.Collapsed;
+                    BannerBorder.Background = new SolidColorBrush(Color.FromRgb(233, 231, 148));
+                    LogoBanner.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Assets/cec-logo.jpg"));
+                    BannerText.Text = "IN CURAND";
+                    HyperlinkBanner.NavigateUri = new Uri("https://www.cec.ro/");
                     break;
 
                 case "Orange":
@@ -90,13 +105,13 @@ namespace Asgard.Pages
                             // handle unknown subproject
                             break;
                     }
+
                     break;
 
                 default:
                     // handle unknown project
                     break;
             }
-
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
@@ -135,9 +150,9 @@ namespace Asgard.Pages
                             window.Main.Navigate(new Tickets.Vodafone.OrderAchizitie());
                             break;
                     }
+
                     break;
             }
-
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)

@@ -4,8 +4,8 @@
 
 namespace Asgard.CustomControls
 {
-    using System.Threading.Tasks;
     using System;
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media.Animation;
@@ -21,7 +21,7 @@ namespace Asgard.CustomControls
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-{
+        {
             // Set the position of the window to the bottom right corner of the screen
             Left = SystemParameters.WorkArea.Right - Width - 10;
             Top = SystemParameters.WorkArea.Bottom - Height - 10;

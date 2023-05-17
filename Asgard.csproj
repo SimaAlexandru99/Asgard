@@ -369,6 +369,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="stylecop1.json" />
+    <Resource Include="Assets\LogoNewBackgroundRemoved.png" />
     <Resource Include="Assets\wifi-problem.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -376,6 +378,9 @@
     </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="Asgard_TemporaryKey.pfx" />
+    <Resource Include="Assets\cec-logo.jpg" />
+    <Resource Include="Assets\AsgardNew.png" />
+    <Resource Include="Assets\background-login.png" />
     <Content Include="Assets\Contracte EON\Actual_Assist_Electric.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -400,6 +405,12 @@
     <Content Include="Assets\Contracte EON\ServExpress_D2D.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Assets\Icons\keynoselected.png" />
+    <Resource Include="Assets\Icons\keyselected.png" />
+    <Resource Include="Assets\Icons\usernoselected.png" />
+    <Resource Include="Assets\Icons\userselected.png" />
+    <Resource Include="Assets\Icons\checked.png" />
+    <Resource Include="Assets\Icons\unchecked.png" />
     <Content Include="Assets\IT\Proces_Verbal_de_primire_laptop.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -488,12 +499,8 @@
     <Resource Include="Assets\AsgardLogoBlackBorders.png" />
     <Resource Include="Assets\AsgardLogoWhite.png" />
     <Resource Include="Assets\AsgardLogoWhiteBorders.png" />
-    <Resource Include="Assets\background-futuristic.jpg" />
-    <Resource Include="Assets\background.jpg" />
-    <Resource Include="Assets\background.png" />
     <Resource Include="Assets\banner-background.jpg" />
     <Resource Include="Assets\banner.jpg" />
-    <Resource Include="Assets\banner2.jpg" />
     <Resource Include="Assets\banner_signin.png" />
     <Resource Include="Assets\eonlogo.png" />
     <Resource Include="Assets\logo_vodafone_white.png" />
@@ -503,7 +510,6 @@
     <Resource Include="Assets\Post2.png" />
     <Resource Include="Assets\telekomlogo.jpg" />
     <Resource Include="Assets\telekomlogo2.jpg" />
-    <Content Include="Assets\video_prezentare.mp4" />
     <Resource Include="Assets\vodafonelogo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -4,10 +4,9 @@
 
 namespace Asgard.Pages
 {
-    using System;
+    using Asgard.ViewModels;
     using System.Windows;
     using System.Windows.Controls;
-    using Asgard.ViewModels;
 
     /// <summary>
     /// Interaction logic for TicketsPage.xaml.

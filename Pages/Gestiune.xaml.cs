@@ -4,6 +4,11 @@
 
 namespace Asgard.Pages
 {
+    using Asgard.CustomControls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using iTextSharp.text.pdf;
+    using MySql.Data.MySqlClient;
     using System;
     using System.Collections.ObjectModel;
     using System.Data;
@@ -13,11 +18,6 @@ namespace Asgard.Pages
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using Asgard.CustomControls;
-    using Asgard.Repositories;
-    using Asgard.ViewModels;
-    using iTextSharp.text.pdf;
-    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for Gestiune.xaml.
@@ -405,5 +405,5 @@ namespace Asgard.Pages
 
             public string Column13 { get; set; }
         }
-    } 
+    }
 }

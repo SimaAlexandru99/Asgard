@@ -26,6 +26,7 @@
     <SolidColorBrush x:Key="BackgroundMenuColor" Color="#007fff" />
 
     <SolidColorBrush x:Key="FocusColor" Color="#007FFF" />
+    <SolidColorBrush x:Key="FocusSecondColor" Color="#D9D9D9" />
     <SolidColorBrush x:Key="FocusHoverColor" Color="#0059b2" />
     <SolidColorBrush x:Key="FocusBorderColor" Color="#E0E3E7"/>
 

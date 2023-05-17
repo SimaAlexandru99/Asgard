@@ -23,7 +23,7 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Ellipse Width="45" Height="45" VerticalAlignment="Center">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Assets/telekomlogo2.jpg" Stretch="UniformToFill" />
+                        <ImageBrush ImageSource="/Assets/cec-logo.jpg" Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <TextBlock Text="Formular" Margin="0,15,0,0"
@@ -35,7 +35,7 @@
                 <Button x:Name="ButtonDex"
                     HorizontalAlignment="Left"
                     Panel.ZIndex="1"
-                    Style="{StaticResource TelekomButton}"
+                    Style="{StaticResource CECButton}"
                     Height="30"
                     Width="130"
                     Margin="0,25,0,0"

@@ -4,23 +4,23 @@
 
 namespace Asgard.Tickets.Orange
 {
-    using System;
-    using System.Security.Authentication;
-    using System.Windows;
-    using System.Windows.Controls;
     using Asgard.Repositories;
     using Asgard.ViewModels;
     using MailKit;
     using MailKit.Net.Smtp;
     using MimeKit;
     using MySql.Data.MySqlClient;
+    using System;
+    using System.Security.Authentication;
+    using System.Windows;
+    using System.Windows.Controls;
 
     /// <summary>
     /// Interaction logic for HomeNet.xaml.
     /// </summary>
     public partial class HomeNet : Page
     {
-        private MainViewModel user;
+        private readonly MainViewModel user;
 
         public HomeNet()
         {

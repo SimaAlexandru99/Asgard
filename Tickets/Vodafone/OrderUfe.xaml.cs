@@ -4,18 +4,18 @@
 
 namespace Asgard.Tickets.Vodafone
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Security.Authentication;
-    using System.Text.RegularExpressions;
-    using System.Windows;
-    using System.Windows.Controls;
     using Asgard.Repositories;
     using Asgard.ViewModels;
     using MailKit;
     using MailKit.Net.Smtp;
     using MimeKit;
     using MySql.Data.MySqlClient;
+    using System;
+    using System.Collections.Generic;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
 
     /// <summary>
     /// Interaction logic for OrderUfe.xaml.

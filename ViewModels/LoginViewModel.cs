@@ -4,14 +4,14 @@
 
 namespace Asgard.ViewModels
 {
+    using Asgard.Models;
+    using Asgard.Repositories;
     using System;
     using System.Net;
     using System.Security;
     using System.Security.Principal;
     using System.Threading;
     using System.Windows.Input;
-    using Asgard.Models;
-    using Asgard.Repositories;
 
     public class LoginViewModel : ViewModelBase
     {

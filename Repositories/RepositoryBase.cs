@@ -4,11 +4,11 @@
 
 namespace Asgard.Repositories
 {
+    using Asgard.CustomControls;
+    using MySql.Data.MySqlClient;
     using System.Data;
     using System.Windows;
     using System.Windows.Media.Animation;
-    using Asgard.CustomControls;
-    using MySql.Data.MySqlClient;
 
     public class RepositoryBase
     {

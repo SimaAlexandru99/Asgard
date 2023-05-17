@@ -4,11 +4,11 @@
 
 namespace Asgard.Tickets.CEC
 {
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
     using System.Data;
     using System.Windows;
     using System.Windows.Controls;
-    using Asgard.Repositories;
-    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for Formular.xaml.
