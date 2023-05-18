@@ -229,7 +229,7 @@
 						BorderThickness="0"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
-						Foreground="{DynamicResource TextColor}">
+						Foreground="{DynamicResource TextColor}" PreviewMouseWheel="Drop_produs_PreviewMouseWheel">
 					<ComboBoxItem x:Name="Var0" Content=" "/>
 					<ComboBoxItem x:Name="Var1" Content="obtinere credit de nevoi personale"/>
 					<ComboBoxItem x:Name="Var2" Content="obtinere credit ipotecar"/>

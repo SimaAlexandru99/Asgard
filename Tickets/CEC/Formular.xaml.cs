@@ -126,6 +126,9 @@ namespace Asgard.Tickets.CEC
 
         private void Drop_produs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Set focus to another element on the page to remove focus from the ComboBox
+            Q3_1.Focus();
+
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             string selectedValue = selectedItem.Content.ToString();
@@ -1942,6 +1945,11 @@ namespace Asgard.Tickets.CEC
                 dialog.ShowDialog();
                 return;
             }
+        }
+
+        private void Drop_produs_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
