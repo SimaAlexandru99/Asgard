@@ -200,9 +200,6 @@ namespace Asgard.Pages
             }
         }
 
-      
-
-
         private void MyDataGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
         }
