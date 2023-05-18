@@ -4,11 +4,11 @@
 
 namespace Asgard.Windows
 {
-    using Asgard.ViewModels;
     using System;
     using System.ComponentModel;
     using System.Threading;
     using System.Windows;
+    using Asgard.ViewModels;
 
     /// <summary>
     /// Interaction logic for SplashScreen.xaml.

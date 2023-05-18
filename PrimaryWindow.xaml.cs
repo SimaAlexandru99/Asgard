@@ -4,13 +4,6 @@
 
 namespace Asgard
 {
-    using Asgard.Commands;
-    using Asgard.Repositories;
-    using Asgard.Themes;
-    using Asgard.ViewModels;
-    using Asgard.Windows;
-    using MaterialDesignThemes.Wpf;
-    using MySql.Data.MySqlClient;
     using System;
     using System.Runtime.InteropServices;
     using System.Security.Principal;
@@ -18,13 +11,20 @@ namespace Asgard
     using System.Windows.Input;
     using System.Windows.Interop;
     using System.Windows.Media.Imaging;
+    using Asgard.Commands;
+    using Asgard.Repositories;
+    using Asgard.Themes;
+    using Asgard.ViewModels;
+    using Asgard.Windows;
+    using MaterialDesignThemes.Wpf;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for PrimaryWindowVodafone.xaml.
     /// </summary>
     public partial class PrimaryWindow : Window
     {
-        private MainViewModel user;
+        private readonly MainViewModel user;
 
         public PrimaryWindow()
         {
@@ -157,19 +157,39 @@ namespace Asgard
         {
             string username = user.CurrentUserAccount.Username.ToString();
 
-            // Set Status to Offline
-            using (var connection = RepositoryBase.GetConnectionPublic())
-            using (var command = new MySqlCommand("UPDATE users SET Status = 'Offline' WHERE Username = @username", connection))
+            try
             {
-                command.Parameters.AddWithValue("@username", username);
-                command.ExecuteNonQuery();
+                // Set Status to Offline
+                using (var connection = RepositoryBase.GetConnectionPublic())
+                using (var command = new MySqlCommand("UPDATE users SET Status = 'Offline' WHERE Username = @username", connection))
+                {
+                    _ = command.Parameters.AddWithValue("@username", username);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the database operation
+                MessageBox.Show("An error occurred while updating the user status: " + ex.Message);
+
+                // You might want to log the exception for further investigation
+                // Logging code here
             }
 
+            // Close the current window
             Close();
 
             // Open LoginWindow
-            SignIn loginWindow = new SignIn();
-            loginWindow.Show();
+            try
+            {
+                SignIn signIn = new SignIn();
+                Application.Current.MainWindow = signIn;
+                signIn.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while opening the login window: " + ex.Message);
+            }
         }
 
         private void TogglePopupButton_Click(object sender, RoutedEventArgs e)

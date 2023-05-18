@@ -4,14 +4,14 @@
 
 namespace Asgard.ViewModels
 {
-    using Asgard.Models;
-    using Asgard.Repositories;
     using System;
     using System.Net;
     using System.Security;
     using System.Security.Principal;
     using System.Threading;
     using System.Windows.Input;
+    using Asgard.Models;
+    using Asgard.Repositories;
 
     public class LoginViewModel : ViewModelBase
     {
@@ -36,8 +36,6 @@ namespace Asgard.ViewModels
         public ICommand RecoverPasswordCommand { get; }
 
         public ICommand ShowPasswordCommand { get; }
-
-        public ICommand RememberPasswordCommand { get; }
 
         // properties
         public string Username
@@ -125,8 +123,7 @@ namespace Asgard.ViewModels
             {
                 if (isValidUser)
                 {
-                    Thread.CurrentPrincipal = new GenericPrincipal(
-                        new GenericIdentity(Username), null);
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
                     IsViewVisible = false;
 
                     var user = new MainViewModel();

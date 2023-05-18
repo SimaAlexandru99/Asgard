@@ -1,9 +1,13 @@
-﻿using System.Globalization;
-using System.Windows.Controls;
+﻿// <copyright file="StartsWithRule2.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Validations
 {
-    class StartsWithRule2 : ValidationRule
+    using System.Globalization;
+    using System.Windows.Controls;
+
+    internal class StartsWithRule2 : ValidationRule
     {
         public string StartsWith { get; set; } = "2";
 
@@ -17,5 +21,4 @@ namespace Asgard.Validations
             return new ValidationResult(false, $"ID-ul comenzii trebuie să înceapă cu '{StartsWith}'.");
         }
     }
-
 }

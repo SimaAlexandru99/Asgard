@@ -36,6 +36,9 @@ namespace Asgard.Windows
 
                 txtUser.Height = 40;
                 txtPassword.Height = 40;
+
+                Header.Height = 35;
+                Subheader.Height = 35;
             }
             else if (screenWidth <= 1366 && screenHeight <= 768)
             {

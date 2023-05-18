@@ -1,9 +1,13 @@
-﻿using System.Globalization;
-using System.Windows.Controls;
+﻿// <copyright file="MaximumCharacterRule.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Asgard.Validations
 {
-    class MaximumCharacterRule : ValidationRule
+    using System.Globalization;
+    using System.Windows.Controls;
+
+    internal class MaximumCharacterRule : ValidationRule
     {
         public int MaximumCharacters { get; set; }
 

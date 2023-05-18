@@ -4,9 +4,9 @@
 
 namespace Asgard.ViewModels
 {
+    using System.Threading;
     using Asgard.Models;
     using Asgard.Repositories;
-    using System.Threading;
 
     public class MainViewModel : ViewModelBase
     {

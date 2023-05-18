@@ -403,65 +403,47 @@
             }
         }
 
-
-
-
-
-
-        // Telekom 
-
+        // Telekom
         private string _idcerere;
 
         public string IDCerere
         {
             get { return _idcerere; }
-            set
-            {
-                OnPropertyChanged(ref _idcerere, value);
-            }
+            set { OnPropertyChanged(ref _idcerere, value); }
         }
 
-
-        private string _idsursa;
+        private string idsursa;
 
         public string IDSursa
         {
-            get { return _idsursa; }
-            set
-            {
-                OnPropertyChanged(ref _idsursa, value);
-            }
+            get { return idsursa; }
+            set { OnPropertyChanged(ref idsursa, value); }
         }
 
-        private string _dataintrare;
+        private string dataintrare;
 
         public string DataIntrare
         {
-            get { return _dataintrare; }
-            set
-            {
-                OnPropertyChanged(ref _dataintrare, value);
-            }
+            get { return dataintrare; }
+            set { OnPropertyChanged(ref dataintrare, value); }
         }
 
-        private string _datasemnare;
+        private string datasemnare;
 
         public string DataSemnare
         {
-            get { return _datasemnare; }
-            set
-            {
-                OnPropertyChanged(ref _datasemnare, value);
-            }
+            get { return datasemnare; }
+            set { OnPropertyChanged(ref datasemnare, value); }
         }
 
-        private string _consumanual;
+        private string consumanual;
+
         public string ConsumAnual
         {
-            get { return _consumanual; }
+            get { return consumanual; }
             set
             {
-                OnPropertyChanged(ref _consumanual, value);
+                OnPropertyChanged(ref consumanual, value);
             }
         }
 
@@ -469,19 +451,16 @@
         public string CodConsumGaz
         {
             get { return _codconsumgaz; }
-            set
-            {
-                OnPropertyChanged(ref _codconsumgaz, value);
-            }
+            set { OnPropertyChanged(ref _codconsumgaz, value); }
         }
 
-        private string _clcgaz;
+        private string clcgaz;
         public string CLCGaz
         {
-            get { return _clcgaz; }
+            get { return clcgaz; }
             set
             {
-                OnPropertyChanged(ref _clcgaz, value);
+                OnPropertyChanged(ref clcgaz, value);
             }
         }
 

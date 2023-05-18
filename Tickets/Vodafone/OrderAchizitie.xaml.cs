@@ -110,7 +110,7 @@ namespace Asgard.Tickets.Vodafone
             }
             else if (step2Panel.Visibility == Visibility.Visible)
             {
-                if (client_comun_combo.Text == string.Empty || tipAbonament.Text == string.Empty || numar_impactat.Text == string.Empty || comboboxAbonament.Text == string.Empty || comboboxCostAbonament.Text == string.Empty || comboboxDeviceChoice.Text == string.Empty || comboboxKid.Text == string.Empty)
+                if (client_comun_combo.Text == string.Empty || tipAbonament.Text == string.Empty || comboboxAbonament.Text == string.Empty || comboboxCostAbonament.Text == string.Empty || comboboxDeviceChoice.Text == string.Empty || comboboxKid.Text == string.Empty)
                 {
 
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
@@ -280,8 +280,17 @@ namespace Asgard.Tickets.Vodafone
             }
             else if (step2Panel.Visibility == Visibility.Visible)
             {
-                step2Panel.Visibility = Visibility.Collapsed;
-                stepInfoAdress.Visibility = Visibility.Visible;
+                if (comboboxClient.Text == "Client existent")
+                {
+                    step2Panel.Visibility = Visibility.Collapsed;
+                    step1Panel.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    step2Panel.Visibility = Visibility.Collapsed;
+                    stepInfoAdress.Visibility = Visibility.Visible;
+                }
+
             }
             else if (step3Panel.Visibility == Visibility.Visible)
             {
@@ -14491,7 +14500,7 @@ namespace Asgard.Tickets.Vodafone
             string password = "Optima#321";
             MimeMessage message = new MimeMessage
             {
-                Subject = "Comanda noua achizitie: " + cnp.Text
+                Subject = "Comanda noua achizitie: " + cnp.Text,
             };
             message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
             message.To.Add(MailboxAddress.Parse(email));
@@ -14598,6 +14607,12 @@ namespace Asgard.Tickets.Vodafone
             comboboxCostAbonament.Items.Clear();
             switch (selectedItem.Content.ToString())
             {
+                case "Activare noua":
+                    comboboxAbonament.Items.Add("Red 9");
+                    comboboxAbonament.Items.Add("Red 15");
+                    comboboxAbonament.Items.Add("Red 12");
+                    serie_sim.Clear();
+                    break;
                 case "Migrare":
                     comboboxAbonament.Items.Add("Red 9");
                     comboboxCostAbonament.Items.Add("6 EURO");
@@ -14653,6 +14668,26 @@ namespace Asgard.Tickets.Vodafone
 
         private void ComboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string selectedItem = comboboxAbonament.SelectedItem as string;
+            comboboxCostAbonament.Items.Clear();
+
+            if (selectedItem != null)
+            {
+                switch (selectedItem)
+                {
+                    case "Red 9":
+                        comboboxCostAbonament.Items.Add("6 EURO");
+                        break;
+                    case "Red 15":
+                        comboboxCostAbonament.Items.Add("11 EURO");
+                        break;
+                    case "Red 12":
+                        comboboxCostAbonament.Items.Add("10 EURO");
+                        break;
+                }
+            }
         }
+
     }
+
 }

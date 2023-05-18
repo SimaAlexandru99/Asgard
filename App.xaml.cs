@@ -4,14 +4,14 @@
 
 namespace Asgard
 {
-    using Asgard.CustomControls;
-    using Asgard.Repositories;
-    using Asgard.Windows;
-    using MySql.Data.MySqlClient;
     using System;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media.Animation;
+    using Asgard.CustomControls;
+    using Asgard.Repositories;
+    using Asgard.Windows;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for App.xaml.
@@ -26,7 +26,7 @@ namespace Asgard
             {
                 if (loginView.IsVisible == false && loginView.IsLoaded)
                 {
-                    var splash = new Windows.SplashScreen();
+                    Windows.SplashScreen splash = new Windows.SplashScreen();
                     splash.Show();
                     loginView.Close();
                 }
@@ -112,13 +112,15 @@ namespace Asgard
             MySqlConnection connection = null;
             try
             {
-                MySqlConnectionStringBuilder connectionStringBuilder = new MySqlConnectionStringBuilder();
-                connectionStringBuilder.Server = "192.168.100.18";
-                connectionStringBuilder.Port = 3306;
-                connectionStringBuilder.UserID = "eoverart";
-                connectionStringBuilder.Password = "P3CZV4pgc7jtT4z";
-                connectionStringBuilder.Database = "asgard";
-                connectionStringBuilder.ConnectionTimeout = 30;
+                MySqlConnectionStringBuilder connectionStringBuilder = new MySqlConnectionStringBuilder
+                {
+                    Server = "192.168.100.18",
+                    Port = 3306,
+                    UserID = "eoverart",
+                    Password = "P3CZV4pgc7jtT4z",
+                    Database = "asgard",
+                    ConnectionTimeout = 30,
+                };
 
                 int maxRetries = 3;
                 int retryDelaySeconds = 10;
