@@ -1932,7 +1932,7 @@ namespace Asgard.Tickets.CEC
                     {
                         dialog.Title = "Felicitări";
                         dialog.Status.Text = "Ai înregistrat un formular";
-                        dialog.Descriere.Text = "Felicitari, ai trimis un sondaj complet \n Apasa pe ok pentru a introduce un alt sondaj";
+                        dialog.Descriere.Text = "Felicitari, ai trimis un sondaj incomplet \n Apasa pe ok pentru a introduce un alt sondaj";
                     };
                     dialog.ShowDialog();
 
