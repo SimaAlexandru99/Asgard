@@ -57,6 +57,11 @@ namespace Asgard
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
             Main.Content = new Pages.FrontPage();
+
+            if (user.CurrentUserAccount.Proiect == "CEC")
+            {
+                DarkLightToggle.Visibility = Visibility.Hidden;
+            }
         }
 
         // Define three ICommand properties for minimizing, maximizing, and closing the window

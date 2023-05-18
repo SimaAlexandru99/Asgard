@@ -134,6 +134,9 @@ namespace Asgard.Pages
                 case "Telekom":
                     window.Main.Navigate(new Tickets.Telekom.TicketsBackoffice());
                     break;
+                case "CEC":
+                    window.Main.Navigate(new Tickets.CEC.Formular());
+                    break;
                 case "Orange":
                     window.Main.Navigate(new Tickets.Orange.HomeNet());
                     break;

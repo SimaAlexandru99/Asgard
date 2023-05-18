@@ -131,6 +131,7 @@ namespace Asgard.Tickets.Vodafone
                 comboboxJudet.Items.Add(reader.GetString(1));
 
             }
+
             connection.Close();
         }
 
@@ -14114,7 +14115,7 @@ namespace Asgard.Tickets.Vodafone
             }
         }
 
-        public void Clear()
+        private void Clear()
         {
             awbComanda.Text = idComanda.Text = nameClient.Text = datacomandaClient.Text = telefoncontactClient.Text = AdresaClient.Text =
             motivreturClient.Text = comboboxTerminalDesigilat.Text = string.Empty;

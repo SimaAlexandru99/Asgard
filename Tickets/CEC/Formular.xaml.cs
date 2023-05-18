@@ -1618,8 +1618,10 @@ namespace Asgard.Tickets.CEC
                         {
                             string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
                             MySqlConnection connection = RepositoryBase.GetConnectionPublic();
-                            MySqlCommand cmd = new MySqlCommand(sql, connection);
-                            cmd.CommandType = CommandType.Text;
+                            MySqlCommand cmd = new MySqlCommand(sql, connection)
+                            {
+                                CommandType = CommandType.Text,
+                            };
                             cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
                             cmd.Parameters.Add("@t1", MySqlDbType.VarChar).Value = T1;
                             cmd.Parameters.Add("@t2_1", MySqlDbType.VarChar).Value = T2_1;
@@ -1779,8 +1781,10 @@ namespace Asgard.Tickets.CEC
                         {
                             string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
                             MySqlConnection connection = RepositoryBase.GetConnectionPublic();
-                            MySqlCommand cmd = new MySqlCommand(sql, connection);
-                            cmd.CommandType = CommandType.Text;
+                            MySqlCommand cmd = new MySqlCommand(sql, connection)
+                            {
+                                CommandType = CommandType.Text,
+                            };
                             cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
                             cmd.Parameters.Add("@t1", MySqlDbType.VarChar).Value = T1;
                             cmd.Parameters.Add("@t2_1", MySqlDbType.VarChar).Value = T2_1;
@@ -1872,8 +1876,10 @@ namespace Asgard.Tickets.CEC
             {
                 string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
                 MySqlConnection connection = RepositoryBase.GetConnectionPublic();
-                MySqlCommand cmd = new MySqlCommand(sql, connection);
-                cmd.CommandType = CommandType.Text;
+                MySqlCommand cmd = new MySqlCommand(sql, connection)
+                {
+                    CommandType = CommandType.Text,
+                };
                 cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
                 cmd.Parameters.Add("@t1", MySqlDbType.VarChar).Value = T1;
                 cmd.Parameters.Add("@t2_1", MySqlDbType.VarChar).Value = T2_1;

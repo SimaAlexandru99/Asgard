@@ -104,9 +104,9 @@
 			</StackPanel>
 			<StackPanel Width="600"  Margin="10 10 0 10" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
 				<TextBlock TextWrapping="Wrap" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="T1"  FontSize="14" Text="T1. Buna ziua. Numele meu este ……………… si va sun din partea CEC Bank. As putea vorbi cu dl./ dna...........?" Margin="4,4,4,10" />
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T1_Da"  Content="Da" GroupName="T1" Checked="T1_Da_Checked" Unchecked="T1_Da_Unchecked" />
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T1_Da_credit"  Content="Da, credit" GroupName="T1" Checked="T1_Da_credit_Checked" Unchecked="T1_Da_credit_Unchecked"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T1_Nu"  Content="Nu" GroupName="T1" Checked="T1_Nu_Checked" Unchecked="T1_Nu_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  Foreground="{DynamicResource TextColor}" Background="{DynamicResource TextColor}"  materialDesign:ColorZoneAssist.Mode="Custom"  FontFamily="/Fonts/#Rubik Medium" x:Name="T1_Da"  Content="Da" GroupName="T1" Checked="T1_Da_Checked" Unchecked="T1_Da_Unchecked" BorderBrush="{DynamicResource TextColor}" />
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T1_Da_credit"  Content="Da, credit" GroupName="T1" Checked="T1_Da_credit_Checked" Unchecked="T1_Da_credit_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T1_Nu"  Content="Nu" GroupName="T1" Checked="T1_Nu_Checked" Unchecked="T1_Nu_Unchecked"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack3" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
 				<StackPanel.Style>
@@ -115,8 +115,8 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="T2_1"  TextWrapping="Wrap" FontSize="14" Text="T2.1. Nu va retinem foarte mult. Ne dorim sa imbunatatim calitatea serviciilor pe care vi le oferim si de aceea ne-ar ajuta/am aprecia daca ne-ati putea raspunde la cateva intrebari referitoare la vizita pe care ati efectuat-o luni/ .../ .../ vineri in data......intr-una din agentiile noastre Ati fost personal in Agentia CEC Bank din….. [orasul, strada]?" Margin="4,4,4,10" />
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T2_1_Da"  Content="Da" GroupName="T2.1" Checked="T2_1_Da_Checked" Unchecked="T2_1_Da_Unchecked"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T2_1_Nu"  Content="Nu" GroupName="T2.1" Checked="T2_1_Nu_Checked" Unchecked="T2_1_Nu_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T2_1_Da"  Content="Da" GroupName="T2.1" Checked="T2_1_Da_Checked" Unchecked="T2_1_Da_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T2_1_Nu"  Content="Nu" GroupName="T2.1" Checked="T2_1_Nu_Checked" Unchecked="T2_1_Nu_Unchecked"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack4" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -125,8 +125,8 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="T2_2"  TextWrapping="Wrap" FontSize="14" Text="T2.2 Ne dorim sa imbunatatim calitatea serviciilor pe care vi le oferim si de aceea va rugam sa ne raspundeti la cateva intrebari referitoare la vizita pe care ati efectuat-o recent intr-una din agentiile noastre Ati fost personal in Agentia CEC Bank din….. [orasul, strada]?"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T2_2_Da"  Content="Da" GroupName="T2.2" Checked="T2_2_Da_Checked" Unchecked="T2_2_Da_Unchecked"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T2_2_Nu"  Content="Nu" GroupName="T2.2"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T2_2_Da"  Content="Da" GroupName="T2.2" Checked="T2_2_Da_Checked" Unchecked="T2_2_Da_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T2_2_Nu"  Content="Nu" GroupName="T2.2"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack5" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -135,8 +135,8 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="T3"  TextWrapping="Wrap" FontSize="14" Text="T3. Aveti cateva minute pentru a continua aceasta discutie?"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T3_Da"  Content="Da" GroupName="T3" Checked="T3_Da_Checked" Unchecked="T3_Da_Unchecked"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T3_Nu"  Content="Nu" GroupName="T3" Checked="T3_Nu_Checked" Unchecked="T3_Nu_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T3_Da"  Content="Da" GroupName="T3" Checked="T3_Da_Checked" Unchecked="T3_Da_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T3_Nu"  Content="Nu" GroupName="T3" Checked="T3_Nu_Checked" Unchecked="T3_Nu_Unchecked"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack6" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -145,8 +145,8 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="T4"  TextWrapping="Wrap" FontSize="14" Text="T4. Motivul pentru care ati fost in unitatea CEC Bank a fost acela de a ………………. ? [citeste descrierea din baza de date]"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T4_Da"  Content="Da" GroupName="T4" Checked="T4_Da_Checked" Unchecked="T4_Da_Unchecked"/>
-				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="T4_Nu"  Content="Nu" GroupName="T4" Checked="T4_Nu_Checked" Unchecked="T4_Nu_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T4_Da"  Content="Da" GroupName="T4" Checked="T4_Da_Checked" Unchecked="T4_Da_Unchecked"/>
+				<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="T4_Nu"  Content="Nu" GroupName="T4" Checked="T4_Nu_Checked" Unchecked="T4_Nu_Unchecked"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack7" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -188,12 +188,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q1"  TextWrapping="Wrap" FontSize="14" Text="Q1. Va voi citi cateva intrebari si variante de raspuns, cu rugamintea de a alege raspunsul care vi se potriveste cel mai bine. Cat de usor a fost sa …………….. ? [citeste descrierea din baza de date] Ati putea sa oferiti o nota pe o scala de la 1 la 5, unde 1 inseamna foarte greu, iar 5 foarte usor? "/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q1_bifa6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack12" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -204,12 +204,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q2"  TextWrapping="Wrap" FontSize="14" Text="Q2. In ceea ce priveste timpul de asteptare in agentie, pana cand ati fost preluat de reprezentantul bancii, cat de multumit ati fost? Ati putea sa oferiti o nota pe o scala 1-5 unde 1 reprezinta foarte nemultumit, iar 5 foarte multumit?"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q2_bifa6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack13" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -263,12 +263,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_1_1"  TextWrapping="Wrap" FontSize="14" Text="Q3.1.1 Cunoastea produsul bancar;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1" Checked="Q3_1_1_bifa_1_Checked" Unchecked="Q3_1_1_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1" Checked="Q3_1_1_bifa_2_Checked" Unchecked="Q3_1_1_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1" Checked="Q3_1_1_bifa_1_Checked" Unchecked="Q3_1_1_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1" Checked="Q3_1_1_bifa_2_Checked" Unchecked="Q3_1_1_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack16" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -279,12 +279,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_1_2"  TextWrapping="Wrap" FontSize="14" Text="Q3.1.2. A folosit un limbaj usor de inteles si nu folosit excesiv termeni bancari sau tehnici;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2" Checked="Q3_1_2_bifa_1_Checked" Unchecked="Q3_1_2_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2" Checked="Q3_1_2_bifa_2_Checked" Unchecked="Q3_1_2_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2" Checked="Q3_1_2_bifa_1_Checked" Unchecked="Q3_1_2_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2" Checked="Q3_1_2_bifa_2_Checked" Unchecked="Q3_1_2_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack17" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -295,12 +295,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_1_3"  TextWrapping="Wrap" FontSize="14" Text="Q3.1.3. A aratat disponibilitate de a va ajuta;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3" Checked="Q3_1_3_bifa_1_Checked" Unchecked="Q3_1_3_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3" Checked="Q3_1_3_bifa_2_Checked" Unchecked="Q3_1_3_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3" Checked="Q3_1_3_bifa_1_Checked" Unchecked="Q3_1_3_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3" Checked="Q3_1_3_bifa_2_Checked" Unchecked="Q3_1_3_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.3"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack18" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -311,12 +311,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_1_4"  TextWrapping="Wrap" FontSize="14" Text="Q3.1.4. A identificat tot ceea ce aveati nevoie, adresandu-va intrebari adecvate;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4" Checked="Q3_1_4_bifa_1_Checked" Unchecked="Q3_1_4_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4" Checked="Q3_1_4_bifa_2_Checked" Unchecked="Q3_1_4_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4" Checked="Q3_1_4_bifa_1_Checked" Unchecked="Q3_1_4_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4" Checked="Q3_1_4_bifa_2_Checked" Unchecked="Q3_1_4_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.4"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack19" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -327,12 +327,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_1_5"  TextWrapping="Wrap" FontSize="14" Text="Q3.1.5. V-a rezolvat solicitarea cu rapiditate;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5" Checked="Q3_1_5_bifa_1_Checked" Unchecked="Q3_1_5_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5" Checked="Q3_1_5_bifa_2_Checked" Unchecked="Q3_1_5_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5" Checked="Q3_1_5_bifa_1_Checked" Unchecked="Q3_1_5_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5" Checked="Q3_1_5_bifa_2_Checked" Unchecked="Q3_1_5_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.5"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack20" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -343,12 +343,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_1_6"  TextWrapping="Wrap" FontSize="14" Text="Q3.1.6. V-a comunicat informatii complete cu privire la costurile implicate – va rog sa evaluati strict masura in care colegul nostru v-a transmis clar informatiile despre costurile produsului solicitat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6" Checked="Q3_1_6_bifa_1_Checked" Unchecked="Q3_1_6_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6" Checked="Q3_1_6_bifa_2_Checked" Unchecked="Q3_1_6_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6" Checked="Q3_1_6_bifa_1_Checked" Unchecked="Q3_1_6_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6" Checked="Q3_1_6_bifa_2_Checked" Unchecked="Q3_1_6_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.1.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_1_6_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.1.6"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack21" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -367,12 +367,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_2_1"  TextWrapping="Wrap" FontSize="14" Text="Q3.2.1 Cunoastea pasii necesari efectuarii operatiunii;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1" Checked="Q3_2_1_bifa_1_Checked" Unchecked="Q3_2_1_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1" Checked="Q3_2_1_bifa_2_Checked" Unchecked="Q3_2_1_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1" Checked="Q3_2_1_bifa_1_Checked" Unchecked="Q3_2_1_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1" Checked="Q3_2_1_bifa_2_Checked" Unchecked="Q3_2_1_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack23" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -383,12 +383,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_2_2"  TextWrapping="Wrap" FontSize="14" Text="Q3.2.2 A folosit un limbaj usor de inteles si nu folosit excesiv termeni bancari sau tehnici;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2" Checked="Q3_2_2_bifa_1_Checked" Unchecked="Q3_2_2_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2" Checked="Q3_2_2_bifa_2_Checked" Unchecked="Q3_2_2_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2" Checked="Q3_2_2_bifa_1_Checked" Unchecked="Q3_2_2_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2" Checked="Q3_2_2_bifa_2_Checked" Unchecked="Q3_2_2_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack24" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -399,12 +399,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_2_3"  TextWrapping="Wrap" FontSize="14" Text="Q3.2.3 A aratat disponibilitate de a va ajuta;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3" Checked="Q3_2_3_bifa_1_Checked" Unchecked="Q3_2_3_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3" Checked="Q3_2_3_bifa_2_Checked" Unchecked="Q3_2_3_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3" Checked="Q3_2_3_bifa_1_Checked" Unchecked="Q3_2_3_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3" Checked="Q3_2_3_bifa_2_Checked" Unchecked="Q3_2_3_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.3"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack25" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -415,12 +415,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_2_4"  TextWrapping="Wrap" FontSize="14" Text="Q3.2.4. A identificat tot ceea ce aveati nevoie, adresandu-va intrebari adecvate;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4" Checked="Q3_2_4_bifa_1_Checked" Unchecked="Q3_2_4_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4" Checked="Q3_2_4_bifa_2_Checked" Unchecked="Q3_2_4_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4" Checked="Q3_2_4_bifa_1_Checked" Unchecked="Q3_2_4_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4" Checked="Q3_2_4_bifa_2_Checked" Unchecked="Q3_2_4_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.4"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack26" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -431,12 +431,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_2_5"  TextWrapping="Wrap" FontSize="14" Text="Q3.2.5. V-a rezolvat solicitarea cu rapiditate;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5" Checked="Q3_2_5_bifa_1_Checked" Unchecked="Q3_2_5_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5" Checked="Q3_2_5_bifa_2_Checked" Unchecked="Q3_2_5_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5" Checked="Q3_2_5_bifa_1_Checked" Unchecked="Q3_2_5_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5" Checked="Q3_2_5_bifa_2_Checked" Unchecked="Q3_2_5_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.5"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack27" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -447,12 +447,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_2_6"  TextWrapping="Wrap" FontSize="14" Text="Q3.2.6. V-a comunicat informatii complete cu privire la costurile implicate – va rog sa evaluati strict masura in care colegul nostru v-a transmis clar informatiile despre costurile operatiunii efectuate"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6" Checked="Q3_2_6_bifa_1_Checked" Unchecked="Q3_2_6_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6" Checked="Q3_2_6_bifa_2_Checked" Unchecked="Q3_2_6_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6" Checked="Q3_2_6_bifa_1_Checked" Unchecked="Q3_2_6_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6" Checked="Q3_2_6_bifa_2_Checked" Unchecked="Q3_2_6_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.2.6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_2_6_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.2.6"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack28" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -471,12 +471,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_3_1"  TextWrapping="Wrap" FontSize="14" Text="Q3.3.1. Cunoastea pasii necesari efectuarii operatiunii;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1" Checked="Q3_3_1_bifa_1_Checked" Unchecked="Q3_3_1_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1" Checked="Q3_3_1_bifa_2_Checked" Unchecked="Q3_3_1_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1" Checked="Q3_3_1_bifa_1_Checked" Unchecked="Q3_3_1_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1" Checked="Q3_3_1_bifa_2_Checked" Unchecked="Q3_3_1_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack30" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -487,12 +487,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_3_2"  TextWrapping="Wrap" FontSize="14" Text="Q3.3.2. A folosit un limbaj usor de inteles si nu folosit excesiv termeni bancari sau tehnici;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2" Checked="Q3_3_2_bifa_1_Checked" Unchecked="Q3_3_2_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2" Checked="Q3_3_2_bifa_2_Checked" Unchecked="Q3_3_2_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2" Checked="Q3_3_2_bifa_1_Checked" Unchecked="Q3_3_2_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2" Checked="Q3_3_2_bifa_2_Checked" Unchecked="Q3_3_2_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack31" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -503,12 +503,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_3_3"  TextWrapping="Wrap" FontSize="14" Text="Q3.3.3. A aratat disponibilitate de a va ajuta;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3" Checked="Q3_3_3_bifa_1_Checked" Unchecked="Q3_3_3_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3" Checked="Q3_3_3_bifa_2_Checked" Unchecked="Q3_3_3_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3" Checked="Q3_3_3_bifa_1_Checked" Unchecked="Q3_3_3_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3" Checked="Q3_3_3_bifa_2_Checked" Unchecked="Q3_3_3_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.3"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack32" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -519,12 +519,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_3_4"  TextWrapping="Wrap" FontSize="14" Text="Q3.3.4. A identificat tot ceea ce aveati nevoie, adresandu-va intrebari adecvate;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4" Checked="Q3_3_4_bifa_1_Checked" Unchecked="Q3_3_4_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4" Checked="Q3_3_4_bifa_2_Checked" Unchecked="Q3_3_4_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4" Checked="Q3_3_4_bifa_1_Checked" Unchecked="Q3_3_4_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4" Checked="Q3_3_4_bifa_2_Checked" Unchecked="Q3_3_4_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.4"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack33" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -535,12 +535,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q3_3_5"  TextWrapping="Wrap" FontSize="14" Text="Q3.3.5. V-a rezolvat solicitarea cu rapiditate;"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5" Checked="Q3_3_5_bifa_1_Checked" Unchecked="Q3_3_5_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5" Checked="Q3_3_5_bifa_2_Checked" Unchecked="Q3_3_5_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5" Checked="Q3_3_5_bifa_1_Checked" Unchecked="Q3_3_5_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5" Checked="Q3_3_5_bifa_2_Checked" Unchecked="Q3_3_5_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q3.3.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q3_3_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q3.3.5"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack34" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -568,12 +568,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_1_1"  TextWrapping="Wrap" FontSize="14" Text="Q4.1.1. Timpul petrecut in interactiunea cu colega/ colegul nostru"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1" Checked="Q4_1_1_bifa_1_Checked" Unchecked="Q4_1_1_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1" Checked="Q4_1_1_bifa_2_Checked" Unchecked="Q4_1_1_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1" Checked="Q4_1_1_bifa_1_Checked" Unchecked="Q4_1_1_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1" Checked="Q4_1_1_bifa_2_Checked" Unchecked="Q4_1_1_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack37" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -584,12 +584,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_1_2"  TextWrapping="Wrap" FontSize="14" Text="Q4.1.2. Costurile implicate la achizitia produsului"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2" Checked="Q4_1_2_bifa_1_Checked" Unchecked="Q4_1_2_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2" Checked="Q4_1_2_bifa_2_Checked" Unchecked="Q4_1_2_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2" Checked="Q4_1_2_bifa_1_Checked" Unchecked="Q4_1_2_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2" Checked="Q4_1_2_bifa_2_Checked" Unchecked="Q4_1_2_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack38" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -600,12 +600,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_1_3"  TextWrapping="Wrap" FontSize="14" Text="Q4.1.3. Numarul de documente solicitate de banca"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3" Checked="Q4_1_3_bifa_1_Checked" Unchecked="Q4_1_3_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3" Checked="Q4_1_3_bifa_2_Checked" Unchecked="Q4_1_3_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3" Checked="Q4_1_3_bifa_1_Checked" Unchecked="Q4_1_3_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3" Checked="Q4_1_3_bifa_2_Checked" Unchecked="Q4_1_3_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.3"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack39" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -616,12 +616,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_1_4"  TextWrapping="Wrap" FontSize="14" Text="Q4.1.4. Numarul de formulare pe care le-ati completat/semnat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4" Checked="Q4_1_4_bifa_1_Checked" Unchecked="Q4_1_4_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4" Checked="Q4_1_4_bifa_2_Checked" Unchecked="Q4_1_4_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4" Checked="Q4_1_4_bifa_1_Checked" Unchecked="Q4_1_4_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4" Checked="Q4_1_4_bifa_2_Checked" Unchecked="Q4_1_4_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.4"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack40" Grid.Row="40" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -632,12 +632,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_1_5"  TextWrapping="Wrap" FontSize="14" Text="Q4.1.5. Claritatea informatiei din formularele pe care le-ati completat/semnat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5" Checked="Q4_1_5_bifa_1_Checked" Unchecked="Q4_1_5_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5" Checked="Q4_1_5_bifa_2_Checked" Unchecked="Q4_1_5_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5" Checked="Q4_1_5_bifa_1_Checked" Unchecked="Q4_1_5_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5" Checked="Q4_1_5_bifa_2_Checked" Unchecked="Q4_1_5_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.1.5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_1_5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.1.5"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack41" Grid.Row="41" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -656,12 +656,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_2_1"  TextWrapping="Wrap" FontSize="14" Text="Q4.2.1. Timpul petrecut in interactiunea cu colega/ colegul nostru"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1" Checked="Q4_2_1_bifa_1_Checked" Unchecked="Q4_2_1_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1" Checked="Q4_2_1_bifa_2_Checked" Unchecked="Q4_2_1_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1" Checked="Q4_2_1_bifa_1_Checked" Unchecked="Q4_2_1_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1" Checked="Q4_2_1_bifa_2_Checked" Unchecked="Q4_2_1_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack43" Grid.Row="43" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -672,12 +672,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_2_2"  TextWrapping="Wrap" FontSize="14" Text="Q4.2.2. Comisioanele aplicate tranzactiei"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2" Checked="Q4_2_2_bifa_1_Checked" Unchecked="Q4_2_2_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2" Checked="Q4_2_2_bifa_2_Checked" Unchecked="Q4_2_2_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2" Checked="Q4_2_2_bifa_1_Checked" Unchecked="Q4_2_2_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2" Checked="Q4_2_2_bifa_2_Checked" Unchecked="Q4_2_2_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack44" Grid.Row="44" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -688,12 +688,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_2_3"  TextWrapping="Wrap" FontSize="14" Text="Q4.2.3. Numarul de formulare pe care le-ati completat/semnat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3" Checked="Q4_2_3_bifa_1_Checked" Unchecked="Q4_2_3_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3" Checked="Q4_2_3_bifa_2_Checked" Unchecked="Q4_2_3_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3" Checked="Q4_2_3_bifa_1_Checked" Unchecked="Q4_2_3_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3" Checked="Q4_2_3_bifa_2_Checked" Unchecked="Q4_2_3_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.3"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack45" Grid.Row="45" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -704,12 +704,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_2_4"  TextWrapping="Wrap" FontSize="14" Text="Q4.2.4. Claritatea informatiei din formularele pe care le-ati completat/semnat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4" Checked="Q4_2_4_bifa_1_Checked" Unchecked="Q4_2_4_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4" Checked="Q4_2_4_bifa_2_Checked" Unchecked="Q4_2_4_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4" Checked="Q4_2_4_bifa_1_Checked" Unchecked="Q4_2_4_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4" Checked="Q4_2_4_bifa_2_Checked" Unchecked="Q4_2_4_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.2.4"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_2_4_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.2.4"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack46" Grid.Row="46" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -728,12 +728,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_3_1"  TextWrapping="Wrap" FontSize="14" Text="Q4.3.1. Timpul petrecut in interactiunea cu colega/ colegul nostru"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1" Checked="Q4_3_1_bifa_1_Checked" Unchecked="Q4_3_1_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1" Checked="Q4_3_1_bifa_2_Checked" Unchecked="Q4_3_1_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1" Checked="Q4_3_1_bifa_1_Checked" Unchecked="Q4_3_1_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1" Checked="Q4_3_1_bifa_2_Checked" Unchecked="Q4_3_1_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.3.1"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_1_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.3.1"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack48" Grid.Row="48" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -744,12 +744,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_3_2"  TextWrapping="Wrap" FontSize="14" Text="Q4.3.2. Numarul de formulare pe care le-ati completat/semnat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2" Checked="Q4_3_2_bifa_1_Checked" Unchecked="Q4_3_2_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2" Checked="Q4_3_2_bifa_2_Checked" Unchecked="Q4_3_2_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2" Checked="Q4_3_2_bifa_1_Checked" Unchecked="Q4_3_2_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2" Checked="Q4_3_2_bifa_2_Checked" Unchecked="Q4_3_2_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.3.2"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_2_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.3.2"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack49" Grid.Row="49" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -760,12 +760,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q4_3_3"  TextWrapping="Wrap" FontSize="14" Text="Q4.3.3. Claritatea informatiei din formularele pe care le-ati completat/semnat"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3" Checked="Q4_3_3_bifa_1_Checked" Unchecked="Q4_3_3_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3" Checked="Q4_3_3_bifa_2_Checked" Unchecked="Q4_3_3_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3" Checked="Q4_3_3_bifa_1_Checked" Unchecked="Q4_3_3_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3" Checked="Q4_3_3_bifa_2_Checked" Unchecked="Q4_3_3_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q4.3.3"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q4_3_3_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q4.3.3"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack50" Grid.Row="50" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -785,12 +785,12 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q5"  TextWrapping="Wrap" FontSize="14" Text="Q5.Considerati ca ati primit solutia de care aveati nevoie in urma vizitei in unitate? Va rog sa acordati o nota pe o scala 1-5 unde 1 inseamna ca nu s-a rezolvat nimic, iar 5 inseamna ca situatia s-a rezolvat complet"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q5"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q5_bifa_6"  Content="6 Nu stiu/ Nu raspund" Width="200" Margin="0,0,10,0" GroupName="Q5"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack52" Grid.Row="52" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -801,17 +801,17 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="Q6"  TextWrapping="Wrap" FontSize="14" Text="Q6.Gandindu-va la experienta cu CEC Bank in general, cat de probabil este sa recomandati CEC Bank familiei sau prietenilor? Pe o scala de la 0 la 10, unde 0 inseamna cu siguranta nu voi recomanda, iar 10 inseamna cu siguranta voi recomanda (rugam colegul care ia interviul sa se asigure ca nu se da nota 5 in loc de nota 10, din neatentia respondentului - de ex. respondentul a acordat numai note de 4 si 5, iar in final, la NPS, din obisnuinta, spune tot 5)"/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_0"  Content="0" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_0_Checked" Unchecked="Q6_bifa_0_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_1_Checked" Unchecked="Q6_bifa_1_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_2_Checked" Unchecked="Q6_bifa_2_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_3_Checked" Unchecked="Q6_bifa_3_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_4_Checked" Unchecked="Q6_bifa_4_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_5_Checked" Unchecked="Q6_bifa_5_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_6"  Content="6" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_6_Checked" Unchecked="Q6_bifa_6_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_7"  Content="7" Width="30" Margin="0,0,10,0" GroupName="Q6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_8"  Content="8" Width="30" Margin="0,0,10,0" GroupName="Q6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_9"  Content="9" Width="30" Margin="0,0,10,0" GroupName="Q6"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_10"  Content="10" Width="35" Margin="0,0,10,0" GroupName="Q6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_0"  Content="0" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_0_Checked" Unchecked="Q6_bifa_0_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_1"  Content="1" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_1_Checked" Unchecked="Q6_bifa_1_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_2"  Content="2" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_2_Checked" Unchecked="Q6_bifa_2_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_3"  Content="3" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_3_Checked" Unchecked="Q6_bifa_3_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_4"  Content="4" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_4_Checked" Unchecked="Q6_bifa_4_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_5"  Content="5" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_5_Checked" Unchecked="Q6_bifa_5_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_6"  Content="6" Width="30" Margin="0,0,10,0" GroupName="Q6" Checked="Q6_bifa_6_Checked" Unchecked="Q6_bifa_6_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_7"  Content="7" Width="30" Margin="0,0,10,0" GroupName="Q6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_8"  Content="8" Width="30" Margin="0,0,10,0" GroupName="Q6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_9"  Content="9" Width="30" Margin="0,0,10,0" GroupName="Q6"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="Q6_bifa_10"  Content="10" Width="35" Margin="0,0,10,0" GroupName="Q6"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack53" Grid.Row="53" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -831,8 +831,8 @@
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="B7"  TextWrapping="Wrap" FontSize="14" Text="B7. Bifa pentru situatii legate de conduita "/>
 				<StackPanel Width="600" HorizontalAlignment="Left" Orientation="Horizontal">
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="B7_Da"  Content="Da" Width="50" Margin="0,0,10,0" GroupName="B7" Checked="B7_Da_Checked" Unchecked="B7_Da_Unchecked"/>
-					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}"  FontFamily="/Fonts/#Rubik Medium" x:Name="B7_Nu"  Content="Nu" Width="50" Margin="0,0,10,0" GroupName="B7"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="B7_Da"  Content="Da" Width="50" Margin="0,0,10,0" GroupName="B7" Checked="B7_Da_Checked" Unchecked="B7_Da_Unchecked"/>
+					<RadioButton Style="{StaticResource MaterialDesignAccentRadioButton}" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Medium" x:Name="B7_Nu"  Content="Nu" Width="50" Margin="0,0,10,0" GroupName="B7"/>
 				</StackPanel>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack55" Grid.Row="55" HorizontalAlignment="Left" VerticalAlignment="Top">

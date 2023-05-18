@@ -1,331 +1,331 @@
 ﻿<Window x:Class="Asgard.PrimaryWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="clr-namespace:Asgard.ViewModels"
-    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:conv="clr-namespace:Asgard.Converters"
-    mc:Ignorable="d"
-    Title="Asgard"
-    MinWidth="1050"
-    Background="{DynamicResource BackgroundColor}"
-    MinHeight="600"
-    WindowStartupLocation="CenterScreen"
-    MouseLeftButtonDown="Window_MouseLeftButtonDown"
-    StateChanged="Window_StateChanged"
-    Loaded="Window_Loaded">
-    <Window.Resources>
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewModel="clr-namespace:Asgard.ViewModels"
+	xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:conv="clr-namespace:Asgard.Converters"
+	mc:Ignorable="d"
+	Title="Asgard"
+	MinWidth="1050"
+	Background="{DynamicResource BackgroundColor}"
+	MinHeight="600"
+	WindowStartupLocation="CenterScreen"
+	MouseLeftButtonDown="Window_MouseLeftButtonDown"
+	StateChanged="Window_StateChanged"
+	Loaded="Window_Loaded">
+	<Window.Resources>
 		<conv:FontSizeConverter x:Key="FontSizeConverter" />
 		<conv:MarginConverter x:Key="MarginConverter" />
 	</Window.Resources>
 
-    <Window.DataContext>
-        <viewModel:MainViewModel />
-    </Window.DataContext>
-    <Border  Background="{DynamicResource BackgroundColor}" Padding="0 0 0 0">
-        <Grid>
-            <!--  Start: Grid Layout  -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180*" />
-                <ColumnDefinition Width="850*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="120"  />
-                <RowDefinition Height="500*" />
-            </Grid.RowDefinitions>
+	<Window.DataContext>
+		<viewModel:MainViewModel />
+	</Window.DataContext>
+	<Border  Background="{DynamicResource BackgroundColor}" Padding="0 0 0 0">
+		<Grid>
+			<!--  Start: Grid Layout  -->
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="180*" />
+				<ColumnDefinition Width="850*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="120"  />
+				<RowDefinition Height="500*" />
+			</Grid.RowDefinitions>
 
-            <!--  Start: Logo  -->
-            <Border Grid.Row="0" Grid.Column="0" Padding="0,20,0,20"
-            Background="{DynamicResource BackgroundThirdColor}">
-                <Image
-                x:Name="logoImage"
-                Width="50"
-                HorizontalAlignment="Center"
-                Source="/Assets/AsgardLogoBlackBorders.png"/>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="0" Background="{DynamicResource BackgroundThirdColor}">
-                <Grid>
-                    <StackPanel VerticalAlignment="Top">
-                        <RadioButton
-                        x:Name="ButtonHome"
-                        IsChecked="True"
-                        Style="{StaticResource NavigationButton}"
-                        Tag="{StaticResource TextColor}" Click="ButtonHome_Click">
-                            <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                                <iconPacks:PackIconBootstrapIcons
-                                MinWidth="15"
-                                MaxWidth="30"
-                                MinHeight="15"
-                                MaxHeight="30"
-                                Margin="25 0 0 0"
-                                Kind="Grid" VerticalAlignment="Center" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">Acasă</TextBlock>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton
-                        x:Name="ButtonTickete"
-                        Style="{StaticResource NavigationButton}"
-                        Tag="{StaticResource TextColor}" Click="ButtonTickete_Click">
-                            <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                                <iconPacks:PackIconBoxIcons
-                                MinWidth="15"
-                                MaxWidth="30"
-                                MinHeight="15"
-                                MaxHeight="30"
-                                Margin="25 0 0 0"
-                                Kind="RegularInfoCircle" VerticalAlignment="Center" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">Tickete</TextBlock>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton
-                        x:Name="ButtonLearning" Visibility="Collapsed"
-                        Style="{StaticResource NavigationButton}"
-                        Tag="{StaticResource TextColor}" Click="ButtonLearning_Click">
-                            <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                                <iconPacks:PackIconBoxIcons
-                                MinWidth="15"
-                                MaxWidth="30"
-                                MinHeight="15"
-                                MaxHeight="30"
-                                Margin="25 0 0 0"
-                                VerticalAlignment="Center"
-                                Kind="RegularRocket" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">eLearning</TextBlock>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton
-                        x:Name="JoburiButton" Visibility="Collapsed"
-                        Style="{StaticResource NavigationButton}"
-                        Tag="{StaticResource TextColor}" Click="JoburiButton_Click">
-                            <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                                <iconPacks:PackIconBoxIcons
-                                MinWidth="15"
-                                MaxWidth="30"
-                                MinHeight="15"
-                                MaxHeight="30"
-                                Margin="25 0 0 0"
-                                VerticalAlignment="Center"
-                                Kind="RegularBriefcaseAlt" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">Joburi</TextBlock>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton
-                        x:Name="GestiuneButton" Visibility="Collapsed"
-                        Style="{StaticResource NavigationButton}"
-                        Tag="{StaticResource TextColor}" Click="GestiuneButton_Click">
-                            <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                                <iconPacks:PackIconBoxIcons
-                                MinWidth="15"
-                                MaxWidth="30"
-                                MinHeight="15"
-                                MaxHeight="30"
-                                Margin="25 0 0 0"
-                                VerticalAlignment="Center"
-                                Kind="LogosDropbox" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">Gestiune</TextBlock>
-                            </StackPanel>
-                        </RadioButton>
+			<!--  Start: Logo  -->
+			<Border Grid.Row="0" Grid.Column="0" Padding="0,20,0,20"
+			Background="{DynamicResource BackgroundThirdColor}">
+				<Image
+				x:Name="logoImage"
+				Width="50"
+				HorizontalAlignment="Center"
+				Source="/Assets/AsgardLogoBlackBorders.png"/>
+			</Border>
+			<Border Grid.Row="1" Grid.Column="0" Background="{DynamicResource BackgroundThirdColor}">
+				<Grid>
+					<StackPanel VerticalAlignment="Top">
+						<RadioButton
+						x:Name="ButtonHome"
+						IsChecked="True"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="ButtonHome_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBootstrapIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								Kind="Grid" VerticalAlignment="Center" />
+								<TextBlock Style="{StaticResource MenuButtonText}">Acasă</TextBlock>
+							</StackPanel>
+						</RadioButton>
+						<RadioButton
+						x:Name="ButtonTickete"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="ButtonTickete_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBoxIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								Kind="RegularInfoCircle" VerticalAlignment="Center" />
+								<TextBlock Style="{StaticResource MenuButtonText}">Tickete</TextBlock>
+							</StackPanel>
+						</RadioButton>
+						<RadioButton
+						x:Name="ButtonLearning" Visibility="Collapsed"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="ButtonLearning_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBoxIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								VerticalAlignment="Center"
+								Kind="RegularRocket" />
+								<TextBlock Style="{StaticResource MenuButtonText}">eLearning</TextBlock>
+							</StackPanel>
+						</RadioButton>
+						<RadioButton
+						x:Name="JoburiButton" Visibility="Collapsed"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="JoburiButton_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBoxIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								VerticalAlignment="Center"
+								Kind="RegularBriefcaseAlt" />
+								<TextBlock Style="{StaticResource MenuButtonText}">Joburi</TextBlock>
+							</StackPanel>
+						</RadioButton>
+						<RadioButton
+						x:Name="GestiuneButton" Visibility="Collapsed"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="GestiuneButton_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBoxIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								VerticalAlignment="Center"
+								Kind="LogosDropbox" />
+								<TextBlock Style="{StaticResource MenuButtonText}">Gestiune</TextBlock>
+							</StackPanel>
+						</RadioButton>
 
-                    </StackPanel>
-                    <Grid VerticalAlignment="Bottom">
-                    </Grid>
-                </Grid>
+					</StackPanel>
+					<Grid VerticalAlignment="Bottom">
+					</Grid>
+				</Grid>
 
-            </Border>
+			</Border>
 
-            <Border Grid.Column="1" Grid.Row="0"
-            Margin="2,0,0,0" Background="{DynamicResource BackgroundThirdColor}"
-            MouseLeftButtonDown="TopBar_MouseLeftButtonDown"
-            Padding="0,5,0,0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="50*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+			<Border Grid.Column="1" Grid.Row="0"
+			Margin="2,0,0,0" Background="{DynamicResource BackgroundThirdColor}"
+			MouseLeftButtonDown="TopBar_MouseLeftButtonDown"
+			Padding="0,5,0,0">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="50*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
 
-                    <StackPanel
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="0,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    </StackPanel>
-                    <StackPanel
-                    x:Name="TopMenu"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Margin="0,0,25,0"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal">
-                        <!--  Start: Social Media  -->
-                        <ToggleButton x:Name="DarkLightToggle" Width="50" Height="50" Foreground="{DynamicResource SecondaryTextColor}"
+					<StackPanel
+					Grid.Row="1"
+					Grid.Column="1"
+					Margin="0,0,0,0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Orientation="Horizontal">
+					</StackPanel>
+					<StackPanel
+					x:Name="TopMenu"
+					Grid.Row="0"
+					Grid.Column="1"
+					Margin="0,0,25,0"
+					HorizontalAlignment="Right"
+					Orientation="Horizontal">
+						<!--  Start: Social Media  -->
+						<ToggleButton x:Name="DarkLightToggle" Width="50" Height="50" Foreground="{DynamicResource SecondaryTextColor}"
   materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=WeatherNight}" 
   Content="{materialDesign:PackIcon Kind=WhiteBalanceSunny}"
   Style="{StaticResource MaterialDesignActionToggleButton}"
   ToolTip="MaterialDesignActionLightToggleButton" Margin="0,0,10,0" Click="DarkLightToggle_Click" />
-                        <RadioButton
-                        Width="70"
-                        x:Name="ButtonSocialMedia"
-                        Foreground="{DynamicResource SecondaryTextColor}"
-                        Style="{StaticResource SocialMediaButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconMaterialDesign
-                                Width="15"
-                                Height="15"
-                                Margin="0,0,5,0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Kind="PeopleOutline" />
-                                <TextBlock
-                                x:Name="CountFriendsOnline"
-                                FontFamily="/Fonts/#Rubik SemiBold"
-                                Text="0" />
-                            </StackPanel>
-                        </RadioButton>
-                        <!--  End: Social Media  -->
-                        <!--  Start: ProfilePicture  -->
-                        <RadioButton
-                        x:Name="TogglePopupButton"
-                        Click="TogglePopupButton_Click"
-                        Style="{StaticResource SocialMediaButton}">
-                            <StackPanel>
-                                <TextBlock
-                                x:Name="ProfileLetter"
-                                TargetUpdated="ProfileLetter_TargetUpdated"
-                                Foreground="White" />
-                                <Popup
-                                Name="myPopup"
-                                AllowsTransparency="True"
-                                HorizontalOffset="-280"
-                                Placement="Bottom"
-                                PopupAnimation="Fade"
-                                StaysOpen="False"
-                                VerticalOffset="30">
-                                    <Border
-                                    Width="300"
-                                    Height="350"
-                                    Padding="15"
-                                    Background="{DynamicResource BackgroundMenuColor}"
-                                    CornerRadius="5">
-                                        <StackPanel>
-                                            <TextBlock
-                                            x:Name="UsernameText"
-                                            Margin="0,15,0,5"
-                                            FontFamily="/Fonts/#Rubik Semibold"
-                                            FontSize="14"
-                                            Foreground="{DynamicResource SecondaryTextColor}"
-                                        />
+						<RadioButton
+						Width="70"
+						x:Name="ButtonSocialMedia"
+						Foreground="{DynamicResource SecondaryTextColor}"
+						Style="{StaticResource SocialMediaButton}">
+							<StackPanel Orientation="Horizontal">
+								<iconPacks:PackIconMaterialDesign
+								Width="15"
+								Height="15"
+								Margin="0,0,5,0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Kind="PeopleOutline" />
+								<TextBlock
+								x:Name="CountFriendsOnline"
+								FontFamily="/Fonts/#Rubik SemiBold"
+								Text="0" />
+							</StackPanel>
+						</RadioButton>
+						<!--  End: Social Media  -->
+						<!--  Start: ProfilePicture  -->
+						<RadioButton
+						x:Name="TogglePopupButton"
+						Click="TogglePopupButton_Click"
+						Style="{StaticResource SocialMediaButton}">
+							<StackPanel>
+								<TextBlock
+								x:Name="ProfileLetter"
+								TargetUpdated="ProfileLetter_TargetUpdated"
+								Foreground="White" />
+								<Popup
+								Name="myPopup"
+								AllowsTransparency="True"
+								HorizontalOffset="-280"
+								Placement="Bottom"
+								PopupAnimation="Fade"
+								StaysOpen="False"
+								VerticalOffset="30">
+									<Border
+									Width="300"
+									Height="350"
+									Padding="15"
+									Background="{DynamicResource BackgroundMenuColor}"
+									CornerRadius="5">
+										<StackPanel>
+											<TextBlock
+											x:Name="UsernameText"
+											Margin="0,15,0,5"
+											FontFamily="/Fonts/#Rubik Semibold"
+											FontSize="14"
+											Foreground="{DynamicResource SecondaryTextColor}"
+										/>
 
-                                            <TextBlock
-                                            x:Name="ProjectText"
-                                            Margin="0,0,0,10"
-                                            FontFamily="/Fonts/#Rubik Light"
-                                            FontSize="10"
-                                            Foreground="{DynamicResource SecondaryTextColor}"
-                                            Text="IT" />
-                                            <Line
-                                            Width="auto"
-                                            Height="10"
-                                            Stretch="Fill"
-                                            Stroke="{DynamicResource TextMenuColor}"
-                                            StrokeThickness="0.5"
-                                            X1="90" />
-                                            <Menu
-                                            Margin="0,10,40,0"
-                                            VerticalAlignment="Center"
-                                            Background="{DynamicResource BackgroundMenuColor}"
-                                            BorderBrush="Transparent">
-                                                <MenuItem Header="Realizările mele"
-                                                Style="{StaticResource ProfileMenu}"
-                                                Click="MenuItem_Click" />
-                                                <MenuItem Header="Contul meu"
-                                                Style="{StaticResource ProfileMenu}"
-                                                Click="MenuItem_Click" />
-                                                <MenuItem Header="Setări"
-                                                Style="{StaticResource ProfileMenu}"
-                                                Click="MenuItem_Click" />
-                                            </Menu>
-                                            <Line
-                                            Width="auto"
-                                            Height="10"
-                                            Stretch="Fill"
-                                            Stroke="{DynamicResource TextMenuColor}"
-                                            StrokeThickness="0.5"
-                                            X1="90" />
-                                            <Menu
-                                            Margin="0,10,40,0"
-                                            VerticalAlignment="Center"
-                                            Background="{DynamicResource BackgroundMenuColor}"
-                                            BorderBrush="Transparent">
-                                                <MenuItem Header="Manual de utilizare"
-                                                Style="{StaticResource ProfileMenu}"
-                                                Click="MenuItem_Click" />
-                                                <MenuItem Header="Termeni si conditiile"
-                                                Style="{StaticResource ProfileMenu}"
-                                                Click="MenuItem_Click" />
-                                                <MenuItem Header="Politica de confidentialitate"
-                                                Style="{StaticResource ProfileMenu}"
-                                                Click="MenuItem_Click" />
-                                            </Menu>
-                                            <Line
-                                            Width="auto"
-                                            Height="10"
-                                            Stretch="Fill"
-                                            Stroke="{DynamicResource TextMenuColor}"
-                                            StrokeThickness="0.5"
-                                            X1="90" />
-                                            <Menu
-                                            Margin="0,10,40,0"
-                                            VerticalAlignment="Center"
-                                            Background="{DynamicResource BackgroundMenuColor}"
-                                            BorderBrush="Transparent">
-                                                <MenuItem
-                                                x:Name="LogoutButton"
-                                                Click="LogoutButton_Click"
-                                                Header="Iesire din cont"
-                                                Style="{StaticResource ProfileMenu}" />
-                                            </Menu>
-                                        </StackPanel>
-                                    </Border>
-                                </Popup>
-                            </StackPanel>
-                        </RadioButton>
-                        <!--  End: ProfilePicture  -->
-                    </StackPanel>
-                </Grid>
-            </Border>
+											<TextBlock
+											x:Name="ProjectText"
+											Margin="0,0,0,10"
+											FontFamily="/Fonts/#Rubik Light"
+											FontSize="10"
+											Foreground="{DynamicResource SecondaryTextColor}"
+											Text="IT" />
+											<Line
+											Width="auto"
+											Height="10"
+											Stretch="Fill"
+											Stroke="{DynamicResource TextMenuColor}"
+											StrokeThickness="0.5"
+											X1="90" />
+											<Menu
+											Margin="0,10,40,0"
+											VerticalAlignment="Center"
+											Background="{DynamicResource BackgroundMenuColor}"
+											BorderBrush="Transparent">
+												<MenuItem Header="Realizările mele"
+												Style="{StaticResource ProfileMenu}"
+												Click="MenuItem_Click" />
+												<MenuItem Header="Contul meu"
+												Style="{StaticResource ProfileMenu}"
+												Click="MenuItem_Click" />
+												<MenuItem Header="Setări"
+												Style="{StaticResource ProfileMenu}"
+												Click="MenuItem_Click" />
+											</Menu>
+											<Line
+											Width="auto"
+											Height="10"
+											Stretch="Fill"
+											Stroke="{DynamicResource TextMenuColor}"
+											StrokeThickness="0.5"
+											X1="90" />
+											<Menu
+											Margin="0,10,40,0"
+											VerticalAlignment="Center"
+											Background="{DynamicResource BackgroundMenuColor}"
+											BorderBrush="Transparent">
+												<MenuItem Header="Manual de utilizare"
+												Style="{StaticResource ProfileMenu}"
+												Click="MenuItem_Click" />
+												<MenuItem Header="Termeni si conditiile"
+												Style="{StaticResource ProfileMenu}"
+												Click="MenuItem_Click" />
+												<MenuItem Header="Politica de confidentialitate"
+												Style="{StaticResource ProfileMenu}"
+												Click="MenuItem_Click" />
+											</Menu>
+											<Line
+											Width="auto"
+											Height="10"
+											Stretch="Fill"
+											Stroke="{DynamicResource TextMenuColor}"
+											StrokeThickness="0.5"
+											X1="90" />
+											<Menu
+											Margin="0,10,40,0"
+											VerticalAlignment="Center"
+											Background="{DynamicResource BackgroundMenuColor}"
+											BorderBrush="Transparent">
+												<MenuItem
+												x:Name="LogoutButton"
+												Click="LogoutButton_Click"
+												Header="Iesire din cont"
+												Style="{StaticResource ProfileMenu}" />
+											</Menu>
+										</StackPanel>
+									</Border>
+								</Popup>
+							</StackPanel>
+						</RadioButton>
+						<!--  End: ProfilePicture  -->
+					</StackPanel>
+				</Grid>
+			</Border>
 
-            <Border
-            x:Name="ViewPages"
-            Grid.Row="1"
-            Grid.Column="1"
-            Background="{DynamicResource BackgroundColor}">
+			<Border
+			x:Name="ViewPages"
+			Grid.Row="1"
+			Grid.Column="1"
+			Background="{DynamicResource BackgroundColor}">
 
-                <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0,0,0,10" />
+				<Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0,0,0,10" />
 
-            </Border>
-            <!--  End: Content  -->
-        </Grid>
-    </Border>
+			</Border>
+			<!--  End: Content  -->
+		</Grid>
+	</Border>
 </Window>
