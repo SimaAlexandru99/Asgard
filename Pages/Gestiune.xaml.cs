@@ -132,6 +132,19 @@ namespace Asgard.Pages
             MyDataGrid2.ItemsSource = MyDataList2;
         }
 
+        private int GetTotalPages()
+        {
+            using (var connection = RepositoryBase.GetConnectionPublic())
+            {
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = $"SELECT COUNT(*) FROM gestiune WHERE CATEGORIE = 'LAPTOP'";
+                    int totalCount = Convert.ToInt32(command.ExecuteScalar());
+                    return (int)Math.Ceiling((double)totalCount / rowsPerPage);
+                }
+            }
+        }
+
         private void Refresh_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             NavigationService.Refresh();
@@ -147,11 +160,36 @@ namespace Asgard.Pages
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
-                MyDataGrid.ItemsSource = MyDataList;
+                LoadData(); // Reload all data when the search text is empty
             }
             else
             {
                 searchText = searchText.ToLower();
+                MyDataList.Clear(); // Clear the existing data
+
+                using (var connection = RepositoryBase.GetConnectionPublic())
+                {
+                    int totalPages = GetTotalPages(); // Calculate the total number of pages
+
+                    for (int page = 1; page <= totalPages; page++)
+                    {
+                        int offset = (page - 1) * rowsPerPage;
+
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = $"SELECT ID, MODEL, SERIE, AGENT, ANYDESK, STATUS, STARE, CATEGORIE, MOUSE, TASTATURA, CASTI, LICENTA, INTERNET FROM gestiune WHERE CATEGORIE = 'LAPTOP' LIMIT {offset},{rowsPerPage}";
+                            using (var reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    MyDataList.Add(new DeviceModel { Column1 = reader[0].ToString(), Column2 = reader[1].ToString(), Column3 = reader[2].ToString(), Column4 = reader[3].ToString(), Column5 = reader[4].ToString(), Column6 = reader[5].ToString(), Column7 = reader[6].ToString(), Column8 = reader[7].ToString(), Column9 = reader[8].ToString(), Column10 = reader[9].ToString(), Column11 = reader[10].ToString(), Column12 = reader[11].ToString(), Column13 = reader[12].ToString() });
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Filter the data based on the search text
                 MyDataGrid.ItemsSource = MyDataList.AsParallel().Where(item =>
                     item.Column1.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
                     item.Column2.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
@@ -161,6 +199,9 @@ namespace Asgard.Pages
                     item.Column6.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
+
+      
+
 
         private void MyDataGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
