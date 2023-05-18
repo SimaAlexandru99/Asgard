@@ -4,18 +4,18 @@
 
 namespace Asgard.Tickets.Vodafone
 {
-    using Asgard.Repositories;
-    using Asgard.ViewModels;
-    using MailKit;
-    using MailKit.Net.Smtp;
-    using MimeKit;
-    using MySql.Data.MySqlClient;
     using System;
     using System.ComponentModel;
     using System.Security.Authentication;
     using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for OrderAchizitie.xaml.
@@ -14550,7 +14550,6 @@ namespace Asgard.Tickets.Vodafone
                     break;
                 case "Migrare":
                     comboboxAbonament.Items.Add("Red 9");
-                    comboboxCostAbonament.Items.Add("6 EURO");
                     serie_sim.Clear();
                     break;
                 case "Portare PrePay Orange":
@@ -14608,21 +14607,99 @@ namespace Asgard.Tickets.Vodafone
 
             if (selectedItem != null)
             {
-                switch (selectedItem)
+                if (tipAbonament.Text == "Achzitie noua")
                 {
-                    case "Red 9":
-                        comboboxCostAbonament.Items.Add("6 EURO");
-                        break;
-                    case "Red 15":
-                        comboboxCostAbonament.Items.Add("11 EURO");
-                        break;
-                    case "Red 12":
-                        comboboxCostAbonament.Items.Add("10 EURO");
-                        break;
+                    switch (selectedItem)
+                    {
+                        case "Red 9":
+                            comboboxCostAbonament.Items.Add("6 EURO");
+                            break;
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("11 EURO");
+                            break;
+                        case "Red 12":
+                            comboboxCostAbonament.Items.Add("10 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Migrare")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 9":
+                            comboboxCostAbonament.Items.Add("6 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Portare PrePay Orange")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("5 EURO");
+                            comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
+                            comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Portare PrePay Telekom")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("5 EURO");
+                            comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
+                            comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Portare PrePay Digi")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("5 EURO");
+                            comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
+                            comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
+                            comboboxCostAbonament.Items.Add("2 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Portare Abonament Orange")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("5 EURO");
+                            comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
+                            comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Portare Abonament Telekom")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("5 EURO");
+                            comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
+                            comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
+                            break;
+                    }
+                }
+                else if (tipAbonament.Text == "Portare Abonament Digi")
+                {
+                    switch (selectedItem)
+                    {
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("5 EURO");
+                            comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
+                            comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
+                            comboboxCostAbonament.Items.Add("2 EURO");
+                            break;
+                    }
                 }
             }
         }
-
     }
-
 }
