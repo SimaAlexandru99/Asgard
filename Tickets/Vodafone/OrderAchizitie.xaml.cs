@@ -188,7 +188,6 @@ namespace Asgard.Tickets.Vodafone
             {
                 if (comboboxGDPR1.Text == string.Empty || comboboxGDPR2.Text == string.Empty || comboboxGDPR3.Text == string.Empty || comboboxGDPR4.Text == string.Empty || comboboxGDPR5.Text == string.Empty || comboboxGDPR6.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -198,70 +197,6 @@ namespace Asgard.Tickets.Vodafone
                     };
                     dialog.ShowDialog();
                     return;
-                }
-                else if (comboboxGDPR1.Text == "Nu")
-                {
-                    if (comboboxGDPR1_1.Text == string.Empty || comboboxGDPR1_2.Text == string.Empty || comboboxGDPR1_3.Text == string.Empty || comboboxGDPR1_4.Text == string.Empty)
-                    {
-
-                        CustomControls.Prompt dialog = new CustomControls.Prompt();
-                        dialog.Loaded += (s, ea) =>
-                        {
-                            dialog.Title = "Eroare";
-                            dialog.Status.Text = "Nu am putut înainta";
-                            dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
-                        };
-                        dialog.ShowDialog();
-                        return;
-                    }
-                }
-                else if (comboboxGDPR3.Text == "Nu")
-                {
-                    if (comboboxGDPR3_1.Text == string.Empty)
-                    {
-
-                        CustomControls.Prompt dialog = new CustomControls.Prompt();
-                        dialog.Loaded += (s, ea) =>
-                        {
-                            dialog.Title = "Eroare";
-                            dialog.Status.Text = "Nu am putut înainta";
-                            dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
-                        };
-                        dialog.ShowDialog();
-                        return;
-                    }
-                }
-                else if (comboboxGDPR4.Text == "Nu")
-                {
-                    if (comboboxGDPR4_1.Text == string.Empty || comboboxGDPR4_2.Text == string.Empty || comboboxGDPR4_3.Text == string.Empty || comboboxGDPR4_4.Text == string.Empty)
-                    {
-
-                        CustomControls.Prompt dialog = new CustomControls.Prompt();
-                        dialog.Loaded += (s, ea) =>
-                        {
-                            dialog.Title = "Eroare";
-                            dialog.Status.Text = "Nu am putut înainta";
-                            dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
-                        };
-                        dialog.ShowDialog();
-                        return;
-                    }
-                }
-                else if (comboboxGDPR6.Text == "Nu")
-                {
-                    if (comboboxGDPR6_1.Text == string.Empty)
-                    {
-
-                        CustomControls.Prompt dialog = new CustomControls.Prompt();
-                        dialog.Loaded += (s, ea) =>
-                        {
-                            dialog.Title = "Eroare";
-                            dialog.Status.Text = "Nu am putut înainta";
-                            dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
-                        };
-                        dialog.ShowDialog();
-                        return;
-                    }
                 }
                 else
                 {
