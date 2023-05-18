@@ -1,18 +1,23 @@
-﻿using Asgard.Repositories;
-using Asgard.ViewModels;
-using MailKit;
-using MailKit.Net.Smtp;
-using MimeKit;
-using System;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="TicketsBackoffice.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.Telekom
 {
+    using System;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for TicketsBackoffice.xaml
+    /// Interaction logic for TicketsBackoffice.xaml.
     /// </summary>
     public partial class TicketsBackoffice : Page
     {
@@ -34,12 +39,10 @@ namespace Asgard.Tickets.Telekom
             string emailAddress = "asgard@optimacall.ro";
             string password = "Optima#321";
 
-
             if (comboboxTickete.Text == "Exceptare plata depozit")
             {
-                if (codAgent.Text == "" || idCerere.Text == "" || etichetaRisk.Text == "")
+                if (codAgent.Text == string.Empty || idCerere.Text == string.Empty || etichetaRisk.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -51,7 +54,6 @@ namespace Asgard.Tickets.Telekom
                 }
                 else if (!idCerere.Text.StartsWith("18"))
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -63,21 +65,17 @@ namespace Asgard.Tickets.Telekom
                 }
                 else
                 {
-
                     MimeMessage message = new MimeMessage();
                     message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                     message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                     message.To.Add(MailboxAddress.Parse("telekom1@optimacall.ro"));
-                    // message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-                    //message.To.Add(MailboxAddress.Parse("elena.leonte@telekom.ro"));
-                    // message.To.Add(MailboxAddress.Parse("TKRM.monitorizare_credit.ROU02@telekom.ro"));
 
                     message.Subject = "Exceptarea plații depozit/avans cerere: " + idCerere.Text;
                     message.Body = new TextPart("plain")
                     {
                         Text = @"Bună, " + "\r\n" + "\r\n" +
                         "Vă rog sa ma ajutați cu exceptarea plații depozitului avans pentru cererea: " + idCerere.Text + " Etichetă Risc: " +
-                        etichetaRisk.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandru Puiu"
+                        etichetaRisk.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandru Puiu",
                     };
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -90,8 +88,6 @@ namespace Asgard.Tickets.Telekom
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -113,7 +109,6 @@ namespace Asgard.Tickets.Telekom
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -124,9 +119,8 @@ namespace Asgard.Tickets.Telekom
             }
             else if (comboboxTickete.Text == "Anulare cereri la curier RPA")
             {
-                if (codAgent.Text == "" || idSursa.Text == "")
+                if (codAgent.Text == string.Empty || idSursa.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -138,7 +132,6 @@ namespace Asgard.Tickets.Telekom
                 }
                 else if (!idSursa.Text.StartsWith("10"))
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -155,16 +148,11 @@ namespace Asgard.Tickets.Telekom
                     message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                     message.To.Add(MailboxAddress.Parse("telekom2@optimacall.ro"));
 
-
-                    //message.To.Add(MailboxAddress.Parse("florentina.popazu@telekom.ro"));
-                    //message.To.Add(MailboxAddress.Parse("laurentiu.ifrim@telekom.ro"));
-                    //message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-
                     message.Subject = "Anulare cerere la curier RPA : " + idSursa.Text;
                     message.Body = new TextPart("plain")
                     {
                         Text = @"Bună, " + "\r\n" + "\r\n" +
-                        "Rog anulare cerere urgentă: " + idSursa.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu"
+                        "Rog anulare cerere urgentă: " + idSursa.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu",
                     };
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -177,7 +165,6 @@ namespace Asgard.Tickets.Telekom
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
 
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
@@ -200,7 +187,6 @@ namespace Asgard.Tickets.Telekom
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -211,9 +197,8 @@ namespace Asgard.Tickets.Telekom
             }
             else if (comboboxTickete.Text == "Anulare cerere cu echipament Curier DPD/URGENT CARGUS")
             {
-                if (codAgent.Text == "" || idSursa.Text == "")
+                if (codAgent.Text == string.Empty || idSursa.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -225,7 +210,6 @@ namespace Asgard.Tickets.Telekom
                 }
                 else if (!idSursa.Text.StartsWith("10"))
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -239,9 +223,8 @@ namespace Asgard.Tickets.Telekom
                 {
                     if (comboboxAWB.Text == "DA")
                     {
-                        if (awb.Text == "")
+                        if (awb.Text == string.Empty)
                         {
-
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
                             {
@@ -256,16 +239,11 @@ namespace Asgard.Tickets.Telekom
                             message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                             message.To.Add(MailboxAddress.Parse("telekom3@optimacall.ro"));
 
-
-                            //message.To.Add(MailboxAddress.Parse("rodica_paun@telekom.ro"));
-                            // message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-                            // message.To.Add(MailboxAddress.Parse("elena.leonte@telekom.ro"));
-
                             message.Subject = "Anulare ID sursă: " + idSursa.Text + " AWB: " + awb.Text;
                             message.Body = new TextPart("plain")
                             {
                                 Text = @"Bună, " + "\r\n" + "\r\n" +
-                                "Rog anulare ID sursă: " + idSursa.Text + " AWB: " + awb.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu"
+                                "Rog anulare ID sursă: " + idSursa.Text + " AWB: " + awb.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu",
                             };
 
                             SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -278,7 +256,6 @@ namespace Asgard.Tickets.Telekom
                                 client.Connect("zmail.optimacall.ro", 465, true);
                                 client.Authenticate(emailAddress, password);
                                 client.Send(message);
-
 
                                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                                 dialog.Loaded += (s, ea) =>
@@ -301,7 +278,6 @@ namespace Asgard.Tickets.Telekom
                                     dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                                 };
                                 dialog.ShowDialog();
-
                             }
                             finally
                             {
@@ -317,16 +293,11 @@ namespace Asgard.Tickets.Telekom
                         message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                         message.To.Add(MailboxAddress.Parse("telekom3@optimacall.ro"));
 
-
-                        //message.To.Add(MailboxAddress.Parse("rodica_paun@telekom.ro"));
-                        //message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-                        //message.To.Add(MailboxAddress.Parse("elena.leonte@telekom.ro"));
-
                         message.Subject = "Anulare ID sursă: " + idSursa.Text;
                         message.Body = new TextPart("plain")
                         {
                             Text = @"Bună, " + "\r\n" + "\r\n" +
-                            "Rog anulare ID sursă: " + idSursa.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu"
+                            "Rog anulare ID sursă: " + idSursa.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu",
                         };
 
                         SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -339,7 +310,6 @@ namespace Asgard.Tickets.Telekom
                             client.Connect("zmail.optimacall.ro", 465, true);
                             client.Authenticate(emailAddress, password);
                             client.Send(message);
-
 
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
@@ -360,10 +330,8 @@ namespace Asgard.Tickets.Telekom
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Ticket-ul nu a fost trimis";
                                 dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                             };
                             dialog.ShowDialog();
-
                         }
                         finally
                         {
@@ -371,14 +339,12 @@ namespace Asgard.Tickets.Telekom
                             client.Dispose();
                         }
                     }
-
                 }
             }
             else if (comboboxTickete.Text == "Urgentare cerere cu echipament Curier DPD/URGENT CARGUS")
             {
-                if (codAgent.Text == "" || idSursa.Text == "")
+                if (codAgent.Text == string.Empty || idSursa.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -390,14 +356,12 @@ namespace Asgard.Tickets.Telekom
                 }
                 else if (!idSursa.Text.StartsWith("10"))
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
                         dialog.Title = "Informare";
                         dialog.Status.Text = "Informare";
                         dialog.Descriere.Text = "ID-ul sursă trebuie să înceapă cu 10";
-
                     };
                     dialog.ShowDialog();
                 }
@@ -405,16 +369,14 @@ namespace Asgard.Tickets.Telekom
                 {
                     if (comboboxAWB.Text == "DA")
                     {
-                        if (awb.Text == "")
+                        if (awb.Text == string.Empty)
                         {
-
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
                             {
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Eroare la AWB";
                                 dialog.Descriere.Text = "Nu ai completat AWB-ul";
-
                             };
                             dialog.ShowDialog();
                         }
@@ -424,15 +386,11 @@ namespace Asgard.Tickets.Telekom
                             message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                             message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                             message.To.Add(MailboxAddress.Parse("telekom3@optimacall.ro"));
-
-                            //message.To.Add(MailboxAddress.Parse("rodica_paun@telekom.ro"));
-                            //message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-                            //message.To.Add(MailboxAddress.Parse("elena.leonte@telekom.ro"));
                             message.Subject = "Urgentare ID sursă: " + idSursa.Text + " AWB: " + awb.Text;
                             message.Body = new TextPart("plain")
                             {
                                 Text = @"Bună, " + "\r\n" + "\r\n" +
-                                "Rog urgentare ID sursă: " + idSursa.Text + " AWB: " + awb.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu"
+                                "Rog urgentare ID sursă: " + idSursa.Text + " AWB: " + awb.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu",
                             };
 
                             SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -446,14 +404,12 @@ namespace Asgard.Tickets.Telekom
                                 client.Authenticate(emailAddress, password);
                                 client.Send(message);
 
-
                                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                                 dialog.Loaded += (s, ea) =>
                                 {
                                     dialog.Title = "Succes";
                                     dialog.Status.Text = "Ticket-ul a fost trimis";
                                     dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
-
                                 };
                                 dialog.ShowDialog();
                             }
@@ -469,7 +425,6 @@ namespace Asgard.Tickets.Telekom
                                     dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                                 };
                                 dialog.ShowDialog();
-
                             }
                             finally
                             {
@@ -477,7 +432,6 @@ namespace Asgard.Tickets.Telekom
                                 client.Dispose();
                             }
                         }
-
                     }
                     else if (comboboxAWB.Text == "NU")
                     {
@@ -485,15 +439,11 @@ namespace Asgard.Tickets.Telekom
                         message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                         message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                         message.To.Add(MailboxAddress.Parse("telekom3@optimacall.ro"));
-
-                        //message.To.Add(MailboxAddress.Parse("rodica_paun@telekom.ro"));
-                        //message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-                        //message.To.Add(MailboxAddress.Parse("elena.leonte@telekom.ro"));
                         message.Subject = "Urgentare ID sursă: " + idSursa.Text;
                         message.Body = new TextPart("plain")
                         {
                             Text = @"Bună, " + "\r\n" + "\r\n" +
-                            "Rog urgentare ID sursă: " + idSursa.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu"
+                            "Rog urgentare ID sursă: " + idSursa.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu",
                         };
 
                         SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -506,7 +456,6 @@ namespace Asgard.Tickets.Telekom
                             client.Connect("zmail.optimacall.ro", 465, true);
                             client.Authenticate(emailAddress, password);
                             client.Send(message);
-
 
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
@@ -529,7 +478,6 @@ namespace Asgard.Tickets.Telekom
                                 dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                             };
                             dialog.ShowDialog();
-
                         }
                         finally
                         {
@@ -538,16 +486,11 @@ namespace Asgard.Tickets.Telekom
                         }
                     }
                 }
-
-
-
-
             }
             else if (comboboxTickete.Text == "Schimbare adresa livrare Curier DPD/URGENT CARGUS")
             {
-                if (codAgent.Text == "" || idSursa.Text == "" || comboboxAWB.Text == "")
+                if (codAgent.Text == string.Empty || idSursa.Text == string.Empty || comboboxAWB.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -559,7 +502,6 @@ namespace Asgard.Tickets.Telekom
                 }
                 else if (!idSursa.Text.StartsWith("10"))
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -575,16 +517,11 @@ namespace Asgard.Tickets.Telekom
                     message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                     message.To.Add(MailboxAddress.Parse("tickete.telekom@optimacall.ro"));
                     message.To.Add(MailboxAddress.Parse("telekom3@optimacall.ro"));
-
-
-                    //message.To.Add(MailboxAddress.Parse("rodica_paun@telekom.ro"));
-                    // message.To.Add(MailboxAddress.Parse("cristian.ilie@telekom.ro"));
-                    // message.To.Add(MailboxAddress.Parse("elena.leonte@telekom.ro"));
                     message.Subject = "Schimbare adresă livrare ID sursă: " + idSursa.Text + " AWB: " + awb.Text;
                     message.Body = new TextPart("plain")
                     {
                         Text = @"Bună, " + "\r\n" + "\r\n" +
-                        "Rog livrare colet ID sursă: " + idSursa.Text + " AWB: " + awb.Text + " către adresa: " + schimbareAdresa.Text + " Număr contact: " + numarContact.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu"
+                        "Rog livrare colet ID sursă: " + idSursa.Text + " AWB: " + awb.Text + " către adresa: " + schimbareAdresa.Text + " Număr contact: " + numarContact.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Alexandra Puiu",
                     };
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -597,7 +534,6 @@ namespace Asgard.Tickets.Telekom
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
 
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
@@ -618,10 +554,8 @@ namespace Asgard.Tickets.Telekom
                             dialog.Title = "Eroare";
                             dialog.Status.Text = "Ticket-ul nu a fost trimis";
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -632,16 +566,14 @@ namespace Asgard.Tickets.Telekom
             }
             else if (comboboxTickete.Text == "Urgentare incident")
             {
-                if (codAgent.Text == "" || idIncident.Text == "")
+                if (codAgent.Text == string.Empty || idIncident.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
                         dialog.Title = "Eroare";
                         dialog.Status.Text = "Ticket-ul nu a fost trimis";
                         dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                     };
                     dialog.ShowDialog();
                 }
@@ -654,7 +586,7 @@ namespace Asgard.Tickets.Telekom
                     message.Body = new TextPart("plain")
                     {
                         Text = @"Bună, " + "\r\n" + "\r\n" +
-                        "Rog urgentare incident: " + idIncident.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Backoffice"
+                        "Rog urgentare incident: " + idIncident.Text + "\r\n" + "\r\n" + "Vă mulțumesc, " + "\r\n" + "Backoffice",
                     };
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -667,7 +599,6 @@ namespace Asgard.Tickets.Telekom
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
-
 
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
@@ -690,7 +621,6 @@ namespace Asgard.Tickets.Telekom
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -701,9 +631,8 @@ namespace Asgard.Tickets.Telekom
             }
             else if (comboboxTickete.Text == "Ticket de semnal")
             {
-                if (codAgent.Text == "" || adresaSemnal.Text == "" || dataProblemeSemnal.Text == "" || comboboxIndoorOutdoor.Text == "" || dataUltimaData.Text == "" || numarClient.Text == "" || descriereProblemaSemnal.Text == "")
+                if (codAgent.Text == string.Empty || adresaSemnal.Text == string.Empty || dataProblemeSemnal.Text == string.Empty || comboboxIndoorOutdoor.Text == string.Empty || dataUltimaData.Text == string.Empty || numarClient.Text == string.Empty || descriereProblemaSemnal.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -730,7 +659,7 @@ namespace Asgard.Tickets.Telekom
                         "Numarul pe care clientul intampina problema cu semnalul: " + numarClient.Text + "\r\n" +
                         "Numar de contact pe care colegii de la tehnic sa il contacteze: " + numarClientContact.Text + "\r\n" +
                         "Detalii despre problema intampinata: " + descriereProblemaSemnal.Text + "\r\n" +
-                        "\r\n" + "Vă mulțumesc, " + "\r\n" + "Backoffice"
+                        "\r\n" + "Vă mulțumesc, " + "\r\n" + "Backoffice",
                     };
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
@@ -744,14 +673,12 @@ namespace Asgard.Tickets.Telekom
                         client.Authenticate(emailAddress, password);
                         client.Send(message);
 
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
                             dialog.Title = "Succes";
                             dialog.Status.Text = "Ticket-ul a fost trimis";
                             dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
-
                         };
                         dialog.ShowDialog();
                     }
@@ -767,7 +694,6 @@ namespace Asgard.Tickets.Telekom
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -777,14 +703,28 @@ namespace Asgard.Tickets.Telekom
                 }
             }
 
+            using (MySqlConnection connection = RepositoryBase.GetConnectionPublic())
+            {
+                string sql2 = "INSERT INTO log_telekom (ID_Bria, Ticket) VALUES (@BRIA, @TICKET)";
+                MySqlCommand command = new MySqlCommand(sql2, connection);
 
+                // set the parameter values
+                command.Parameters.AddWithValue("@BRIA", codAgent.Text);
+                command.Parameters.AddWithValue("@TICKET", comboboxTickete.Text);
+
+                // execute the command
+                command.ExecuteNonQuery();
+
+                // close the connection
+                connection.Close();
+            }
         }
 
-        private void comboboxTickete_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxTickete_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
 
-        private void comboboxAWB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxAWB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
 
@@ -804,8 +744,7 @@ namespace Asgard.Tickets.Telekom
         private void TicketeButton_Click(object sender, RoutedEventArgs e)
         {
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
-            window.Main.Navigate(new Tickets.TicketsTelekom());
+            window.Main.Navigate(new TicketsTelekom());
         }
     }
-
 }

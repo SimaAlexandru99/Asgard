@@ -69,7 +69,6 @@ namespace Asgard.Tickets.Vodafone
                 {
                     if (nameClient.Text == string.Empty || cnp.Text == string.Empty)
                     {
-
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
@@ -89,9 +88,8 @@ namespace Asgard.Tickets.Vodafone
             }
             else if (stepInfoAdress.Visibility == Visibility.Visible)
             {
-                if (combobox_strada.Text == string.Empty || nume_strada_text.Text == string.Empty || numar_strada_text.Text == string.Empty || bloc_text.Text == string.Empty || scara_text.Text == string.Empty || etaj_text.Text == string.Empty || apartament_text.Text == string.Empty)
+                if (combobox_strada.Text == string.Empty || nume_strada_text.Text == string.Empty || numar_strada_text.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -99,6 +97,7 @@ namespace Asgard.Tickets.Vodafone
                         dialog.Status.Text = "Nu am putut înainta";
                         dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
                     };
+
                     dialog.ShowDialog();
                     return;
                 }
@@ -112,7 +111,6 @@ namespace Asgard.Tickets.Vodafone
             {
                 if (client_comun_combo.Text == string.Empty || tipAbonament.Text == string.Empty || comboboxAbonament.Text == string.Empty || comboboxCostAbonament.Text == string.Empty || comboboxDeviceChoice.Text == string.Empty || comboboxKid.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -150,10 +148,8 @@ namespace Asgard.Tickets.Vodafone
                             step2Panel.Visibility = Visibility.Collapsed;
                             step4Panel.Visibility = Visibility.Visible;
                         }
-
                     }
                 }
-
             }
             else if (step3Panel.Visibility == Visibility.Visible)
             {
@@ -182,7 +178,6 @@ namespace Asgard.Tickets.Vodafone
                         step4Panel.Visibility = Visibility.Visible;
                     }
                 }
-
             }
             else if (step4Panel.Visibility == Visibility.Visible)
             {
@@ -225,7 +220,6 @@ namespace Asgard.Tickets.Vodafone
                     step2Panel.Visibility = Visibility.Collapsed;
                     stepInfoAdress.Visibility = Visibility.Visible;
                 }
-
             }
             else if (step3Panel.Visibility == Visibility.Visible)
             {
@@ -259,7 +253,6 @@ namespace Asgard.Tickets.Vodafone
                         step5Panel.Visibility = Visibility.Collapsed;
                         step4Panel.Visibility = Visibility.Visible;
                     }
-
                 }
                 else if (comboboxDeviceChoice.Text == "Nu")
                 {
@@ -14554,47 +14547,27 @@ namespace Asgard.Tickets.Vodafone
                     break;
                 case "Portare PrePay Orange":
                     comboboxAbonament.Items.Add("Red 15");
-                    comboboxCostAbonament.Items.Add("5 EURO");
-                    comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
-                    comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
                     cod_abonat.Clear();
                     break;
                 case "Portare PrePay Telekom":
                     comboboxAbonament.Items.Add("Red 15");
-                    comboboxCostAbonament.Items.Add("5 EURO");
-                    comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
-                    comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
                     cod_abonat.Clear();
                     break;
                 case "Portare PrePay Digi":
                     comboboxAbonament.Items.Add("Red 15");
-                    comboboxCostAbonament.Items.Add("5 EURO");
-                    comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
-                    comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
-                    comboboxCostAbonament.Items.Add("2 EURO");
                     cod_abonat.Clear();
 
                     break;
                 case "Portare Abonament Orange":
                     comboboxAbonament.Items.Add("Red 15");
-                    comboboxCostAbonament.Items.Add("5 EURO");
-                    comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
-                    comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
                     serie_sim.Clear();
                     break;
                 case "Portare Abonament Telekom":
                     comboboxAbonament.Items.Add("Red 15");
-                    comboboxCostAbonament.Items.Add("5 EURO");
-                    comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
-                    comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
                     serie_sim.Clear();
                     break;
                 case "Portare Abonament Digi":
                     comboboxAbonament.Items.Add("Red 15");
-                    comboboxCostAbonament.Items.Add("5 EURO");
-                    comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
-                    comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
-                    comboboxCostAbonament.Items.Add("2 EURO");
                     serie_sim.Clear();
                     break;
             }
@@ -14602,10 +14575,9 @@ namespace Asgard.Tickets.Vodafone
 
         private void ComboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedItem = comboboxAbonament.SelectedItem as string;
             comboboxCostAbonament.Items.Clear();
 
-            if (selectedItem != null)
+            if (comboboxAbonament.SelectedItem is string selectedItem)
             {
                 if (tipAbonament.Text == "Achzitie noua")
                 {
@@ -14699,6 +14671,18 @@ namespace Asgard.Tickets.Vodafone
                             break;
                     }
                 }
+            }
+        }
+
+        private void ComboboxClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (client_comun_combo.Text == "Client nou")
+            {
+                TextNumarFirstPage.Text = "Numărul pe care s-a discutat";
+            }
+            else
+            {
+                TextNumarFirstPage.Text = "Număr existent (paperless)";
             }
         }
     }

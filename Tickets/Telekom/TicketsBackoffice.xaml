@@ -102,7 +102,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxTickete_SelectionChanged">
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="ComboboxTickete_SelectionChanged">
                         <ComboBoxItem >Exceptare plata depozit</ComboBoxItem>
                         <ComboBoxItem >Anulare cereri la curier RPA</ComboBoxItem>
                         <ComboBoxItem >Anulare cerere cu echipament Curier DPD/URGENT CARGUS</ComboBoxItem>
@@ -229,7 +229,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxTickete_SelectionChanged">
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="ComboboxTickete_SelectionChanged">
                         <ComboBoxItem >VHR</ComboBoxItem>
                         <ComboBoxItem >HR</ComboBoxItem>
                         <ComboBoxItem >MR</ComboBoxItem>
@@ -276,7 +276,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="comboboxAWB_SelectionChanged">
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectionChanged="ComboboxAWB_SelectionChanged">
                             <ComboBoxItem>DA</ComboBoxItem>
                             <ComboBoxItem IsSelected="True">NU</ComboBoxItem>
                         </ComboBox>

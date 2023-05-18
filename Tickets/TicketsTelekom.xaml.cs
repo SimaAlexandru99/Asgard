@@ -1,12 +1,16 @@
-﻿using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿// <copyright file="TicketsTelekom.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets
 {
+    using System.Diagnostics;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Navigation;
+
     /// <summary>
-    /// Interaction logic for TicketsTelekom.xaml
+    /// Interaction logic for TicketsTelekom.xaml.
     /// </summary>
     public partial class TicketsTelekom : Page
     {
@@ -18,8 +22,7 @@ namespace Asgard.Tickets
         private void ButtonTicket_Click(object sender, RoutedEventArgs e)
         {
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
-            window.Main.Navigate(new Telekom.TicketsBackoffice());
-
+            _ = window.Main.Navigate(new Telekom.TicketsBackoffice());
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

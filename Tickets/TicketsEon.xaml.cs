@@ -1,8 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="TicketsEon.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets
 {
+    using System.Windows;
+    using System.Windows.Controls;
+
     /// <summary>
     /// Interaction logic for TicketsEon.xaml
     /// </summary>

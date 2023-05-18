@@ -163,6 +163,9 @@
     <Compile Include="Tickets\TicketeVodafone.xaml.cs">
       <DependentUpon>TicketeVodafone.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tickets\TicketsAdmin.xaml.cs">
+      <DependentUpon>TicketsAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tickets\TicketsCEC.xaml.cs">
       <DependentUpon>TicketsCEC.xaml</DependentUpon>
     </Compile>
@@ -297,6 +300,10 @@
     <Page Include="Tickets\TicketeVodafone.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\TicketsAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tickets\TicketsCEC.xaml">
       <SubType>Designer</SubType>

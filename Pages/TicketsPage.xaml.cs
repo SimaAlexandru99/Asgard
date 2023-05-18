@@ -4,9 +4,9 @@
 
 namespace Asgard.Pages
 {
-    using Asgard.ViewModels;
     using System.Windows;
     using System.Windows.Controls;
+    using Asgard.ViewModels;
 
     /// <summary>
     /// Interaction logic for TicketsPage.xaml.
@@ -52,6 +52,9 @@ namespace Asgard.Pages
                     break;
                 case "CEC":
                     MainTickets.Content = new Tickets.TicketsCEC();
+                    break;
+                case "IT":
+                    MainTickets.Content = new Tickets.TicketsAdmin();
                     break;
             }
         }

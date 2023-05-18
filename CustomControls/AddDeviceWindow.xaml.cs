@@ -79,12 +79,12 @@ namespace Asgard.CustomControls
                     Prompt dialog = new Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
-
                         dialog.Title = "Succes";
                         dialog.Status.Text = "Dispozitivul a fost adăugat";
                         dialog.Descriere.Text = "Dispozitivul tău poate fi vizualizat în pagina anterioară.";
                     };
                     dialog.ShowDialog();
+
                     // Close the connection
                     connection.Close();
                 }

@@ -1,4 +1,4 @@
-﻿// <copyright file="TicketeVodafone.xaml.cs" company="eOverArt Marketing Agency">
+﻿// <copyright file="TicketsAdmin.xaml.cs" company="eOverArt Marketing Agency">
 // Copyright (c) eOverArt Marketing Agency. All rights reserved.
 // </copyright>
 
@@ -11,14 +11,14 @@ namespace Asgard.Tickets
     using System.Windows.Navigation;
 
     /// <summary>
-    /// Interaction logic for TicketeVodafone.xaml.
+    /// Interaction logic for TicketsAdmin.xaml
     /// </summary>
-    public partial class TicketeVodafone : Page
+    public partial class TicketsAdmin : Page
     {
         // Retrieve the current date and time
         private readonly DateTime currentDate = DateTime.Now;
 
-        public TicketeVodafone()
+        public TicketsAdmin()
         {
             InitializeComponent();
 
@@ -64,6 +64,30 @@ namespace Asgard.Tickets
         {
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
             window.Main.Navigate(new Vodafone.OrderAchizitie());
+        }
+
+        private void ButtonTelokom_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            _ = window.Main.Navigate(new Telekom.TicketsBackoffice());
+        }
+
+        private void HomeNet_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new Orange.HomeNet());
+        }
+
+        private void ButtonContract_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new EON.TicketContracte());
+        }
+
+        private void ButtonCEC_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new CEC.Formular());
         }
     }
 }

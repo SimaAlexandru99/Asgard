@@ -1,18 +1,22 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿// <copyright file="TicketsVodafoneAchizitie.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets
 {
+    using System;
+    using System.Diagnostics;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Navigation;
+
     /// <summary>
-    /// Interaction logic for TicketsVodafoneAchizitie.xaml
+    /// Interaction logic for TicketsVodafoneAchizitie.xaml.
     /// </summary>
     public partial class TicketsVodafoneAchizitie : Page
     {
         // Retrieve the current date and time
-        DateTime currentDate = DateTime.Now;
+        private readonly DateTime currentDate = DateTime.Now;
 
         public TicketsVodafoneAchizitie()
         {
@@ -20,6 +24,7 @@ namespace Asgard.Tickets
 
             // Set the TextBlock's Text property to display the date in a specific format
             DateDayTextBlock.Text = currentDate.ToString("dd");
+
             /*DateMonthTextBlock.Text = currentDate.ToString("MMMM");*/
         }
 
