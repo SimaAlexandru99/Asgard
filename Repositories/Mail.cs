@@ -1,16 +1,22 @@
-﻿using System;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
+﻿// <copyright file="Mail.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Repositories
 {
-    class Mail
+    using System;
+    using System.Net.Security;
+    using System.Security.Cryptography.X509Certificates;
+
+    public class Mail
     {
         public static bool MySslCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
             // If there are no errors, then everything went smoothly.
             if (sslPolicyErrors == SslPolicyErrors.None)
+            {
                 return true;
+            }
 
             // Note: MailKit will always pass the host name string as the `sender` argument.
             var host = (string)sender;
@@ -25,8 +31,7 @@ namespace Asgard.Repositories
             if ((sslPolicyErrors & SslPolicyErrors.RemoteCertificateNameMismatch) != 0)
             {
                 // This means that the server's SSL certificate did not match the host name that we are trying to connect to.
-                var certificate2 = certificate as X509Certificate2;
-                var cn = certificate2 != null ? certificate2.GetNameInfo(X509NameType.SimpleName, false) : certificate.Subject;
+                var cn = certificate is X509Certificate2 certificate2 ? certificate2.GetNameInfo(X509NameType.SimpleName, false) : certificate.Subject;
 
                 Console.WriteLine("The Common Name for the SSL certificate did not match {0}. Instead, it was {1}.", host, cn);
                 return false;
@@ -43,7 +48,9 @@ namespace Asgard.Repositories
                 // Each element in the chain will have its own status list. If the status list is empty, it means that the
                 // certificate itself did not contain any errors.
                 if (element.ChainElementStatus.Length == 0)
+                {
                     continue;
+                }
 
                 Console.WriteLine("\u2022 {0}", element.Certificate.Subject);
                 foreach (var error in element.ChainElementStatus)

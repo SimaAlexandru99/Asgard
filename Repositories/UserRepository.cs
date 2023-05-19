@@ -1,13 +1,17 @@
-﻿using Asgard.Models;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
-using System.Windows;
+﻿// <copyright file="UserRepository.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Net;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using Asgard.Models;
+    using MySql.Data.MySqlClient;
+
     public class UserRepository : RepositoryBase, IUserRepository
     {
         public void Add(UserModel userModel)
@@ -25,25 +29,24 @@ namespace Asgard.Repositories
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = "select *from users where Username=@Username and Password=@Password";
-                    command.Parameters.Add("@Username", MySqlDbType.VarChar).Value = credential.UserName;
-                    command.Parameters.Add("@Password", MySqlDbType.VarChar).Value = credential.Password;
-                    validUser =
-                        command.ExecuteScalar() != null;
+                    command.CommandText = "SELECT COUNT(*) FROM users WHERE Username = @Username AND Password = @Password";
+                    command.Parameters.AddWithValue("@Username", credential.UserName);
+                    command.Parameters.AddWithValue("@Password", credential.Password);
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    validUser = count > 0;
                 }
                 catch (MySqlException ex)
                 {
-                    // Handle MySQL exception
-                    MessageBox.Show($"Failed to execute database command: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    validUser = false; // Set the result to false
+                    // Handle MySQL exception or throw it further
+                    throw new Exception($"Failed to execute database command: {ex.Message}", ex);
                 }
                 catch (Exception ex)
                 {
-                    // Handle general exception
-                    MessageBox.Show($"Failed to execute database command: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    validUser = false; // Set the result to false
+                    // Handle general exception or throw it further
+                    throw new Exception($"Failed to execute database command: {ex.Message}", ex);
                 }
             }
+
             return validUser;
         }
 
@@ -72,13 +75,12 @@ namespace Asgard.Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT * FROM users WHERE Username=@Username";
-                command.Parameters.Add("@Username", MySqlDbType.VarChar).Value = username;
+                command.CommandText = "SELECT * FROM users WHERE Username = @Username";
+                command.Parameters.AddWithValue("@Username", username);
                 using (var reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-
                         user = new UserModel()
                         {
                             Id = reader.GetString(0),
@@ -92,20 +94,20 @@ namespace Asgard.Repositories
                             Quality = reader.GetString(9),
                             ID_Bria = reader.GetString(10),
                             Status = reader.GetString(11),
-                            Password = string.Empty
-
-
-
+                            Password = string.Empty,
                         };
-
-                        connection.Close();
-                        connection.Open();
-                        command.CommandText = "UPDATE users SET Status='Online' WHERE Username='" + user.Username + "';";
-                        command.ExecuteNonQuery();
-                        connection.Close();
                     }
                 }
+
+                if (user != null)
+                {
+                    command.CommandText = "UPDATE users SET Status = 'Online' WHERE Username = @Username";
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@Username", user.Username);
+                    command.ExecuteNonQuery();
+                }
             }
+
             return user;
         }
 

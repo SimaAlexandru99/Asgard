@@ -2,414 +2,323 @@
 {
     public class Verifications : ObservableObject
     {
-        private string _name;
+        private string name;
+
+        private string phone;
+
+        private string serie;
+
+        private string emis;
+
+        private string numarexistent;
+
+        private string numestrada;
+
+        private string numarstrada;
+
+        private string bloc;
+
+        private string scara;
+
+        private string etaj;
+
+        private string apartament;
+
+        private string costRata;
+
+        private string costTotal;
+
+        private string discountcode;
+
         public string Name
         {
-            get { return _name; }
-            set
-            {
-                OnPropertyChanged(ref _name, value);
-            }
+            get { return name; }
+            set { OnPropertyChanged(ref name, value); }
         }
-
-        private string _phone;
 
         public string Phone
         {
-            get { return _phone; }
-            set
-            {
-                OnPropertyChanged(ref _phone, value);
-            }
+            get { return phone; }
+            set { OnPropertyChanged(ref phone, value); }
         }
 
-        private string _serie;
         public string Serie
         {
-            get { return _serie; }
-            set
-            {
-                OnPropertyChanged(ref _serie, value);
-            }
+            get { return serie; }
+            set { OnPropertyChanged(ref serie, value); }
         }
 
-        private string _emis;
         public string Emis
         {
-            get { return _emis; }
-            set
-            {
-                OnPropertyChanged(ref _emis, value);
-            }
+            get { return emis; }
+            set { OnPropertyChanged(ref emis, value); }
         }
 
-        private string _numarexistent;
         public string NumarExistent
         {
-            get { return _numarexistent; }
-            set
-            {
-                OnPropertyChanged(ref _numarexistent, value);
-            }
+            get { return numarexistent; }
+            set { OnPropertyChanged(ref numarexistent, value); }
         }
 
-        private string _numestrada;
         public string NumeStrada
         {
-            get { return _numestrada; }
-            set
-            {
-                OnPropertyChanged(ref _numestrada, value);
-            }
+            get { return numestrada; }
+            set { OnPropertyChanged(ref numestrada, value); }
         }
 
-        private string _numarstrada;
         public string NumarStrada
         {
-            get { return _numarstrada; }
-            set
-            {
-                OnPropertyChanged(ref _numarstrada, value);
-            }
+            get { return numarstrada; }
+            set { OnPropertyChanged(ref numarstrada, value); }
         }
 
-        private string _bloc;
         public string Bloc
         {
-            get { return _bloc; }
-            set
-            {
-                OnPropertyChanged(ref _bloc, value);
-            }
+            get { return bloc; }
+            set { OnPropertyChanged(ref bloc, value); }
         }
 
-        private string _scara;
         public string Scara
         {
-            get { return _scara; }
-            set
-            {
-                OnPropertyChanged(ref _scara, value);
-            }
+            get { return scara; }
+            set { OnPropertyChanged(ref scara, value); }
         }
 
-        private string _etaj;
         public string Etaj
         {
-            get { return _etaj; }
-            set
-            {
-                OnPropertyChanged(ref _etaj, value);
-            }
+            get { return etaj; }
+            set { OnPropertyChanged(ref etaj, value); }
         }
 
-        private string _apartament;
         public string Apartament
         {
-            get { return _apartament; }
-            set
-            {
-                OnPropertyChanged(ref _apartament, value);
-            }
+            get { return apartament; }
+            set { OnPropertyChanged(ref apartament, value); }
         }
 
-        private string _cost_rata;
         public string CostRata
         {
-            get { return _cost_rata; }
-            set
-            {
-                OnPropertyChanged(ref _cost_rata, value);
-            }
+            get { return costRata; }
+            set { OnPropertyChanged(ref costRata, value); }
         }
 
-        private string _cost_total;
         public string CostTotal
         {
-            get { return _cost_total; }
-            set
-            {
-                OnPropertyChanged(ref _cost_total, value);
-            }
+            get { return costTotal; }
+            set { OnPropertyChanged(ref costTotal, value); }
         }
 
-        private string _discountcode;
+
+
         public string DiscountCode
         {
-            get { return _discountcode; }
-            set
-            {
-                OnPropertyChanged(ref _discountcode, value);
-            }
+            get { return discountcode; }
+            set { OnPropertyChanged(ref discountcode, value); }
         }
 
-        private string _adresa_facturare;
+        private string adresaFacturare;
+
         public string AdresaFacturare
         {
-            get { return _adresa_facturare; }
-            set
-            {
-                OnPropertyChanged(ref _adresa_facturare, value);
-            }
+            get { return adresaFacturare; }
+            set { OnPropertyChanged(ref adresaFacturare, value); }
         }
 
-        private string _adresa_livrare;
+        private string adresaLivrare;
+
         public string AdresaLivrare
         {
-            get { return _adresa_livrare; }
-            set
-            {
-                OnPropertyChanged(ref _adresa_livrare, value);
-            }
+            get { return adresaLivrare; }
+            set { OnPropertyChanged(ref adresaLivrare, value); }
         }
 
+        private string adresa;
 
-
-        private string _adresa;
         public string Adresa
         {
-            get { return _adresa; }
-            set
-            {
-                OnPropertyChanged(ref _adresa, value);
-            }
+            get { return adresa; }
+            set { OnPropertyChanged(ref adresa, value); }
         }
 
-        private string _contact;
+        private string contact;
+
         public string Contact
         {
-            get { return _contact; }
-            set
-            {
-                OnPropertyChanged(ref _contact, value);
-            }
+            get { return contact; }
+            set { OnPropertyChanged(ref contact, value); }
         }
 
-        private string _avans;
+        private string avans;
+
         public string Avans
         {
-            get { return _avans; }
-            set
-            {
-                OnPropertyChanged(ref _avans, value);
-            }
+            get { return avans; }
+            set { OnPropertyChanged(ref avans, value); }
         }
 
+        private string email;
 
-        private string _email;
         public string Email
         {
-            get { return _email; }
-            set
-            {
-                OnPropertyChanged(ref _email, value);
-            }
+            get { return email; }
+            set { OnPropertyChanged(ref email, value); }
         }
 
-        private string _posta;
+        private string posta;
+
         public string Posta
         {
-            get { return _posta; }
-            set
-            {
-                OnPropertyChanged(ref _posta, value);
-            }
+            get { return posta; }
+            set { OnPropertyChanged(ref posta, value); }
         }
 
-        private string _judet;
+        private string judet;
 
         public string Judet
         {
-            get { return _judet; }
-            set
-            {
-                OnPropertyChanged(ref _judet, value);
-            }
+            get { return judet; }
+            set { OnPropertyChanged(ref judet, value); }
         }
 
-        private string _cnp;
+        private string cnp;
 
         public string CNP
         {
-            get { return _cnp; }
-            set
-            {
-                OnPropertyChanged(ref _cnp, value);
-            }
+            get { return cnp; }
+            set { OnPropertyChanged(ref cnp, value); }
         }
 
-        private string _rata;
+        private string rata;
 
         public string Rata
         {
-            get { return _rata; }
+            get { return rata; }
+
             set
             {
-                OnPropertyChanged(ref _rata, value);
+                OnPropertyChanged(ref rata, value);
             }
         }
 
-        private string _pretdelista;
+        private string pretdelista;
 
         public string PretDeListaEuro
         {
-            get { return _pretdelista; }
-            set
-            {
-                OnPropertyChanged(ref _pretdelista, value);
-            }
+            get { return pretdelista; }
+            set { OnPropertyChanged(ref pretdelista, value); }
         }
 
-        private string _codedereducere;
+        private string codedereducere;
 
         public string CodDeReducere
         {
-            get { return _codedereducere; }
-            set
-            {
-                OnPropertyChanged(ref _codedereducere, value);
-            }
+            get { return codedereducere; }
+            set { OnPropertyChanged(ref codedereducere, value); }
         }
 
-        private string _codedereducere2;
+        private string codedereducere2;
 
         public string CodDeReducere2
         {
-            get { return _codedereducere2; }
-            set
-            {
-                OnPropertyChanged(ref _codedereducere2, value);
-            }
+            get { return codedereducere2; }
+            set { OnPropertyChanged(ref codedereducere2, value); }
         }
 
-        private string _pretfinal;
+        private string pretfinal;
 
         public string PretFinal
         {
-            get { return _pretfinal; }
-            set
-            {
-                OnPropertyChanged(ref _pretfinal, value);
-            }
+            get { return pretfinal; }
+            set { OnPropertyChanged(ref pretfinal, value); }
         }
 
-        private string _idcomanda;
+        private string idcomanda;
 
         public string IDComanda
         {
-            get { return _idcomanda; }
-            set
-            {
-                OnPropertyChanged(ref _idcomanda, value);
-            }
+            get { return idcomanda; }
+            set { OnPropertyChanged(ref idcomanda, value); }
         }
 
-        private string _idpropunere;
+        private string idpropunere;
 
         public string IDPropunere
         {
-            get { return _idpropunere; }
-            set
-            {
-                OnPropertyChanged(ref _idpropunere, value);
-            }
+            get { return idpropunere; }
+            set { OnPropertyChanged(ref idpropunere, value); }
         }
 
-        private string _awb;
+        private string awb;
 
         public string AWB
         {
-            get { return _awb; }
-            set
-            {
-                OnPropertyChanged(ref _awb, value);
-            }
+            get { return awb; }
+            set { OnPropertyChanged(ref awb, value); }
         }
 
-        private string _datacomanda;
+        private string datacomanda;
 
         public string DataComanda
         {
-            get { return _datacomanda; }
-            set
-            {
-                OnPropertyChanged(ref _datacomanda, value);
-            }
+            get { return datacomanda; }
+            set { OnPropertyChanged(ref datacomanda, value); }
         }
 
-        private string _motivretur;
+        private string motivretur;
 
         public string MotivRetur
         {
-            get { return _motivretur; }
-            set
-            {
-                OnPropertyChanged(ref _motivretur, value);
-            }
+            get { return motivretur; }
+            set { OnPropertyChanged(ref motivretur, value); }
         }
 
-        private string _codagent;
+        private string codagent;
 
         public string CodAgent
         {
-            get { return _codagent; }
-            set
-            {
-                OnPropertyChanged(ref _codagent, value);
-            }
+            get { return codagent; }
+            set { OnPropertyChanged(ref codagent, value); }
         }
 
-        private string _phoneorange;
+        private string phoneorange;
 
         public string PhoneOrange
         {
-            get { return _phoneorange; }
-            set
-            {
-                OnPropertyChanged(ref _phoneorange, value);
-            }
+            get { return phoneorange; }
+            set { OnPropertyChanged(ref phoneorange, value); }
         }
 
-        private string _idsfa;
+        private string idsfa;
 
         public string IDSfa
         {
-            get { return _idsfa; }
-            set
-            {
-                OnPropertyChanged(ref _idsfa, value);
-            }
+            get { return idsfa; }
+            set { OnPropertyChanged(ref idsfa, value); }
         }
 
-        private string _street;
+        private string street;
 
         public string Street
         {
-            get { return _street; }
-            set
-            {
-                OnPropertyChanged(ref _street, value);
-            }
+            get { return street; }
+            set { OnPropertyChanged(ref street, value); }
         }
 
-        private string _streetnr;
+        private string streetnr;
 
         public string StreetNr
         {
-            get { return _streetnr; }
-            set
-            {
-                OnPropertyChanged(ref _streetnr, value);
-            }
+            get { return streetnr; }
+            set { OnPropertyChanged(ref streetnr, value); }
         }
 
         // Telekom
-        private string _idcerere;
+        private string idcerere;
 
         public string IDCerere
         {
-            get { return _idcerere; }
-            set { OnPropertyChanged(ref _idcerere, value); }
+            get { return idcerere; }
+            set { OnPropertyChanged(ref idcerere, value); }
         }
 
         private string idsursa;
@@ -441,118 +350,95 @@
         public string ConsumAnual
         {
             get { return consumanual; }
-            set
-            {
-                OnPropertyChanged(ref consumanual, value);
-            }
+            set { OnPropertyChanged(ref consumanual, value); }
         }
 
-        private string _codconsumgaz;
+        private string codconsumgaz;
+
         public string CodConsumGaz
         {
-            get { return _codconsumgaz; }
-            set { OnPropertyChanged(ref _codconsumgaz, value); }
+            get { return codconsumgaz; }
+            set { OnPropertyChanged(ref codconsumgaz, value); }
         }
 
         private string clcgaz;
+
         public string CLCGaz
         {
             get { return clcgaz; }
-            set
-            {
-                OnPropertyChanged(ref clcgaz, value);
-            }
+            set { OnPropertyChanged(ref clcgaz, value); }
         }
 
-        private string _categorieconsumgaz;
+        private string categorieconsumgaz;
+
         public string CategorieConsumGaz
         {
-            get { return _categorieconsumgaz; }
-            set
-            {
-                OnPropertyChanged(ref _categorieconsumgaz, value);
-            }
+            get { return categorieconsumgaz; }
+            set { OnPropertyChanged(ref categorieconsumgaz, value); }
         }
 
-        private string _consumanualgaz;
+        private string consumanualgaz;
+
         public string ConsumAnualGaz
         {
-            get { return _consumanualgaz; }
-            set
-            {
-                OnPropertyChanged(ref _consumanualgaz, value);
-            }
+            get { return consumanualgaz; }
+            set { OnPropertyChanged(ref consumanualgaz, value); }
         }
 
-        private string _prenume;
+        private string prenume;
+
         public string Prenume
         {
-            get { return _prenume; }
-            set
-            {
-                OnPropertyChanged(ref _prenume, value);
-            }
+            get { return prenume; }
+            set { OnPropertyChanged(ref prenume, value); }
         }
 
-        private string _telefon;
+        private string telefon;
+
         public string Telefon
         {
-            get { return _telefon; }
-            set
-            {
-                OnPropertyChanged(ref _telefon, value);
-            }
+            get { return telefon; }
+            set { OnPropertyChanged(ref telefon, value); }
         }
 
-        private string _adresacorespondenta;
+        private string adresacorespondenta;
+
         public string AdresaCorespondenta
         {
-            get { return _adresacorespondenta; }
-            set
-            {
-                OnPropertyChanged(ref _adresacorespondenta, value);
-            }
+            get { return adresacorespondenta; }
+            set { OnPropertyChanged(ref adresacorespondenta, value); }
         }
 
-        private string _codclienteon;
+        private string codclienteon;
+
         public string CodClientEon
         {
-            get { return _codclienteon; }
-            set
-            {
-                OnPropertyChanged(ref _codclienteon, value);
-            }
+            get { return codclienteon; }
+            set { OnPropertyChanged(ref codclienteon, value); }
         }
 
-        private string _adresalocconsum;
+        private string adresalocconsum;
+
         public string AdresaLocConsum
         {
-            get { return _adresalocconsum; }
-
-            set
-            {
-                OnPropertyChanged(ref _adresalocconsum, value);
-            }
+            get { return adresalocconsum; }
+            set { OnPropertyChanged(ref adresalocconsum, value); }
         }
 
-        private string _valabilitateactspatiu;
+        private string valabilitateactspatiu;
+
         public string ValabilitateActSpatiu
         {
-            get { return _valabilitateactspatiu; }
-            set
-            {
-                OnPropertyChanged(ref _valabilitateactspatiu, value);
-            }
+            get { return valabilitateactspatiu; }
+            set { OnPropertyChanged(ref valabilitateactspatiu, value); }
         }
 
-        private string _clc;
+        private string clc;
+
         public string CLC
         {
-            get { return _clc; }
-            set
-            {
-                OnPropertyChanged(ref _clc, value);
-            }
+            get { return clc; }
+            set { OnPropertyChanged(ref clc, value); }
         }
 
         private string pod;

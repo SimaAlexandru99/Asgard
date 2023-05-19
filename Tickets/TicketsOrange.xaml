@@ -66,7 +66,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0">
-                        <TextBlock Text="" FontFamily="/Fonts/#Rubik Bold" FontSize="25" TextWrapping="Wrap" Foreground="{DynamicResource TextColor}"> 
+                        <TextBlock FontFamily="/Fonts/#Rubik Bold" FontSize="25" TextWrapping="Wrap" Foreground="{DynamicResource TextColor}"> 
                         Vrei sa afli noi metode <LineBreak/>
                         de a face <Run Foreground="{DynamicResource BackgroundThirdColor}">vânzări?</Run>
                         </TextBlock>

@@ -1,20 +1,24 @@
-﻿using Asgard.Repositories;
-using Asgard.ViewModels;
-using MailKit;
-using MailKit.Net.Smtp;
-using MimeKit;
-using MySql.Data.MySqlClient;
-using System;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿// <copyright file="TicketRetur.xaml.cs" company="eOverArt">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.Vodafone
 {
+    using System;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for TicketRetur.xaml
+    /// Interaction logic for TicketRetur.xaml.
     /// </summary>
     public partial class TicketRetur : Page
     {
@@ -28,9 +32,8 @@ namespace Asgard.Tickets.Vodafone
             var user = new MainViewModel();
             string email = user.CurrentUserAccount.Email.ToString();
 
-            if (awbComanda.Text == "" || idComanda.Text == "" || nameClient.Text == "" || datacomandaClient.Text == "" || telefoncontactClient.Text == "" || AdresaClient.Text == "" || comboboxJudet.Text == "" || comboboxLocalitate.Text == "" || motivreturClient.Text == "" || comboboxTerminalDesigilat.Text == "")
+            if (awbComanda.Text == string.Empty || idComanda.Text == "" || nameClient.Text == "" || datacomandaClient.Text == "" || telefoncontactClient.Text == "" || AdresaClient.Text == "" || comboboxJudet.Text == "" || comboboxLocalitate.Text == "" || motivreturClient.Text == "" || comboboxTerminalDesigilat.Text == "")
             {
-
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
                 {
@@ -39,13 +42,9 @@ namespace Asgard.Tickets.Vodafone
                     dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                 };
                 dialog.ShowDialog();
-
             }
             else
             {
-
-
-
                 MimeMessage message = new MimeMessage();
                 message.Subject = "Retur comanda: " + idComanda.Text;
                 message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
@@ -64,7 +63,7 @@ namespace Asgard.Tickets.Vodafone
                 "Judet: " + comboboxJudet.Text + "\r\n" +
                 "Motiv retur: " + motivreturClient.Text + "\r\n" +
                 "Terminal desigilat: " + comboboxTerminalDesigilat.Text + "\r\n" +
-                "Agent: " + email
+                "Agent: " + email,
                 };
                 string emailAddress = "asgard@optimacall.ro";
                 string password = "Optima#321";
@@ -77,7 +76,6 @@ namespace Asgard.Tickets.Vodafone
                     client.Connect("zmail.optimacall.ro", 465, true);
                     client.Authenticate(emailAddress, password);
                     client.Send(message);
-
 
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -108,9 +106,7 @@ namespace Asgard.Tickets.Vodafone
                     client.Disconnect(true);
                     client.Dispose();
                 }
-
             }
-
         }
 
         private void Text_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -121,21 +117,47 @@ namespace Asgard.Tickets.Vodafone
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var connection = RepositoryBase.GetConnectionPublic();
-            var command = new MySqlCommand();
-            command.Connection = connection;
-            command.CommandText = "SELECT * FROM judete";
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                comboboxJudet.Items.Add(reader.GetString(1));
+                var connection = RepositoryBase.GetConnectionPublic();
+                var command = new MySqlCommand
+                {
+                    Connection = connection,
+                    CommandText = "SELECT * FROM judete",
+                };
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboboxJudet.Items.Add(reader.GetString(1));
+                }
 
+                connection.Close();
             }
-
-            connection.Close();
+            catch (MySqlException ex)
+            {
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Eroare";
+                    dialog.Descriere.Text = $"Failed to execute database command: {ex.Message}";
+                };
+                dialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Eroare";
+                    dialog.Descriere.Text = $"An error occurred: {ex.Message}";
+                };
+                dialog.ShowDialog();
+            }
         }
 
-        private void comboboxJudet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboboxJudet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (comboboxJudet.SelectedItem.ToString().Trim())
             {
@@ -14134,7 +14156,7 @@ namespace Asgard.Tickets.Vodafone
             window.Main.Navigate(new TicketeVodafone());
         }
 
-        private void judetCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void JudetCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboboxJudet.SelectedItem == null)
             {

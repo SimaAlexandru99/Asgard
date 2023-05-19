@@ -1,11 +1,15 @@
-﻿using Asgard.Repositories;
-using MySql.Data.MySqlClient;
-using System;
-using System.Windows;
-using System.Windows.Input;
+﻿// <copyright file="AddDeviceWindow.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.CustomControls
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Input;
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
     /// Interaction logic for AddDeviceWindow.xaml
     /// </summary>

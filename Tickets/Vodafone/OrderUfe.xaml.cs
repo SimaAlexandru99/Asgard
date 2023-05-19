@@ -14111,8 +14111,10 @@ namespace Asgard.Tickets.Vodafone
                 string emailAddress = "asgard@optimacall.ro";
                 string password = "Optima#321";
 
-                MimeMessage message = new MimeMessage();
-                message.Subject = "Comanda terminal UFE - Ticket-ul cu numarul: " + phoneClient.Text;
+                MimeMessage message = new MimeMessage
+                {
+                    Subject = "Comanda terminal UFE - Ticket-ul cu numarul: " + phoneClient.Text,
+                };
                 message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                 message.To.Add(MailboxAddress.Parse(email));
                 message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));

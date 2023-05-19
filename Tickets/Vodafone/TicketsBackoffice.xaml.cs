@@ -248,8 +248,10 @@ namespace Asgard.Tickets.Vodafone
                 }
                 else
                 {
-                    MimeMessage message = new MimeMessage();
-                    message.Subject = "Ticket " + comboboxTicketeRetentie.Text + ": " + idPropunere.Text;
+                    MimeMessage message = new MimeMessage
+                    {
+                        Subject = "Ticket " + comboboxTicketeRetentie.Text + ": " + idPropunere.Text,
+                    };
                     message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                     message.To.Add(MailboxAddress.Parse(email));
                     message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
@@ -261,7 +263,7 @@ namespace Asgard.Tickets.Vodafone
                         "CNP: " + CNP.Text + "\r\n" +
                         "ID Propunere: " + idPropunere.Text + "\r\n" +
                         "Tip desecurizare: " + comboboxDesecurizare.Text + "\r\n" +
-                               "Descriere: " + "Va rog sa ma ajutati cu desecurizare"
+                               "Descriere: " + "Va rog sa ma ajutati cu desecurizare",
                     };
                     string emailAddress = "asgard@optimacall.ro";
                     string password = "Optima#321";

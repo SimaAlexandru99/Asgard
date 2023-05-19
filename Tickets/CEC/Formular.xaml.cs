@@ -4,11 +4,11 @@
 
 namespace Asgard.Tickets.CEC
 {
-    using Asgard.Repositories;
-    using MySql.Data.MySqlClient;
     using System.Data;
     using System.Windows;
     using System.Windows.Controls;
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for Formular.xaml.
@@ -168,6 +168,7 @@ namespace Asgard.Tickets.CEC
                 Stack39.Visibility = Visibility.Collapsed;
                 Stack40.Visibility = Visibility.Collapsed;
             }
+
             if (selectedItem.Name == "Var8" || selectedItem.Name == "Var9")
             {
                 Stack21.Visibility = Visibility.Visible;
@@ -202,6 +203,7 @@ namespace Asgard.Tickets.CEC
                 Stack44.Visibility = Visibility.Collapsed;
                 Stack45.Visibility = Visibility.Collapsed;
             }
+
             if (selectedItem.Name == "Var10" || selectedItem.Name == "Var11" || selectedItem.Name == "Var12" || selectedItem.Name == "Var13" || selectedItem.Name == "Var14")
             {
                 Stack28.Visibility = Visibility.Visible;
@@ -1693,7 +1695,6 @@ namespace Asgard.Tickets.CEC
                             dialog.ShowDialog();
                             return;
                         }
-
                     }
                     else if (Drop_produs.Text == "retragere numerar" || Drop_produs.Text == "efectuarea unei plati prin ordin de plata]")
                     {
@@ -1701,8 +1702,10 @@ namespace Asgard.Tickets.CEC
                         {
                             string sql = "INSERT INTO chestionare_cec VALUES (NULL, @id_client, @t1, @t2_1, @t2_2, @t3, @t4, @q1, @q2, @q3_1_1, @q3_1_2, @q3_1_3, @q3_1_4, @q3_1_5, @q3_1_6, @b3, @q4_1_1, @q4_1_2, @q4_1_3, @q4_1_4, @q4_1_5, @b4, @q5, @q6, @b6, @b7, @b8, @tip_sondaj, NULL)";
                             MySqlConnection connection = RepositoryBase.GetConnectionPublic();
-                            MySqlCommand cmd = new MySqlCommand(sql, connection);
-                            cmd.CommandType = CommandType.Text;
+                            MySqlCommand cmd = new MySqlCommand(sql, connection)
+                            {
+                                CommandType = CommandType.Text,
+                            };
                             cmd.Parameters.Add("@id_client", MySqlDbType.VarChar).Value = ID_client_text.Text;
                             cmd.Parameters.Add("@t1", MySqlDbType.VarChar).Value = T1;
                             cmd.Parameters.Add("@t2_1", MySqlDbType.VarChar).Value = T2_1;
@@ -1870,7 +1873,6 @@ namespace Asgard.Tickets.CEC
                     dialog.ShowDialog();
                     return;
                 }
-
             }
             else if (Drop_tip_sondaj.Text == "Sondaj Incomplet" && ID_client_text.Text != string.Empty)
             {

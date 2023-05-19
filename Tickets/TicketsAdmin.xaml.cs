@@ -11,7 +11,7 @@ namespace Asgard.Tickets
     using System.Windows.Navigation;
 
     /// <summary>
-    /// Interaction logic for TicketsAdmin.xaml
+    /// Interaction logic for TicketsAdmin.xaml.
     /// </summary>
     public partial class TicketsAdmin : Page
     {
