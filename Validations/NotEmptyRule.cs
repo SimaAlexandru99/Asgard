@@ -1,8 +1,12 @@
-﻿using System.Globalization;
-using System.Windows.Controls;
+﻿// <copyright file="NotEmptyRule.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Validations
 {
+    using System.Globalization;
+    using System.Windows.Controls;
+
     class NotEmptyRule : ValidationRule
     {
 

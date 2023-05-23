@@ -10,6 +10,7 @@
         xmlns:viewModel="clr-namespace:Asgard.ViewModels"
         FontFamily="/Fonts/#Rubik Regular"
         mc:Ignorable="d"
+        xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
         Height="500"
         Width="800"
         AllowsTransparency="True"
@@ -39,8 +40,7 @@
         <KeyBinding Command="{Binding LoginCommand}" Gesture="ENTER" />
     </Window.InputBindings>
 
-    <Border x:Name="Border" Background="{DynamicResource BackgroundThirdColor}" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource PromptsBorder}"
-  materialDesign:ElevationAssist.Elevation="Dp8">
+    <Border x:Name="Border" Background="{DynamicResource BackgroundThirdColor}" CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -165,7 +165,7 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            <Border Grid.Column="1" CornerRadius="10 10 10 10">
+            <Border Grid.Column="1" CornerRadius="10" Margin="0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#007FFF" Offset="0.0" />

@@ -4,18 +4,18 @@
 
 namespace Asgard.Tickets.Vodafone
 {
-    using Asgard.Repositories;
-    using Asgard.ViewModels;
-    using MailKit;
-    using MailKit.Net.Smtp;
-    using MimeKit;
-    using MySql.Data.MySqlClient;
     using System;
     using System.Collections.Generic;
     using System.Security.Authentication;
     using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for OrderUfe.xaml.
@@ -14092,7 +14092,7 @@ namespace Asgard.Tickets.Vodafone
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(nameClient.Text) || string.IsNullOrEmpty(phoneClient.Text) || string.IsNullOrEmpty(cnpClient.Text) || string.IsNullOrEmpty(comboboxJudet.Text) || string.IsNullOrEmpty(comboboxLocalitate.Text) || string.IsNullOrEmpty(adressClient.Text) || string.IsNullOrEmpty(contactClient.Text) || string.IsNullOrEmpty(comboboxAbonament.Text) || string.IsNullOrEmpty(comboboxDevice.Text) || string.IsNullOrEmpty(rataTelefon.Text) || string.IsNullOrEmpty(pretdelistaEuro.Text) || string.IsNullOrEmpty(ComboboxCod.Text) || string.IsNullOrEmpty(reducereEuro.Text) || string.IsNullOrEmpty(pretFinal.Text) || string.IsNullOrEmpty(signatureCombo.Text) || string.IsNullOrEmpty(acordPCM.Text) || string.IsNullOrEmpty(comboAsigurare.Text))
+            if (string.IsNullOrEmpty(nameClient.Text) || string.IsNullOrEmpty(phoneClient.Text) || string.IsNullOrEmpty(cnpClient.Text) || string.IsNullOrEmpty(comboboxJudet.Text) || string.IsNullOrEmpty(comboboxLocalitate.Text) || string.IsNullOrEmpty(adressClient.Text) || string.IsNullOrEmpty(contactClient.Text) || string.IsNullOrEmpty(comboboxAbonament.Text) || string.IsNullOrEmpty(comboboxDevice.Text) || string.IsNullOrEmpty(rataTelefon.Text) || string.IsNullOrEmpty(pretdelistaEuro.Text) || string.IsNullOrEmpty(ComboboxCod.Text) || string.IsNullOrEmpty(reducereEuro.Text) || string.IsNullOrEmpty(pretFinal.Text) || string.IsNullOrEmpty(signatureCombo.Text) || string.IsNullOrEmpty(acordPCM.Text))
             {
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
@@ -14271,8 +14271,6 @@ namespace Asgard.Tickets.Vodafone
                 }
             }
         }
-
-
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {

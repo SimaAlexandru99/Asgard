@@ -1,12 +1,16 @@
-﻿using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿// <copyright file="TicketsOrange.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets
 {
+    using System.Diagnostics;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Navigation;
+
     /// <summary>
-    /// Interaction logic for TicketsOrange.xaml
+    /// Interaction logic for TicketsOrange.xaml.
     /// </summary>
     public partial class TicketsOrange : Page
     {

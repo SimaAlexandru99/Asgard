@@ -31,7 +31,7 @@
     <ProductName>Asgard</ProductName>
     <PublisherName>Asgard</PublisherName>
     <MinimumRequiredVersion>1.2.8.0</MinimumRequiredVersion>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.2.9.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
