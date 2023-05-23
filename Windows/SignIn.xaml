@@ -39,8 +39,8 @@
         <KeyBinding Command="{Binding LoginCommand}" Gesture="ENTER" />
     </Window.InputBindings>
 
-    <Border x:Name="Border" Background="{DynamicResource BackgroundThirdColor}" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource PromptsBorder}">
-
+    <Border x:Name="Border" Background="{DynamicResource BackgroundThirdColor}" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource PromptsBorder}"
+  materialDesign:ElevationAssist.Elevation="Dp8">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

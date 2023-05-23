@@ -14580,7 +14580,7 @@ namespace Asgard.Tickets.Vodafone
 
             if (comboboxAbonament.SelectedItem is string selectedItem)
             {
-                if (tipAbonament.Text == "Achzitie noua")
+                if (tipAbonament.Text == "Achizitie noua")
                 {
                     switch (selectedItem)
                     {
@@ -14660,7 +14660,7 @@ namespace Asgard.Tickets.Vodafone
                             break;
                     }
                 }
-                else if (tipAbonament.Text == "Portare Abonament Digi")
+                else if (tipAbonament.Text == "Portare Abonament Digi")
                 {
                     switch (selectedItem)
                     {

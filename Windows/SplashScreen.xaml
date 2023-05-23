@@ -14,7 +14,7 @@
         WindowStyle="None"
         Title="SplashScreen" Height="600" Width="400" ContentRendered="Window_ContentRendered">
 
-    <Border CornerRadius="5" Background="{DynamicResource BackgroundThirdColor}">
+    <Border CornerRadius="5" Background="{DynamicResource BackgroundThirdColor}" BorderBrush="{DynamicResource PromptsBorder}" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -22,7 +22,7 @@
 
             <StackPanel Grid.Row="0" Margin="0 0 0 0" VerticalAlignment="Center">
                 <Image Source="/Assets/AsgardLogoBlack.png" Height="210" Width="210" Margin="0,0,0,0" Stretch="Fill"/>
-                <ProgressBar Name="progressBar" Value="0" Height="12" Width="300" IsIndeterminate="True" Foreground="{StaticResource FocusColor}" Margin="0,100,0,0"/>
+                <ProgressBar Name="progressBar" Value="0" BorderThickness="2" Height="100" Width="100" IsIndeterminate="True" Foreground="{StaticResource FocusColor}" Margin="0,0,0,0" Style="{StaticResource MaterialDesignCircularProgressBar}"/>
                 <TextBlock Text="Pregătim Asgard pentru tine!" FontSize="20" FontFamily="/Fonts/#Rubik Bold" Foreground="{DynamicResource TextColor}"  Margin="0 30 0 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="TextUser" Text="Buna X, Bine ai revenit!" FontSize="15" FontFamily="/Fonts/#Rubik Light" Foreground="{DynamicResource TextColor}"  Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>

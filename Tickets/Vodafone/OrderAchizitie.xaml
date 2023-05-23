@@ -431,7 +431,7 @@
                                     <DataTrigger Binding="{Binding ElementName=tipAbonament, Path=SelectedValue}" Value="Portare Abonament Telekom">
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding ElementName=tipAbonament, Path=SelectedValue}" Value="Portare Abonament Digi">
+                                    <DataTrigger Binding="{Binding ElementName=tipAbonament, Path=SelectedValue}" Value="Portare Abonament Digi">
                                         <Setter Property="Visibility" Value="Visible" />
                                     </DataTrigger>
                                 </Style.Triggers>
