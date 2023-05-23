@@ -37,7 +37,7 @@ namespace Asgard.CustomControls
             try
             {
                 // Create an UPDATE statement
-                string sql = "UPDATE gestiune SET MODEL=@MODEL, SERIE=@SERIE, AGENT=@AGENT, ANYDESK=@ANYDESK, STATUS=@STATUS, STARE =@STARE, CATEGORIE =@CATEGORIE, MOUSE =@MOUSE, TASTATURA =@TASTATURA, CASTI =@CASTI, LICENTA = @LICENTA INTERNET=@INTERNET WHERE SERIE=@SERIE";
+                string sql = "UPDATE gestiune SET MODEL=@MODEL, SERIE=@SERIE, AGENT=@AGENT, ANYDESK=@ANYDESK, STATUS=@STATUS, STARE =@STARE, CATEGORIE =@CATEGORIE, MOUSE =@MOUSE, TASTATURA =@TASTATURA, CASTI =@CASTI, LICENTA = @LICENTA, INTERNET=@INTERNET WHERE SERIE=@SERIE";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                 // Set the parameter values
