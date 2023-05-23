@@ -550,7 +550,7 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="B3"  TextWrapping="Wrap" FontSize="14" Text="B3. [daca a notat cu 1 sau 2 unul sau mai multe atribute de la Q3] Referitor la nota/ notele de 1/ 2 pe care le-ati acordat - ne pare rau sa auzim ca sunteti nemultumit. Ne puteti oferi mai multe detalii? Ce anume v-a nemultumit? Ce ati imbunatati?"/>
-				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B3" Height="100" Width="700" HorizontalAlignment="Left"/>
+				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B3" Height="100" Width="600" HorizontalAlignment="Left" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack35" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -775,7 +775,7 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="B4"  TextWrapping="Wrap" FontSize="14" Text="B4.[daca a notat cu 1 sau 2 unul sau mai multe atribute de la Q4] Am observat ca ati acordat si nota/ note de 1/ 2 - ne pare rau sa auzim ca sunteti nemultumit. Ne puteti oferi mai multe detalii? Ce anume v-a nemultumit? Ce ati imbunatati?"/>
-				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B4" Height="100" Width="700" HorizontalAlignment="Left"/>
+				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B4" Height="100" Width="600" HorizontalAlignment="Left" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack51" Grid.Row="51" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -821,7 +821,7 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="B6"  TextWrapping="Wrap" FontSize="14" Text="B6. Ce putem sa imbunatatim pentru a va oferi experiente mai bune in viitor?"/>
-				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B6" Height="100" Width="700" HorizontalAlignment="Left"/>
+				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B6" Height="100" Width="600" HorizontalAlignment="Left" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack54" Grid.Row="54" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>
@@ -842,7 +842,8 @@
 					</Style>
 				</StackPanel.Style>
 				<TextBlock Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" x:Name="B8"  TextWrapping="Wrap" FontSize="14" Text="B8. Camp deschis pentru comentarii"/>
-				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B8" Height="100" Width="700" HorizontalAlignment="Left"/>
+				<TextBox Style="{StaticResource TextBoxCustom}" x:Name="Freetext_B8" Height="100" Width="600
+" HorizontalAlignment="Left" TextWrapping="Wrap" HorizontalContentAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
 			</StackPanel>
 			<StackPanel Width="600" Margin="10 10 0 10" x:Name="Stack56" Grid.Row="56" HorizontalAlignment="Left" VerticalAlignment="Top">
 				<StackPanel.Style>

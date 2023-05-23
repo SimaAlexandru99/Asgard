@@ -127,7 +127,9 @@ namespace Asgard.ViewModels
                     IsViewVisible = false;
 
                     var user = new MainViewModel();
-                    string proiect = user.CurrentUserAccount.Proiect.ToString();
+                    var main = new PrimaryWindow();
+                    var splash = new Windows.SplashScreen();
+                    splash.ShowDialog();
                 }
                 else
                 {

@@ -14486,9 +14486,10 @@ namespace Asgard.Tickets.Vodafone
                     "Adresa facturare: " + adresa_factura_text.Text + "\r\n" +
                     "Adrea livrare: " + adresa_livrare_text.Text + "\r\n" +
                     "Numar contact: " + numar_contact_text.Text + "\r\n" +
-                    "Client comun id: " + id_client_comun.Text + "\r\n" +
                     "Tip client: " + comboboxClient.Text + "\r\n" +
-                    "Asigurare: " + comboboxAsigurare.Text,
+                    "Asigurare: " + comboboxAsigurare.Text + "\r\n" +
+                    "Agent: " + email + "\r\n" +
+                    "Agent BO: " + agent_bo.Text,
             };
             SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
             try

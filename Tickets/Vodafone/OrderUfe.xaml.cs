@@ -82,7 +82,7 @@ namespace Asgard.Tickets.Vodafone
         {
             using (var connection = RepositoryBase.GetConnectionPublic())
             {
-                using (var command = new MySqlCommand("SELECT judet_name FROM judete", connection))
+                using (var command = new MySqlCommand("SELECT Name FROM judete", connection))
                 {
                     using (var reader = command.ExecuteReader())
                     {
@@ -93,7 +93,7 @@ namespace Asgard.Tickets.Vodafone
                     }
                 }
 
-                using (var command2 = new MySqlCommand("SELECT device_name FROM telefoane", connection))
+                using (var command2 = new MySqlCommand("SELECT Cod FROM telefoane", connection))
                 {
                     using (var reader2 = command2.ExecuteReader())
                     {

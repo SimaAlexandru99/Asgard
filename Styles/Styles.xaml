@@ -418,37 +418,39 @@
 
     <!--  TextboxForm  -->
     <Style x:Key="TextBoxCustom" TargetType="TextBox">
-        <Setter Property="Margin" Value="0,5,0,0" />
-        <Setter Property="Background" Value="{DynamicResource InputColor}" />
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="Background" Value="{DynamicResource InputColor}"/>
         <Setter Property="CaretBrush" Value="{DynamicResource TextColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
-        <Setter Property="FontFamily" Value="/Fonts/#Rubik Regular" />
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="Height" Value="50" />
-        <Setter Property="Padding" Value="10 0 0 0" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TextColor}" />
+        <Setter Property="FontFamily" Value="/Fonts/#Rubik Regular"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource TextColor}"/>
 
-        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Border Name="border"
                         Background="{DynamicResource InputColor}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        Padding="10 0 0 0"
+                        Padding="10"
                         CornerRadius="2">
-                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  VerticalScrollBarVisibility="Auto"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource FocusBorderColor}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource FocusBorderColor}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource FocusBorderColor}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource FocusBorderColor}"/>
                             <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
-
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource FocusBorderColor}"/>
@@ -458,6 +460,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+
 
 
 
