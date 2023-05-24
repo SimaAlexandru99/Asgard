@@ -14094,7 +14094,7 @@ namespace Asgard.Tickets.Vodafone
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(nameClient.Text) || string.IsNullOrEmpty(phoneClient.Text) || string.IsNullOrEmpty(cnpClient.Text) || string.IsNullOrEmpty(comboboxJudet.Text) || string.IsNullOrEmpty(comboboxLocalitate.Text) || string.IsNullOrEmpty(adressClient.Text) || string.IsNullOrEmpty(contactClient.Text) || string.IsNullOrEmpty(comboboxAbonament.Text) || string.IsNullOrEmpty(comboboxDevice.Text) || string.IsNullOrEmpty(rataTelefon.Text) || string.IsNullOrEmpty(pretdelistaEuro.Text) || string.IsNullOrEmpty(ComboboxCod.Text) || string.IsNullOrEmpty(reducereEuro.Text) || string.IsNullOrEmpty(pretFinal.Text) || string.IsNullOrEmpty(signatureCombo.Text) || string.IsNullOrEmpty(acordPCM.Text) || string.IsNullOrEmpty(comboAsigurare.Text))
+            if (string.IsNullOrEmpty(nameClient.Text) || string.IsNullOrEmpty(phoneClient.Text) || string.IsNullOrEmpty(cnpClient.Text) || string.IsNullOrEmpty(comboboxJudet.Text) || string.IsNullOrEmpty(comboboxLocalitate.Text) || string.IsNullOrEmpty(adressClient.Text) || string.IsNullOrEmpty(contactClient.Text) || string.IsNullOrEmpty(comboboxAbonament.Text) || string.IsNullOrEmpty(comboboxDevice.Text) || string.IsNullOrEmpty(rataTelefon.Text) || string.IsNullOrEmpty(pretdelistaEuro.Text) || string.IsNullOrEmpty(ComboboxCod.Text) || string.IsNullOrEmpty(reducereEuro.Text) || string.IsNullOrEmpty(pretFinal.Text) || string.IsNullOrEmpty(signatureCombo.Text) || string.IsNullOrEmpty(acordPCM.Text))
             {
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>

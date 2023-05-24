@@ -7,7 +7,9 @@ namespace Asgard.Validations
     using System.Globalization;
     using System.Windows.Controls;
 
-    public class NotEmptyRule : ValidationRule
+namespace Asgard.Validations
+{
+    class NotEmptyRule : ValidationRule
     {
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
