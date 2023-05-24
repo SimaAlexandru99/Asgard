@@ -1,9 +1,13 @@
-﻿using System.Globalization;
-using System.Windows.Controls;
+﻿// <copyright file="NotEmptyRule.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Validations
 {
-    class NotEmptyRule : ValidationRule
+    using System.Globalization;
+    using System.Windows.Controls;
+
+    public class NotEmptyRule : ValidationRule
     {
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
@@ -15,6 +19,5 @@ namespace Asgard.Validations
 
             return new ValidationResult(false, "Câmpul nu trebuie să fie gol");
         }
-
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace Asgard.Validations
+﻿// <copyright file="Verifications.cs" company="eOverArt Marketng Agency">
+// Copyright (c) eOverArt Marketng Agency. All rights reserved.
+// </copyright>
+
+namespace Asgard.Validations
 {
     public class Verifications : ObservableObject
     {
@@ -29,6 +33,90 @@
         private string costTotal;
 
         private string discountcode;
+
+        private string adresaFacturare;
+
+        private string adresaLivrare;
+
+        private string adresa;
+
+        private string contact;
+
+        private string avans;
+
+        private string email;
+
+        private string posta;
+
+        private string judet;
+
+        private string cnp;
+
+        private string rata;
+
+        private string pretdelista;
+
+        private string codedereducere;
+
+        private string codedereducere2;
+
+        private string pretfinal;
+
+        private string idcomanda;
+
+        private string idpropunere;
+
+        private string datacomanda;
+
+        private string awb;
+
+        private string motivretur;
+
+        private string codagent;
+
+        private string phoneorange;
+
+        private string idsfa;
+
+        private string street;
+
+        private string streetnr;
+
+        private string valabilitateactspatiu;
+
+        private string idcerere;
+
+        private string idsursa;
+
+        private string adresalocconsum;
+
+        private string clc;
+
+        private string pod;
+
+        private string codclienteon;
+
+        private string adresacorespondenta;
+
+        private string niveltensiune;
+
+        private string telefon;
+
+        private string prenume;
+
+        private string consumanualgaz;
+
+        private string codconsumgaz;
+
+        private string clcgaz;
+
+        private string consumanual;
+
+        private string datasemnare;
+
+        private string dataintrare;
+
+        private string categorieconsumgaz;
 
         public string Name
         {
@@ -108,15 +196,11 @@
             set { OnPropertyChanged(ref costTotal, value); }
         }
 
-
-
         public string DiscountCode
         {
             get { return discountcode; }
             set { OnPropertyChanged(ref discountcode, value); }
         }
-
-        private string adresaFacturare;
 
         public string AdresaFacturare
         {
@@ -124,15 +208,11 @@
             set { OnPropertyChanged(ref adresaFacturare, value); }
         }
 
-        private string adresaLivrare;
-
         public string AdresaLivrare
         {
             get { return adresaLivrare; }
             set { OnPropertyChanged(ref adresaLivrare, value); }
         }
-
-        private string adresa;
 
         public string Adresa
         {
@@ -140,15 +220,11 @@
             set { OnPropertyChanged(ref adresa, value); }
         }
 
-        private string contact;
-
         public string Contact
         {
             get { return contact; }
             set { OnPropertyChanged(ref contact, value); }
         }
-
-        private string avans;
 
         public string Avans
         {
@@ -156,15 +232,11 @@
             set { OnPropertyChanged(ref avans, value); }
         }
 
-        private string email;
-
         public string Email
         {
             get { return email; }
             set { OnPropertyChanged(ref email, value); }
         }
-
-        private string posta;
 
         public string Posta
         {
@@ -172,15 +244,11 @@
             set { OnPropertyChanged(ref posta, value); }
         }
 
-        private string judet;
-
         public string Judet
         {
             get { return judet; }
             set { OnPropertyChanged(ref judet, value); }
         }
-
-        private string cnp;
 
         public string CNP
         {
@@ -188,19 +256,11 @@
             set { OnPropertyChanged(ref cnp, value); }
         }
 
-        private string rata;
-
         public string Rata
         {
             get { return rata; }
-
-            set
-            {
-                OnPropertyChanged(ref rata, value);
-            }
+            set { OnPropertyChanged(ref rata, value); }
         }
-
-        private string pretdelista;
 
         public string PretDeListaEuro
         {
@@ -208,15 +268,11 @@
             set { OnPropertyChanged(ref pretdelista, value); }
         }
 
-        private string codedereducere;
-
         public string CodDeReducere
         {
             get { return codedereducere; }
             set { OnPropertyChanged(ref codedereducere, value); }
         }
-
-        private string codedereducere2;
 
         public string CodDeReducere2
         {
@@ -224,15 +280,11 @@
             set { OnPropertyChanged(ref codedereducere2, value); }
         }
 
-        private string pretfinal;
-
         public string PretFinal
         {
             get { return pretfinal; }
             set { OnPropertyChanged(ref pretfinal, value); }
         }
-
-        private string idcomanda;
 
         public string IDComanda
         {
@@ -240,15 +292,11 @@
             set { OnPropertyChanged(ref idcomanda, value); }
         }
 
-        private string idpropunere;
-
         public string IDPropunere
         {
             get { return idpropunere; }
             set { OnPropertyChanged(ref idpropunere, value); }
         }
-
-        private string awb;
 
         public string AWB
         {
@@ -256,15 +304,11 @@
             set { OnPropertyChanged(ref awb, value); }
         }
 
-        private string datacomanda;
-
         public string DataComanda
         {
             get { return datacomanda; }
             set { OnPropertyChanged(ref datacomanda, value); }
         }
-
-        private string motivretur;
 
         public string MotivRetur
         {
@@ -272,15 +316,11 @@
             set { OnPropertyChanged(ref motivretur, value); }
         }
 
-        private string codagent;
-
         public string CodAgent
         {
             get { return codagent; }
             set { OnPropertyChanged(ref codagent, value); }
         }
-
-        private string phoneorange;
 
         public string PhoneOrange
         {
@@ -288,23 +328,17 @@
             set { OnPropertyChanged(ref phoneorange, value); }
         }
 
-        private string idsfa;
-
         public string IDSfa
         {
             get { return idsfa; }
             set { OnPropertyChanged(ref idsfa, value); }
         }
 
-        private string street;
-
         public string Street
         {
             get { return street; }
             set { OnPropertyChanged(ref street, value); }
         }
-
-        private string streetnr;
 
         public string StreetNr
         {
@@ -313,15 +347,11 @@
         }
 
         // Telekom
-        private string idcerere;
-
         public string IDCerere
         {
             get { return idcerere; }
             set { OnPropertyChanged(ref idcerere, value); }
         }
-
-        private string idsursa;
 
         public string IDSursa
         {
@@ -329,15 +359,11 @@
             set { OnPropertyChanged(ref idsursa, value); }
         }
 
-        private string dataintrare;
-
         public string DataIntrare
         {
             get { return dataintrare; }
             set { OnPropertyChanged(ref dataintrare, value); }
         }
-
-        private string datasemnare;
 
         public string DataSemnare
         {
@@ -345,15 +371,11 @@
             set { OnPropertyChanged(ref datasemnare, value); }
         }
 
-        private string consumanual;
-
         public string ConsumAnual
         {
             get { return consumanual; }
             set { OnPropertyChanged(ref consumanual, value); }
         }
-
-        private string codconsumgaz;
 
         public string CodConsumGaz
         {
@@ -361,15 +383,11 @@
             set { OnPropertyChanged(ref codconsumgaz, value); }
         }
 
-        private string clcgaz;
-
         public string CLCGaz
         {
             get { return clcgaz; }
             set { OnPropertyChanged(ref clcgaz, value); }
         }
-
-        private string categorieconsumgaz;
 
         public string CategorieConsumGaz
         {
@@ -377,15 +395,11 @@
             set { OnPropertyChanged(ref categorieconsumgaz, value); }
         }
 
-        private string consumanualgaz;
-
         public string ConsumAnualGaz
         {
             get { return consumanualgaz; }
             set { OnPropertyChanged(ref consumanualgaz, value); }
         }
-
-        private string prenume;
 
         public string Prenume
         {
@@ -393,15 +407,11 @@
             set { OnPropertyChanged(ref prenume, value); }
         }
 
-        private string telefon;
-
         public string Telefon
         {
             get { return telefon; }
             set { OnPropertyChanged(ref telefon, value); }
         }
-
-        private string adresacorespondenta;
 
         public string AdresaCorespondenta
         {
@@ -409,15 +419,11 @@
             set { OnPropertyChanged(ref adresacorespondenta, value); }
         }
 
-        private string codclienteon;
-
         public string CodClientEon
         {
             get { return codclienteon; }
             set { OnPropertyChanged(ref codclienteon, value); }
         }
-
-        private string adresalocconsum;
 
         public string AdresaLocConsum
         {
@@ -425,15 +431,11 @@
             set { OnPropertyChanged(ref adresalocconsum, value); }
         }
 
-        private string valabilitateactspatiu;
-
         public string ValabilitateActSpatiu
         {
             get { return valabilitateactspatiu; }
             set { OnPropertyChanged(ref valabilitateactspatiu, value); }
         }
-
-        private string clc;
 
         public string CLC
         {
@@ -441,15 +443,11 @@
             set { OnPropertyChanged(ref clc, value); }
         }
 
-        private string pod;
-
         public string POD
         {
             get { return pod; }
             set { OnPropertyChanged(ref pod, value); }
         }
-
-        private string niveltensiune;
 
         public string NivelTensiune
         {

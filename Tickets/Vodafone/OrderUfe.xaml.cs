@@ -4,33 +4,33 @@
 
 namespace Asgard.Tickets.Vodafone
 {
-    using Asgard.Repositories;
-    using Asgard.ViewModels;
-    using MailKit;
-    using MailKit.Net.Smtp;
-    using MimeKit;
-    using MySql.Data.MySqlClient;
     using System;
     using System.Collections.Generic;
     using System.Security.Authentication;
     using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
+    using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for OrderUfe.xaml.
     /// </summary>
     public partial class OrderUfe : Page
     {
+        public OrderUfe()
+        {
+            InitializeComponent();
+        }
+
         public void Clear()
         {
             nameClient.Text = phoneClient.Text = cnpClient.Text = adressClient.Text = contactClient.Text = comboboxAbonament.Text =
             rataTelefon.Text = pretdelistaEuro.Text = ComboboxCod.Text = reducereEuro.Text = pretFinal.Text = signatureCombo.Text = postaClient.Text = acordPCM.Text = comboAsigurare.Text = string.Empty;
-        }
-
-        public OrderUfe()
-        {
-            InitializeComponent();
         }
 
         private void Text_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -41,32 +41,34 @@ namespace Asgard.Tickets.Vodafone
 
         private void ComboboxAbonament_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>();
-            data.Add("WOW 3");
-            data.Add("WOW 4");
-            data.Add("WOW 5");
-            data.Add("WOW 6");
-            data.Add("WOW 7");
-            data.Add("WOW 8");
-            data.Add("RED 9");
-            data.Add("RED 10");
-            data.Add("RED 11");
-            data.Add("RED 12");
-            data.Add("RED 13");
-            data.Add("RED 14");
-            data.Add("RED 15");
-            data.Add("RED 16");
-            data.Add("RED 17");
-            data.Add("RED 18");
-            data.Add("RED 19");
-            data.Add("RED 20");
-            data.Add("RED 21");
-            data.Add("RED 22");
-            data.Add("RED 23");
-            data.Add("RED 25");
-            data.Add("RED 30");
-            data.Add("RED 35");
-            data.Add("RED 40");
+            List<string> data = new List<string>
+            {
+                "WOW 3",
+                "WOW 4",
+                "WOW 5",
+                "WOW 6",
+                "WOW 7",
+                "WOW 8",
+                "RED 9",
+                "RED 10",
+                "RED 11",
+                "RED 12",
+                "RED 13",
+                "RED 14",
+                "RED 15",
+                "RED 16",
+                "RED 17",
+                "RED 18",
+                "RED 19",
+                "RED 20",
+                "RED 21",
+                "RED 22",
+                "RED 23",
+                "RED 25",
+                "RED 30",
+                "RED 35",
+                "RED 40",
+            };
             var combo = sender as ComboBox;
             combo.ItemsSource = data;
             combo.SelectedIndex = 0;
@@ -14199,7 +14201,6 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -14271,8 +14272,6 @@ namespace Asgard.Tickets.Vodafone
                 }
             }
         }
-
-
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {

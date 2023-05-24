@@ -1,30 +1,31 @@
-﻿using iTextSharp.text.pdf;
-using MySql.Data.MySqlClient;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
+﻿// <copyright file="TicketContracte.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.EON
 {
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Windows;
+    using System.Windows.Controls;
+    using iTextSharp.text.pdf;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for TicketContracte.xaml
+    /// Interaction logic for TicketContracte.xaml.
     /// </summary>
     public partial class TicketContracte : Page
     {
         public TicketContracte()
         {
             InitializeComponent();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             // Load the PDF file
             // Code to open PDFAssets/Contracte EON/Actual_Assist_Electric.pdf"
-
             string IDContractSave4 = null;
             string IDContractBun = null;
 
@@ -57,8 +58,6 @@ namespace Asgard.Tickets.EON
 
             if (comboboxContract.Text == "Actual Assist Electric")
             {
-
-
                 string fileName = "Assets/Contracte EON/Actual_Assist_Electric.pdf";
                 PdfReader pdfReader = new PdfReader(fileName);
                 /*            string fileSave = "Assets/Contracte EON/Generat/";*/
@@ -88,6 +87,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -102,7 +102,6 @@ namespace Asgard.Tickets.EON
 
                 pdfStamper.Close();
 
-
                 // Show message box to confirm that PDF was saved
                 MessageBox.Show("PDF salvat.");
 
@@ -111,8 +110,6 @@ namespace Asgard.Tickets.EON
             }
             else if (comboboxContract.Text == "Actual Electric")
             {
-
-
                 string fileName = "Assets/Contracte EON/Actual_Electric.pdf";
                 PdfReader pdfReader = new PdfReader(fileName);
                 /*            string fileSave = "Assets/Contracte EON/Generat/";*/
@@ -142,6 +139,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -293,6 +291,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -346,6 +345,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -361,7 +361,6 @@ namespace Asgard.Tickets.EON
                 acroFields.SetField("Data_semnari", DataSemnare.Text);
                 acroFields.SetField("IDContract", IDContractBun);
                 pdfStamper.Close();
-
 
                 // Show message box to confirm that PDF was saved
                 MessageBox.Show("PDF salvat.");
@@ -400,6 +399,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("CodClient", CodClient.Text);
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("ValabilitateActSpatiu", ValabilitateActSpatiu.Text);
@@ -453,6 +453,7 @@ namespace Asgard.Tickets.EON
                 {
                     acroFields.SetField("checkboxTiparit", "On");
                 }
+
                 acroFields.SetField("AdresaLocConsum", AdresaLocConsum.Text);
                 acroFields.SetField("DataImplementare", DataImplementare.Text);
                 acroFields.SetField("Nume Prenume", NumeClient.Text + " " + PrenumeClient.Text);
@@ -465,8 +466,6 @@ namespace Asgard.Tickets.EON
                 // Code to open the saved PDF file
                 Process.Start(newFileName);
             }
-
         }
-
     }
 }

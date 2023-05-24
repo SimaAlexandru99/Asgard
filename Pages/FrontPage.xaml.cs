@@ -4,7 +4,6 @@
 
 namespace Asgard.Pages
 {
-    using Asgard.ViewModels;
     using System;
     using System.Diagnostics;
     using System.Windows;
@@ -12,6 +11,7 @@ namespace Asgard.Pages
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using System.Windows.Navigation;
+    using Asgard.ViewModels;
 
     public partial class FrontPage : Page
     {
@@ -161,7 +161,7 @@ namespace Asgard.Pages
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
-            window.Main.Navigate(new Tickets.Vodafone.TicketsBackoffice()); ;
+            window.Main.Navigate(new Tickets.Vodafone.TicketsBackoffice());
         }
     }
 }

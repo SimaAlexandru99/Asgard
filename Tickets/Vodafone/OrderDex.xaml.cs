@@ -4,17 +4,17 @@
 
 namespace Asgard.Tickets.Vodafone
 {
+    using System;
+    using System.Security.Authentication;
+    using System.Text.RegularExpressions;
+    using System.Windows;
+    using System.Windows.Controls;
     using Asgard.Repositories;
     using Asgard.ViewModels;
     using MailKit;
     using MailKit.Net.Smtp;
     using MimeKit;
     using MySql.Data.MySqlClient;
-    using System;
-    using System.Security.Authentication;
-    using System.Text.RegularExpressions;
-    using System.Windows;
-    using System.Windows.Controls;
 
     /// <summary>
     /// Interaction logic for OrderDex.xaml.
@@ -14156,10 +14156,8 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Title = "Eroare";
                             dialog.Status.Text = "Ticket-ul nu a fost trimis";
                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                         };
                         dialog.ShowDialog();
-
                     }
                     finally
                     {
@@ -14192,7 +14190,7 @@ namespace Asgard.Tickets.Vodafone
                     try
                     {
                         client.CheckCertificateRevocation = false;
-                        client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback; ;
+                        client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback;
                         client.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Ssl2 | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
                         client.Connect("zmail.optimacall.ro", 465, true);
                         client.Authenticate(emailAddress, password);

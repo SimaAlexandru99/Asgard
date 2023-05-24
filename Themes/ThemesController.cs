@@ -1,16 +1,21 @@
-﻿using System;
-using System.Windows;
+﻿// <copyright file="ThemesController.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Themes
 {
+    using System;
+    using System.Windows;
+
     public static class ThemesController
     {
-        public static ThemeTypes CurrentTheme { get; set; }
-
         public enum ThemeTypes
         {
-            Light, Dark
+            Light,
+            Dark,
         }
+
+        public static ThemeTypes CurrentTheme { get; set; }
 
         public static ResourceDictionary ThemeDictionary
         {
@@ -43,7 +48,9 @@ namespace Asgard.Themes
                     ChangeTheme(new Uri($"Themes/{themeName}.xaml", UriKind.Relative));
                     CurrentTheme = theme;
                 }
-                catch { }
+                catch
+                {
+                }
             }
         }
     }

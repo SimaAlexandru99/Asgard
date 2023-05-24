@@ -1,10 +1,14 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
+﻿// <copyright file="MarginConverter.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Converters
 {
+    using System;
+    using System.Globalization;
+    using System.Windows;
+    using System.Windows.Data;
+
     public class MarginConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -30,11 +34,11 @@ namespace Asgard.Converters
             }
             else if (height < 1000)
             {
-                return new Thickness(margin * 2 + 30, 0, margin * 2 + 30, 0);
+                return new Thickness((margin * 2) + 30, 0, (margin * 2) + 30, 0);
             }
             else
             {
-                return new Thickness(margin * 3 + 10, 0, margin * 3 + 10, 0);
+                return new Thickness((margin * 3) + 10, 0, (margin * 3) + 10, 0);
             }
         }
 
@@ -43,5 +47,4 @@ namespace Asgard.Converters
             throw new NotImplementedException();
         }
     }
-
 }

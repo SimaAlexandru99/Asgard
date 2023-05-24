@@ -1,9 +1,13 @@
-﻿using System.Globalization;
-using System.Windows.Controls;
+﻿// <copyright file="StartsWithRule07.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Validations
 {
-    class StartsWithRule07 : ValidationRule
+    using System.Globalization;
+    using System.Windows.Controls;
+
+    public class StartsWithRule07 : ValidationRule
     {
         public string StartsWith { get; set; } = "07";
 
@@ -17,5 +21,4 @@ namespace Asgard.Validations
             return new ValidationResult(false, $"Numărul trebuie să înceapă cu '{StartsWith}'.");
         }
     }
-
 }

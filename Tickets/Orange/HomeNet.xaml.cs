@@ -4,16 +4,16 @@
 
 namespace Asgard.Tickets.Orange
 {
+    using System;
+    using System.Security.Authentication;
+    using System.Windows;
+    using System.Windows.Controls;
     using Asgard.Repositories;
     using Asgard.ViewModels;
     using MailKit;
     using MailKit.Net.Smtp;
     using MimeKit;
     using MySql.Data.MySqlClient;
-    using System;
-    using System.Security.Authentication;
-    using System.Windows;
-    using System.Windows.Controls;
 
     /// <summary>
     /// Interaction logic for HomeNet.xaml.
@@ -73,6 +73,7 @@ namespace Asgard.Tickets.Orange
                 {
                     comentarii.Text = "-";
                 }
+
                 string username = user.CurrentUserAccount.Username.ToString();
                 string email = user.CurrentUserAccount.Email.ToString();
                 string emailAddress = "asgard@optimacall.ro";
@@ -169,10 +170,8 @@ namespace Asgard.Tickets.Orange
                         dialog.Title = "Eroare";
                         dialog.Status.Text = "Ticket-ul nu a fost trimis";
                         dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-
                     };
                     dialog.ShowDialog();
-
                 }
                 finally
                 {
@@ -202,7 +201,6 @@ namespace Asgard.Tickets.Orange
             {
                 if (telefonclient.Text == string.Empty || idsfa.Text == string.Empty || comboboxTipClient.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
@@ -223,7 +221,6 @@ namespace Asgard.Tickets.Orange
             {
                 if (strada.Text == string.Empty || numar.Text == string.Empty)
                 {
-
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {

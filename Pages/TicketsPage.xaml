@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-      xmlns:local="clr-namespace:Asgard.Pages"
       xmlns:conv="clr-namespace:Asgard.Converters"
       mc:Ignorable="d"
       xmlns:customcontrols="clr-namespace:Asgard.CustomControls"

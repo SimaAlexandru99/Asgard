@@ -22,16 +22,14 @@ namespace Asgard.CustomControls
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ModelTextBoxAdd.Text == "" || SerieTextBoxAdd.Text == "" || AgentTextBoxAdd.Text == "" || StatusTextBoxAdd.Text == "" || StareTextBoxAdd.Text == "" || CategorieTextBoxAdd.Text == "")
+            if (ModelTextBoxAdd.Text == string.Empty || SerieTextBoxAdd.Text == string.Empty || AgentTextBoxAdd.Text == string.Empty || StatusTextBoxAdd.Text == string.Empty || StareTextBoxAdd.Text == string.Empty || CategorieTextBoxAdd.Text == string.Empty)
             {
-
                 Prompt dialog = new Prompt();
                 dialog.Loaded += (s, ea) =>
                 {
                     dialog.Descriere.Text = "Nu ai completat toate câmpurile";
                 };
                 dialog.ShowDialog();
-
             }
             else
             {
@@ -59,19 +57,14 @@ namespace Asgard.CustomControls
                     cmd.Parameters.AddWithValue("@LICENTA", LicentaAdd.Text);
                     cmd.Parameters.AddWithValue("@INTERNET", Internet.Text);
 
-
-
-
                     // Execute the ADD statement
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-
                     Prompt dialog = new Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
-
                         dialog.Title = "Eroare";
                         dialog.Status.Text = "Dispozitivul nu a fost adaugat";
                         dialog.Descriere.Text = "Dispozitivul tău nu a putut fi adaugat." + ex.Message;
@@ -121,7 +114,9 @@ namespace Asgard.CustomControls
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            {
+                DragMove();
+            }
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

@@ -199,7 +199,7 @@
     <Compile Include="Validations\MaximumCharacterRule.cs" />
     <Compile Include="Validations\MinimumCharacterRule.cs" />
     <Compile Include="Validations\NotEmptyRule.cs" />
-    <Compile Include="Validations\ObservableObjects.cs" />
+    <Compile Include="Validations\ObservableObject.cs" />
     <Compile Include="Validations\SelectionValidationRule.cs" />
     <Compile Include="Validations\StartsWithRule07.cs" />
     <Compile Include="Validations\StartsWithRule10.cs" />
@@ -373,6 +373,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="stylecop1.json" />
+    <None Include="stylecop2.json" />
     <Resource Include="Assets\LogoNewBackgroundRemoved.png" />
     <Resource Include="Assets\wifi-problem.png" />
     <EmbeddedResource Include="Properties\Resources.resx">

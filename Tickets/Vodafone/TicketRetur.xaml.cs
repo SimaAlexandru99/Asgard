@@ -1,5 +1,5 @@
-﻿// <copyright file="TicketRetur.xaml.cs" company="eOverArt">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="TicketRetur.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
 // </copyright>
 
 namespace Asgard.Tickets.Vodafone
@@ -32,7 +32,7 @@ namespace Asgard.Tickets.Vodafone
             var user = new MainViewModel();
             string email = user.CurrentUserAccount.Email.ToString();
 
-            if (awbComanda.Text == string.Empty || idComanda.Text == "" || nameClient.Text == "" || datacomandaClient.Text == "" || telefoncontactClient.Text == "" || AdresaClient.Text == "" || comboboxJudet.Text == "" || comboboxLocalitate.Text == "" || motivreturClient.Text == "" || comboboxTerminalDesigilat.Text == "")
+            if (awbComanda.Text == string.Empty || idComanda.Text == string.Empty || nameClient.Text == string.Empty || datacomandaClient.Text == string.Empty || telefoncontactClient.Text == string.Empty || AdresaClient.Text == string.Empty || comboboxJudet.Text == string.Empty || comboboxLocalitate.Text == string.Empty || motivreturClient.Text == string.Empty || comboboxTerminalDesigilat.Text == string.Empty)
             {
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
@@ -45,8 +45,10 @@ namespace Asgard.Tickets.Vodafone
             }
             else
             {
-                MimeMessage message = new MimeMessage();
-                message.Subject = "Retur comanda: " + idComanda.Text;
+                MimeMessage message = new MimeMessage
+                {
+                    Subject = "Retur comanda: " + idComanda.Text,
+                };
                 message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                 message.To.Add(MailboxAddress.Parse(email));
                 message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
@@ -99,7 +101,6 @@ namespace Asgard.Tickets.Vodafone
                         dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
                     };
                     dialog.ShowDialog();
-
                 }
                 finally
                 {
@@ -14141,7 +14142,6 @@ namespace Asgard.Tickets.Vodafone
         {
             awbComanda.Text = idComanda.Text = nameClient.Text = datacomandaClient.Text = telefoncontactClient.Text = AdresaClient.Text =
             motivreturClient.Text = comboboxTerminalDesigilat.Text = string.Empty;
-
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)

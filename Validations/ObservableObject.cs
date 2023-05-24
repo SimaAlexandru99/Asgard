@@ -1,4 +1,4 @@
-﻿// <copyright file="ObservableObjects.cs" company="eOverArt Marketing Agency">
+﻿// <copyright file="ObservableObject.cs" company="eOverArt Marketing Agency">
 // Copyright (c) eOverArt Marketing Agency. All rights reserved.
 // </copyright>
 
@@ -22,11 +22,11 @@ namespace Asgard.Validations
         }
 
         /// <summary>
-        /// Notify a property change that uses CallerMemberName attribute
+        /// Notify a property change that uses CallerMemberName attribute.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="backingField">Backing field of property</param>
-        /// <param name="value">Value to give backing field</param>
+        /// <param name="backingField">Backing field of property.</param>
+        /// <param name="value">Value to give backing field.</param>
         /// <param name="propertyName"></param>
         /// <returns></returns>
         protected virtual bool OnPropertyChanged<T>(ref T backingField, T value, [CallerMemberName] string propertyName = "")
