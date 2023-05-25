@@ -5,6 +5,7 @@
 namespace Asgard.Windows
 {
     using System;
+    using System.Linq;
     using System.Runtime.InteropServices;
     using System.Security.Principal;
     using System.Windows;
@@ -22,6 +23,7 @@ namespace Asgard.Windows
         public SignIn()
         {
             InitializeComponent();
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
@@ -132,6 +134,14 @@ namespace Asgard.Windows
         }
 
         private void CreeazaCont_Click(object sender, RoutedEventArgs e)
+        {
+            var register = new RegisterAccountWindow();
+            register.Show();
+
+            Close();
+        }
+
+        private void SignInPage_Loaded(object sender, RoutedEventArgs e)
         {
         }
     }

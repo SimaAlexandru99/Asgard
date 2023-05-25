@@ -1356,6 +1356,30 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                         </ComboBox>
                     </StackPanel>
 
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="6">
+                        <TextBlock Text="Clientul dorește eSim?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <ComboBox
+                        x:Name="eSim"
+                            materialDesign:ColorZoneAssist.Mode="Custom"   
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                            <ComboBoxItem Content="Da" />
+                            <ComboBoxItem Content="Nu" />
+                        </ComboBox>
+                    </StackPanel>
+
+
                     <StackPanel Grid.Row="7"
                         Margin="0 0 0 10"
                         Grid.Column="4" VerticalAlignment="Center">

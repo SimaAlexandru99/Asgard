@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Asgard.Windows"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:customcontrols="clr-namespace:Asgard.CustomControls"
@@ -17,8 +16,7 @@
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="Logare Asgard">
-
+        Title="Logare Asgard" Loaded="SignInPage_Loaded">
     <Window.DataContext>
         <viewModel:LoginViewModel />
     </Window.DataContext>
@@ -158,7 +156,7 @@
                             FontFamily="/Fonts/#Rubik Bold"
                             FontSize="10"
                             Style="{StaticResource MaterialDesignFlatMidBgButton}" />
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20,20,0" HorizontalAlignment="Left" Visibility="Hidden">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20,20,0" HorizontalAlignment="Left" Visibility="Visible">
                             <TextBlock x:Name="TextAboutAccount" Text="Nu ai încă cont?" FontFamily="/Fonts/#Rubik Medium" FontSize="8" VerticalAlignment="Center" Margin="0,0,10,0"/>
                             <Button x:Name="CreeazaCont" Content="Creează cont" Style="{StaticResource ForgetPassword}" FontFamily="/Fonts/#Rubik Medium" FontSize="8" HorizontalContentAlignment="Right" Foreground="{DynamicResource FocusColor}" Click="CreeazaCont_Click"/>
                         </StackPanel>

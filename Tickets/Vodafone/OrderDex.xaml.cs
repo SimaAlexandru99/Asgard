@@ -14024,7 +14024,6 @@ namespace Asgard.Tickets.Vodafone
                         break;
                 }
             }
-
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -14096,7 +14095,6 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Informare";
                                 dialog.Status.Text = "Nu ai intrdous adresa de email";
                                 dialog.Descriere.Text = "Verifică adresa de email pentru ca, clientul să poată beneficia de asigurare";
-
                             };
                             dialog.ShowDialog();
                             return;
@@ -14142,7 +14140,6 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Title = "Succes";
                             dialog.Status.Text = "Ticket-ul a fost trimis";
                             dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
-
                         };
                         dialog.ShowDialog();
                     }

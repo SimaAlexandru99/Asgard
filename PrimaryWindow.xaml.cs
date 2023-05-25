@@ -18,6 +18,7 @@ namespace Asgard
     using Asgard.Windows;
     using MaterialDesignThemes.Wpf;
     using MySql.Data.MySqlClient;
+    using Serilog;
 
     /// <summary>
     /// Interaction logic for PrimaryWindowVodafone.xaml.
@@ -168,32 +169,25 @@ namespace Asgard
                 using (var connection = RepositoryBase.GetConnectionPublic())
                 using (var command = new MySqlCommand("UPDATE users SET Status = 'Offline' WHERE Username = @username", connection))
                 {
-                    _ = command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@username", username);
                     command.ExecuteNonQuery();
                 }
+
+                Close();  // Close the current window
+
+                var login = new SignIn();
+                login.Show();  // Open a new instance of the SignIn window
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that occur during the database operation
                 MessageBox.Show("An error occurred while updating the user status: " + ex.Message);
 
-                // You might want to log the exception for further investigation
-                // Logging code here
-            }
+                // Log the exception for further investigation
+                Log.Error(ex, "An error occurred while updating the user status");
 
-            // Close the current window
-            Close();
-
-            // Open LoginWindow
-            try
-            {
-                SignIn signIn = new SignIn();
-                Application.Current.MainWindow = signIn;
-                signIn.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while opening the login window: " + ex.Message);
+                // You can also log additional information
+                Log.Error("Username: {Username}", username);
             }
         }
 
