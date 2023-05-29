@@ -45,7 +45,7 @@ namespace Asgard
 
             MinimizeCommand = new RelayCommand(Minimize);
             MaximizeCommand = new RelayCommand(Maximize);
-            CloseCommand = new RelayCommand(Close);
+            CloseCommand = new RelayCommand(Close2);
 
             // Get the current screen resolution
             double screenWidth = SystemParameters.PrimaryScreenWidth;
@@ -83,6 +83,22 @@ namespace Asgard
         private void Maximize()
         {
             WindowState = (WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        private void Close2()
+        {
+            string username = user.CurrentUserAccount.Username.ToString();
+
+            // Set Status to Offline
+            using (var connection = RepositoryBase.GetConnectionPublic())
+            using (var command = new MySqlCommand("UPDATE users SET Status = 'Offline' WHERE Username = @username", connection))
+            {
+                command.Parameters.AddWithValue("@username", username);
+                command.ExecuteNonQuery();
+            }
+
+            // Close App
+            Application.Current.Shutdown();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

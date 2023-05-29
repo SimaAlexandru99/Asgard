@@ -4,7 +4,7 @@
 			 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 			 xmlns:local="clr-namespace:Asgard"
 			 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-			 StartupUri="/Windows/SignIn.xaml">
+			 Startup="ApplicationStart">
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -14,8 +14,6 @@
 				<materialDesign:CustomColorTheme BaseTheme="Dark" PrimaryColor="#007FFF" SecondaryColor="White" />
 				<materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="#007FFF" SecondaryColor="Black" />
 				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-				<ui:ThemesDictionary Theme="Light" />
-				<ui:ControlsDictionary />
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</Application.Resources>

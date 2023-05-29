@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Title="Creează cont"
         Width="800"
-        Height="500"
+        Height="700"
+        
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
@@ -89,338 +90,105 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Column="0" HorizontalAlignment="Center">
-                <StackPanel x:Name="Panel1" Orientation="Vertical" Margin="0 0 0 0" VerticalAlignment="Center" Visibility="Visible">
-                    <TextBlock x:Name="Header" Text="De pe ce proiect ești?" 
-                               Margin="0,5,0,0" 
-                               HorizontalAlignment="Left"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="25"
-                               Foreground="{DynamicResource TextColor}"/>
-                    <TextBlock x:Name="Subheading" Text="Bine ai venit în Optima, unde îți începi activitatea?" 
-                               Margin="0,5,0,0" 
-                               HorizontalAlignment="Left"
-                               FontFamily="/Fonts/#Rubik Regular"
-                               FontSize="10"
-                               Foreground="{DynamicResource TextColor}"/>
-                    <Grid Margin="0,15,0,0" HorizontalAlignment="Left">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition x:Name="Column1" Width="150"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition x:Name="Column3" Width="150"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Column="0" Grid.Row="0">
-                            <RadioButton  x:Name="VodafoneRadioButton" Style="{StaticResource SelectedButton}" Height="70" Width="150" Checked="VodafoneRadioButton_Checked" Unchecked="VodafoneRadioButton_Unchecked" GroupName="ProviderGroup" >
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel></StackPanel>
-                                    <Image x:Name="VodafoneLogo" Grid.Row="0" Source="/Assets/vodafonelogo.png" Height="20" Width="20">
-                                    </Image>
-                                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                                        <TextBlock Text="Vodafone" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}"/>
-                                        <TextBlock Text="vodafone.ro" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Regular
-                                               "
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}" Margin="0,2,0,0"/>
-                                    </StackPanel>
-                                    <Image x:Name="CheckVodafone" Grid.Column="0" Source="/Assets/Icons/unchecked.png" Height="10" Width="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,5,0" Grid.Row="0"/>
-                                </Grid>
-
-                            </RadioButton>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="0">
-                            <RadioButton  x:Name="TelekomRadioButton" Style="{StaticResource SelectedButton}" Height="70" Width="150" Checked="TelekomRadioButton_Checked" Unchecked="TelekomRadioButton_Unchecked" GroupName="ProviderGroup">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel></StackPanel>
-                                    <Image x:Name="TelekomLogo"  Grid.Row="0" Source="/Assets/telekomlogo2.jpg" Height="20" Width="20">
-                                    </Image>
-                                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                                        <TextBlock Text="Telekom" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}"/>
-                                        <TextBlock Text="telekom.ro" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Regular
-                                               "
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}" Margin="0,2,0,0"/>
-
-                                    </StackPanel>
-                                    <Image x:Name="CheckTelekom"  Grid.Column="0" Source="/Assets/Icons/unchecked.png" Height="10" Width="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,5,0" Grid.Row="0"/>
-                                </Grid>
-
-                            </RadioButton>
-                        </StackPanel>
-                        <StackPanel Grid.Column="0" Grid.Row="2">
-                            <RadioButton  x:Name="CECRadioButton" Style="{StaticResource SelectedButton}" Height="70" Width="150" Checked="CECRadioButton_Checked" Unchecked="CECRadioButton_Unchecked"  GroupName="ProviderGroup">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel></StackPanel>
-                                    <Image x:Name="CECLogo" Grid.Row="0" Source="/Assets/cec-logo.jpg" Height="20" Width="20">
-                                    </Image>
-                                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                                        <TextBlock Text="CEC" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}"/>
-                                        <TextBlock Text="cec.ro" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Regular
-                                               "
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}" Margin="0,2,0,0"/>
-
-                                    </StackPanel>
-                                    <Image x:Name="CECCheck" Grid.Column="0" Source="/Assets/Icons/unchecked.png" Height="10" Width="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,5,0" Grid.Row="0"/>
-                                </Grid>
-
-                            </RadioButton>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="2">
-                            <RadioButton  x:Name="OrangeRadioButton" Style="{StaticResource SelectedButton}" Height="70" Width="150" Checked="OrangeRadioButton_Checked" Unchecked="OrangeRadioButton_Unchecked" GroupName="ProviderGroup">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel></StackPanel>
-                                    <Image x:Name="OrangeLogo"  Grid.Row="0" Source="/Assets/orange_logo.png" Height="20" Width="20">
-                                    </Image>
-                                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                                        <TextBlock Text="Orange" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}"/>
-                                        <TextBlock Text="orange.ro" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Regular
-                                               "
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}" Margin="0,2,0,0"/>
-
-                                    </StackPanel>
-                                    <Image x:Name="OrangeCheck"  Grid.Column="0" Source="/Assets/Icons/unchecked.png" Height="10" Width="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,5,0" Grid.Row="0"/>
-                                </Grid>
-
-                            </RadioButton>
-                        </StackPanel>
-
-                        <StackPanel Grid.Column="0" Grid.Row="4">
-                            <RadioButton  x:Name="BCRRadioButton" Style="{StaticResource SelectedButton}" Height="70" Width="150" Unchecked="BCRRadioButton_Unchecked" Checked="BCRRadioButton_Checked"  GroupName="ProviderGroup">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel></StackPanel>
-                                    <Image x:Name="BCRLogo" Grid.Row="0" Source="/Assets/bcrlogo.png" Height="20" Width="20">
-                                    </Image>
-                                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                                        <TextBlock Text="BCR" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}"/>
-                                        <TextBlock Text="bcr.ro" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Regular
-                                               "
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}" Margin="0,2,0,0"/>
-
-                                    </StackPanel>
-                                    <Image x:Name="BCRCheck" Grid.Column="0" Source="/Assets/Icons/unchecked.png" Height="10" Width="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,5,0" Grid.Row="0"/>
-                                </Grid>
-
-                            </RadioButton>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Grid.Row="4">
-                            <RadioButton  x:Name="EONRadioButton" Style="{StaticResource SelectedButton}" Height="70" Width="150" Checked="EONRadioButton_Checked" Unchecked="EONRadioButton_Unchecked" GroupName="ProviderGroup">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel></StackPanel>
-                                    <Image x:Name="EONLogo"  Grid.Row="0" Source="/Assets/eonlogo.png" Height="20" Width="20">
-                                    </Image>
-                                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                                        <TextBlock Text="EON" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}"/>
-                                        <TextBlock Text="eon.ro" 
-                               HorizontalAlignment="Center"
-                               FontFamily="/Fonts/#Rubik Regular
-                                               "
-                               FontSize="6"
-                               Foreground="{DynamicResource TextColor}" Margin="0,2,0,0"/>
-
-                                    </StackPanel>
-                                    <Image x:Name="EONCheck"  Grid.Column="0" Source="/Assets/Icons/unchecked.png" Height="10" Width="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,4,5,0" Grid.Row="0"/>
-                                </Grid>
-
-                            </RadioButton>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-                <StackPanel x:Name="Panel2" Orientation="Vertical" Margin="0 0 0 0" VerticalAlignment="Center" Visibility="Collapsed">
-                    <TextBlock x:Name="Header2" Text="Deci ai uitat parola" 
-                               Margin="0,5,0,0" 
-                               HorizontalAlignment="Left"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="25"
-                               Foreground="{DynamicResource TextColor}"/>
-                    <TextBlock x:Name="Subheading2" Text="Introdu datele de mai jos pentru a putea reseta parola" 
-                               Margin="0,5,0,0" 
-                               HorizontalAlignment="Left"
-                               FontFamily="/Fonts/#Rubik Regular"
-                               FontSize="10"
-                               Foreground="{DynamicResource TextColor}"/>
-                    <StackPanel Margin="0,20,0,0">
-                        <TextBlock Text="Username" Margin="0,0,0,0" Foreground="{DynamicResource ThirdTextColor}"/>
-                        <TextBox
-                            x:Name="txtUser"
-                            Style="{StaticResource LoginForm}"
-                            Text="{Binding Username}"/>
-                        <TextBlock Text="Noua parola" Margin="0,5,0,0"  Foreground="{DynamicResource ThirdTextColor}"/>
-                        <PasswordBox x:Name="parolaNoua"
-                                         Margin="0,5,0,0"
-                                         Style="{StaticResource PasswordForm}"/>
-                        <TextBlock Text="Confirmă parola" Margin="0,5,0,0" Foreground="{DynamicResource ThirdTextColor}"/>
-                        <PasswordBox x:Name="parolaConfirm"
-                                         Margin="0,5,0,0"
-                                         Style="{StaticResource PasswordForm}"/>
-                        <TextBlock
-                            x:Name="errorText"
-                            Margin="0,10,0,0"
-                            FontFamily="/Fonts/#Rubik Regular"
-                            FontSize="12"
-                            FontWeight="Medium"
-                            Foreground="Red"
-                            Text="{Binding ErrorMessage}"
-                            TextWrapping="Wrap" />
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Margin="50">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock Text="Creează un cont nou" FontSize="20" FontFamily="/Fonts/#Rubik Medium"/>
                     </StackPanel>
-                </StackPanel>
-                <StackPanel x:Name="Panel3" Orientation="Vertical" Margin="0 0 0 0" VerticalAlignment="Center" Visibility="Collapsed">
-                    <TextBlock x:Name="Header3" Text="Deci ai uitat username-ul" 
-                               Margin="0,5,0,0" 
-                               HorizontalAlignment="Left"
-                               FontFamily="/Fonts/#Rubik Medium"
-                               FontSize="25"
-                               Foreground="{DynamicResource TextColor}"/>
-                    <TextBlock x:Name="Subheading3" Text="Completează câmpurile de mai jos și află numele de utilizator" 
-                               Margin="0,5,0,0" 
-                               HorizontalAlignment="Left"
-                               FontFamily="/Fonts/#Rubik Regular"
-                               FontSize="10"
-                               Foreground="{DynamicResource TextColor}"/>
-                    <StackPanel Margin="0,20,0,0">
-                        <TextBlock Text="Adresa de email" Margin="0,0,0,0" Foreground="{DynamicResource ThirdTextColor}"/>
+                    <StackPanel Grid.Column="0" Grid.Row="1">
+                        <TextBlock Text="Nume" HorizontalAlignment="Left" />
                         <TextBox
-                            Height="60"
-                            x:Name="txtUser2"
+                            FontSize="10"
+                            Height="50"
+                            x:Name="txtNume"
                             Style="{StaticResource LoginForm}"
-                            Margin="0 5 0 0"
-                            Text="{Binding Username}"/>
+                            />
                     </StackPanel>
-                </StackPanel>
-                <StackPanel VerticalAlignment="Bottom" Margin="0 0 0 10">
-                    <Button
-                            x:Name="Button"
-                            Height="35"
-                            BorderThickness="0"
-                            Width="300"
-                            Margin="0,5,0,10"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                            Foreground="{DynamicResource SecondaryTextColor}"
-                            FontFamily="/Fonts/#Rubik Medium"
-                            Content="Mai departe"
+                    <StackPanel Grid.Column="2" Grid.Row="1">
+                        <TextBlock Text="Prenume" HorizontalAlignment="Left" />
+                        <TextBox
                             FontSize="10"
-                            Style="{StaticResource MaterialDesignFlatMidBgButton}">
-                    </Button>
-                    <Grid VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
-                        </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0"
-                            x:Name="Indicator"
-                            Height="10"
-                            BorderThickness="0"
-                            Margin="0,5,5,0"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                            Background="{DynamicResource FocusColor}"
-                            FontFamily="/Fonts/#Rubik Bold"
+                            Height="50"
+                            x:Name="txtPrenume"
+                            Style="{StaticResource LoginForm}"
+                            />
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                        <TextBlock Text="Email" HorizontalAlignment="Left" />
+                        <TextBox
                             FontSize="10"
-                            Style="{StaticResource MaterialDesignFlatMidBgButton}" />
-                        <Button Grid.Column="1"
-                            x:Name="Indicator2"
-                            Height="10"
-                            BorderThickness="0"
-                            Margin="5,5,0,0"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                            Background="{DynamicResource FocusSecondColor}"
-                            FontFamily="/Fonts/#Rubik Bold"
-                            FontSize="10"
-                            Style="{StaticResource MaterialDesignFlatMidBgButton}"/>
-                        <Button Grid.Column="2"
-                            x:Name="Indicator3"
-                            Height="10"
-                            BorderThickness="0"
-                            Margin="5,5,0,0"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                            Background="{DynamicResource FocusSecondColor}"
-                            FontFamily="/Fonts/#Rubik Bold"
-                            FontSize="10"
-                            Style="{StaticResource MaterialDesignFlatMidBgButton}"  />
-                        <Button Grid.Column="3"
-                            x:Name="Indicator4"
-                            Height="10"
-                            BorderThickness="0"
-                            Margin="5,5,0,0"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                            Background="{DynamicResource FocusSecondColor}"
-                            FontFamily="/Fonts/#Rubik Bold"
-                            FontSize="10"
-                            Style="{StaticResource MaterialDesignFlatMidBgButton}" />
-
-                    </Grid>
-                </StackPanel>
-
-
-            </Grid>
+                            Height="50"
+                            x:Name="Email"
+                            Style="{StaticResource LoginForm}"
+                            />
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="3">
+                        <TextBlock Text="Alege proiect" HorizontalAlignment="Left" />
+                        <ComboBox
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        SelectedValuePath="Content"
+                        x:Name="comboboxProiect"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Cursor="Hand"        
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputText}"
+                        Foreground="{DynamicResource TextColor}" Margin="0,5,0,0" SelectionChanged="ComboboxProiect_SelectionChanged"
+                        >
+                            <ComboBoxItem >Vodafone</ComboBoxItem>
+                            <ComboBoxItem >Telekom</ComboBoxItem>
+                            <ComboBoxItem >Orange</ComboBoxItem>
+                            <ComboBoxItem >CEC</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="3">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxProiect, Path=SelectedValue}" Value="Vodafone">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxProiect, Path=SelectedValue}" Value="Telekom">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="Alege subproiect" HorizontalAlignment="Left" />
+                        <ComboBox
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        SelectedValuePath="Content"
+                        x:Name="comboboxSubProiect"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Cursor="Hand"        
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputText}"
+                        Foreground="{DynamicResource TextColor}" Margin="0,5,0,0"
+                        >
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
             <Border Grid.Column="1" CornerRadius="10 10 10 10">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

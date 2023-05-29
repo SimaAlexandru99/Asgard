@@ -10,10 +10,6 @@ namespace Asgard.Windows
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Interop;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using Asgard.Repositories;
-    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for RegisterAccountWindow.xaml.
@@ -31,15 +27,6 @@ namespace Asgard.Windows
             {
                 RegisterWindow.Width = 1000;
                 RegisterWindow.Height = 600;
-                Column1.Width = new GridLength(200);
-                Column3.Width = new GridLength(200);
-                VodafoneRadioButton.Width = 180;
-                OrangeRadioButton.Width = 180;
-                TelekomRadioButton.Width = 180;
-                CECRadioButton.Width = 180;
-                Button.Width = 400;
-                BCRRadioButton.Width = 180;
-                EONRadioButton.Width = 180;
             }
         }
 
@@ -52,16 +39,6 @@ namespace Asgard.Windows
             signin.Show();
 
             Close();
-        }
-
-        private void VodafoneRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckVodafone.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
-        }
-
-        private void VodafoneRadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CheckVodafone.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -80,54 +57,23 @@ namespace Asgard.Windows
             SendMessage(helper.Handle, 161, 2, 0);
         }
 
-        private void TelekomRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void ComboboxProiect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CheckTelekom.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
-        }
+            ComboBoxItem selectedItem = (ComboBoxItem)comboboxProiect.SelectedItem;
+            comboboxSubProiect.Items.Clear();
+            switch (selectedItem.Content.ToString())
+            {
+                case "Vodafone":
+                    comboboxSubProiect.Items.Add("Achizitie");
+                    comboboxSubProiect.Items.Add("Retentie");
 
-        private void TelekomRadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CheckTelekom.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
-        }
-
-        private void CECRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            CECCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
-        }
-
-        private void CECRadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            CECCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
-        }
-
-        private void OrangeRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            OrangeCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
-        }
-
-        private void OrangeRadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            OrangeCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
-        }
-
-        private void BCRRadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            BCRCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
-        }
-
-        private void BCRRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            BCRCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
-        }
-
-        private void EONRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            EONCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
-        }
-
-        private void EONRadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            EONCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+                    break;
+                case "Telekom":
+                    comboboxSubProiect.Items.Add("Savedesk");
+                    comboboxSubProiect.Items.Add("Antichurn");
+                    comboboxSubProiect.Items.Add("TKRM");
+                    break;
+            }
         }
     }
 }
