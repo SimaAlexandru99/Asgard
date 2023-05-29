@@ -27,7 +27,6 @@ namespace Asgard.ViewModels
         {
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand(string.Empty));
         }
 
         // -> Commands
@@ -147,10 +146,6 @@ namespace Asgard.ViewModels
                 };
                 dialog.ShowDialog();
             }
-        }
-
-        private void ExecuteRecoverPassCommand(string username)
-        {
         }
     }
 }

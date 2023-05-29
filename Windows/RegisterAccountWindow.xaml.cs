@@ -31,12 +31,13 @@ namespace Asgard.Windows
             {
                 RegisterWindow.Width = 1000;
                 RegisterWindow.Height = 600;
-                Column1.Width = new GridLength(180);
-                Column3.Width = new GridLength(180);
+                Column1.Width = new GridLength(200);
+                Column3.Width = new GridLength(200);
                 VodafoneRadioButton.Width = 180;
                 OrangeRadioButton.Width = 180;
                 TelekomRadioButton.Width = 180;
                 CECRadioButton.Width = 180;
+                Button.Width = 400;
                 BCRRadioButton.Width = 180;
                 EONRadioButton.Width = 180;
             }
@@ -55,10 +56,12 @@ namespace Asgard.Windows
 
         private void VodafoneRadioButton_Checked(object sender, RoutedEventArgs e)
         {
+            CheckVodafone.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
         }
 
         private void VodafoneRadioButton_Unchecked(object sender, RoutedEventArgs e)
         {
+            CheckVodafone.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -75,6 +78,56 @@ namespace Asgard.Windows
         {
             WindowInteropHelper helper = new WindowInteropHelper(this);
             SendMessage(helper.Handle, 161, 2, 0);
+        }
+
+        private void TelekomRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckTelekom.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void TelekomRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CheckTelekom.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+        }
+
+        private void CECRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            CECCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void CECRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CECCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+        }
+
+        private void OrangeRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            OrangeCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void OrangeRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            OrangeCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+        }
+
+        private void BCRRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            BCRCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
+        }
+
+        private void BCRRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            BCRCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void EONRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            EONCheck.Source = new BitmapImage(new Uri("/Assets/Icons/checked.png", UriKind.Relative));
+        }
+
+        private void EONRadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            EONCheck.Source = new BitmapImage(new Uri("/Assets/Icons/unchecked.png", UriKind.Relative));
         }
     }
 }

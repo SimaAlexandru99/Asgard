@@ -96,6 +96,8 @@ namespace Asgard.Validations
 
         private string codclienteon;
 
+        private string codclient;
+
         private string adresacorespondenta;
 
         private string niveltensiune;
@@ -117,6 +119,14 @@ namespace Asgard.Validations
         private string dataintrare;
 
         private string categorieconsumgaz;
+
+        private string seriesim;
+
+        public string SerieSim
+        {
+            get { return seriesim; }
+            set { OnPropertyChanged(ref seriesim, value); }
+        }
 
         public string Name
         {
@@ -423,6 +433,12 @@ namespace Asgard.Validations
         {
             get { return codclienteon; }
             set { OnPropertyChanged(ref codclienteon, value); }
+        }
+
+        public string CodClient
+        {
+            get { return codclient; }
+            set { OnPropertyChanged(ref codclient, value); }
         }
 
         public string AdresaLocConsum

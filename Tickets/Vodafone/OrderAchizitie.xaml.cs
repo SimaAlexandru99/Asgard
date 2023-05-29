@@ -123,30 +123,209 @@ namespace Asgard.Tickets.Vodafone
                 }
                 else
                 {
-                    if (comboboxDeviceChoice.Text == "Da")
+                    if (tipAbonament.Text == "Portare PrePay Orange")
                     {
-                        if (comboboxKid.Text == "Da")
+                        if (serie_sim.Text.Length < 19 || serie_sim.Text == string.Empty)
                         {
-                            step2Panel.Visibility = Visibility.Collapsed;
-                            step3Panel.Visibility = Visibility.Visible;
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM incompleta";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Orange, seria SIM trebuie sa contina 19 caractere, incearca sa pui 8940100 sau 894010 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                            return;
                         }
-                        else if (comboboxKid.Text == "Nu")
+                        else
                         {
-                            step2Panel.Visibility = Visibility.Collapsed;
-                            step3Panel.Visibility = Visibility.Visible;
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
                         }
                     }
-                    else if (comboboxDeviceChoice.Text == "Nu")
+                    else if (tipAbonament.Text == "Portare PrePay Telekom")
                     {
-                        if (comboboxKid.Text == "Da")
+                        if (serie_sim.Text.Length < 19 || serie_sim.Text == string.Empty)
                         {
-                            step2Panel.Visibility = Visibility.Collapsed;
-                            step5Panel.Visibility = Visibility.Visible;
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM incompleta";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940090 sau 8940030 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                            return;
                         }
-                        else if (comboboxKid.Text == "Nu")
+                        else
                         {
-                            step2Panel.Visibility = Visibility.Collapsed;
-                            step4Panel.Visibility = Visibility.Visible;
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                        }
+                    }
+                    else if (tipAbonament.Text == "Portare PrePay Digi")
+                    {
+                        if (serie_sim.Text.Length < 19 || serie_sim.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM incompleta";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Digi, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940100 sau 894010 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                        }
+                    }
+                    else if (tipAbonament.Text == "Migrare")
+                    {
+                        if (serie_sim.Text.Length < 19 || serie_sim.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM incompleta";
+                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 894001 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (comboboxDeviceChoice.Text == "Da")
+                        {
+                            if (comboboxKid.Text == "Da")
+                            {
+                                step2Panel.Visibility = Visibility.Collapsed;
+                                step3Panel.Visibility = Visibility.Visible;
+                            }
+                            else if (comboboxKid.Text == "Nu")
+                            {
+                                step2Panel.Visibility = Visibility.Collapsed;
+                                step3Panel.Visibility = Visibility.Visible;
+                            }
+                        }
+                        else if (comboboxDeviceChoice.Text == "Nu")
+                        {
+                            if (comboboxKid.Text == "Da")
+                            {
+                                step2Panel.Visibility = Visibility.Collapsed;
+                                step5Panel.Visibility = Visibility.Visible;
+                            }
+                            else if (comboboxKid.Text == "Nu")
+                            {
+                                step2Panel.Visibility = Visibility.Collapsed;
+                                step4Panel.Visibility = Visibility.Visible;
+                            }
                         }
                     }
                 }
@@ -14436,7 +14615,8 @@ namespace Asgard.Tickets.Vodafone
             message.To.Add(MailboxAddress.Parse("backoffice@optimacall.ro"));
             message.Body = new TextPart("plain")
             {
-                Text = @"Nume si prenume client: " + nameClient.Text + "\r\n" +
+                Text = @"Nume client: " + nameClient.Text + "\r\n" +
+                    "Prenume client: " + surnameClient.Text + "\r\n" +
                     "CNP: " + cnp.Text + "\r\n" +
                     "Serie si numar buletin: " + serie.Text + "\r\n" +
                     "Emis de: " + emis.Text + "\r\n" +

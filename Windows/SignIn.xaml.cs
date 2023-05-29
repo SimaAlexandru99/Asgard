@@ -144,5 +144,9 @@ namespace Asgard.Windows
         private void SignInPage_Loaded(object sender, RoutedEventArgs e)
         {
         }
+
+        private void SignInPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+        }
     }
 }

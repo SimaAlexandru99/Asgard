@@ -40,11 +40,6 @@ namespace Asgard.Repositories
                     // Handle MySQL exception or throw it further
                     throw new Exception($"Failed to execute database command: {ex.Message}", ex);
                 }
-                catch (Exception ex)
-                {
-                    // Handle general exception or throw it further
-                    throw new Exception($"Failed to execute database command: {ex.Message}", ex);
-                }
             }
 
             return validUser;

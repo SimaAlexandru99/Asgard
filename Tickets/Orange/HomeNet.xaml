@@ -77,7 +77,18 @@
                         <TextBlock Text="Telefon Client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                         x:Name="telefonclient"
-                        Style="{StaticResource TextBoxCustom}" >
+                        PreviewTextInput="Text_PreviewTextInput"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                            <Binding
+                        Path="Phone"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:MinimumCharacterRule MinimumCharacters="10" />
+                                    <val:MaximumCharacterRule MaximumCharacters="10" />
+                                </Binding.ValidationRules>
+                            </Binding>
                         </TextBox>
                     </StackPanel>
                     <StackPanel
@@ -85,7 +96,8 @@
                         Grid.Column="0">
                         <TextBlock Text="ID SFA" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
-                        x:Name="idsfa"  
+                        x:Name="idsfa" 
+                        PreviewTextInput="Text_PreviewTextInput"    
                         Style="{StaticResource TextBoxCustom}" >
                         </TextBox>
                     </StackPanel>
@@ -119,7 +131,47 @@
                         <TextBlock Text="Adresa de email" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                         x:Name="adresaEmail" 
-                        Style="{StaticResource TextBoxCustom}"/>
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                            <Binding
+                        Path="Email"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:NotEmptyRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="2">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=comboboxTipClient, Path=SelectedValue}" Value="Client existent">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="ID Client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <TextBox
+                        x:Name="IDClient" 
+                        PreviewTextInput="Text_PreviewTextInput"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                            <Binding
+                        Path="CodClient"
+                        UpdateSourceTrigger="LostFocus"
+                        ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <val:NotEmptyRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
                     </StackPanel>
 
                     <StackPanel
@@ -138,8 +190,21 @@
                         <TextBlock Text="CNP" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                         x:Name="cnp" 
-                        Style="{StaticResource TextBoxCustom}" >
-
+                        MaxLength="13"
+                        PreviewTextInput="Text_PreviewTextInput"
+                        Style="{StaticResource TextBoxCustom}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                            <TextBox.Text>
+                                <Binding
+                            Path="CNP"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <val:MinimumCharacterRule MinimumCharacters="13" />
+                                        <val:NotEmptyRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
                         </TextBox>
                     </StackPanel>
 
@@ -159,7 +224,18 @@
                         <TextBlock Text="Serie și număr" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                         x:Name="serie" 
+                        MaxLength="8"
                         Style="{StaticResource TextBoxCustom}">
+                            <TextBox.Text>
+                                <Binding
+                            Path="Serie"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <val:NotEmptyRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
                         </TextBox>
                     </StackPanel>
 
@@ -180,6 +256,17 @@
                         <TextBox
                         x:Name="nume" 
                         Style="{StaticResource TextBoxCustom}" >
+                            <TextBox.Text>
+                                <Binding
+                            Path="Name"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <val:MinimumCharacterRule MinimumCharacters="3" />
+                                        <val:NotEmptyRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
                         </TextBox>
                     </StackPanel>
 
@@ -200,26 +287,17 @@
                         <TextBox
                         x:Name="prenume" 
                         Style="{StaticResource TextBoxCustom}">
-                        </TextBox>
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="5"
-                        Grid.Column="4">
-                        <StackPanel.Style>
-                            <Style TargetType="StackPanel">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=comboboxTipClient, Path=SelectedValue}" Value="Client nou">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Style>
-                        <TextBlock Text="Data nașterii" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
-                        <TextBox
-                        x:Name="datanasterii" 
-                        Style="{StaticResource TextBoxCustom}">
+                            <TextBox.Text>
+                                <Binding
+                            Path="Prenume"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <val:MinimumCharacterRule MinimumCharacters="3" />
+                                        <val:NotEmptyRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
                         </TextBox>
                     </StackPanel>
 
@@ -405,7 +483,7 @@
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
-                        Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}" RenderTransformOrigin="-0.351,13.84">
                             <ComboBoxItem Content="Da" />
                             <ComboBoxItem Content="Nu" />
                         </ComboBox>
@@ -494,7 +572,7 @@
                         Background="{DynamicResource InputColor}"
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}">
-                            <ComboBoxItem Content="HN 6" IsSelected="True" />
+                            <ComboBoxItem Content="HN 6"/>
                             <ComboBoxItem Content="HN 9" />
                             <ComboBoxItem Content="HN 11" />
                         </ComboBox>
@@ -508,6 +586,9 @@
                         <TextBox
                         AcceptsReturn="True"
                         VerticalAlignment="Top"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        HorizontalContentAlignment="Left" 
+                        VerticalContentAlignment="Top"
                         Height="100"
                         TextWrapping="Wrap"
                         x:Name="comentarii"

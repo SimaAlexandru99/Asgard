@@ -70,7 +70,7 @@
                     <StackPanel
                         Grid.Row="1"
                         Grid.Column="0">
-                        <TextBlock Text="Nume și prenume client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <TextBlock Text="Nume client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                             x:Name="nameClient"
                             Style="{StaticResource TextBoxCustom}" 
@@ -91,10 +91,33 @@
                     <StackPanel
                         Grid.Row="3"
                         Grid.Column="0">
+                        <TextBlock Text="Prenume client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <TextBox
+                            x:Name="surnameClient"
+                            Style="{StaticResource TextBoxCustom}" 
+                            Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                            <TextBox.Text>
+                                <Binding
+                            Path="Prenume"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <val:MinimumCharacterRule MinimumCharacters="3" />
+                                        <val:NotEmptyRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="0">
                         <TextBlock Text="CNP" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                         x:Name="cnp"  
                             MaxLength="13"
+                            PreviewTextInput="Text_PreviewTextInput"
                         Style="{StaticResource TextBoxCustom}"
                             Validation.ErrorTemplate="{StaticResource errorTemplate}">
                             <TextBox.Text>
@@ -111,8 +134,8 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel
-                        Grid.Row="5"
-                        Grid.Column="0">    
+                        Grid.Row="1"
+                        Grid.Column="5">    
                         <TextBlock Text="Tip client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
                         <ComboBox
                         x:Name="comboboxClient"
@@ -139,6 +162,7 @@
                         Grid.Column="2">
                         <TextBlock x:Name="TextNumarFirstPage" Text="Număr existent (paperless)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
+                        PreviewTextInput="Text_PreviewTextInput"
                         MaxLength="9"
                         x:Name="numar_existent"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
@@ -202,7 +226,7 @@
                     </StackPanel>
 
                     <StackPanel
-                        Grid.Row="1"
+                        Grid.Row="3"
                         Grid.Column="4">
                         <StackPanel.Style>
                             <Style TargetType="StackPanel">
@@ -231,7 +255,7 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel
-                        Grid.Row="3"
+                        Grid.Row="5"
                         Grid.Column="4">
                         <StackPanel.Style>
                             <Style TargetType="StackPanel">
@@ -401,7 +425,7 @@
                         <TextBlock Text="Număr impactat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox x:Name="numar_impactat"   
                         PreviewTextInput="Text_PreviewTextInput"
-                                 MaxLength="9"
+                        MaxLength="9"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}"
                         Padding="10"
                         >
@@ -467,10 +491,23 @@
                             </Style>
                         </StackPanel.Style>
                         <TextBlock Text="Serie sim" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
-                        <TextBox x:Name="serie_sim"            
+                        <TextBox x:Name="serie_sim"   
+                        MaxLength="19"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}"
                         Padding="10"
                         >
+                            <TextBox.Text>
+                                <Binding
+                            Path="SerieSim"
+                            UpdateSourceTrigger="LostFocus"
+                            ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <val:NotEmptyRule />
+                                        <val:MinimumCharacterRule MinimumCharacters="19"/>
+                                        <val:MaximumCharacterRule MaximumCharacters="19"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
                         </TextBox>
                     </StackPanel>
 
@@ -521,7 +558,6 @@
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                         materialDesign:ColorZoneAssist.Mode="Custom"      
                         SelectedValuePath="Content"
-                        IsEditable="True"
                         Cursor="Hand"
                         Height="50"
                         FontFamily="/Fonts/#Rubik Regular"
@@ -576,6 +612,7 @@
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                         materialDesign:ColorZoneAssist.Mode="Custom"      
                         SelectedValuePath="Content"
+                        IsEditable="True"
                         Cursor="Hand"
                         Height="50"
                         FontFamily="/Fonts/#Rubik Regular"
@@ -592,6 +629,7 @@
                         Grid.Column="0">
                         <TextBlock Text="Cost rata" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
+                        PreviewTextInput="Text_PreviewTextInput"
                         x:Name="cost_rata"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
                             <Binding
@@ -610,6 +648,7 @@
                         Grid.Column="2">
                         <TextBlock Text="Cost total" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
+                        PreviewTextInput="Text_PreviewTextInput"
                         x:Name="cost_total"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
                             <Binding
@@ -646,6 +685,7 @@
                         Grid.Column="4">
                         <TextBlock Text="Avans" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
+                        PreviewTextInput="Text_PreviewTextInput"
                         x:Name="avans"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
                             <Binding

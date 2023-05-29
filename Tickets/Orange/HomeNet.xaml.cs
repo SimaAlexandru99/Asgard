@@ -6,6 +6,7 @@ namespace Asgard.Tickets.Orange
 {
     using System;
     using System.Security.Authentication;
+    using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
     using Asgard.Repositories;
@@ -26,6 +27,13 @@ namespace Asgard.Tickets.Orange
         {
             InitializeComponent();
             user = new MainViewModel();
+        }
+
+        public void Clear()
+        {
+            telefonclient.Text = idsfa.Text = adresaEmail.Text = cnp.Text = serie.Text =
+            nume.Text = prenume.Text = comboboxTipClient.Text = IDClient.Text =
+            strada.Text = numar.Text = bloc.Text = scara.Text = etaj.Text = apartament.Text = gdpr1.Text = gdpr2.Text = gdpr3.Text = gdpr4.Text = abonament.Text = comentarii.Text = string.Empty;
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +101,7 @@ namespace Asgard.Tickets.Orange
                     {
                         Text = @"Telefon client: " + telefonclient.Text + "\r\n" +
                                 "ID SFA: " + idsfa.Text + "\r\n" +
+                                "ID Client" + IDClient.Text + "\r\n" +
                                 "Tip client: " + comboboxTipClient.Text + "\r\n" +
                                 "Judet: " + comboboxJudet.Text + "\r\n" +
                                 "Localitate: " + comboboxLocalitate.Text + "\r\n" +
@@ -122,7 +131,6 @@ namespace Asgard.Tickets.Orange
                                 "Serie buletin: " + serie.Text + "\r\n" +
                                 "Nume: " + nume.Text + "\r\n" +
                                 "Prenume: " + prenume.Text + "\r\n" +
-                                "Data nasterii: " + datanasterii.Text + "\r\n" +
                                 "Judet: " + comboboxJudet.Text + "\r\n" +
                                 "Localitate: " + comboboxLocalitate.Text + "\r\n" +
                                 "Strada: " + strada.Text + "\r\n" +
@@ -159,6 +167,8 @@ namespace Asgard.Tickets.Orange
                         dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
                     };
                     dialog.ShowDialog();
+
+                    Clear();
                 }
                 catch (Exception ex)
                 {
@@ -195,6 +205,12 @@ namespace Asgard.Tickets.Orange
             }
         }
 
+        private void Text_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
         private void NextButtonClick(object sender, RoutedEventArgs e)
         {
             if (step1Panel.Visibility == Visibility.Visible)
@@ -208,18 +224,59 @@ namespace Asgard.Tickets.Orange
                         dialog.Status.Text = "Nu am putut înainta";
                         dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
                     };
+
                     dialog.ShowDialog();
                     return;
                 }
                 else
                 {
-                    step1Panel.Visibility = Visibility.Collapsed;
-                    step2Panel.Visibility = Visibility.Visible;
+                    if (comboboxTipClient.Text == "Client existent")
+                    {
+                        if (IDClient.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Nu am putut înainta";
+                                dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
+                            };
+
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            step1Panel.Visibility = Visibility.Collapsed;
+                            step2Panel.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else if (comboboxTipClient.Text == "Client nou")
+                    {
+                        if (cnp.Text == string.Empty || serie.Text == string.Empty || nume.Text == string.Empty || prenume.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Nu am putut înainta";
+                                dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
+                            };
+
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            step1Panel.Visibility = Visibility.Collapsed;
+                            step2Panel.Visibility = Visibility.Visible;
+                        }
+                    }
                 }
             }
             else if (step2Panel.Visibility == Visibility.Visible)
             {
-                if (strada.Text == string.Empty || numar.Text == string.Empty)
+                if (strada.Text == string.Empty || numar.Text == string.Empty || comboboxJudet.Text == string.Empty || comboboxLocalitate.Text == string.Empty)
                 {
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -14243,5 +14300,7 @@ namespace Asgard.Tickets.Orange
 
             connection.Close();
         }
+
+
     }
 }
