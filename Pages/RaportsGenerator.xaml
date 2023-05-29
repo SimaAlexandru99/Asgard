@@ -37,8 +37,11 @@
 			<TextBlock Text="Data final"/>
 			<DatePicker x:Name="Data_final" VerticalAlignment="Top"/>
 		</StackPanel>
-		
+		<StackPanel Grid.Column="0" Grid.Row="2">
+			<Button Content="Generara raport" Click="GenerateReportButton_Click" />
 
+		</StackPanel>
+		
 	</Grid>
 
 </Page>
