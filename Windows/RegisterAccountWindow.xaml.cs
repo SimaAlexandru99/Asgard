@@ -4,6 +4,8 @@
 
 namespace Asgard.Windows
 {
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
     using System;
     using System.Runtime.InteropServices;
     using System.Windows;
@@ -61,19 +63,99 @@ namespace Asgard.Windows
         {
             ComboBoxItem selectedItem = (ComboBoxItem)comboboxProiect.SelectedItem;
             comboboxSubProiect.Items.Clear();
+            comboboxTeamLeader.Items.Clear();
             switch (selectedItem.Content.ToString())
             {
                 case "Vodafone":
                     comboboxSubProiect.Items.Add("Achizitie");
                     comboboxSubProiect.Items.Add("Retentie");
+                    comboboxTeamLeader.Items.Add("Anca Alexandru");
+                    comboboxTeamLeader.Items.Add("Paula Bilha");
+                    comboboxTeamLeader.Items.Add("Madalina Aldea");
+                    comboboxTeamLeader.Items.Add("Andrei Cristian");
+                    comboboxTeamLeader.Items.Add("Camelia Grama");
+                    comboboxTeamLeader.Items.Add("Cristina Ruxandar");
+                    comboboxTeamLeader.Items.Add("Florin Dascalu");
+                    comboboxTeamLeader.Items.Add("Andrei Preutescu");
 
                     break;
                 case "Telekom":
                     comboboxSubProiect.Items.Add("Savedesk");
                     comboboxSubProiect.Items.Add("Antichurn");
                     comboboxSubProiect.Items.Add("TKRM");
+                    comboboxTeamLeader.Items.Add("Mălina Șerbănoiu");
+                    comboboxTeamLeader.Items.Add("Silvia Isaia");
+                    comboboxTeamLeader.Items.Add("Ionut Călărășanu");
+
+                    break;
+                case "CEC":
+                    comboboxTeamLeader.Items.Add("Simona Scutaru");
+                    break;
+                case "EON":
+                    comboboxTeamLeader.Items.Add("Simona Scutaru");
+                    break;
+                case "Orange":
+                    comboboxTeamLeader.Items.Add("Constantin Rusu");
                     break;
             }
         }
+
+        private void ComboboxSubProiect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string nume = txtNume.Text;
+            string username = (txtNume.Text + "." + txtPrenume.Text).ToLower();
+            string prenume = txtPrenume.Text;
+            string email = Email.Text;
+            string proiect = comboboxProiect.Text;
+            string subProiect = comboboxSubProiect.Text;
+            string teamLeader = comboboxTeamLeader.Text;
+            string newPassword = parolaNoua.Password;
+            string confirmPassword = parolaConfirm.Password;
+
+            if (!string.IsNullOrEmpty(nume) && !string.IsNullOrEmpty(prenume) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(proiect) && !string.IsNullOrEmpty(teamLeader) && newPassword == confirmPassword)
+            {
+                try
+                {
+                    using (var connection = RepositoryBase.GetConnectionPublic())
+                    {
+                        string sql;
+                        MySqlCommand command = new MySqlCommand();
+
+                        if (proiect != "Vodafone" && proiect != "Telekom")
+                        {
+                            sql = "INSERT INTO users (Password, Username, Email, Proiect, TeamLeader) VALUES (@NewPassword, @Username, @Email, @Proiect, @TeamLeader)";
+                            command.Parameters.AddWithValue("@Proiect", proiect);
+                        }
+                        else
+                        {
+                            sql = "INSERT INTO users (Password, Username, Email, Proiect, Subproiect, TeamLeader) VALUES (@NewPassword, @Username, @Email, @Proiect, @Subproiect, @TeamLeader)";
+                            command.Parameters.AddWithValue("@Proiect", proiect);
+                            command.Parameters.AddWithValue("@Subproiect", subProiect);
+                        }
+
+                        command.CommandText = sql;
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@NewPassword", newPassword);
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@TeamLeader", teamLeader);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Handle successful database operation or perform any additional logic here
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception or display an error message
+                    Console.WriteLine("An error occurred while executing the database operation: " + ex.Message);
+                }
+            }
+        }
+
     }
 }
