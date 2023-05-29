@@ -1373,32 +1373,6 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                     <StackPanel
                         Grid.Row="1"
                         Grid.Column="6">
-                        <TextBlock Text="Agent BO" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
-                        <ComboBox
-                        x:Name="agent_bo"
-                            materialDesign:ColorZoneAssist.Mode="Custom"   
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        SelectedValuePath="Content"
-                        Height="50"
-                        Cursor="Hand"                       
-                        FontFamily="/Fonts/#Rubik Regular"
-                        BorderThickness="0"
-                        BorderBrush="{DynamicResource TextColor}"
-                        Background="{DynamicResource InputColor}"
-                        Foreground="{DynamicResource TextColor}"
-                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                        >
-                            <ComboBoxItem Content="Alexandru Buznea" />
-                            <ComboBoxItem Content="Andreia Vijian" />
-                            <ComboBoxItem Content="Sergiu Mesteru" />
-                            <ComboBoxItem Content="Cristina Olteanu" />
-                            <ComboBoxItem Content="Evelina Chirvase" />
-                        </ComboBox>
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="3"
-                        Grid.Column="6">
                         <TextBlock Text="Clientul dorește eSim?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <ComboBox
                         x:Name="eSim"

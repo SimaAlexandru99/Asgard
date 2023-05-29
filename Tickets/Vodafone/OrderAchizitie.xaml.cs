@@ -14669,7 +14669,6 @@ namespace Asgard.Tickets.Vodafone
                     "Tip client: " + comboboxClient.Text + "\r\n" +
                     "Asigurare: " + comboboxAsigurare.Text + "\r\n" +
                     "Agent: " + email + "\r\n" +
-                    "Agent BO: " + agent_bo.Text + "\r\n" +
                     "eSim: " + eSim.Text,
             };
             SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));

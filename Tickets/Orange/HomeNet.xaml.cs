@@ -117,7 +117,8 @@ namespace Asgard.Tickets.Orange
                                 "GDPR 3: " + gdpr3.Text + "\r\n" +
                                 "GDPR 4: " + gdpr4.Text + "\r\n" +
                                 "Abonament: " + abonament.Text + "\r\n" +
-                                "Comentarii: " + comentarii.Text + "\r\n",
+                                "Comentarii: " + comentarii.Text + "\r\n" +
+                                "Agent: " + email,
                     };
                 }
                 else if (comboboxTipClient.Text == "Client nou")
@@ -145,7 +146,8 @@ namespace Asgard.Tickets.Orange
                                 "GDPR 3: " + gdpr3.Text + "\r\n" +
                                 "GDPR 4: " + gdpr4.Text + "\r\n" +
                                 "Abonament: " + abonament.Text + "\r\n" +
-                                "Comentarii: " + comentarii.Text + "\r\n",
+                                "Comentarii: " + comentarii.Text + "\r\n" +
+                                "Agent: " + email,
                     };
                 }
 

@@ -4,7 +4,7 @@
 			 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 			 xmlns:local="clr-namespace:Asgard"
 			 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-			 StartupUri="/Pages/RaportsGenerator.xaml">
+			 StartupUri="/Windows/SignIn.xaml">
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
