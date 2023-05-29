@@ -17,12 +17,28 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+    <Grid Margin="40">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox />
-    </Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Column="0" Grid.Row="0">
+		<TextBlock Text="Data start"/>
+			<DatePicker x:Name="Data_start"/>
+		</StackPanel>
+		<StackPanel Grid.Column="0" Grid.Row="1">
+			<TextBlock Text="Data final"/>
+			<DatePicker x:Name="Data_final" VerticalAlignment="Top"/>
+		</StackPanel>
+		
+
+	</Grid>
 
 </Page>
