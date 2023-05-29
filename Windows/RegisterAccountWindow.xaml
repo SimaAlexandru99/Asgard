@@ -9,8 +9,7 @@
         mc:Ignorable="d"
         Title="Creează cont"
         Width="800"
-        Height="700"
-        
+        Height="500"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
@@ -106,10 +105,10 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.ColumnSpan="3">
                         <TextBlock Text="Creează un cont nou" FontSize="20" FontFamily="/Fonts/#Rubik Medium"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="0" Grid.Row="1">
+                    <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,10,0,0">
                         <TextBlock Text="Nume" HorizontalAlignment="Left" />
                         <TextBox
                             FontSize="10"
@@ -118,7 +117,7 @@
                             Style="{StaticResource LoginForm}"
                             />
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Grid.Row="1">
+                    <StackPanel Grid.Column="2" Grid.Row="1" Margin="0,10,0,0">
                         <TextBlock Text="Prenume" HorizontalAlignment="Left" />
                         <TextBox
                             FontSize="10"
@@ -127,7 +126,7 @@
                             Style="{StaticResource LoginForm}"
                             />
                     </StackPanel>
-                    <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                    <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="0,5,0,0">
                         <TextBlock Text="Email" HorizontalAlignment="Left" />
                         <TextBox
                             FontSize="10"
@@ -136,7 +135,7 @@
                             Style="{StaticResource LoginForm}"
                             />
                     </StackPanel>
-                    <StackPanel Grid.Column="0" Grid.Row="3">
+                    <StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0">
                         <TextBlock Text="Alege proiect" HorizontalAlignment="Left" />
                         <ComboBox
                         materialDesign:ColorZoneAssist.Mode="Custom"
@@ -155,6 +154,7 @@
                             <ComboBoxItem >Telekom</ComboBoxItem>
                             <ComboBoxItem >Orange</ComboBoxItem>
                             <ComboBoxItem >CEC</ComboBoxItem>
+                            <ComboBoxItem >EON</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Grid.Row="3">
@@ -183,10 +183,57 @@
                         BorderThickness="0"
                         BorderBrush="{DynamicResource TextColor}"
                         Background="{DynamicResource InputText}"
+                        Foreground="{DynamicResource TextColor}" Margin="0,5,0,0" SelectionChanged="ComboboxSubProiect_SelectionChanged"
+                        >
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Margin="0,5,0,0">
+                        <TextBlock Text="Alege TeamLeader" HorizontalAlignment="Left" />
+                        <ComboBox
+                        materialDesign:ColorZoneAssist.Mode="Custom"
+                        SelectedValuePath="Content"
+                        x:Name="comboboxTeamLeader"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        Cursor="Hand"        
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputText}"
                         Foreground="{DynamicResource TextColor}" Margin="0,5,0,0"
                         >
                         </ComboBox>
                     </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="5" Margin="0,5,0,0">
+                        <TextBlock Text="Parola" HorizontalAlignment="Left" />
+
+                        <PasswordBox x:Name="parolaNoua"
+                            Height="50"
+                                     
+                                         Margin="0,5,0,0"
+                                         Style="{StaticResource PasswordForm}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="5" Margin="0,5,0,0">
+                        <TextBlock Text="Confirma parola" HorizontalAlignment="Left" />
+
+                        <PasswordBox x:Name="parolaConfirm"
+                                         Margin="0,5,0,0"
+                            Height="50"
+                                         
+                                         Style="{StaticResource PasswordForm}"/>
+                    </StackPanel>
+                    <Button Grid.Column="2" Grid.Row="6"
+                            x:Name="Button"
+                            Height="35"
+                            BorderThickness="0"
+                            Margin="0,10,0,10"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            Foreground="{DynamicResource SecondaryTextColor}"
+                            FontFamily="/Fonts/#Rubik Medium"
+                            Content="Creează cont"
+                            FontSize="10"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}" Click="Button_Click">
+                    </Button>
                 </Grid>
             </ScrollViewer>
             <Border Grid.Column="1" CornerRadius="10 10 10 10">

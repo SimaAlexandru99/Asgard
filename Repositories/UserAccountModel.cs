@@ -18,6 +18,8 @@ namespace Asgard.Repositories
 
         public string Subproiect { get; set; }
 
+        public string Departament { get; set; }
+
         public string TeamlLeader { get; set; }
 
         public string Quality { get; set; }

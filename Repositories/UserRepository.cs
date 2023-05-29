@@ -85,10 +85,11 @@ namespace Asgard.Repositories
                             LastName = reader.GetString(4),
                             Proiect = reader.GetString(6),
                             Subproiect = reader.GetString(7),
-                            TeamlLeader = reader.GetString(8),
-                            Quality = reader.GetString(9),
-                            ID_Bria = reader.GetString(10),
-                            Status = reader.GetString(11),
+                            Departament = reader.GetString(8),
+                            TeamlLeader = reader.GetString(9),
+                            Quality = reader.GetString(10),
+                            ID_Bria = reader.GetString(11),
+                            Status = reader.GetString(12),
                             Password = string.Empty,
                         };
                     }
