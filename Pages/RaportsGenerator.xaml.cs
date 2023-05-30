@@ -70,8 +70,10 @@ namespace Asgard.Pages
                     }
 
                     // Save CSV data to a file
-                    SaveFileDialog saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+                    SaveFileDialog saveFileDialog = new SaveFileDialog
+                    {
+                        Filter = "CSV Files (*.csv)|*.csv",
+                    };
                     if (saveFileDialog.ShowDialog() == true)
                     {
                         string filePath = saveFileDialog.FileName;

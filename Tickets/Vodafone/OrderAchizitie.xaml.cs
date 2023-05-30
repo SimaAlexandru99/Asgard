@@ -14769,8 +14769,7 @@ namespace Asgard.Tickets.Vodafone
 
         private void TipAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = tipAbonament.SelectedItem as ComboBoxItem;
-            if (selectedItem != null)
+            if (tipAbonament.SelectedItem is ComboBoxItem selectedItem)
             {
                 comboboxAbonament.Items.Clear();
                 comboboxCostAbonament.Items.Clear();
