@@ -132,7 +132,7 @@
                             FontSize="10"
                             Height="50"
                             x:Name="Email"
-                            Style="{StaticResource LoginForm}"
+                            Style="{StaticResource LoginForm}" LostFocus="Email_LostFocus"
                             />
                     </StackPanel>
                     <StackPanel Grid.Column="0" Grid.Row="3" Margin="0,5,0,0">

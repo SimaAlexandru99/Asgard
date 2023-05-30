@@ -93,7 +93,7 @@ namespace Asgard.Tickets.Vodafone
             }
             else if (stepInfoAdress.Visibility == Visibility.Visible)
             {
-                if (combobox_strada.Text == string.Empty || nume_strada_text.Text == string.Empty || numar_strada_text.Text == string.Empty)
+                if (combobox_strada.Text == string.Empty || nume_strada_text.Text == string.Empty || numar_strada_text.Text == string.Empty || bloc_text.Text == string.Empty || apartament_text.Text == string.Empty || etaj_text.Text == string.Empty)
                 {
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -149,7 +149,7 @@ namespace Asgard.Tickets.Vodafone
                             {
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM eronată";
-                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 8940.";
+                                dialog.Descriere.Text = "Fiindca ai ales PrePay Orange, seria SIM trebuie să înceapă cu 8940100 / 894010.";
                             };
                             dialog.ShowDialog();
                             return;
@@ -198,14 +198,14 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
-                        else if (!serie_sim.Text.StartsWith("89400"))
+                        else if (!serie_sim.Text.StartsWith("8940"))
                         {
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
                             {
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM eronată";
-                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 89400.";
+                                dialog.Descriere.Text = "Fiindca ai ales Prepay Telekom, seria SIM trebuie să înceapă cu 8940090.";
                             };
                             dialog.ShowDialog();
                             return;
@@ -261,7 +261,7 @@ namespace Asgard.Tickets.Vodafone
                             {
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM eronată";
-                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 8940.";
+                                dialog.Descriere.Text = "Fiindca ai Portare Prepay Digi, seria SIM trebuie să înceapă cu 894005.";
                             };
                             dialog.ShowDialog();
                             return;
@@ -14665,7 +14665,7 @@ namespace Asgard.Tickets.Vodafone
             message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
             message.To.Add(MailboxAddress.Parse(email));
             message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
-            message.To.Add(MailboxAddress.Parse("backoffice@optimacall.ro"));
+            message.To.Add(MailboxAddress.Parse("vanzareachizitie@optimacall.ro"));
             message.Body = new TextPart("plain")
             {
                 Text = @"Nume client: " + nameClient.Text + "\r\n" +
@@ -14784,6 +14784,7 @@ namespace Asgard.Tickets.Vodafone
                         break;
                     case "Migrare":
                         comboboxAbonament.Items.Add("Red 9");
+                        comboboxAbonament.Items.Add("Red 15");
                         serie_sim.Clear();
                         break;
                     case "Portare PrePay Orange":
@@ -14806,7 +14807,7 @@ namespace Asgard.Tickets.Vodafone
                         comboboxAbonament.Items.Add("Red 15");
                         serie_sim.Clear();
                         break;
-                    case "Portare Abonament Digi":
+                    case "Portare Abonament Digi":
                         comboboxAbonament.Items.Add("Red 15");
                         serie_sim.Clear();
                         break;
@@ -14841,6 +14842,9 @@ namespace Asgard.Tickets.Vodafone
                     {
                         case "Red 9":
                             comboboxCostAbonament.Items.Add("6 EURO");
+                            break;
+                        case "Red 15":
+                            comboboxCostAbonament.Items.Add("11 EURO");
                             break;
                     }
                 }

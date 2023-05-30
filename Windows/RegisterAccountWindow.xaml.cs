@@ -4,14 +4,16 @@
 
 namespace Asgard.Windows
 {
-    using Asgard.Repositories;
-    using MySql.Data.MySqlClient;
     using System;
+    using System.Collections.Generic;
     using System.Runtime.InteropServices;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Interop;
+    using Asgard.CustomControls;
+    using Asgard.Repositories;
+    using MySql.Data.MySqlClient;
 
     /// <summary>
     /// Interaction logic for RegisterAccountWindow.xaml.
@@ -106,56 +108,195 @@ namespace Asgard.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string nume = txtNume.Text;
-            string username = (txtNume.Text + "." + txtPrenume.Text).ToLower();
-            string prenume = txtPrenume.Text;
-            string email = Email.Text;
-            string proiect = comboboxProiect.Text;
-            string subProiect = comboboxSubProiect.Text;
-            string teamLeader = comboboxTeamLeader.Text;
+            string status = "Offline";
             string newPassword = parolaNoua.Password;
-            string confirmPassword = parolaConfirm.Password;
+            string confirmNewPassword = parolaConfirm.Password;
+            string departament = "-";
+            string subproiect = "-";
+            string idbria = "-";
+            string quality = "-";
 
-            if (!string.IsNullOrEmpty(nume) && !string.IsNullOrEmpty(prenume) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(proiect) && !string.IsNullOrEmpty(teamLeader) && newPassword == confirmPassword)
+            // Check if the required fields are empty or if passwords do not match
+            if (string.IsNullOrWhiteSpace(txtNume.Text) ||
+                string.IsNullOrWhiteSpace(txtPrenume.Text) ||
+                string.IsNullOrWhiteSpace(Email.Text) ||
+                string.IsNullOrWhiteSpace(newPassword) ||
+                string.IsNullOrWhiteSpace(confirmNewPassword) ||
+                newPassword != confirmNewPassword)
             {
-                try
+                // Show a dialog message instead of writing to the console
+                Prompt dialog = new Prompt();
+                dialog.Loaded += (s, ea) =>
                 {
-                    using (var connection = RepositoryBase.GetConnectionPublic())
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Te rog completează toate câmpurile";
+                    dialog.Descriere.Text = "Nu ai completat toate câmpurile, te rog sa revi și să completezi tot.";
+                };
+                dialog.ShowDialog();
+                return;
+            }
+
+            // Extract the domain name from the email address
+            string email = Email.Text.Trim();
+            int atIndex = email.IndexOf('@');
+            string domain = email.Substring(atIndex + 1);
+
+            // Check if the domain is equal to "optimacall.ro"
+            if (domain != "optimacall.ro")
+            {
+                // Show a dialog message instead of writing to the console
+                Prompt dialog = new Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Email-ul nu este corect";
+                    dialog.Descriere.Text = "Email ul nu are particularitatea optimacall.ro";
+                };
+                dialog.ShowDialog();
+                return;
+            }
+
+            try
+            {
+                using (var connection = RepositoryBase.GetConnectionPublic())
+                {
+                    // Extract the username from the email address
+                    string username = email.Substring(0, atIndex);
+
+                    // Check if the email already exists in the table
+                    bool emailExists = CheckIfEmailExists(connection, email);
+
+                    if (emailExists)
                     {
-                        string sql;
-                        MySqlCommand command = new MySqlCommand();
-
-                        if (proiect != "Vodafone" && proiect != "Telekom")
+                        // Display an error message or take appropriate action
+                        Prompt dialog = new Prompt();
+                        dialog.Loaded += (s, ea) =>
                         {
-                            sql = "INSERT INTO users (Password, Username, Email, Proiect, TeamLeader) VALUES (@NewPassword, @Username, @Email, @Proiect, @TeamLeader)";
-                            command.Parameters.AddWithValue("@Proiect", proiect);
-                        }
-                        else
-                        {
-                            sql = "INSERT INTO users (Password, Username, Email, Proiect, Subproiect, TeamLeader) VALUES (@NewPassword, @Username, @Email, @Proiect, @Subproiect, @TeamLeader)";
-                            command.Parameters.AddWithValue("@Proiect", proiect);
-                            command.Parameters.AddWithValue("@Subproiect", subProiect);
-                        }
-
-                        command.CommandText = sql;
-                        command.Connection = connection;
-                        command.Parameters.AddWithValue("@NewPassword", newPassword);
-                        command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@TeamLeader", teamLeader);
-
-                        command.ExecuteNonQuery();
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Email-ul există deja";
+                            dialog.Descriere.Text = "Adresa de email " + Email.Text + " există deja în sistem. Te rog să introduci o altă adresă de email sau să te loghezi";
+                        };
+                        dialog.ShowDialog();
+                        return;
                     }
 
-                    // Handle successful database operation or perform any additional logic here
+                    // Determine the appropriate SQL query based on comboboxProiect.Text value
+                    string query;
+                    if (comboboxProiect.Text == "Vodafone" || comboboxProiect.Text == "Telekom")
+                    {
+                        query = "INSERT INTO users (ID, Username, Email, Nume, Prenume, Password, Proiect, Subproiect, Departament, TeamLeader, Quality, ID_Bria, Status) " +
+                                "VALUES (NULL, @Username, @Email, @Nume, @Prenume, @Password, @Proiect, @Subproiect, @Departament, @TeamLeader, @Quality, @ID_Bria, @Status)";
+                        subproiect = comboboxSubProiect.Text;
+                    }
+                    else
+                    {
+                        query = "INSERT INTO users (ID, Username, Email, Nume, Prenume, Password, Proiect, Subproiect, Departament, TeamLeader, Quality, ID_Bria, Status) " +
+                                "VALUES (NULL, @Username, @Email, @Nume, @Prenume, @Password, @Proiect, @Subproiect, @Departament, @TeamLeader, @Quality, @ID_Bria, @Status)";
+                    }
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        // Set parameter values
+                        command.Parameters.Add("@Username", MySqlDbType.VarChar).Value = username;
+                        command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = email;
+                        command.Parameters.Add("@Nume", MySqlDbType.VarChar).Value = txtNume.Text;
+                        command.Parameters.Add("@Prenume", MySqlDbType.VarChar).Value = txtPrenume.Text;
+                        command.Parameters.Add("@Password", MySqlDbType.VarChar).Value = newPassword;
+                        command.Parameters.Add("@Proiect", MySqlDbType.VarChar).Value = comboboxProiect.Text;
+                        command.Parameters.Add("@Subproiect", MySqlDbType.VarChar).Value = subproiect;
+                        command.Parameters.Add("@Departament", MySqlDbType.VarChar).Value = departament; // TODO: Add departament combobox
+                        command.Parameters.Add("@TeamLeader", MySqlDbType.VarChar).Value = comboboxTeamLeader.Text;
+                        command.Parameters.Add("@Quality", MySqlDbType.VarChar).Value = quality;
+                        command.Parameters.Add("@ID_Bria", MySqlDbType.VarChar).Value = idbria;
+                        command.Parameters.Add("@Status", MySqlDbType.VarChar).Value = status;
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Show a dialog message instead of writing to the console
+                        Prompt dialog = new Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Success";
+                            dialog.Status.Text = "User creat";
+                            dialog.Descriere.Text = "User-ul " + username + " a fost creat cu succes. Întoarce-te la pagina de logare pentru a te loga în cont";
+                        };
+                        dialog.ShowDialog();
+                    }
+
+                    // Close the connection
+                    connection.Close();
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                // Show a dialog message with the error details
+                Prompt dialog = new Prompt();
+                dialog.Loaded += (s, ea) =>
                 {
-                    // Handle the exception or display an error message
-                    Console.WriteLine("An error occurred while executing the database operation: " + ex.Message);
-                }
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Contul nu a fost creat";
+                    dialog.Descriere.Text = "A intervenit o eroare: " + ex.Message;
+                };
+                dialog.ShowDialog();
             }
         }
 
+        private bool CheckIfEmailExists(MySqlConnection connection, string email)
+        {
+            string query = "SELECT COUNT(*) FROM users WHERE Email = @Email";
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = email;
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
+        private void Email_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string email = Email.Text.Trim();
+
+            // Implement your logic to check if the email exists in the table
+            bool emailExists = CheckIfEmailExists(email);
+
+            if (emailExists)
+            {
+                // Display an error message or take appropriate action
+                // Show a dialog message with the error details
+                Prompt dialog = new Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Acest email există deja";
+                    dialog.Descriere.Text = "Adresa de email pe care vrei să o folosești există deja în baza de date.";
+                };
+                dialog.ShowDialog();
+            }
+        }
+
+        private bool CheckIfEmailExists(string email)
+        {
+            string query = "SELECT COUNT(*) FROM users WHERE email = @Email";
+
+            try
+            {
+                using (var connection = RepositoryBase.GetConnectionPublic())
+                {
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Email", email);
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+
+                        return count > 0;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Handle the exception (e.g., log, display error message, etc.)
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return false; // or throw an exception if desired
+            }
+        }
     }
 }
