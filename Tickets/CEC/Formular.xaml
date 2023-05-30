@@ -9,7 +9,7 @@
 	  mc:Ignorable="d" 
 	  Title="Formular">
 	<ScrollViewer HorizontalScrollBarVisibility="Auto">
-		<Grid MaxWidth="3000">
+		<Grid MaxWidth="3000" PreviewMouseWheel="Grid_PreviewMouseWheel" Name="myGrid">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>

@@ -5,8 +5,11 @@
 namespace Asgard.Tickets.CEC
 {
     using System.Data;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Input;
+    using System.Windows.Media;
     using Asgard.Repositories;
     using MySql.Data.MySqlClient;
 
@@ -19,6 +22,8 @@ namespace Asgard.Tickets.CEC
         {
             InitializeComponent();
         }
+        
+
 
         private void T1_Da_Checked(object sender, RoutedEventArgs e)
         {
@@ -1959,5 +1964,24 @@ namespace Asgard.Tickets.CEC
         {
             e.Handled = true;
         }
+
+        private void Grid_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            // Check if the Ctrl key is pressed
+            if (Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // Get the scaling factor
+                double scaleFactor = e.Delta > 0 ? 1.3 : 1.0; // Increase or decrease zoom by 10%
+
+                // Apply the scaling to your root element or any desired element
+                // For example, if your root element is a Grid named "myGrid":
+                myGrid.LayoutTransform = new ScaleTransform(scaleFactor, scaleFactor);
+
+                // Prevent the event from being handled further
+                e.Handled = true;
+            }
+        }
+
+
     }
 }
