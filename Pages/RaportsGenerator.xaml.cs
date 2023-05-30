@@ -1,18 +1,23 @@
-﻿// <copyright file="RaportsGenerator.xaml.cs" company="eOverArt Marketing Agency">
-// Copyright (c) eOverArt Marketing Agency. All rights reserved.
-// </copyright>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Asgard.Pages
 {
-    using System;
-    using System.Data;
-    using System.IO;
-    using System.Text;
-    using System.Windows;
-    using System.Windows.Controls;
-    using Microsoft.Win32;
-    using MySql.Data.MySqlClient;
-
+    /// <summary>
+    /// Interaction logic for RaportsGenerator.xaml
+    /// </summary>
     public partial class RaportsGenerator : Page
     {
         public RaportsGenerator()
