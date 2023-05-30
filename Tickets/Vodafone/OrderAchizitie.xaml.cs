@@ -30,6 +30,11 @@ namespace Asgard.Tickets.Vodafone
         // INotifyPropertyChanged event
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public void Clear()
+        {
+            nameClient.Text = surnameClient.Text = cnp.Text = serie.Text = comboboxJudet.Text = comboboxLocalitate.Text = emis.Text = numar_existent.Text = combobox_strada.Text = nume_strada_text.Text = numar_strada_text.Text = bloc_text.Text = scara_text.Text = etaj_text.Text = apartament_text.Text = client_comun_combo.Text = id_client_comun.Text = tipAbonament.Text = serie_sim.Text = cod_abonat.Text = numar_impactat.Text = comboboxKid.Text = comboboxAbonament.Text = comboboxCostAbonament.Text = comboboxDeviceChoice.Text = comboboxDevice.Text = cost_rata.Text = cost_total.Text = discount_code.Text = avans.Text = comboboxGDPR1.Text = comboboxGDPR1_1.Text = comboboxGDPR1_2.Text = comboboxGDPR1_3.Text = comboboxGDPR1_4.Text = comboboxGDPR2.Text = comboboxGDPR3.Text = comboboxGDPR3_1.Text = comboboxGDPR4.Text = comboboxGDPR4_1.Text = comboboxGDPR4_2.Text = comboboxGDPR4_3.Text = comboboxGDPR4_4.Text = comboboxGDPR5.Text = comboboxGDPR6.Text = comboboxGDPR6_1.Text = tip_semnatura.Text = email_text.Text = adresa_postala_text.Text = adresa_factura_text.Text = adresa_livrare_text.Text = numar_contact_text.Text = comboboxClient.Text = comboboxAsigurare.Text = eSim.Text = string.Empty;
+        }
+
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -137,6 +142,18 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
+                        else if (!serie_sim.Text.StartsWith("8940"))
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM eronată";
+                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 8940.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
                         else
                         {
                             if (comboboxDeviceChoice.Text == "Da")
@@ -177,6 +194,18 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM incompleta";
                                 dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940090 sau 8940030 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (!serie_sim.Text.StartsWith("89400"))
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM eronată";
+                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 89400.";
                             };
                             dialog.ShowDialog();
                             return;
@@ -225,6 +254,18 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
+                        else if (!serie_sim.Text.StartsWith("8940"))
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM eronată";
+                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 8940.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
                         else
                         {
                             if (comboboxDeviceChoice.Text == "Da")
@@ -265,6 +306,18 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM incompleta";
                                 dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 894001 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (!serie_sim.Text.StartsWith("894001"))
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM eronată";
+                                dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 894001.";
                             };
                             dialog.ShowDialog();
                             return;
@@ -14688,6 +14741,11 @@ namespace Asgard.Tickets.Vodafone
                     dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
                 };
                 dialog.ShowDialog();
+
+                Clear();
+
+                step5Panel.Visibility = Visibility.Collapsed;
+                step1Panel.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
             {
@@ -14711,46 +14769,48 @@ namespace Asgard.Tickets.Vodafone
 
         private void TipAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = (ComboBoxItem)tipAbonament.SelectedItem;
-            comboboxAbonament.Items.Clear();
-            comboboxCostAbonament.Items.Clear();
-            switch (selectedItem.Content.ToString())
+            ComboBoxItem selectedItem = tipAbonament.SelectedItem as ComboBoxItem;
+            if (selectedItem != null)
             {
-                case "Activare noua":
-                    comboboxAbonament.Items.Add("Red 9");
-                    comboboxAbonament.Items.Add("Red 15");
-                    comboboxAbonament.Items.Add("Red 12");
-                    serie_sim.Clear();
-                    break;
-                case "Migrare":
-                    comboboxAbonament.Items.Add("Red 9");
-                    serie_sim.Clear();
-                    break;
-                case "Portare PrePay Orange":
-                    comboboxAbonament.Items.Add("Red 15");
-                    cod_abonat.Clear();
-                    break;
-                case "Portare PrePay Telekom":
-                    comboboxAbonament.Items.Add("Red 15");
-                    cod_abonat.Clear();
-                    break;
-                case "Portare PrePay Digi":
-                    comboboxAbonament.Items.Add("Red 15");
-                    cod_abonat.Clear();
-
-                    break;
-                case "Portare Abonament Orange":
-                    comboboxAbonament.Items.Add("Red 15");
-                    serie_sim.Clear();
-                    break;
-                case "Portare Abonament Telekom":
-                    comboboxAbonament.Items.Add("Red 15");
-                    serie_sim.Clear();
-                    break;
-                case "Portare Abonament Digi":
-                    comboboxAbonament.Items.Add("Red 15");
-                    serie_sim.Clear();
-                    break;
+                comboboxAbonament.Items.Clear();
+                comboboxCostAbonament.Items.Clear();
+                switch (selectedItem.Content.ToString())
+                {
+                    case "Activare noua":
+                        comboboxAbonament.Items.Add("Red 9");
+                        comboboxAbonament.Items.Add("Red 15");
+                        comboboxAbonament.Items.Add("Red 12");
+                        serie_sim.Clear();
+                        break;
+                    case "Migrare":
+                        comboboxAbonament.Items.Add("Red 9");
+                        serie_sim.Clear();
+                        break;
+                    case "Portare PrePay Orange":
+                        comboboxAbonament.Items.Add("Red 15");
+                        cod_abonat.Clear();
+                        break;
+                    case "Portare PrePay Telekom":
+                        comboboxAbonament.Items.Add("Red 15");
+                        cod_abonat.Clear();
+                        break;
+                    case "Portare PrePay Digi":
+                        comboboxAbonament.Items.Add("Red 15");
+                        cod_abonat.Clear();
+                        break;
+                    case "Portare Abonament Orange":
+                        comboboxAbonament.Items.Add("Red 15");
+                        serie_sim.Clear();
+                        break;
+                    case "Portare Abonament Telekom":
+                        comboboxAbonament.Items.Add("Red 15");
+                        serie_sim.Clear();
+                        break;
+                    case "Portare Abonament Digi":
+                        comboboxAbonament.Items.Add("Red 15");
+                        serie_sim.Clear();
+                        break;
+                }
             }
         }
 
@@ -14760,7 +14820,7 @@ namespace Asgard.Tickets.Vodafone
 
             if (comboboxAbonament.SelectedItem is string selectedItem)
             {
-                if (tipAbonament.Text == "Achizitie noua")
+                if (tipAbonament.Text == "Activare noua")
                 {
                     switch (selectedItem)
                     {

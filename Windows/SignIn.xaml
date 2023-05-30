@@ -156,7 +156,7 @@
                             FontFamily="/Fonts/#Rubik Bold"
                             FontSize="10"
                             Style="{StaticResource MaterialDesignFlatMidBgButton}" />
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20,20,0" HorizontalAlignment="Left" Visibility="Visible">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20,20,0" HorizontalAlignment="Left" Visibility="Collapsed">
                             <TextBlock x:Name="TextAboutAccount" Text="Nu ai încă cont?" FontFamily="/Fonts/#Rubik Medium" FontSize="8" VerticalAlignment="Center" Margin="0,0,10,0"/>
                             <Button x:Name="CreeazaCont" Content="Creează cont" Style="{StaticResource ForgetPassword}" FontFamily="/Fonts/#Rubik Medium" FontSize="8" HorizontalContentAlignment="Right" Foreground="{DynamicResource FocusColor}" Click="CreeazaCont_Click"/>
                         </StackPanel>

@@ -133,29 +133,6 @@
                             </TextBox.Text>
                         </TextBox>
                     </StackPanel>
-                    <StackPanel
-                        Grid.Row="1"
-                        Grid.Column="5">    
-                        <TextBlock Text="Tip client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
-                        <ComboBox
-                        x:Name="comboboxClient"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:ColorZoneAssist.Mode="Custom"      
-                        SelectedValuePath="Content"
-                        Cursor="Hand"
-                        Height="50"
-                        FontFamily="/Fonts/#Rubik Regular"
-                        BorderThickness="0"
-                        BorderBrush="{DynamicResource TextColor}"
-                        Background="{DynamicResource InputColor}"
-                        Foreground="{DynamicResource TextColor}"
-                        IsReadOnly="True"
-                        Validation.ErrorTemplate="{StaticResource errorTemplate}" SelectionChanged="ComboboxClient_SelectionChanged"
-                        >
-                            <ComboBoxItem Content="Client nou" />
-                            <ComboBoxItem Content="Client existent" />
-                        </ComboBox>
-                    </StackPanel>
 
                     <StackPanel
                         Grid.Row="1"
@@ -222,6 +199,30 @@
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}">
 
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="5">
+                        <TextBlock Text="Tip client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                        <ComboBox
+                        x:Name="comboboxClient"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:ColorZoneAssist.Mode="Custom"      
+                        SelectedValuePath="Content"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        IsReadOnly="True"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}" SelectionChanged="ComboboxClient_SelectionChanged"
+                        >
+                            <ComboBoxItem Content="Client nou" />
+                            <ComboBoxItem Content="Client existent" />
                         </ComboBox>
                     </StackPanel>
 

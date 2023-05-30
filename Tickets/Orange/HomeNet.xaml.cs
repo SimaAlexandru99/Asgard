@@ -14302,7 +14302,5 @@ namespace Asgard.Tickets.Orange
 
             connection.Close();
         }
-
-
     }
 }
