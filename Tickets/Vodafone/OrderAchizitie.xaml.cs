@@ -52,7 +52,7 @@ namespace Asgard.Tickets.Vodafone
             {
                 if (comboboxClient.Text == "Client nou")
                 {
-                    if (nameClient.Text == string.Empty || cnp.Text == string.Empty || serie.Text == string.Empty || comboboxJudet.Text == string.Empty || comboboxLocalitate.Text == string.Empty || emis.Text == string.Empty || numar_existent.Text == string.Empty)
+                    if (nameClient.Text == string.Empty || cnp.Text == string.Empty || serie.Text == string.Empty || comboboxJudet.Text == string.Empty || comboboxLocalitate.Text == string.Empty || emis.Text == string.Empty || numar_existent.Text == string.Empty || serie.Text == string.Empty)
                     {
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
