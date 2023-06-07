@@ -35,10 +35,20 @@ namespace Asgard.Repositories
                     int count = Convert.ToInt32(command.ExecuteScalar());
                     validUser = count > 0;
                 }
-                catch (MySqlException ex)
+                catch (MySqlException)
                 {
-                    // Handle MySQL exception or throw it further
-                    throw new Exception($"Failed to execute database command: {ex.Message}", ex);
+                    // Show error message in a dialog box
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu te-am putut loga";
+                        dialog.Descriere.Text = "Nu te-am putut conecta in Asgard, verifică conexiunea la internet și datele de logare.";
+                    };
+                    dialog.ShowDialog();
+
+                    // Re-throw the exception to propagate it further if needed
+                    throw;
                 }
             }
 

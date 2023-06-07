@@ -35,6 +35,16 @@ namespace Asgard.Tickets.Vodafone
             nameClient.Text = surnameClient.Text = cnp.Text = serie.Text = comboboxJudet.Text = comboboxLocalitate.Text = emis.Text = numar_existent.Text = combobox_strada.Text = nume_strada_text.Text = numar_strada_text.Text = bloc_text.Text = scara_text.Text = etaj_text.Text = apartament_text.Text = client_comun_combo.Text = id_client_comun.Text = tipAbonament.Text = serie_sim.Text = cod_abonat.Text = numar_impactat.Text = comboboxKid.Text = comboboxAbonament.Text = comboboxCostAbonament.Text = comboboxDeviceChoice.Text = comboboxDevice.Text = cost_rata.Text = cost_total.Text = discount_code.Text = avans.Text = comboboxGDPR1.Text = comboboxGDPR1_1.Text = comboboxGDPR1_2.Text = comboboxGDPR1_3.Text = comboboxGDPR1_4.Text = comboboxGDPR2.Text = comboboxGDPR3.Text = comboboxGDPR3_1.Text = comboboxGDPR4.Text = comboboxGDPR4_1.Text = comboboxGDPR4_2.Text = comboboxGDPR4_3.Text = comboboxGDPR4_4.Text = comboboxGDPR5.Text = comboboxGDPR6.Text = comboboxGDPR6_1.Text = tip_semnatura.Text = email_text.Text = adresa_postala_text.Text = adresa_factura_text.Text = adresa_livrare_text.Text = numar_contact_text.Text = comboboxClient.Text = comboboxAsigurare.Text = eSim.Text = string.Empty;
         }
 
+        public void Clear2()
+        {
+            numarVanzari.Text = Numar_1.Text = Numar_2.Text = Numar_3.Text = Serie_1.Text = Serie_2.Text = Serie_3.Text = string.Empty;
+        }
+
+        public void Clear3()
+        {
+            numarVanzari_2.Text = Numar_1_2.Text = Numar_2_2.Text = Numar_3_2.Text = string.Empty;
+        }
+
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -14773,46 +14783,57 @@ namespace Asgard.Tickets.Vodafone
             {
                 comboboxAbonament.Items.Clear();
                 comboboxCostAbonament.Items.Clear();
-                switch (selectedItem.Content.ToString())
+
+                string selectedContent = selectedItem.Content.ToString();
+                if (string.IsNullOrEmpty(selectedContent))
                 {
-                    case "Activare noua":
-                        comboboxAbonament.Items.Add("Red 9");
-                        comboboxAbonament.Items.Add("Red 15");
-                        comboboxAbonament.Items.Add("Red 12");
-                        serie_sim.Clear();
-                        break;
-                    case "Migrare":
-                        comboboxAbonament.Items.Add("Red 9");
-                        comboboxAbonament.Items.Add("Red 15");
-                        serie_sim.Clear();
-                        break;
-                    case "Portare PrePay Orange":
-                        comboboxAbonament.Items.Add("Red 15");
-                        cod_abonat.Clear();
-                        break;
-                    case "Portare PrePay Telekom":
-                        comboboxAbonament.Items.Add("Red 15");
-                        cod_abonat.Clear();
-                        break;
-                    case "Portare PrePay Digi":
-                        comboboxAbonament.Items.Add("Red 15");
-                        cod_abonat.Clear();
-                        break;
-                    case "Portare Abonament Orange":
-                        comboboxAbonament.Items.Add("Red 15");
-                        serie_sim.Clear();
-                        break;
-                    case "Portare Abonament Telekom":
-                        comboboxAbonament.Items.Add("Red 15");
-                        serie_sim.Clear();
-                        break;
-                    case "Portare Abonament Digi":
-                        comboboxAbonament.Items.Add("Red 15");
-                        serie_sim.Clear();
-                        break;
+
+                }
+                else
+                {
+                    switch (selectedContent)
+                    {
+                        case "Activare noua":
+                            comboboxAbonament.Items.Add("Red 9");
+                            comboboxAbonament.Items.Add("Red 15");
+                            comboboxAbonament.Items.Add("Red 12");
+                            serie_sim.Clear();
+                            break;
+                        case "Migrare":
+                            comboboxAbonament.Items.Add("Red 9");
+                            comboboxAbonament.Items.Add("Red 12");
+                            comboboxAbonament.Items.Add("Red 15");
+                            serie_sim.Clear();
+                            break;
+                        case "Portare PrePay Orange":
+                            comboboxAbonament.Items.Add("Red 15");
+                            cod_abonat.Clear();
+                            break;
+                        case "Portare PrePay Telekom":
+                            comboboxAbonament.Items.Add("Red 15");
+                            cod_abonat.Clear();
+                            break;
+                        case "Portare PrePay Digi":
+                            comboboxAbonament.Items.Add("Red 15");
+                            cod_abonat.Clear();
+                            break;
+                        case "Portare Abonament Orange":
+                            comboboxAbonament.Items.Add("Red 15");
+                            serie_sim.Clear();
+                            break;
+                        case "Portare Abonament Telekom":
+                            comboboxAbonament.Items.Add("Red 15");
+                            serie_sim.Clear();
+                            break;
+                        case "Portare Abonament Digi":
+                            comboboxAbonament.Items.Add("Red 15");
+                            serie_sim.Clear();
+                            break;
+                    }
                 }
             }
         }
+
 
         private void ComboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -14844,6 +14865,9 @@ namespace Asgard.Tickets.Vodafone
                             break;
                         case "Red 15":
                             comboboxCostAbonament.Items.Add("11 EURO");
+                            break;
+                        case "Red 12":
+                            comboboxCostAbonament.Items.Add("10 EURO");
                             break;
                     }
                 }
@@ -14927,6 +14951,74 @@ namespace Asgard.Tickets.Vodafone
             else
             {
                 TextNumarFirstPage.Text = "Număr existent (paperless)";
+            }
+        }
+
+        private void PopupMultiple_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void PopupNext_Click(object sender, RoutedEventArgs e)
+        {
+            popupMultiple.IsOpen = false; // Close the popup
+        }
+
+        private void PopupClose_Click(object sender, RoutedEventArgs e)
+        {
+                popupMultiple.IsOpen = false; // Close the popup
+
+                Clear2();
+        }
+
+        private void PopupNext2_Click(object sender, RoutedEventArgs e)
+        {
+            if (numarVanzari_2.Text == "1")
+            {
+                if (Numar_1_2.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai completat numarul de telefon";
+                        dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else
+                {
+                    popupMultiple_2.IsOpen = false; // Close the popup
+                }
+            }
+        }
+
+        private void PopupClose2_Click(object sender, RoutedEventArgs e)
+        {
+            popupMultiple_2.IsOpen = false; // Close the popup
+
+            Clear3();
+        }
+
+        private void VanzareMultipla_Click(object sender, RoutedEventArgs e)
+        {
+            if (tipAbonament.Text == "Migrare" || tipAbonament.Text == "Portare PrePay Digi" || tipAbonament.Text == "Portare PrePay Orange" || tipAbonament.Text == "Portare PrePay Telekom")
+            {
+                popupMultiple.IsOpen = true; // Open the popup
+            }
+            else if (tipAbonament.Text == "Portare Abonament Orange" || tipAbonament.Text == "Portare Abonament Digi" || tipAbonament.Text == "Portare Abonament Telekom")
+            {
+                popupMultiple_2.IsOpen = true; // Open the popup
+            }
+            else
+            {
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Alege un tip de abonament inainte";
+                    dialog.Descriere.Text = "Te rog alegi tipul de abonament inainte";
+                };
+                dialog.ShowDialog();
             }
         }
     }

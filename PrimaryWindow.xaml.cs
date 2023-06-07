@@ -219,7 +219,21 @@ namespace Asgard
             UsernameText.Text = email;
             ProjectText.Text = proiect;
 
-            GestiuneButton.Visibility = (proiect == "IT") ? Visibility.Visible : Visibility.Collapsed;
+            if (proiect == "IT")
+            {
+                GestiuneButton.Visibility = Visibility.Visible;
+                RaportsButton.Visibility = Visibility.Visible;
+            }
+            else if (username == "simona.scutaru" || username == "ana.stere")
+            {
+                GestiuneButton.Visibility = Visibility.Collapsed;
+                RaportsButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                GestiuneButton.Visibility = Visibility.Collapsed;
+                RaportsButton.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void ButtonTickete_Click(object sender, RoutedEventArgs e)
@@ -273,6 +287,11 @@ namespace Asgard
 
             ThemesController.ChangeTheme(themeUri);
             logoImage.Source = logo;
+        }
+
+        private void RaportsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.RaportsGenerator();
         }
     }
 }

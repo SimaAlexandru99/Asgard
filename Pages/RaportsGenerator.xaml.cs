@@ -10,6 +10,7 @@ namespace Asgard.Pages
     using System.Text;
     using System.Windows;
     using System.Windows.Controls;
+    using Asgard.Repositories;
     using Microsoft.Win32;
     using MySql.Data.MySqlClient;
 
@@ -29,20 +30,18 @@ namespace Asgard.Pages
             DateTime startDate = Data_start.SelectedDate ?? DateTime.MinValue;
             DateTime endDate = Data_final.SelectedDate ?? DateTime.MaxValue;
 
-            // Connect to the database
-            string connectionString = "server=192.168.100.18;port=3306;user=eoverart;password=P3CZV4pgc7jtT4z;database=asgard";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            try
             {
-                try
+                // Connect to the database using RepositoryBase.GetConnectionPublic()
+                using (var connection = RepositoryBase.GetConnectionPublic())
                 {
-                    connection.Open();
-
                     // Retrieve data from the database based on the selected date range
                     string query = $"SELECT * FROM chestionare_cec WHERE DATE >= @StartDate AND DATE <= @EndDate";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@StartDate", startDate);
                     command.Parameters.AddWithValue("@EndDate", endDate);
 
+                    // Execute the query and fill a DataTable with the results
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
@@ -78,13 +77,31 @@ namespace Asgard.Pages
                     {
                         string filePath = saveFileDialog.FileName;
                         File.WriteAllText(filePath, csvData.ToString());
-                        MessageBox.Show("CSV report generated successfully.");
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Succes";
+                            dialog.Status.Text = "Raport generat";
+                            dialog.Descriere.Text = "Raportul a fost generat cu succes.";
+                        };
+                        dialog.ShowDialog();
+                        return;
                     }
+
+                    connection.Close();
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
                 {
-                    MessageBox.Show("Error generating CSV report: " + ex.Message);
-                }
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Nu am putut genera";
+                    dialog.Descriere.Text = "Am întâmpinat următoarea eroare: " + ex;
+                };
+                dialog.ShowDialog();
+                return;
             }
         }
 

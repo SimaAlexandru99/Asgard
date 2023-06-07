@@ -14166,7 +14166,7 @@ namespace Asgard.Tickets.Vodafone
                     "Email: " + emailClient.Text + "\r\n" +
                     "Acord PCM: " + acordPCM.Text + "\r\n" +
                     "Agent: " + email + "\r\n" +
-                    "Asigurare: " + signatureCombo.Text,
+                    "Asigurare: " + comboAsigurare.Text,
                     };
 
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));

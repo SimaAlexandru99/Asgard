@@ -22,8 +22,6 @@ namespace Asgard.Tickets.CEC
         {
             InitializeComponent();
         }
-        
-
 
         private void T1_Da_Checked(object sender, RoutedEventArgs e)
         {
@@ -1981,7 +1979,5 @@ namespace Asgard.Tickets.CEC
                 e.Handled = true;
             }
         }
-
-
     }
 }

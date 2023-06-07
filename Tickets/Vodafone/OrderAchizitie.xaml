@@ -7,6 +7,7 @@
       xmlns:val="clr-namespace:Asgard.Validations"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
+      Background="{DynamicResource BackgroundColor}"
       Title="Comanda Achizitie" Loaded="Page_Loaded">
     <Page.DataContext>
         <val:Verifications/>
@@ -48,7 +49,7 @@
                 <TextBlock Text="Crează o comandă nouă" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Semibold" FontSize="12" Margin="0,5,0,0"/>
             </StackPanel>
             <Grid Grid.Row="3" Margin="35 30 35 0">
-                <Grid x:Name="step1Panel" Visibility="Visible">
+                <Grid x:Name="step1Panel" Visibility="Collapsed">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
@@ -295,7 +296,7 @@
                     
                     
                 </Grid>
-                <Grid x:Name="step2Panel" Visibility="Collapsed">
+                <Grid x:Name="step2Panel" Visibility="Visible">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
@@ -553,8 +554,15 @@
                     <StackPanel
                 Grid.Row="5"
                 Grid.Column="4">
-                        <TextBlock Text="Se doreste device?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
-                        <ComboBox
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <TextBlock Text="Device" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                                <ComboBox
                         x:Name="comboboxDeviceChoice"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                         materialDesign:ColorZoneAssist.Mode="Custom"      
@@ -568,9 +576,56 @@
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
                         >
-                            <ComboBoxItem Content="Da" />
-                            <ComboBoxItem Content="Nu" />
-                        </ComboBox>
+                                    <ComboBoxItem Content="Da" />
+                                    <ComboBoxItem Content="Nu" />
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=tipAbonament, Path=SelectedValue}" Value="Activare noua">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock x:Name="TextVanzareMultipla" Text="Vânzare multiplă?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                                <Button x:Name="VanzareMultipla" Content="Intra aici" Style="{StaticResource SendButton}" Height="50" Width="auto" Click="VanzareMultipla_Click" HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=tipAbonament, Path=SelectedValue}" Value="Activare noua">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock x:Name="TextVanzareMultipla2" Text="Vânzare multiplă?" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,10"/>
+                                <ComboBox
+                        x:Name="comboboxNumere"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:ColorZoneAssist.Mode="Custom"      
+                        SelectedValuePath="Content"
+                        Cursor="Hand"
+                        Height="50"
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                                    <ComboBoxItem Content="1" />
+                                    <ComboBoxItem Content="2" />
+                                    <ComboBoxItem Content="3" />
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
 
                     <StackPanel Grid.Row="7"
@@ -583,6 +638,268 @@
                         Grid.Column="2" VerticalAlignment="Center">
                         <Button Content="Inapoi" Style="{StaticResource SendButton}" Click="PreviousButtonClick"/>
                     </StackPanel>
+
+                    <Popup x:Name="popupMultiple" AllowsTransparency="True" Placement="Center" IsOpen="False" Loaded="PopupMultiple_Loaded">
+                        <Border Background="{DynamicResource BackgroundColor}" Width="600" Padding="30" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource PromptsBorder}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Vânzare multiplă" Foreground="{DynamicResource TextColor}" Grid.Row="0" Grid.ColumnSpan="6" FontFamily="/Fonts/#Rubik Bold" VerticalAlignment="Center"/>
+
+                            </StackPanel>
+                            <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="0">
+                                <TextBlock Text="Alege numarul de numere aditionale" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                                <ComboBox
+                        x:Name="numarVanzari"
+                            materialDesign:ColorZoneAssist.Mode="Custom"   
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                                    <ComboBoxItem Content="1" />
+                                    <ComboBoxItem Content="2" />
+                                    <ComboBoxItem Content="3" />
+                                </ComboBox>
+                            </StackPanel>
+
+                            <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="0">
+                                <TextBlock Text="Numar de telefon"/>
+                                <TextBox x:Name="Numar_1" Style="{StaticResource TextBoxCustom}" />
+                            </StackPanel>
+
+                                <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="0">
+                                    <TextBlock Text="Serie sim"/>
+                                <TextBox x:Name="Serie_1" Style="{StaticResource TextBoxCustom}" />
+                            </StackPanel>
+
+                            <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="2">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=numarVanzari, Path=SelectedValue}" Value="2">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=numarVanzari, Path=SelectedValue}" Value="3">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="Numar de telefon"/>
+                                <TextBox x:Name="Numar_2" Style="{StaticResource TextBoxCustom}" />
+                            </StackPanel>
+
+                            <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="2">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=numarVanzari, Path=SelectedValue}" Value="2">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=numarVanzari, Path=SelectedValue}" Value="3">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="Serie sim"/>
+                                <TextBox x:Name="Serie_2" Style="{StaticResource TextBoxCustom}" />
+                            </StackPanel>
+
+                            <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="4">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=numarVanzari, Path=SelectedValue}" Value="3">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="Numar de telefon"/>
+                                <TextBox x:Name="Numar_3" Style="{StaticResource TextBoxCustom}" />
+                            </StackPanel>
+
+                            <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="4">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=numarVanzari, Path=SelectedValue}" Value="3">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <TextBlock Text="Serie sim"/>
+                                <TextBox x:Name="Serie_3" Style="{StaticResource TextBoxCustom}" />
+                            </StackPanel>
+
+
+                            <StackPanel Grid.Row="7"
+                        Margin="0 0 0 10"
+                        Grid.Column="4" VerticalAlignment="Center">
+                                <Button x:Name="PopupNext" Content="Mai departe" Style="{StaticResource SendButton}" Click="PopupNext_Click" />
+                            </StackPanel>
+
+
+
+                            <StackPanel Grid.Row="7"
+                        Margin="0 0 0 10"
+                        Grid.Column="2" VerticalAlignment="Center">
+                                <Button x:Name="PopupClose" Content="Sterge" Style="{StaticResource SendButton}" Click="PopupClose_Click"/>
+                            </StackPanel>
+                        </Grid>
+                        </Border>
+                    </Popup>
+                    <Popup x:Name="popupMultiple_2" AllowsTransparency="True" Placement="Center" IsOpen="False" Loaded="PopupMultiple_Loaded">
+                        <Border Background="{DynamicResource BackgroundColor}" Width="600" Padding="30" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource PromptsBorder}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="Vânzare multiplă" Foreground="{DynamicResource TextColor}" Grid.Row="0" Grid.ColumnSpan="6" FontFamily="/Fonts/#Rubik Bold" VerticalAlignment="Center"/>
+
+                                </StackPanel>
+                                <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="0">
+                                    <TextBlock Text="Alege numarul de numere aditionale" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                                    <ComboBox
+                        x:Name="numarVanzari_2"
+                            materialDesign:ColorZoneAssist.Mode="Custom"   
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                                        <ComboBoxItem Content="1" />
+                                        <ComboBoxItem Content="2" />
+                                        <ComboBoxItem Content="3" />
+                                    </ComboBox>
+                                </StackPanel>
+
+                                <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="0">
+                                    <TextBlock Text="Numar de telefon"/>
+                                    <TextBox x:Name="Numar_1_2" Style="{StaticResource TextBoxCustom}" />
+                                </StackPanel>
+
+                                <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="2">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=numarVanzari_2, Path=SelectedValue}" Value="2">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding ElementName=numarVanzari_2, Path=SelectedValue}" Value="3">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <TextBlock Text="Numar de telefon"/>
+                                    <TextBox x:Name="Numar_2_2" Style="{StaticResource TextBoxCustom}" />
+                                </StackPanel>
+
+                                <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="4">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=numarVanzari_2, Path=SelectedValue}" Value="3">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <TextBlock Text="Numar de telefon"/>
+                                    <TextBox x:Name="Numar_3_2" Style="{StaticResource TextBoxCustom}" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="7"
+                        Margin="0 0 0 10"
+                        Grid.Column="4" VerticalAlignment="Center">
+                                    <Button x:Name="PopupNext2" Content="Mai departe" Style="{StaticResource SendButton}" Click="PopupNext2_Click" />
+                                </StackPanel>
+
+
+
+                                <StackPanel Grid.Row="7"
+                        Margin="0 0 0 10"
+                        Grid.Column="2" VerticalAlignment="Center">
+                                    <Button x:Name="PopupClose2" Content="Sterge" Style="{StaticResource SendButton}" Click="PopupClose2_Click"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Popup>
                 </Grid>
                 <Grid x:Name="step3Panel" Visibility="Collapsed">
                     <Grid.RowDefinitions>

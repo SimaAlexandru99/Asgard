@@ -79,6 +79,7 @@ namespace Asgard.Windows
                     comboboxTeamLeader.Items.Add("Cristina Ruxandar");
                     comboboxTeamLeader.Items.Add("Florin Dascalu");
                     comboboxTeamLeader.Items.Add("Andrei Preutescu");
+                    comboboxTeamLeader.Items.Add("Ionut Lipovanu");
 
                     break;
                 case "Telekom":

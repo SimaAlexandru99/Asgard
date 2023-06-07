@@ -30,8 +30,8 @@
     <SupportUrl>https://eoverart.ro/</SupportUrl>
     <ProductName>Asgard</ProductName>
     <PublisherName>Asgard</PublisherName>
-    <MinimumRequiredVersion>1.3.0.0</MinimumRequiredVersion>
-    <ApplicationRevision>2</ApplicationRevision>
+    <MinimumRequiredVersion>1.3.0.4</MinimumRequiredVersion>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -121,6 +121,9 @@
     </Compile>
     <Compile Include="CustomControls\UpdateDeviceWindow.xaml.cs">
       <DependentUpon>UpdateDeviceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\Popup.xaml.cs">
+      <DependentUpon>Popup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Demo\SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
@@ -254,6 +257,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Demo\Popup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Demo\SignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

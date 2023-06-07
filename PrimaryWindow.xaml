@@ -142,6 +142,25 @@
 								<TextBlock Style="{StaticResource MenuButtonText}">Gestiune</TextBlock>
 							</StackPanel>
 						</RadioButton>
+						<RadioButton
+						x:Name="RaportsButton" Visibility="Collapsed"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="RaportsButton_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBoxIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								VerticalAlignment="Center"
+								Kind="RegularFile" />
+								<TextBlock Style="{StaticResource MenuButtonText}">Rapoarte</TextBlock>
+							</StackPanel>
+						</RadioButton>
 
 					</StackPanel>
 					<Grid VerticalAlignment="Bottom">
