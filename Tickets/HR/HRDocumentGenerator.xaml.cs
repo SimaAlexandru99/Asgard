@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using iTextSharp.text.pdf;
+using MySql.Data.MySqlClient;
 
 namespace Asgard.Tickets.HR
 {
@@ -23,6 +25,11 @@ namespace Asgard.Tickets.HR
         public HRDocumentGenerator()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

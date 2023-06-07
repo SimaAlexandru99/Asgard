@@ -400,6 +400,66 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Assets\HR\1.Angajamentul consultantului.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\10.Declaratie CAS.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\11.Declaratie la angajare 1 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\12.Declaratie part-time 1ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\13.Declaratie_pentru_indeplinirea_cerintelor_de_securitate_si_confidentialitate 1 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\14.Fisa postului - Agent vanzari 2ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\15.Informare salariati_Final_TC_rev KPMG_23052018_Optima_revAS_28032019  2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\16.DPA- GDPR clienti VDF - 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\17.DPA- GDPR clienti TLK - 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\18.DPA- GDPR clienti BCR - 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\19.DPA- GDPR clienti EON - 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\2.X2 Consimtamant salariati prelucrare imagine_foto_video_final.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\20.DPA- GDPR clienti CEC - 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\3.AA GDPR_WFH.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\4.Anexa Fisa autoevaluare SSM Optima.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\5.Anexa SSM _ WFH.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\6.Angajament RI 1 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\7.Cerere de angajare 1 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\8.Consimtamant salariati prelucrare acordare beneficii_draft_OPTIMA 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\9.Consimtamant salariati prelucrare imagine_foto_video_final - Template OP 2 ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="stylecop1.json" />
     <None Include="stylecop2.json" />
     <None Include="stylecop3.json" />
