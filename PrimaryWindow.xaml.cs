@@ -223,11 +223,16 @@ namespace Asgard
             {
                 GestiuneButton.Visibility = Visibility.Visible;
                 RaportsButton.Visibility = Visibility.Visible;
+                HRButton.Visibility = Visibility.Visible;
             }
             else if (username == "simona.scutaru" || username == "ana.stere")
             {
                 GestiuneButton.Visibility = Visibility.Collapsed;
                 RaportsButton.Visibility = Visibility.Visible;
+            }
+            else if (proiect == "HR")
+            {
+                HRButton.Visibility = Visibility.Visible;
             }
             else
             {
@@ -266,6 +271,11 @@ namespace Asgard
             Main.Content = new Pages.Gestiune();
         }
 
+        private void HRButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Tickets.HR.HRDocumentGenerator();
+        }
+
         private void DarkLightToggle_Click(object sender, RoutedEventArgs e)
         {
             IBaseTheme baseTheme;
@@ -293,5 +303,7 @@ namespace Asgard
         {
             Main.Content = new Pages.RaportsGenerator();
         }
+
+
     }
 }
