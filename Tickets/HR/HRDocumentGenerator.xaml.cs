@@ -197,6 +197,48 @@ namespace Asgard.Tickets.HR
                 pdfStamper.Close();
                 fileStream6.Close();
 
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder7 = "Assets/HR";
+            string templateFileName7 = "7.Cerere de angajare 1 ex.pdf";
+            string templatePath7 = Path.Combine(templateFolder7, templateFileName7);
+
+            string outputFolder7 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder7);
+
+            string newFileName7 = Path.Combine(outputFolder7, $"7.Cerere de angajare 1 ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream7 = new FileStream(newFileName7, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath7);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream7);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text+" "+prenumeAngajat.Text);
+                acroFields.SetField("localitate", localitate.Text);
+                acroFields.SetField("strada", strada.Text);
+                acroFields.SetField("numar", numarStrada.Text);
+                acroFields.SetField("bloc", bloc.Text);
+                acroFields.SetField("scara", scara.Text);
+                acroFields.SetField("apartament", apartament.Text);
+                acroFields.SetField("judet", judet.Text);
+                acroFields.SetField("serieCI", serieCI.Text);
+                acroFields.SetField("numarCI", NumarCI.Text);
+                acroFields.SetField("deLa", valabilitateCI.Text);
+                acroFields.SetField("emis", emisDe.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+                acroFields.SetField("functia", ComboFunctie.Text);
+
+                pdfStamper.Close();
+                fileStream7.Close();
+
                 MessageBox.Show("PDF salvat.");
 
 
