@@ -7,10 +7,10 @@
 	  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   
 	  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 	  mc:Ignorable="d" 
-	  d:DesignHeight="1000" d:DesignWidth="800" Background="{DynamicResource BackgroundColor}"
+	  Background="{DynamicResource BackgroundColor}"
 	  Title="HRDocumentGenerator">
-
-	<Grid Margin="10">
+	<ScrollViewer VerticalScrollBarVisibility="Auto">
+	<Grid Margin="20">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="*"/>
@@ -29,190 +29,190 @@
 			
 		</Grid.RowDefinitions>
 		<StackPanel
-                        Grid.Row="0"
-                        Grid.Column="0">
+						Grid.Row="0"
+						Grid.Column="0">
 			<TextBlock Text="Nume Angajat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="nameAngajat"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="nameAngajat"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="1"
-                        Grid.Column="0">
+						Grid.Row="1"
+						Grid.Column="0">
 			<TextBlock Text="Prenume Angajat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="prenumeAngajat"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="prenumeAngajat"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="2"
-                        Grid.Column="0">
+						Grid.Row="2"
+						Grid.Column="0">
 			<TextBlock Text="CNP Angajat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="cnpAngajat"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="cnpAngajat"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="3"
-                        Grid.Column="0">
+						Grid.Row="3"
+						Grid.Column="0">
 			<TextBlock Text="Serie CI" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="serieCI"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="serieCI"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="4"
-                        Grid.Column="0">
+						Grid.Row="4"
+						Grid.Column="0">
 			<TextBlock Text="Numar CI" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="NumarCI"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="NumarCI"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="5"
-                        Grid.Column="0">
+						Grid.Row="5"
+						Grid.Column="0">
 			<TextBlock Text="Localitate" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="localitate"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="localitate"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="6"
-                        Grid.Column="0">
+						Grid.Row="6"
+						Grid.Column="0">
 			<TextBlock Text="Judet" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="judet"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="judet"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="7"
-                        Grid.Column="0">
+						Grid.Row="7"
+						Grid.Column="0">
 			<TextBlock Text="Strada" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="strada"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="strada"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="8"
-                        Grid.Column="0">
+						Grid.Row="8"
+						Grid.Column="0">
 			<TextBlock Text="Numar Strada" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="numarStrada"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="numarStrada"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="0"
-                        Grid.Column="1">
+						Grid.Row="0"
+						Grid.Column="1">
 			<TextBlock Text="Bloc" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="bloc"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="bloc"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="1"
-                        Grid.Column="1">
+						Grid.Row="1"
+						Grid.Column="1">
 			<TextBlock Text="Scara" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="scara"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="scara"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="2"
-                        Grid.Column="1">
+						Grid.Row="2"
+						Grid.Column="1">
 			<TextBlock Text="Apartament" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="apartament"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="apartament"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="3"
-                        Grid.Column="1">
+						Grid.Row="3"
+						Grid.Column="1">
 			<TextBlock Text="Emis de" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="emisDe"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="emisDe"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="4"
-                        Grid.Column="1">
+						Grid.Row="4"
+						Grid.Column="1">
 			<TextBlock Text="Valabil de la (zz/ll/aaaa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="valabilitateCI"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="valabilitateCI"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="5"
-                        Grid.Column="1">
+						Grid.Row="5"
+						Grid.Column="1">
 			<TextBlock Text="Data angajarii (zz/ll/aaaa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
-                            x:Name="dataAngajare"
-                            Style="{StaticResource TextBoxCustom}" 
-                            Validation.ErrorTemplate="{StaticResource errorTemplate}"
+							x:Name="dataAngajare"
+							Style="{StaticResource TextBoxCustom}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 				Margin="5,5,5,5">
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="6"
-                        Grid.Column="1">
+						Grid.Row="6"
+						Grid.Column="1">
 			<TextBlock Text="Proiect" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<ComboBox
-                        x:Name="ComboProiect"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:ColorZoneAssist.Mode="Custom"      
-                        SelectedValuePath="Content"
-                        Cursor="Hand"
-                        Height="50"
-                        FontFamily="/Fonts/#Rubik Regular"
-                        BorderThickness="0"
-                        BorderBrush="{DynamicResource TextColor}"
-                        Background="{DynamicResource InputColor}"
-                        Foreground="{DynamicResource TextColor}"
-                        IsReadOnly="True"
-                       
+						x:Name="ComboProiect"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="50"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="0"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}"
+						IsReadOnly="True"
+					   
 				Margin="0,5,0,5"
-                        >
+						>
 				<ComboBoxItem Content="Vodafone" />
 				<ComboBoxItem Content="Telekom" />
 				<ComboBoxItem Content="Orange" />
@@ -222,34 +222,35 @@
 			</ComboBox>
 		</StackPanel>
 		<StackPanel
-                        Grid.Row="7"
-                        Grid.Column="1">
+						Grid.Row="7"
+						Grid.Column="1">
 			<TextBlock Text="Functia" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<ComboBox
-                        x:Name="ComboFunctie"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:ColorZoneAssist.Mode="Custom"      
-                        SelectedValuePath="Content"
-                        Cursor="Hand"
-                        Height="50"
-                        FontFamily="/Fonts/#Rubik Regular"
-                        BorderThickness="0"
-                        BorderBrush="{DynamicResource TextColor}"
-                        Background="{DynamicResource InputColor}"
-                        Foreground="{DynamicResource TextColor}"
-                        IsReadOnly="True"
-                       
+						x:Name="ComboFunctie"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="50"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="0"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}"
+						IsReadOnly="True"
+					   
 				Margin="0,5,0,5"
-                        >
+						>
 				<ComboBoxItem Content="Agent vanzari prin telefon" />
 				<ComboBoxItem Content="Team leader" />
 				<ComboBoxItem Content="HR" />
 			</ComboBox>
 		</StackPanel>
 		<StackPanel Grid.Row="9"
-                        Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+						Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 			<Button x:Name="SavePDFHr" Content="Genereaza PDF-uri" Style="{StaticResource SendButton}" Height="62" Width="364" Click="Button_Click" Cursor="Pen" />
 		</StackPanel>
 
 	</Grid>
+	</ScrollViewer>
 </Page>
