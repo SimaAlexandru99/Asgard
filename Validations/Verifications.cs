@@ -122,6 +122,19 @@ namespace Asgard.Validations
 
         private string seriesim;
 
+        // Achizitie
+        private string numar1achizitie;
+
+        private string numar2achizitie;
+
+        private string numar3achizitie;
+
+        private string serie1achizitie;
+
+        private string serie2achizitie;
+
+        private string serie3achizitie;
+
         public string SerieSim
         {
             get { return seriesim; }
@@ -469,6 +482,43 @@ namespace Asgard.Validations
         {
             get { return niveltensiune; }
             set { OnPropertyChanged(ref niveltensiune, value); }
+        }
+
+        // Achizitie Public
+        public string Numar1achizitie
+        {
+            get { return numar1achizitie; }
+            set { OnPropertyChanged(ref numar1achizitie, value); }
+        }
+
+        public string Numar2achizitie
+        {
+            get { return numar2achizitie; }
+            set { OnPropertyChanged(ref numar2achizitie, value); }
+        }
+
+        public string Numar3achizitie
+        {
+            get { return numar3achizitie; }
+            set { OnPropertyChanged(ref numar3achizitie, value); }
+        }
+
+        public string Serie1achizitie
+        {
+            get { return serie1achizitie; }
+            set { OnPropertyChanged(ref serie1achizitie, value); }
+        }
+
+        public string Serie2achizitie
+        {
+            get { return serie2achizitie; }
+            set { OnPropertyChanged(ref serie2achizitie, value); }
+        }
+
+        public string Serie3achizitie
+        {
+            get { return serie3achizitie; }
+            set { OnPropertyChanged(ref serie3achizitie, value); }
         }
     }
 }

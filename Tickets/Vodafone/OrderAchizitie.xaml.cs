@@ -6,7 +6,9 @@ namespace Asgard.Tickets.Vodafone
 {
     using System;
     using System.ComponentModel;
+    using System.Runtime.InteropServices;
     using System.Security.Authentication;
+    using System.Security.Cryptography;
     using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
@@ -259,12 +261,12 @@ namespace Asgard.Tickets.Vodafone
                             {
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM incompleta";
-                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Digi, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940100 sau 894010 pentru a iesi 19 cifre.";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Digi, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 894005 iesi 19 cifre.";
                             };
                             dialog.ShowDialog();
                             return;
                         }
-                        else if (!serie_sim.Text.StartsWith("8940"))
+                        else if (!serie_sim.Text.StartsWith("894005"))
                         {
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
@@ -14663,117 +14665,134 @@ namespace Asgard.Tickets.Vodafone
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            var user = new MainViewModel();
-            string username = user.CurrentUserAccount.Username.ToString();
-            string email = user.CurrentUserAccount.Email.ToString();
-            string emailAddress = "asgard@optimacall.ro";
-            string password = "Optima#321";
-            MimeMessage message = new MimeMessage
+            if (numar_contact_text.Text == string.Empty)
             {
-                Subject = "Comanda noua achizitie: " + cnp.Text,
-            };
-            message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
-            message.To.Add(MailboxAddress.Parse(email));
-            message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
-            message.To.Add(MailboxAddress.Parse("vanzareachizitie@optimacall.ro"));
-            message.Body = new TextPart("plain")
-            {
-                Text = @"Nume client: " + nameClient.Text + "\r\n" +
-                    "Prenume client: " + surnameClient.Text + "\r\n" +
-                    "CNP: " + cnp.Text + "\r\n" +
-                    "Serie si numar buletin: " + serie.Text + "\r\n" +
-                    "Emis de: " + emis.Text + "\r\n" +
-                    "Judet: " + comboboxJudet.Text + "\r\n" +
-                    "Localitate: " + comboboxLocalitate.Text + "\r\n" +
-                    "Numar existent: " + numar_existent.Text + "\r\n" +
-                    "Tip strada: " + combobox_strada.Text + "\r\n" +
-                    "Nume strada: " + nume_strada_text.Text + "\r\n" +
-                    "Numar strada: " + numar_strada_text.Text + "\r\n" +
-                    "Bloc: " + bloc_text.Text + "\r\n" +
-                    "Scara: " + scara_text.Text + "\r\n" +
-                    "Etaj: " + etaj_text.Text + "\r\n" +
-                    "Apartament: " + apartament_text.Text + "\r\n" +
-                    "Client comun: " + client_comun_combo.Text + "\r\n" +
-                    "ID Client comun: " + id_client_comun.Text + "\r\n" +
-                    "Tip abonament: " + tipAbonament.Text + "\r\n" +
-                    "Serie SIM/ Cod abonat: " + serie_sim.Text + cod_abonat.Text + "\r\n" +
-                    "Numar impactat: " + numar_impactat.Text + "\r\n" +
-                    "Numarul este folosit de un copil? " + comboboxKid.Text + "\r\n" +
-                    "Abonament: " + comboboxAbonament.Text + "\r\n" +
-                    "Cost servicii: " + comboboxCostAbonament.Text + "\r\n" +
-                    "Se doreste device? " + comboboxDeviceChoice.Text + "\r\n" +
-                    "Device: " + comboboxDevice.Text + "\r\n" +
-                    "Valoare rata: " + cost_rata.Text + "\r\n" +
-                    "Cost total: " + cost_total.Text + "\r\n" +
-                    "Cod discount: " + discount_code.Text + "\r\n" +
-                    "Avans: " + avans.Text + "\r\n" +
-                    "GDPR 1: " + comboboxGDPR1.Text + "\r\n" +
-                    "GDPR 1_1: " + comboboxGDPR1_1.Text + "\r\n" +
-                    "GDPR 1_2: " + comboboxGDPR1_2.Text + "\r\n" +
-                    "GDPR 1_3: " + comboboxGDPR1_3.Text + "\r\n" +
-                    "GDPR 1_4: " + comboboxGDPR1_4.Text + "\r\n" +
-                    "GDPR 2: " + comboboxGDPR2.Text + "\r\n" +
-                    "GDPR 3: " + comboboxGDPR3.Text + "\r\n" +
-                    "GDPR 3_1: " + comboboxGDPR3_1.Text + "\r\n" +
-                    "GDPR 4: " + comboboxGDPR4.Text + "\r\n" +
-                    "GDPR 4_1: " + comboboxGDPR4_1.Text + "\r\n" +
-                    "GDPR 4_2: " + comboboxGDPR4_2.Text + "\r\n" +
-                    "GDPR 4_3: " + comboboxGDPR4_3.Text + "\r\n" +
-                    "GDPR 4_4: " + comboboxGDPR4_4.Text + "\r\n" +
-                    "GDPR 5: " + comboboxGDPR5.Text + "\r\n" +
-                    "GDPR 6: " + comboboxGDPR6.Text + "\r\n" +
-                    "GDPR 6_1: " + comboboxGDPR6_1.Text + "\r\n" +
-                    "Tip semnatura: " + tip_semnatura.Text + "\r\n" +
-                    "Email: " + email_text.Text + "\r\n" +
-                    "Adresa postala: " + adresa_postala_text.Text + "\r\n" +
-                    "Adresa facturare: " + adresa_factura_text.Text + "\r\n" +
-                    "Adrea livrare: " + adresa_livrare_text.Text + "\r\n" +
-                    "Numar contact: " + numar_contact_text.Text + "\r\n" +
-                    "Tip client: " + comboboxClient.Text + "\r\n" +
-                    "Asigurare: " + comboboxAsigurare.Text + "\r\n" +
-                    "Agent: " + email + "\r\n" +
-                    "eSim: " + eSim.Text,
-            };
-            SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
-            try
-            {
-                client.CheckCertificateRevocation = false;
-                client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback;
-                client.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Ssl2 | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
-                client.Connect("zmail.optimacall.ro", 465, true);
-                client.Authenticate(emailAddress, password);
-                client.Send(message);
-                CustomControls.Prompt dialog = new CustomControls.Prompt();
-                dialog.Loaded += (s, ea) =>
-                {
-                    dialog.Title = "Succes";
-                    dialog.Status.Text = "Ticket-ul a fost trimis";
-                    dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
-                };
-                dialog.ShowDialog();
-
-                Clear();
-
-                step5Panel.Visibility = Visibility.Collapsed;
-                step1Panel.Visibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-
                 CustomControls.Prompt dialog = new CustomControls.Prompt();
                 dialog.Loaded += (s, ea) =>
                 {
                     dialog.Title = "Eroare";
-                    dialog.Status.Text = "Ticket-ul nu a fost trimis";
-                    dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
+                    dialog.Status.Text = "Numărul de contact este gol";
+                    dialog.Descriere.Text = "Te rog să treci și numărul de contact, acesta este obligatoriu.";
                 };
                 dialog.ShowDialog();
+
             }
-            finally
+            else
             {
-                client.Disconnect(true);
-                client.Dispose();
+                var user = new MainViewModel();
+                string username = user.CurrentUserAccount.Username.ToString();
+                string email = user.CurrentUserAccount.Email.ToString();
+                string departament = user.CurrentUserAccount.Departament?.ToString() ?? "-";
+                string emailAddress = "asgard@optimacall.ro";
+                string password = "Optima#321";
+                MimeMessage message = new MimeMessage
+                {
+                    Subject = "Comanda noua achizitie: " + cnp.Text,
+                };
+                message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
+                message.To.Add(MailboxAddress.Parse(email));
+                message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
+                message.To.Add(MailboxAddress.Parse("vanzareachizitie@optimacall.ro"));
+                message.Body = new TextPart("plain")
+                {
+                    Text = @"Nume client: " + nameClient.Text + "\r\n" +
+                        "Prenume client: " + surnameClient.Text + "\r\n" +
+                        "CNP: " + cnp.Text + "\r\n" +
+                        "Serie si numar buletin: " + serie.Text + "\r\n" +
+                        "Emis de: " + emis.Text + "\r\n" +
+                        "Judet: " + comboboxJudet.Text + "\r\n" +
+                        "Localitate: " + comboboxLocalitate.Text + "\r\n" +
+                        "Numar existent: " + numar_existent.Text + "\r\n" +
+                        "Tip strada: " + combobox_strada.Text + "\r\n" +
+                        "Nume strada: " + nume_strada_text.Text + "\r\n" +
+                        "Numar strada: " + numar_strada_text.Text + "\r\n" +
+                        "Bloc: " + bloc_text.Text + "\r\n" +
+                        "Scara: " + scara_text.Text + "\r\n" +
+                        "Etaj: " + etaj_text.Text + "\r\n" +
+                        "Apartament: " + apartament_text.Text + "\r\n" +
+                        "Client comun: " + client_comun_combo.Text + "\r\n" +
+                        "ID Client comun: " + id_client_comun.Text + "\r\n" +
+                        "Tip abonament: " + tipAbonament.Text + "\r\n" +
+                        "Serie SIM/ Cod abonat: " + serie_sim.Text + cod_abonat.Text + "\r\n" +
+                        "Numar impactat: " + numar_impactat.Text + "\r\n" +
+                        "Numarul este folosit de un copil? " + comboboxKid.Text + "\r\n" +
+                        "Abonament: " + comboboxAbonament.Text + "\r\n" +
+                        "Cost servicii: " + comboboxCostAbonament.Text + "\r\n" +
+                        "Se doreste device? " + comboboxDeviceChoice.Text + "\r\n" +
+                        "Device: " + comboboxDevice.Text + "\r\n" +
+                        "Valoare rata: " + cost_rata.Text + "\r\n" +
+                        "Cost total: " + cost_total.Text + "\r\n" +
+                        "Cod discount: " + discount_code.Text + "\r\n" +
+                        "Avans: " + avans.Text + "\r\n" +
+                        "GDPR 1: " + comboboxGDPR1.Text + "\r\n" +
+                        "GDPR 1_1: " + comboboxGDPR1_1.Text + "\r\n" +
+                        "GDPR 1_2: " + comboboxGDPR1_2.Text + "\r\n" +
+                        "GDPR 1_3: " + comboboxGDPR1_3.Text + "\r\n" +
+                        "GDPR 1_4: " + comboboxGDPR1_4.Text + "\r\n" +
+                        "GDPR 2: " + comboboxGDPR2.Text + "\r\n" +
+                        "GDPR 3: " + comboboxGDPR3.Text + "\r\n" +
+                        "GDPR 3_1: " + comboboxGDPR3_1.Text + "\r\n" +
+                        "GDPR 4: " + comboboxGDPR4.Text + "\r\n" +
+                        "GDPR 4_1: " + comboboxGDPR4_1.Text + "\r\n" +
+                        "GDPR 4_2: " + comboboxGDPR4_2.Text + "\r\n" +
+                        "GDPR 4_3: " + comboboxGDPR4_3.Text + "\r\n" +
+                        "GDPR 4_4: " + comboboxGDPR4_4.Text + "\r\n" +
+                        "GDPR 5: " + comboboxGDPR5.Text + "\r\n" +
+                        "GDPR 6: " + comboboxGDPR6.Text + "\r\n" +
+                        "GDPR 6_1: " + comboboxGDPR6_1.Text + "\r\n" +
+                        "Tip semnatura: " + tip_semnatura.Text + "\r\n" +
+                        "Email: " + email_text.Text + "\r\n" +
+                        "Adresa postala: " + adresa_postala_text.Text + "\r\n" +
+                        "Adresa facturare: " + adresa_factura_text.Text + "\r\n" +
+                        "Adrea livrare: " + adresa_livrare_text.Text + "\r\n" +
+                        "Numar contact: " + numar_contact_text.Text + "\r\n" +
+                        "Tip client: " + comboboxClient.Text + "\r\n" +
+                        "Asigurare: " + comboboxAsigurare.Text + "\r\n" +
+                        "Agent: " + email + "\r\n" +
+                        "eSim: " + eSim.Text + "\r\n" +
+                        "Departament: " + departament,
+                };
+                SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
+                try
+                {
+                    client.CheckCertificateRevocation = false;
+                    client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback;
+                    client.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Ssl2 | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
+                    client.Connect("zmail.optimacall.ro", 465, true);
+                    client.Authenticate(emailAddress, password);
+                    client.Send(message);
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Succes";
+                        dialog.Status.Text = "Ticket-ul a fost trimis";
+                        dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
+                    };
+                    dialog.ShowDialog();
+
+                    Clear();
+
+                    step5Panel.Visibility = Visibility.Collapsed;
+                    step1Panel.Visibility = Visibility.Visible;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Ticket-ul nu a fost trimis";
+                        dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
+                    };
+                    dialog.ShowDialog();
+                }
+                finally
+                {
+                    client.Disconnect(true);
+                    client.Dispose();
+                }
             }
         }
 
@@ -14787,7 +14806,6 @@ namespace Asgard.Tickets.Vodafone
                 string selectedContent = selectedItem.Content.ToString();
                 if (string.IsNullOrEmpty(selectedContent))
                 {
-
                 }
                 else
                 {
@@ -14833,7 +14851,6 @@ namespace Asgard.Tickets.Vodafone
                 }
             }
         }
-
 
         private void ComboboxAbonament_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -14960,14 +14977,598 @@ namespace Asgard.Tickets.Vodafone
 
         private void PopupNext_Click(object sender, RoutedEventArgs e)
         {
-            popupMultiple.IsOpen = false; // Close the popup
+            if (tipAbonament.Text == "Migrare")
+            {
+                if (numarVanzari.Text == "1")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894001") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiind migrare seria SIM trebuie să înceapă cu 894001 și să aibă 19 caractere";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "2")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894001") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("894001") || Serie_2.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiind migrare seria SIM trebuie să înceapă cu 894001 și să aibă 19 caractere, verifică seriile la ambele numere";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "3")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi primul număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_3.Text == string.Empty || Numar_3.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al treilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894001") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("894001") || Serie_2.Text == string.Empty || Serie_3.Text.StartsWith("894001") || Serie_3.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiind migrare seria SIM trebuie să înceapă cu 894001 și să aibă 19 caractere, verifică seriile la toate numerele";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai ales câte vănzâri vrei";
+                        dialog.Descriere.Text = "Te rog să alegi câte vânzări vrei, dacă nu mai e necesar, te rog sa apeși pe 'Sterge'";
+                    };
+                    dialog.ShowDialog();
+                }
+            }
+            else if (tipAbonament.Text == "Portare PrePay Orange")
+            {
+                if (numarVanzari.Text == "1")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894010") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Orange, seria SIM trebuie sa contina 19 caractere, incearca sa pui 8940100 sau 894010 pentru a ieși 19 cifre";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "2")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894010") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("894010") || Serie_2.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Orange, seria SIM trebuie sa contina 19 caractere, incearca sa pui 8940100 sau 894010 pentru a iesi 19 cifre";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "3")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi primul număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_3.Text == string.Empty || Numar_3.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al treilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894010") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("894010") || Serie_2.Text == string.Empty || Serie_3.Text.StartsWith("894010") || Serie_3.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Orange, seria SIM trebuie sa contina 19 caractere, incearca sa pui 8940100 sau 894010 pentru a iesi 19 cifre";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai ales câte vănzâri vrei";
+                        dialog.Descriere.Text = "Te rog să alegi câte vânzări vrei, dacă nu mai e necesar, te rog sa apeși pe 'Sterge'";
+                    };
+                    dialog.ShowDialog();
+                }
+            }
+            else if (tipAbonament.Text == "Portare PrePay Telekom")
+            {
+                if (numarVanzari.Text == "1")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("8940") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940090 sau 8940030 pentru a iesi 19 cifre.\r\n";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "2")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("8940") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("8940") || Serie_2.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940090 sau 8940030 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "3")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi primul număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_3.Text == string.Empty || Numar_3.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al treilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("8940") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("8940") || Serie_2.Text == string.Empty || Serie_3.Text.StartsWith("8940") || Serie_3.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 8940090 sau 8940030 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai ales câte vănzâri vrei";
+                        dialog.Descriere.Text = "Te rog să alegi câte vânzări vrei, dacă nu mai e necesar, te rog sa apeși pe 'Sterge'";
+                    };
+                    dialog.ShowDialog();
+                }
+            }
+            else if (tipAbonament.Text == "Portare PrePay Digi")
+            {
+                if (numarVanzari.Text == "1")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894005") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 894005 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "2")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894005") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("894005") || Serie_2.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 894005 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else if (numarVanzari.Text == "3")
+                {
+                    if (Numar_1.Text == string.Empty || Numar_1.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la primul număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi primul număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_2.Text == string.Empty || Numar_2.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al doilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else if (Numar_3.Text == string.Empty || Numar_3.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Nu ai completat numarul de telefon la al treilea număr adițional";
+                            dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al treilea număr adițional.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
+                    {
+                        if (Serie_1.Text.StartsWith("894005") || Serie_1.Text.Length < 19 || Serie_1.Text == string.Empty || Serie_2.Text.StartsWith("894005") || Serie_2.Text == string.Empty || Serie_3.Text.StartsWith("894005") || Serie_3.Text == string.Empty)
+                        {
+                            step2Panel.Visibility = Visibility.Visible;
+                            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+                        }
+                        else
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Serie SIM greșită";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Prepay Telekom, seria SIM trebuie sa contina 19 caractere, incearca sa pui la inceput 894005 pentru a iesi 19 cifre.";
+                            };
+                            dialog.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai ales câte vănzâri vrei";
+                        dialog.Descriere.Text = "Te rog să alegi câte vânzări vrei, dacă nu mai e necesar, te rog sa apeși pe 'Sterge'";
+                    };
+                    dialog.ShowDialog();
+                }
+            }
         }
 
         private void PopupClose_Click(object sender, RoutedEventArgs e)
         {
-                popupMultiple.IsOpen = false; // Close the popup
+            step2Panel.Visibility = Visibility.Visible;
+            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
 
-                Clear2();
+            Clear2();
         }
 
         private void PopupNext2_Click(object sender, RoutedEventArgs e)
@@ -14987,14 +15588,54 @@ namespace Asgard.Tickets.Vodafone
                 }
                 else
                 {
-                    popupMultiple_2.IsOpen = false; // Close the popup
+                    step2Panel.Visibility = Visibility.Visible;
+                    stepMultiple2.Visibility = Visibility.Collapsed;
+                }
+            }
+            else if (numarVanzari_2.Text == "2")
+            {
+                if (Numar_1_2.Text == string.Empty || Numar_2_2.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai completat numarul de telefon";
+                        dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else
+                {
+                    step2Panel.Visibility = Visibility.Visible;
+                    stepMultiple2.Visibility = Visibility.Collapsed;
+                }
+            }
+            else if (numarVanzari_2.Text == "3")
+            {
+                if (Numar_1_2.Text == string.Empty || Numar_2_2.Text == string.Empty || Numar_3_2.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai completat numarul de telefon";
+                        dialog.Descriere.Text = "Fiind vânzare pentru un client de la același operator, te rog să notezi al doilea număr.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else
+                {
+                    step2Panel.Visibility = Visibility.Visible;
+                    stepMultiple2.Visibility = Visibility.Collapsed;
                 }
             }
         }
 
         private void PopupClose2_Click(object sender, RoutedEventArgs e)
         {
-            popupMultiple_2.IsOpen = false; // Close the popup
+            step2Panel.Visibility = Visibility.Visible;
+            stepMultiple2.Visibility = Visibility.Collapsed; // Close the popup
 
             Clear3();
         }
@@ -15003,11 +15644,13 @@ namespace Asgard.Tickets.Vodafone
         {
             if (tipAbonament.Text == "Migrare" || tipAbonament.Text == "Portare PrePay Digi" || tipAbonament.Text == "Portare PrePay Orange" || tipAbonament.Text == "Portare PrePay Telekom")
             {
-                popupMultiple.IsOpen = true; // Open the popup
+                step2Panel.Visibility = Visibility.Collapsed;
+                stepMultiple1.Visibility = Visibility.Visible;
             }
             else if (tipAbonament.Text == "Portare Abonament Orange" || tipAbonament.Text == "Portare Abonament Digi" || tipAbonament.Text == "Portare Abonament Telekom")
             {
-                popupMultiple_2.IsOpen = true; // Open the popup
+                step2Panel.Visibility = Visibility.Collapsed;
+                stepMultiple2.Visibility = Visibility.Visible;
             }
             else
             {
@@ -15020,6 +15663,22 @@ namespace Asgard.Tickets.Vodafone
                 };
                 dialog.ShowDialog();
             }
+        }
+
+        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+        }
+
+        private void CloseMultiple_Click(object sender, RoutedEventArgs e)
+        {
+            step2Panel.Visibility = Visibility.Visible;
+            stepMultiple1.Visibility = Visibility.Collapsed; // Close the popup
+        }
+
+        private void CloseMultiple2_Click(object sender, RoutedEventArgs e)
+        {
+            step2Panel.Visibility = Visibility.Visible;
+            stepMultiple2.Visibility = Visibility.Collapsed; // Close the popup
         }
     }
 }

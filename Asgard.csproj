@@ -122,9 +122,6 @@
     <Compile Include="CustomControls\UpdateDeviceWindow.xaml.cs">
       <DependentUpon>UpdateDeviceWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Demo\Popup.xaml.cs">
-      <DependentUpon>Popup.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Demo\SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
     </Compile>
@@ -260,10 +257,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Demo\Popup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Demo\SignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

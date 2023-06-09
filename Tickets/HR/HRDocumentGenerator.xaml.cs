@@ -1,16 +1,18 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-using iTextSharp.text.pdf;
-using System.Diagnostics;
-using Asgard.ViewModels;
+﻿// <copyright file="HRDocumentGenerator.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Tickets.HR
 {
+    using System;
+    using System.IO;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.ViewModels;
+    using iTextSharp.text.pdf;
+
     /// <summary>
-    /// Interaction logic for HRDocumentGenerator.xaml
+    /// Interaction logic for HRDocumentGenerator.xaml.
     /// </summary>
     public partial class HRDocumentGenerator : Page
     {
@@ -22,8 +24,8 @@ namespace Asgard.Tickets.HR
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var user = new MainViewModel();
-            string Nume = user.CurrentUserAccount.Name.ToString();
-            string Prenume = user.CurrentUserAccount.LastName.ToString();
+            string nume = user.CurrentUserAccount.Name.ToString();
+            string prenume = user.CurrentUserAccount.LastName.ToString();
 
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string folderName = nameAngajat.Text; // Replace with your custom folder name
@@ -49,8 +51,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream.Close();
-
-  
             }
             catch (Exception ex)
             {
@@ -78,8 +78,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream2.Close();
-
-
             }
             catch (Exception ex)
             {
@@ -104,14 +102,12 @@ namespace Asgard.Tickets.HR
 
                 acroFields.SetField("nume", nameAngajat.Text);
                 acroFields.SetField("prenume", prenumeAngajat.Text);
-                acroFields.SetField("HR", Nume+" "+Prenume);
+                acroFields.SetField("HR", nume + " " + prenume);
 
                 pdfStamper.Close();
                 fileStream3.Close();
 
                 MessageBox.Show("PDF salvat.");
-
-
             }
             catch (Exception ex)
             {

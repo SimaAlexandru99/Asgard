@@ -303,7 +303,5 @@ namespace Asgard
         {
             Main.Content = new Pages.RaportsGenerator();
         }
-
-
     }
 }
