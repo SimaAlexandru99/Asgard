@@ -78,8 +78,23 @@ namespace Asgard.Tickets.Vodafone
                     }
                     else
                     {
-                        step1Panel.Visibility = Visibility.Collapsed;
-                        stepInfoAdress.Visibility = Visibility.Visible;
+                        if (numar_existent.Text.Length < 9)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul nu conține 9 caractere";
+                                dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            step1Panel.Visibility = Visibility.Collapsed;
+                            stepInfoAdress.Visibility = Visibility.Visible;
+                        }
                     }
                 }
                 else
@@ -98,8 +113,23 @@ namespace Asgard.Tickets.Vodafone
                     }
                     else
                     {
-                        step1Panel.Visibility = Visibility.Collapsed;
-                        step2Panel.Visibility = Visibility.Visible;
+                        if (numar_existent.Text.Length < 9)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul nu conține 9 caractere";
+                                dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            step1Panel.Visibility = Visibility.Collapsed;
+                            step2Panel.Visibility = Visibility.Visible;
+                        }
                     }
                 }
             }
@@ -154,7 +184,7 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
-                        else if (!serie_sim.Text.StartsWith("8940"))
+                        else if (!serie_sim.Text.StartsWith("894010"))
                         {
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
@@ -162,6 +192,18 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM eronată";
                                 dialog.Descriere.Text = "Fiindca ai ales PrePay Orange, seria SIM trebuie să înceapă cu 8940100 / 894010.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
                             };
                             dialog.ShowDialog();
                             return;
@@ -210,7 +252,7 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
-                        else if (!serie_sim.Text.StartsWith("8940"))
+                        else if (!serie_sim.Text.StartsWith("89400"))
                         {
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
@@ -14881,6 +14923,7 @@ namespace Asgard.Tickets.Vodafone
                             break;
                         case "Red 15":
                             comboboxCostAbonament.Items.Add("11 EURO");
+                            comboboxCostAbonament.Items.Add("PROMO");
                             break;
                         case "Red 12":
                             comboboxCostAbonament.Items.Add("10 EURO");
@@ -14960,7 +15003,7 @@ namespace Asgard.Tickets.Vodafone
 
         private void ComboboxClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (client_comun_combo.Text == "Client nou")
+            if (comboboxClient.Text == "Client nou")
             {
                 TextNumarFirstPage.Text = "Numărul pe care s-a discutat";
             }
