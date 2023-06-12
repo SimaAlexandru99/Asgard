@@ -106,7 +106,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream3.Close();
-
             }
             catch (Exception ex)
             {
@@ -134,8 +133,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream4.Close();
-
-
             }
             catch (Exception ex)
             {
@@ -163,7 +160,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream5.Close();
-
             }
             catch (Exception ex)
             {
@@ -194,9 +190,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream6.Close();
-
-
-
             }
             catch (Exception ex)
             {
@@ -219,7 +212,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream7);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text+" "+prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
                 acroFields.SetField("localitate", localitate.Text);
                 acroFields.SetField("strada", strada.Text);
                 acroFields.SetField("numar", numarStrada.Text);

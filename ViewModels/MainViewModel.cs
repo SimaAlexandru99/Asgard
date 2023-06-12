@@ -52,6 +52,7 @@ namespace Asgard.ViewModels
                 CurrentUserAccount.Status = user.Status;
                 CurrentUserAccount.Name = user.Name;
                 CurrentUserAccount.LastName = user.LastName;
+                CurrentUserAccount.Departament = user.Departament;
             }
             else
             {

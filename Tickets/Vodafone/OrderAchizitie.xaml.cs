@@ -14675,14 +14675,13 @@ namespace Asgard.Tickets.Vodafone
                     dialog.Descriere.Text = "Te rog să treci și numărul de contact, acesta este obligatoriu.";
                 };
                 dialog.ShowDialog();
-
             }
             else
             {
                 var user = new MainViewModel();
                 string username = user.CurrentUserAccount.Username.ToString();
                 string email = user.CurrentUserAccount.Email.ToString();
-                string departament = user.CurrentUserAccount.Departament?.ToString() ?? "-";
+                string departament = user.CurrentUserAccount.Departament.ToString();
                 string emailAddress = "asgard@optimacall.ro";
                 string password = "Optima#321";
                 MimeMessage message = new MimeMessage
@@ -14843,7 +14842,7 @@ namespace Asgard.Tickets.Vodafone
                             comboboxAbonament.Items.Add("Red 15");
                             serie_sim.Clear();
                             break;
-                        case "Portare Abonament Digi":
+                        case "Portare Abonament Digi":
                             comboboxAbonament.Items.Add("Red 15");
                             serie_sim.Clear();
                             break;
