@@ -46,8 +46,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text);
-                acroFields.SetField("prenume", prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
 
                 pdfStamper.Close();
                 fileStream.Close();
@@ -73,8 +72,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream2);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text);
-                acroFields.SetField("prenume", prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
 
                 pdfStamper.Close();
                 fileStream2.Close();
@@ -100,8 +98,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream3);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text);
-                acroFields.SetField("prenume", prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
                 acroFields.SetField("HR", nume + " " + prenume);
 
                 pdfStamper.Close();
@@ -128,8 +125,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream4);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text);
-                acroFields.SetField("prenume", prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
 
                 pdfStamper.Close();
                 fileStream4.Close();
@@ -155,8 +151,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream5);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text);
-                acroFields.SetField("prenume", prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
 
                 pdfStamper.Close();
                 fileStream5.Close();
@@ -182,8 +177,7 @@ namespace Asgard.Tickets.HR
                 PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream6);
                 AcroFields acroFields = pdfStamper.AcroFields;
 
-                acroFields.SetField("nume", nameAngajat.Text);
-                acroFields.SetField("prenume", prenumeAngajat.Text);
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
                 acroFields.SetField("serieCI", serieCI.Text);
                 acroFields.SetField("numarCI", NumarCI.Text);
                 acroFields.SetField("dataT", dataAngajare.Text);
@@ -287,7 +281,6 @@ namespace Asgard.Tickets.HR
                 pdfStamper.Close();
                 fileStream9.Close();
 
-                MessageBox.Show("PDF salvat.");
             }
             catch (Exception ex)
             {
@@ -389,6 +382,90 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream12.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder13 = "Assets/HR";
+            string templateFileName13 = "13.Declaratie_pentru_indeplinirea_cerintelor_de_securitate_si_confidentialitate 1 ex.pdf";
+            string templatePath13 = Path.Combine(templateFolder13, templateFileName13);
+
+            string outputFolder13 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder13);
+
+            string newFileName13 = Path.Combine(outputFolder13, $"13.Declaratie_pentru_indeplinirea_cerintelor_de_securitate_si_confidentialitate 1 ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream13 = new FileStream(newFileName13, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath13);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream13);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+
+                pdfStamper.Close();
+                fileStream13.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder14 = "Assets/HR";
+            string templateFileName14 = "14.Fisa postului - Agent vanzari 2ex.pdf";
+            string templatePath14 = Path.Combine(templateFolder14, templateFileName14);
+
+            string outputFolder14 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder14);
+
+            string newFileName14 = Path.Combine(outputFolder14, $"14.Fisa postului - Agent vanzari 2ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream14 = new FileStream(newFileName14, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath14);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream14);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+
+                pdfStamper.Close();
+                fileStream14.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder15 = "Assets/HR";
+            string templateFileName15 = "15.Informare salariati_Final_TC_rev KPMG_23052018_Optima_revAS_28032019  2 ex.pdf";
+            string templatePath15 = Path.Combine(templateFolder15, templateFileName15);
+
+            string outputFolder15 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder15);
+
+            string newFileName15 = Path.Combine(outputFolder15, $"15.Informare salariati_Final_TC_rev KPMG_23052018_Optima_revAS_28032019  2 ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream15 = new FileStream(newFileName15, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath15);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream15);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+
+                pdfStamper.Close();
+                fileStream15.Close();
 
                 MessageBox.Show("PDF salvat.");
             }
