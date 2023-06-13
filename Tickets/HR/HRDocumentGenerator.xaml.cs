@@ -230,6 +230,166 @@ namespace Asgard.Tickets.HR
                 pdfStamper.Close();
                 fileStream7.Close();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder8 = "Assets/HR";
+            string templateFileName8 = "8.Consimtamant salariati prelucrare acordare beneficii_draft_OPTIMA 2 ex.pdf";
+            string templatePath8 = Path.Combine(templateFolder8, templateFileName8);
+
+            string outputFolder8 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder8);
+
+            string newFileName8 = Path.Combine(outputFolder8, $"8.Consimtamant salariati prelucrare acordare beneficii_draft_OPTIMA 2 ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream8 = new FileStream(newFileName8, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath8);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream8);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("cnp", cnpAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+
+                pdfStamper.Close();
+                fileStream8.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder9 = "Assets/HR";
+            string templateFileName9 = "9.Consimtamant salariati prelucrare imagine_foto_video_final - Template OP 2 ex.pdf";
+            string templatePath9 = Path.Combine(templateFolder9, templateFileName9);
+
+            string outputFolder9 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder9);
+
+            string newFileName9 = Path.Combine(outputFolder9, $"9.Consimtamant salariati prelucrare imagine_foto_video_final - Template OP 2 ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream9 = new FileStream(newFileName9, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath9);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream9);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+
+                pdfStamper.Close();
+                fileStream9.Close();
+
+                MessageBox.Show("PDF salvat.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder10 = "Assets/HR";
+            string templateFileName10 = "10.Declaratie CAS.pdf";
+            string templatePath10 = Path.Combine(templateFolder10, templateFileName10);
+
+            string outputFolder10 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder10);
+
+            string newFileName10 = Path.Combine(outputFolder10, $"10.Declaratie CAS-{nameAngajat.Text}.pdf");
+            FileStream fileStream10 = new FileStream(newFileName10, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath10);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream10);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+
+                pdfStamper.Close();
+                fileStream10.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder11 = "Assets/HR";
+            string templateFileName11 = "11.Declaratie la angajare 1 ex.pdf";
+            string templatePath11 = Path.Combine(templateFolder11, templateFileName11);
+
+            string outputFolder11 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder11);
+
+            string newFileName11 = Path.Combine(outputFolder11, $"11.Declaratie la angajare 1 ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream11 = new FileStream(newFileName11, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath11);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream11);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+                acroFields.SetField("cnp", cnpAngajat.Text);
+                acroFields.SetField("judet", judet.Text);
+                acroFields.SetField("localitate", localitate.Text);
+                acroFields.SetField("strada", strada.Text);
+                acroFields.SetField("numar", numarStrada.Text);
+                acroFields.SetField("bloc", bloc.Text);
+                acroFields.SetField("scara", scara.Text);
+                acroFields.SetField("apartament", apartament.Text);
+
+                pdfStamper.Close();
+                fileStream11.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            string templateFolder12 = "Assets/HR";
+            string templateFileName12 = "12.Declaratie part-time 1ex.pdf";
+            string templatePath12 = Path.Combine(templateFolder12, templateFileName12);
+
+            string outputFolder12 = Path.Combine(desktopPath, folderName);
+            Directory.CreateDirectory(outputFolder12);
+
+            string newFileName12 = Path.Combine(outputFolder12, $"12.Declaratie part-time 1ex-{nameAngajat.Text}.pdf");
+            FileStream fileStream12 = new FileStream(newFileName12, FileMode.Create, FileAccess.Write);
+
+            try
+            {
+                PdfReader pdfReader = new PdfReader(templatePath12);
+                PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream12);
+                AcroFields acroFields = pdfStamper.AcroFields;
+
+                acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
+                acroFields.SetField("cnp", cnpAngajat.Text);
+                acroFields.SetField("judet", judet.Text);
+                acroFields.SetField("localitate", localitate.Text);
+                acroFields.SetField("strada", strada.Text);
+                acroFields.SetField("numar", numarStrada.Text);
+                acroFields.SetField("bloc", bloc.Text);
+                acroFields.SetField("scara", scara.Text);
+                acroFields.SetField("apartament", apartament.Text);
+                acroFields.SetField("serieCI", serieCI.Text);
+                acroFields.SetField("numarCI", NumarCI.Text);
+
+                pdfStamper.Close();
+                fileStream12.Close();
+
                 MessageBox.Show("PDF salvat.");
             }
             catch (Exception ex)
