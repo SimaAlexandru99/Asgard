@@ -467,11 +467,87 @@ namespace Asgard.Tickets.HR
                 pdfStamper.Close();
                 fileStream15.Close();
 
-                MessageBox.Show("PDF salvat.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+
+            if(ComboProiect.Text == "Vodafone")
+            {
+                string templateFolder16 = "Assets/HR";
+                string templateFileName16 = "16.DPA- GDPR clienti VDF - 2 ex.pdf";
+                string templatePath16 = Path.Combine(templateFolder16, templateFileName16);
+
+                string outputFolder16 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder16);
+
+                string newFileName16 = Path.Combine(outputFolder16, $"16.DPA- GDPR clienti VDF - 2 ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream16 = new FileStream(newFileName16, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath16);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream16);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("seriaCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream16.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+
+            else if(ComboFunctie.Text == "Telekom")
+            {
+                string templateFolder17 = "Assets/HR";
+                string templateFileName17 = "17.DPA- GDPR clienti TLK - 2 ex.pdf";
+                string templatePath17 = Path.Combine(templateFolder17, templateFileName17);
+
+                string outputFolder17 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder17);
+
+                string newFileName17 = Path.Combine(outputFolder17, $"17.DPA- GDPR clienti TLK - 2 ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream17 = new FileStream(newFileName17, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath17);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream17);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("seriaCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream17.Close();
+
+                    MessageBox.Show("PDF salvat.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
             }
         }
     }

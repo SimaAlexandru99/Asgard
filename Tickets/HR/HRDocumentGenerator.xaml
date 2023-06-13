@@ -215,11 +215,12 @@
 						>
 				<ComboBoxItem Content="Vodafone" />
 				<ComboBoxItem Content="Telekom" />
-				<ComboBoxItem Content="Orange" />
 				<ComboBoxItem Content="CEC" />
 				<ComboBoxItem Content="BCR" />
 				<ComboBoxItem Content="EON" />
-			</ComboBox>
+					<ComboBoxItem Content="Orange" />
+					<ComboBoxItem Content="OROC" />
+				</ComboBox>
 		</StackPanel>
 		<StackPanel
 						Grid.Row="7"
