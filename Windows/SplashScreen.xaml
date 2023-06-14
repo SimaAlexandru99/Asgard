@@ -7,6 +7,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:viewModel="clr-namespace:Asgard.ViewModels"
         xmlns:local="clr-namespace:Asgard.Windows"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
         AllowsTransparency="True"
         Background="Transparent"
@@ -22,6 +23,7 @@
 
             <StackPanel Grid.Row="0" Margin="0 0 0 0" VerticalAlignment="Center">
                 <Image Source="/Assets/AsgardLogoBlack.png" Height="210" Width="210" Margin="0,0,0,0" Stretch="Fill"/>
+                <ui:ProgressRing IsIndeterminate="True" />
                 <ProgressBar Name="progressBar" Value="0" BorderThickness="2" Height="100" Width="100" IsIndeterminate="True" Foreground="{StaticResource FocusColor}" Margin="0,0,0,0" Style="{StaticResource MaterialDesignCircularProgressBar}"/>
                 <TextBlock Text="Pregătim Asgard pentru tine!" FontSize="20" FontFamily="/Fonts/#Rubik Bold" Foreground="{DynamicResource TextColor}"  Margin="0 30 0 5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="TextUser" Text="Buna X, Bine ai revenit!" FontSize="15" FontFamily="/Fonts/#Rubik Light" Foreground="{DynamicResource TextColor}"  Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>

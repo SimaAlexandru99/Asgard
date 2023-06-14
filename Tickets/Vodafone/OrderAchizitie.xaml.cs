@@ -90,6 +90,17 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
+                        else if (!numar_existent.Text.StartsWith("7"))
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de contact este incorect";
+                                dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
+                            };
+                            dialog.ShowDialog();
+                        }
                         else
                         {
                             step1Panel.Visibility = Visibility.Collapsed;
@@ -124,6 +135,17 @@ namespace Asgard.Tickets.Vodafone
                             };
                             dialog.ShowDialog();
                             return;
+                        }
+                        else if (!numar_existent.Text.StartsWith("7"))
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de contact este incorect";
+                                dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
+                            };
+                            dialog.ShowDialog();
                         }
                         else
                         {
@@ -14718,6 +14740,17 @@ namespace Asgard.Tickets.Vodafone
                 };
                 dialog.ShowDialog();
             }
+            else if (!numar_contact_text.Text.StartsWith("7"))
+            {
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Numărul de contact este incorect";
+                    dialog.Descriere.Text = "Numărul de contact trebuie să înceapă cu 7.";
+                };
+                dialog.ShowDialog();
+            }
             else
             {
                 var user = new MainViewModel();
@@ -14733,6 +14766,10 @@ namespace Asgard.Tickets.Vodafone
                 message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
                 message.To.Add(MailboxAddress.Parse(email));
                 message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
+                if (departament == "MNP1")
+                {
+                    message.To.Add(MailboxAddress.Parse("florin.dascalu@optimacall.ro"));
+                }
                 message.To.Add(MailboxAddress.Parse("vanzareachizitie@optimacall.ro"));
                 message.Body = new TextPart("plain")
                 {
@@ -15003,9 +15040,17 @@ namespace Asgard.Tickets.Vodafone
 
         private void ComboboxClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboboxClient.Text == "Client nou")
+            if (string.IsNullOrEmpty(comboboxClient.Text))
+            {
+                TextNumarFirstPage.Text = "Număr existent (paperless)";
+            }
+            else if (comboboxClient.Text == "Client nou")
             {
                 TextNumarFirstPage.Text = "Numărul pe care s-a discutat";
+            }
+            else if (comboboxClient.Text == "Client existent")
+            {
+                TextNumarFirstPage.Text = "Număr existent (paperless)";
             }
             else
             {
