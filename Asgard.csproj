@@ -460,6 +460,12 @@
     <Content Include="Assets\HR\9.Consimtamant salariati prelucrare imagine_foto_video_final - Template OP 2 ex.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\HR\21. DPA- GDPR clienti OROC - 2ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HR\22. DPA- GDPR clienti Orange - 2ex.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="stylecop1.json" />
     <None Include="stylecop2.json" />
     <None Include="stylecop3.json" />

@@ -493,7 +493,7 @@ namespace Asgard.Tickets.HR
 
                     acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
                     acroFields.SetField("localitate", localitate.Text);
-                    acroFields.SetField("seriaCI", serieCI.Text);
+                    acroFields.SetField("serieCI", serieCI.Text);
                     acroFields.SetField("numarCI", NumarCI.Text);
                     acroFields.SetField("emis", emisDe.Text);
                     acroFields.SetField("deLa", valabilitateCI.Text);
@@ -511,7 +511,7 @@ namespace Asgard.Tickets.HR
                 }
             }
 
-            else if(ComboFunctie.Text == "Telekom")
+            else if(ComboProiect.Text == "Telekom")
             {
                 string templateFolder17 = "Assets/HR";
                 string templateFileName17 = "17.DPA- GDPR clienti TLK - 2 ex.pdf";
@@ -531,7 +531,7 @@ namespace Asgard.Tickets.HR
 
                     acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
                     acroFields.SetField("localitate", localitate.Text);
-                    acroFields.SetField("seriaCI", serieCI.Text);
+                    acroFields.SetField("serieCI", serieCI.Text);
                     acroFields.SetField("numarCI", NumarCI.Text);
                     acroFields.SetField("emis", emisDe.Text);
                     acroFields.SetField("deLa", valabilitateCI.Text);
@@ -542,13 +542,211 @@ namespace Asgard.Tickets.HR
                     pdfStamper.Close();
                     fileStream17.Close();
 
-                    MessageBox.Show("PDF salvat.");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
+
+            else if(ComboProiect.Text == "CEC")
+            {
+                string templateFolder18 = "Assets/HR";
+                string templateFileName18 = "20.DPA- GDPR clienti CEC - 2 ex.pdf";
+                string templatePath18 = Path.Combine(templateFolder18, templateFileName18);
+
+                string outputFolder18 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder18);
+
+                string newFileName18 = Path.Combine(outputFolder18, $"20.DPA- GDPR clienti CEC - 2 ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream18 = new FileStream(newFileName18, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath18);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream18);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("serieCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream18.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+
+            else if (ComboProiect.Text == "BCR")
+            {
+                string templateFolder19 = "Assets/HR";
+                string templateFileName19 = "18.DPA- GDPR clienti BCR - 2 ex.pdf";
+                string templatePath19 = Path.Combine(templateFolder19, templateFileName19);
+
+                string outputFolder19 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder19);
+
+                string newFileName19 = Path.Combine(outputFolder19, $"18.DPA- GDPR clienti BCR - 2 ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream19 = new FileStream(newFileName19, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath19);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream19);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("seriaCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream19.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+
+            else if(ComboProiect.Text == "EON")
+            {
+                string templateFolder20 = "Assets/HR";
+                string templateFileName20 = "19.DPA- GDPR clienti EON - 2 ex.pdf";
+                string templatePath20 = Path.Combine(templateFolder20, templateFileName20);
+
+                string outputFolder20 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder20);
+
+                string newFileName20 = Path.Combine(outputFolder20, $"19.DPA- GDPR clienti EON - 2 ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream20 = new FileStream(newFileName20, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath20);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream20);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("serieCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream20.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+
+            else if (ComboProiect.Text == "Orange")
+            {
+                string templateFolder21 = "Assets/HR";
+                string templateFileName21 = "22. DPA- GDPR clienti Orange - 2ex.pdf";
+                string templatePath21 = Path.Combine(templateFolder21, templateFileName21);
+
+                string outputFolder21 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder21);
+
+                string newFileName21 = Path.Combine(outputFolder21, $"22. DPA- GDPR clienti Orange - 2ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream21 = new FileStream(newFileName21, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath21);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream21);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("serieCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream21.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+
+            else if(ComboProiect.Text == "OROC")
+            {
+                string templateFolder22 = "Assets/HR";
+                string templateFileName22 = "21. DPA- GDPR clienti OROC - 2ex.pdf";
+                string templatePath22 = Path.Combine(templateFolder22, templateFileName22);
+
+                string outputFolder22 = Path.Combine(desktopPath, folderName);
+                Directory.CreateDirectory(outputFolder22);
+
+                string newFileName22 = Path.Combine(outputFolder22, $"21. DPA- GDPR clienti OROC - 2ex-{nameAngajat.Text}.pdf");
+                FileStream fileStream22 = new FileStream(newFileName22, FileMode.Create, FileAccess.Write);
+
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(templatePath22);
+                    PdfStamper pdfStamper = new PdfStamper(pdfReader, fileStream22);
+                    AcroFields acroFields = pdfStamper.AcroFields;
+
+                    acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                    acroFields.SetField("localitate", localitate.Text);
+                    acroFields.SetField("serieCI", serieCI.Text);
+                    acroFields.SetField("numarCI", NumarCI.Text);
+                    acroFields.SetField("emis", emisDe.Text);
+                    acroFields.SetField("deLa", valabilitateCI.Text);
+                    acroFields.SetField("dataT", dataAngajare.Text);
+                    acroFields.SetField("cnp", cnpAngajat.Text);
+
+
+                    pdfStamper.Close();
+                    fileStream22.Close();
+
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+            CustomControls.Prompt dialog = new CustomControls.Prompt();
+            dialog.Loaded += (s, ea) =>
+            {
+                dialog.Title = "Succes";
+                dialog.Status.Text = "Toate pdf-urile au fost generate";
+                dialog.Descriere.Text = "A fost creat un folder pe desktop unde se gasesc toate fisierele completate.";
+            };
+            dialog.ShowDialog();
         }
     }
 }
