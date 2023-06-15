@@ -126,6 +126,7 @@ namespace Asgard.Tickets.HR
                 AcroFields acroFields = pdfStamper.AcroFields;
 
                 acroFields.SetField("nume", nameAngajat.Text + " " + prenumeAngajat.Text);
+                acroFields.SetField("dataT", dataAngajare.Text);
 
                 pdfStamper.Close();
                 fileStream4.Close();
