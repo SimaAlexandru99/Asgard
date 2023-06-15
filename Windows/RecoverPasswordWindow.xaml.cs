@@ -163,7 +163,7 @@ namespace Asgard.Windows
                 {
                     Panel1.Visibility = Visibility.Collapsed;
                     Panel2.Visibility = Visibility.Visible;
-                    Button.Content = "Resetează parola";
+                    Button.Content = "Recuperează parola";
                 }
                 else if (ForgotUsernameRadioButton.IsChecked == true)
                 {
