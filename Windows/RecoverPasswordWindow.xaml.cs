@@ -245,7 +245,7 @@ namespace Asgard.Windows
                         {
                             dialog.Title = "Eroare";
                             dialog.Status.Text = "Mail-ul nu a fost trimis";
-                            dialog.Descriere.Text = "Nu am putut trimite un mail cu parola, te rog sa verifici toate campurile si sa reincerci.";
+                            dialog.Descriere.Text = "Nu am gasit nici un cont aferent adresei de email completate de tine. Te rog sa iei legatura cu departamentul IT.";
                         };
                         dialog.ShowDialog();
                     }
