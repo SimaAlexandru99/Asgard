@@ -5,7 +5,9 @@
 namespace Asgard.Windows
 {
     using System;
+    using System.Data.SqlClient;
     using System.Runtime.InteropServices;
+    using System.Security.Authentication;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -13,6 +15,10 @@ namespace Asgard.Windows
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using Asgard.Repositories;
+    using Asgard.ViewModels;
+    using MailKit;
+    using MailKit.Net.Smtp;
+    using MimeKit;
     using MySql.Data.MySqlClient;
 
     /// <summary>
@@ -20,9 +26,11 @@ namespace Asgard.Windows
     /// </summary>
     public partial class RecoverPasswordWindow : Window
     {
+        string userpassword;
         // int count = 0;
         public RecoverPasswordWindow()
         {
+
             InitializeComponent();
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
@@ -61,8 +69,7 @@ namespace Asgard.Windows
 
                 txtUser.Height = 40;
                 txtUser2.Height = 40;
-                parolaConfirm.Height = 40;
-                parolaNoua.Height = 40;
+               
 
                 TextComeBack.FontSize = 10;
                 ButtonComeback.FontSize = 10;
@@ -171,72 +178,96 @@ namespace Asgard.Windows
             else if (Panel2.Visibility == Visibility.Visible)
             {
                 string username = txtUser.Text;
-                string newPassword = parolaNoua.Password;
-                string confirmPassword = parolaConfirm.Password;
 
-                string sql = "UPDATE users SET Password=@NewPassword WHERE Username=@Username";
-
-                if (username != null && newPassword == confirmPassword)
+                string emailAddress = "asgard@optimacall.ro";
+                string password = "Optima#321";
+                MimeMessage message = new MimeMessage
                 {
-                    using (var connection = RepositoryBase.GetConnectionPublic())
+                    Subject = "Resetare parola ASGARD ",
+                };
+                message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
+                message.To.Add(MailboxAddress.Parse(username));
+                string query = "SELECT Password FROM users WHERE Email = @Email";
+                using (MySqlConnection connection = RepositoryBase.GetConnectionPublic())
+                {
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        MySqlCommand command = new MySqlCommand(sql, connection);
-                        command.Parameters.AddWithValue("@NewPassword", newPassword);
-                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Email", username);
 
-                        int rowsAffected = command.ExecuteNonQuery();
-                        connection.Close();
-
-                        if (rowsAffected > 0)
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            // Display the username in the Prompt
-                            CustomControls.Prompt dialog = new CustomControls.Prompt();
-                            dialog.Loaded += (s, ea) =>
+                            if (reader.Read())
                             {
-                                dialog.Title = "Succes";
-                                dialog.Status.Text = "Parola a fost resetată";
-                                dialog.Descriere.Text = "Ai resetat parola cu succes, revino la pagina de logare și intră în cont cu noua parolă";
-                            };
-                            dialog.ShowDialog();
-                        }
-                        else
-                        {
-                            // Display the username in the Prompt
-                            CustomControls.Prompt dialog = new CustomControls.Prompt();
-                            dialog.Loaded += (s, ea) =>
+                                userpassword = reader.GetString(0);
+                                // Use the retrieved password to send the email or perform other operations
+                            }
+                            else
                             {
-                                dialog.Title = "Eroare";
-                                dialog.Status.Text = "Parola nu a fost resetată";
-                                dialog.Descriere.Text = "Nu ai băgat username-ul corect, te rog sa reîncerci";
-                            };
-                            dialog.ShowDialog();
+                                // Handle the case when the user email is not found in the database
+                            }
                         }
                     }
                 }
-                else if (username != null && newPassword != confirmPassword)
+                if (username != string.Empty && username.Contains("@optimacall.ro"))
                 {
-                    // Display the username in the Prompt
+                  
+
+                    message.Body = new TextPart("plain")
+                    {
+                        Text = @"Salut," + "\r\n" + "\r\n" + "Parola aferanta contului tau este: " + userpassword + "\r\n" + "\r\n" + "O zi buna," + "\r\n" + "Echipa ASGARD",
+                    
+                    };
+                    SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
+                    try
+                    {
+                        client.CheckCertificateRevocation = false;
+                        client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback;
+                        client.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Ssl2 | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
+                        client.Connect("zmail.optimacall.ro", 465, true);
+                        client.Authenticate(emailAddress, password);
+                        client.Send(message);
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Succes";
+                            dialog.Status.Text = "Parola a fost trimisa cu succes.";
+                            dialog.Descriere.Text = "Urmeaza sa primesti parola pe adresa de mail completata mai sus.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Mail-ul nu a fost trimis";
+                            dialog.Descriere.Text = "Nu am putut trimite un mail cu parola, te rog sa verifici toate campurile si sa reincerci.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                    finally
+                    {
+                        client.Disconnect(true);
+                        client.Dispose();
+                    }
+
+                }
+                else if(username == string.Empty || !username.Contains("@optimacall.ro"))
+                {
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
                     {
                         dialog.Title = "Eroare";
-                        dialog.Status.Text = "Parola nu a fost resetată";
-                        dialog.Descriere.Text = "Parolele nu coincid, te rog sa mai încerci";
+                        dialog.Status.Text = "Mail-ul nu a fost trimis";
+                        dialog.Descriere.Text = "Nu am putut trimite un mail cu parola, este necesar sa folosesti o adresa de mail de genul exemplu@optimacall.ro.";
                     };
                     dialog.ShowDialog();
                 }
-                else if (username == null && newPassword == confirmPassword)
-                {
-                    // Display the username in the Prompt
-                    CustomControls.Prompt dialog = new CustomControls.Prompt();
-                    dialog.Loaded += (s, ea) =>
-                    {
-                        dialog.Title = "Eroare";
-                        dialog.Status.Text = "Parola nu a fost resetată";
-                        dialog.Descriere.Text = "Te rog să introduci username-ul pentru a putea reseta parola.";
-                    };
-                    dialog.ShowDialog();
-                }
+
             }
             else if (Panel3.Visibility == Visibility.Visible)
             {
