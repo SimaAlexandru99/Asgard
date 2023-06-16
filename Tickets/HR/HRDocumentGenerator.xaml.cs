@@ -224,7 +224,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream7.Close();
-
             }
             catch (Exception ex)
             {
@@ -253,7 +252,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream8.Close();
-
             }
             catch (Exception ex)
             {
@@ -281,7 +279,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream9.Close();
-
             }
             catch (Exception ex)
             {
@@ -309,7 +306,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream10.Close();
-
             }
             catch (Exception ex)
             {
@@ -345,7 +341,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream11.Close();
-
             }
             catch (Exception ex)
             {
@@ -383,7 +378,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream12.Close();
-
             }
             catch (Exception ex)
             {
@@ -411,7 +405,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream13.Close();
-
             }
             catch (Exception ex)
             {
@@ -439,7 +432,6 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream14.Close();
-
             }
             catch (Exception ex)
             {
@@ -467,14 +459,13 @@ namespace Asgard.Tickets.HR
 
                 pdfStamper.Close();
                 fileStream15.Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
 
-            if(ComboProiect.Text == "Vodafone")
+            if (ComboProiect.Text == "Vodafone")
             {
                 string templateFolder16 = "Assets/HR";
                 string templateFileName16 = "16.DPA- GDPR clienti VDF - 2 ex.pdf";
@@ -501,18 +492,15 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream16.Close();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
-
-            else if(ComboProiect.Text == "Telekom")
+            else if (ComboProiect.Text == "Telekom")
             {
                 string templateFolder17 = "Assets/HR";
                 string templateFileName17 = "17.DPA- GDPR clienti TLK - 2 ex.pdf";
@@ -539,18 +527,15 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream17.Close();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
-
-            else if(ComboProiect.Text == "CEC")
+            else if (ComboProiect.Text == "CEC")
             {
                 string templateFolder18 = "Assets/HR";
                 string templateFileName18 = "20.DPA- GDPR clienti CEC - 2 ex.pdf";
@@ -577,17 +562,14 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream18.Close();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
-
             else if (ComboProiect.Text == "BCR")
             {
                 string templateFolder19 = "Assets/HR";
@@ -615,18 +597,15 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream19.Close();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
-
-            else if(ComboProiect.Text == "EON")
+            else if (ComboProiect.Text == "EON")
             {
                 string templateFolder20 = "Assets/HR";
                 string templateFileName20 = "19.DPA- GDPR clienti EON - 2 ex.pdf";
@@ -653,17 +632,14 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream20.Close();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
-
             else if (ComboProiect.Text == "Orange")
             {
                 string templateFolder21 = "Assets/HR";
@@ -691,18 +667,15 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream21.Close();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
-
-            else if(ComboProiect.Text == "OROC")
+            else if (ComboProiect.Text == "OROC")
             {
                 string templateFolder22 = "Assets/HR";
                 string templateFileName22 = "21. DPA- GDPR clienti OROC - 2ex.pdf";
@@ -729,17 +702,15 @@ namespace Asgard.Tickets.HR
                     acroFields.SetField("dataT", dataAngajare.Text);
                     acroFields.SetField("cnp", cnpAngajat.Text);
 
-
                     pdfStamper.Close();
                     fileStream22.Close();
-
-                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
+
             CustomControls.Prompt dialog = new CustomControls.Prompt();
             dialog.Loaded += (s, ea) =>
             {
