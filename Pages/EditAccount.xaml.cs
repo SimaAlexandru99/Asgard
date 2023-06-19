@@ -1,24 +1,17 @@
-﻿using Asgard.ViewModels;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿// <copyright file="EditAccount.xaml.cs" company="eOverArt Marketing Agency">
+// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+// </copyright>
 
 namespace Asgard.Pages
 {
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using Asgard.ViewModels;
+    using MySql.Data.MySqlClient;
+
     /// <summary>
-    /// Interaction logic for EditAccount.xaml
+    /// Interaction logic for EditAccount.xaml.
     /// </summary>
     public partial class EditAccount : Page
     {
@@ -36,11 +29,7 @@ namespace Asgard.Pages
             UsernameTextbox.Text = user.CurrentUserAccount.Username.ToString();
             ProiectTextBox.Text = user.CurrentUserAccount.Proiect.ToString();
             SubProiectTextBox.Text = user.CurrentUserAccount.Subproiect.ToString();
-
-
         }
-
-       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -71,14 +60,12 @@ namespace Asgard.Pages
                         command.ExecuteNonQuery();
                     }
                 }
-
-
-
                 catch (Exception ex)
                 {
                     // Display an error dialog with the exception message
                     MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+
                 connection.Close();
             }
 
@@ -90,8 +77,6 @@ namespace Asgard.Pages
                 dialog.Descriere.Text = "Am actualizat toate datele introduse de tine";
             };
             dialog.ShowDialog();
-
         }
     }
-    
 }

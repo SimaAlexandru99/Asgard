@@ -26,7 +26,7 @@ namespace Asgard
             {
                 if (loginView.IsVisible == false && loginView.IsLoaded)
                 {
-                    Windows.SplashScreen splash = new Windows.SplashScreen();
+                    Insider.LoadingScreen splash = new Insider.LoadingScreen();
                     splash.Show();
                     loginView.Close();
                 }

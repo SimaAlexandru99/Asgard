@@ -26,11 +26,10 @@ namespace Asgard.Windows
     /// </summary>
     public partial class RecoverPasswordWindow : Window
     {
-        string userpassword;
-        // int count = 0;
+        private string userpassword;
+
         public RecoverPasswordWindow()
         {
-
             InitializeComponent();
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
@@ -69,7 +68,6 @@ namespace Asgard.Windows
 
                 txtUser.Height = 40;
                 txtUser2.Height = 40;
-               
 
                 TextComeBack.FontSize = 10;
                 ButtonComeback.FontSize = 10;
@@ -190,7 +188,6 @@ namespace Asgard.Windows
                 string query = "SELECT Password FROM users WHERE Email = @Email";
                 using (MySqlConnection connection = RepositoryBase.GetConnectionPublic())
                 {
-
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Email", username);
@@ -200,6 +197,7 @@ namespace Asgard.Windows
                             if (reader.Read())
                             {
                                 userpassword = reader.GetString(0);
+
                                 // Use the retrieved password to send the email or perform other operations
                             }
                             else
@@ -209,14 +207,12 @@ namespace Asgard.Windows
                         }
                     }
                 }
+
                 if (username != string.Empty && username.Contains("@optimacall.ro"))
                 {
-                  
-
                     message.Body = new TextPart("plain")
                     {
                         Text = @"Salut," + "\r\n" + "\r\n" + "Parola aferanta contului tau este: " + userpassword + "\r\n" + "\r\n" + "O zi buna," + "\r\n" + "Echipa ASGARD",
-                    
                     };
                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                     try
@@ -254,9 +250,8 @@ namespace Asgard.Windows
                         client.Disconnect(true);
                         client.Dispose();
                     }
-
                 }
-                else if(username == string.Empty || !username.Contains("@optimacall.ro"))
+                else if (username == string.Empty || !username.Contains("@optimacall.ro"))
                 {
                     CustomControls.Prompt dialog = new CustomControls.Prompt();
                     dialog.Loaded += (s, ea) =>
@@ -267,7 +262,6 @@ namespace Asgard.Windows
                     };
                     dialog.ShowDialog();
                 }
-
             }
             else if (Panel3.Visibility == Visibility.Visible)
             {

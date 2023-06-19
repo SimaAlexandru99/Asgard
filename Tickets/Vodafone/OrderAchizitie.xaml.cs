@@ -12,6 +12,7 @@ namespace Asgard.Tickets.Vodafone
     using System.Text.RegularExpressions;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Input;
     using Asgard.Repositories;
     using Asgard.ViewModels;
     using MailKit;
@@ -72,6 +73,18 @@ namespace Asgard.Tickets.Vodafone
                             dialog.Title = "Eroare";
                             dialog.Status.Text = "Nu am putut înainta";
                             dialog.Descriere.Text = "Nu ai putut înainta, verifică toate câmpurile înainte de a reîncerca";
+                        };
+                        dialog.ShowDialog();
+                        return;
+                    }
+                    else if (serie.Text.Length < 8)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Serie caractere";
+                            dialog.Descriere.Text = "Serie incorecta, trebuie sa contina 8 caracter, ex. ZV4XXXXX";
                         };
                         dialog.ShowDialog();
                         return;
@@ -16075,6 +16088,14 @@ namespace Asgard.Tickets.Vodafone
         {
             step2Panel.Visibility = Visibility.Visible;
             stepMultiple2.Visibility = Visibility.Collapsed; // Close the popup
+        }
+
+        private void Serie_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

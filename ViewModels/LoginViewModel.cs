@@ -127,7 +127,7 @@ namespace Asgard.ViewModels
 
                     var user = new MainViewModel();
                     var main = new PrimaryWindow();
-                    var splash = new Windows.SplashScreen();
+                    var splash = new Insider.LoadingScreen();
                     splash.ShowDialog();
                 }
                 else
