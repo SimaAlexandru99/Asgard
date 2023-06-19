@@ -298,8 +298,8 @@
 												Style="{StaticResource ProfileMenu}"
 												Click="MenuItem_Click" />
 												<MenuItem Header="Contul meu"
-												Style="{StaticResource ProfileMenu}"
-												Click="MenuItem_Click" />
+												Style="{StaticResource ProfileMenu}" Click="Contul_meu_Click"
+												/>
 												<MenuItem Header="Setări"
 												Style="{StaticResource ProfileMenu}"
 												Click="MenuItem_Click" />

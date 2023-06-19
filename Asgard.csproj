@@ -132,6 +132,9 @@
     <Compile Include="Pages\ComingSoon.xaml.cs">
       <DependentUpon>ComingSoon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EditAccount.xaml.cs">
+      <DependentUpon>EditAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FrontPage.xaml.cs">
       <DependentUpon>FrontPage.xaml</DependentUpon>
     </Compile>
@@ -264,6 +267,10 @@
     <Page Include="Pages\ComingSoon.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EditAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\FrontPage.xaml">
       <Generator>MSBuild:Compile</Generator>

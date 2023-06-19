@@ -303,5 +303,10 @@ namespace Asgard
         {
             Main.Content = new Pages.RaportsGenerator();
         }
+
+        private void Contul_meu_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.EditAccount();
+        }
     }
 }
