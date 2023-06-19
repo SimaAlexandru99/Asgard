@@ -6,6 +6,7 @@ namespace Asgard.Insider
 {
     using System.Threading.Tasks;
     using System.Windows;
+    using Asgard.ViewModels;
 
     /// <summary>
     /// Interaction logic for LoadingScreen.xaml.
@@ -15,6 +16,10 @@ namespace Asgard.Insider
         public LoadingScreen()
         {
             InitializeComponent();
+
+            var user = new MainViewModel();
+            string last = user.CurrentUserAccount.Name.ToString();
+            TextUser.Text = "Bună " + last + ", Bine ai revenit!";
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
