@@ -3,9 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     Title="Gestiune"
+	  Background="{DynamicResource BackgroundColor}"
     SizeChanged="Page_SizeChanged">
     <ScrollViewer HorizontalScrollBarVisibility="Hidden" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-        <Grid Margin="20,0,50,0">
+		<Grid Margin="20,0,50,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
                 <RowDefinition Height="*" />
@@ -100,7 +101,8 @@
                                       CanUserAddRows="False"
                                       IsReadOnly="True"
                                       SnapsToDevicePixels="True"
-                                      Grid.ColumnSpan="2">
+                                      Grid.ColumnSpan="2"
+										  Background="Transparent">
                                     <DataGrid.ColumnHeaderStyle>
                                         <Style TargetType="{x:Type DataGridColumnHeader}">
                                             <Setter Property="Foreground" Value="{DynamicResource TextColor}" />

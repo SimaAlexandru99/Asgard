@@ -28,19 +28,22 @@
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<StackPanel Grid.Column="0" Grid.Row="0">
-		<TextBlock Text="Data start"/>
-			<DatePicker x:Name="Data_start"/>
+		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="20">
+			<TextBlock Text="Export raspunsuri CEC" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Montserrat-ExtraBoldItalic" FontSize="30" HorizontalAlignment="Left" FontWeight="Bold" VerticalAlignment="Center" Margin="0 20 0 30"/>
 		</StackPanel>
-		<StackPanel Grid.Column="0" Grid.Row="1">
-			<TextBlock Text="Data final"/>
-			<DatePicker x:Name="Data_final" VerticalAlignment="Top"/>
+		<StackPanel Grid.Column="0" Grid.Row="1" Margin="20" HorizontalAlignment="Left">
+			<TextBlock Text="Data start" FontWeight="Bold" Foreground="{DynamicResource TextColor}"/>
+			<DatePicker x:Name="Data_start" Margin="0 5 0 0" Height="36" Width="250" />
 		</StackPanel>
-		<StackPanel Grid.Column="0" Grid.Row="2">
-			<Button Content="Generara raport" Click="GenerateReportButton_Click" />
+		<StackPanel Grid.Column="0" Grid.Row="2" Margin="20" HorizontalAlignment="Left">
+			<TextBlock Text="Data final" FontWeight="Bold" Foreground="{DynamicResource TextColor}"/>
+			<DatePicker x:Name="Data_final" Margin="0 5 0 0" Height="36" Width="250"/>
+		</StackPanel>
+		<StackPanel Grid.Column="0" Grid.Row="3" Margin="20">
+			<Button Content="Generara raport" Click="GenerateReportButton_Click" Style="{StaticResource SendButton}" Height="35" Width="134" HorizontalAlignment="Left" Cursor="Arrow"/>
 
 		</StackPanel>
-		
+
 	</Grid>
 
 </Page>
