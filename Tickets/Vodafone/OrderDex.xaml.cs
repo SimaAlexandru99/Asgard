@@ -14107,6 +14107,18 @@ namespace Asgard.Tickets.Vodafone
                             emailClient.Text = "-";
                         }
                     }
+                    else if (comboAsigurare.Text == string.Empty)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Probleme la asigurare";
+                            dialog.Descriere.Text = "Nu ai specificat dacă se dorește asigurare";
+                        };
+                        dialog.ShowDialog();
+                        return;
+                    }
 
                     message.Body = new TextPart("plain")
                     {

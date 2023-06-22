@@ -705,7 +705,6 @@
                         Grid.Column="2">
                         <TextBlock Text="Preț de listă (Euro)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
-                        PreviewTextInput="Text_PreviewTextInput"
                         x:Name="cost_total"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
                             <Binding
@@ -742,7 +741,6 @@
                         Grid.Column="4">
                         <TextBlock Text="Avans (Lei)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
-                        PreviewTextInput="Text_PreviewTextInput"
                         x:Name="avans"
                         Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
                             <Binding
