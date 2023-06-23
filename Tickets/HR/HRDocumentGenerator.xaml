@@ -26,10 +26,14 @@
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
 			
 		</Grid.RowDefinitions>
-		<StackPanel
-						Grid.Row="0"
+			<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0">
+				<TextBlock Text="Generare contracte HR" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Montserrat-ExtraBoldItalic" FontSize="30" HorizontalAlignment="Left" FontWeight="Bold" VerticalAlignment="Center" Margin="0 20 0 30"/>
+			</StackPanel>
+			<StackPanel
+						Grid.Row="1"
 						Grid.Column="0">
 			<TextBlock Text="Nume Angajat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -40,7 +44,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="1"
+						Grid.Row="2"
 						Grid.Column="0">
 			<TextBlock Text="Prenume Angajat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -51,7 +55,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="2"
+						Grid.Row="3"
 						Grid.Column="0">
 			<TextBlock Text="CNP Angajat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -62,7 +66,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="3"
+						Grid.Row="4"
 						Grid.Column="0">
 			<TextBlock Text="Serie CI" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -73,7 +77,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="4"
+						Grid.Row="5"
 						Grid.Column="0">
 			<TextBlock Text="Numar CI" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -84,7 +88,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="5"
+						Grid.Row="6"
 						Grid.Column="0">
 			<TextBlock Text="Localitate" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -95,7 +99,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="6"
+						Grid.Row="7"
 						Grid.Column="0">
 			<TextBlock Text="Judet" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -106,7 +110,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="7"
+						Grid.Row="8"
 						Grid.Column="0">
 			<TextBlock Text="Strada" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -117,7 +121,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="8"
+						Grid.Row="9"
 						Grid.Column="0">
 			<TextBlock Text="Numar Strada" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -128,7 +132,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="0"
+						Grid.Row="1"
 						Grid.Column="1">
 			<TextBlock Text="Bloc" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -139,7 +143,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="1"
+						Grid.Row="2"
 						Grid.Column="1">
 			<TextBlock Text="Scara" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -150,7 +154,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="2"
+						Grid.Row="3"
 						Grid.Column="1">
 			<TextBlock Text="Apartament" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -161,7 +165,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="3"
+						Grid.Row="4"
 						Grid.Column="1">
 			<TextBlock Text="Emis de" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -172,7 +176,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="4"
+						Grid.Row="5"
 						Grid.Column="1">
 			<TextBlock Text="Valabil de la (zz/ll/aaaa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -183,7 +187,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="5"
+						Grid.Row="6"
 						Grid.Column="1">
 			<TextBlock Text="Data angajarii (zz/ll/aaaa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<TextBox
@@ -194,7 +198,7 @@
 			</TextBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="6"
+						Grid.Row="7"
 						Grid.Column="1">
 			<TextBlock Text="Proiect" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<ComboBox
@@ -223,7 +227,7 @@
 				</ComboBox>
 		</StackPanel>
 		<StackPanel
-						Grid.Row="7"
+						Grid.Row="8"
 						Grid.Column="1">
 			<TextBlock Text="Functia" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,5,0,5"/>
 			<ComboBox
@@ -247,8 +251,8 @@
 				<ComboBoxItem Content="HR" />
 			</ComboBox>
 		</StackPanel>
-		<StackPanel Grid.Row="9"
-						Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+		<StackPanel Grid.Row="10" Margin="0 20 0 0"
+						Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
 			<Button x:Name="SavePDFHr" Content="Genereaza PDF-uri" Style="{StaticResource SendButton}" Height="62" Width="364" Click="Button_Click" Cursor="Pen" />
 		</StackPanel>
 
