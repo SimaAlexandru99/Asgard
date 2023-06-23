@@ -300,9 +300,7 @@
 												<MenuItem Header="Contul meu"
 												Style="{StaticResource ProfileMenu}" Click="Contul_meu_Click"
 												/>
-												<MenuItem Header="Setări"
-												Style="{StaticResource ProfileMenu}"
-												Click="MenuItem_Click" />
+												
 											</Menu>
 											<Line
 											Width="auto"
@@ -324,7 +322,7 @@
 												Click="TermeniClick" />
 												<MenuItem Header="Politica de confidentialitate"
 												Style="{StaticResource ProfileMenu}"
-												Click="MenuItem_Click" />
+												Click="PoliticaClick" />
 											</Menu>
 											<Line
 											Width="auto"

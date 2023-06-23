@@ -313,5 +313,10 @@ namespace Asgard
         {
             Main.Content = new Pages.Termeni();
         }
+
+        private void PoliticaClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.Politica();
+        }
     }
 }

@@ -144,6 +144,9 @@
     <Compile Include="Pages\Gestiune.xaml.cs">
       <DependentUpon>Gestiune.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Politica.xaml.cs">
+      <DependentUpon>Politica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RaportsGenerator.xaml.cs">
       <DependentUpon>RaportsGenerator.xaml</DependentUpon>
     </Compile>
@@ -289,6 +292,10 @@
     <Page Include="Pages\Gestiune.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Politica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RaportsGenerator.xaml">
       <SubType>Designer</SubType>
