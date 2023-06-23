@@ -15307,7 +15307,6 @@ namespace Asgard.Tickets.Vodafone
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
-                            comboboxCostAbonament.Items.Add("2 EURO");
                             break;
                         case "Red 9":
                             comboboxCostAbonament.Items.Add("4 EURO");
@@ -15350,7 +15349,6 @@ namespace Asgard.Tickets.Vodafone
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
-                            comboboxCostAbonament.Items.Add("2 EURO");
                             break;
                         case "Red 9":
                             comboboxCostAbonament.Items.Add("4 EURO");
