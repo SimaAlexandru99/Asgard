@@ -321,7 +321,7 @@
 												Click="MenuItem_Click" />
 												<MenuItem Header="Termeni si conditiile"
 												Style="{StaticResource ProfileMenu}"
-												Click="MenuItem_Click" />
+												Click="TermeniClick" />
 												<MenuItem Header="Politica de confidentialitate"
 												Style="{StaticResource ProfileMenu}"
 												Click="MenuItem_Click" />

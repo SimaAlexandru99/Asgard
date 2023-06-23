@@ -147,6 +147,9 @@
     <Compile Include="Pages\RaportsGenerator.xaml.cs">
       <DependentUpon>RaportsGenerator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Termeni.xaml.cs">
+      <DependentUpon>Termeni.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TicketsPage.xaml.cs">
       <DependentUpon>TicketsPage.xaml</DependentUpon>
     </Compile>
@@ -288,6 +291,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\RaportsGenerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Termeni.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

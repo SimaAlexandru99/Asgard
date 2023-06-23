@@ -308,5 +308,10 @@ namespace Asgard
         {
             Main.Content = new Pages.EditAccount();
         }
+
+        private void TermeniClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.Termeni();
+        }
     }
 }
