@@ -122,6 +122,9 @@
     <Compile Include="CustomControls\UpdateDeviceWindow.xaml.cs">
       <DependentUpon>UpdateDeviceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Demo\OnlineUser.xaml.cs">
+      <DependentUpon>OnlineUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Demo\SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
     </Compile>
@@ -269,6 +272,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Demo\OnlineUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Demo\SignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
