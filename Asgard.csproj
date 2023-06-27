@@ -175,6 +175,9 @@
     <Compile Include="Tickets\EON\TicketContracte.xaml.cs">
       <DependentUpon>TicketContracte.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tickets\Evaluari\Vodafone.xaml.cs">
+      <DependentUpon>Vodafone.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tickets\HR\HRDocumentGenerator.xaml.cs">
       <DependentUpon>HRDocumentGenerator.xaml</DependentUpon>
     </Compile>
@@ -343,6 +346,10 @@
     <Page Include="Tickets\EON\TicketContracte.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\Evaluari\Vodafone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tickets\HR\HRDocumentGenerator.xaml">
       <SubType>Designer</SubType>
