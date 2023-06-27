@@ -34,5 +34,15 @@ namespace Asgard.Tickets.Evaluari
         {
 
         }
+
+        private void ComboProiect_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void tipApel_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
