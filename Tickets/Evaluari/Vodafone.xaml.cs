@@ -33,6 +33,7 @@ namespace Asgard.Tickets.Evaluari
         private void TrimiteEvaluarea_Click(object sender, RoutedEventArgs e)
         {
 
+
         }
 
         private void ComboProiect_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
