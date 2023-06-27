@@ -44,6 +44,8 @@
 							x:Name="emailAngajat"
 							Style="{StaticResource TextBoxCustom2}" 
 							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Width="500"
+					HorizontalAlignment="Left"
 				/>
 
 			</StackPanel>
@@ -54,6 +56,8 @@
 							Style="{StaticResource TextBoxCustom2}" 
 							Validation.ErrorTemplate="{StaticResource errorTemplate}"
 					IsReadOnly="True"
+					Width="500"
+					HorizontalAlignment="Left"
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="3" Grid.Column="0">
@@ -62,6 +66,8 @@
 							x:Name="numarClient"
 							Style="{StaticResource TextBoxCustom2}" 
 							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Width="500"
+					HorizontalAlignment="Left"
 				/>
 			</StackPanel>
 			<StackPanel
@@ -76,10 +82,12 @@
 						Cursor="Hand"
 						Height="50"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
-						Foreground="{DynamicResource TextColor}" PreviewMouseWheel="ComboProiect_PreviewMouseWheel">
+						Foreground="{DynamicResource TextColor}" PreviewMouseWheel="ComboProiect_PreviewMouseWheel"
+					Width="500"
+					HorizontalAlignment="Left">
 					<ComboBoxItem Content="Low Med unsec New" />
 					<ComboBoxItem Content="Sec with Unlimited with speed" />
 					<ComboBoxItem Content="Sec without Unlimited" />
@@ -97,7 +105,7 @@
 			<StackPanel Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left">
 				<TextBlock Text="Data apel" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,20,0,10"/>
 				<Border BorderBrush="Black" CornerRadius="2" BorderThickness="1">
-					<DatePicker x:Name="dataApel" Height="40" Width="300" BorderBrush="Black" BorderThickness="1" Background="White" Foreground="Black" FontSize="14"/>
+					<DatePicker x:Name="dataApel" Height="40" Width="500" BorderBrush="Black" BorderThickness="1" Background="White" Foreground="Black" FontSize="14"/>
 				</Border>
 			</StackPanel>
 			<StackPanel
@@ -112,10 +120,12 @@
 						Cursor="Hand"
 						Height="50"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
-						Foreground="{DynamicResource TextColor}" PreviewMouseWheel="tipApel_PreviewMouseWheel">
+						Foreground="{DynamicResource TextColor}" PreviewMouseWheel="tipApel_PreviewMouseWheel"
+					Width="500"
+					HorizontalAlignment="Left">
 					<ComboBoxItem Content="Accept" />
 					<ComboBoxItem Content="Refuz" />
 				</ComboBox>
@@ -123,7 +133,7 @@
 			<StackPanel Grid.Row="7" Grid.Column="0">
 				<TextBlock Text="DESCHIDERE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Formula de salut/prezentare agent si companie/motiv apel/verifica disponibilitate, nu foloseste: va retin, va deranjez" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
-				<ComboBox
+				<ComboBox 
 						x:Name="notaIntrebare1"
 						Style="{StaticResource MaterialDesignOutlinedComboBox}"
 						materialDesign:ColorZoneAssist.Mode="Custom"      
@@ -131,7 +141,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -160,7 +170,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -189,7 +199,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -218,7 +228,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -247,7 +257,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -276,7 +286,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -305,7 +315,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -334,7 +344,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -364,7 +374,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
@@ -395,7 +405,7 @@
 						Cursor="Hand"
 						Height="45"
 						FontFamily="/Fonts/#Rubik Regular"
-						BorderThickness="0"
+						BorderThickness="1"
 						BorderBrush="{DynamicResource TextColor}"
 						Background="{DynamicResource InputColor}"
 						Foreground="{DynamicResource TextColor}" Width="118"
