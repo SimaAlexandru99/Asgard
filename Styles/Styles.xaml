@@ -553,9 +553,10 @@
         <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
         <Setter Property="FontFamily" Value="/Fonts/#Rubik Regular" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="MaxHeight" Value="50" />
         <Setter Property="Padding" Value="10 0 0 0" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextColor}" />
 
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -564,7 +565,8 @@
                 <ControlTemplate TargetType="TextBox">
                     <Border Name="border"
                         Background="{DynamicResource InputText}"
-                        BorderThickness="1"
+                        BorderThickness="0.5"
+                        BorderBrush="{DynamicResource TextColor}"
                         Padding="10 0 0 0"
                          MinHeight="30"
                             MaxHeight="50"
@@ -609,7 +611,8 @@
                 <ControlTemplate TargetType="PasswordBox">
                     <Border Name="border"
                         Background="{DynamicResource InputText}"
-                        BorderThickness="1"
+                        BorderThickness="0.5"
+                        BorderBrush="{DynamicResource TextColor}"
                         Padding="10 0 0 0"
                         MinHeight="30"
                         MaxHeight="50"

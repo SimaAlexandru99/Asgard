@@ -1448,6 +1448,50 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                         </ComboBox>
                     </StackPanel>
 
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="6">
+                        <TextBlock Text="Număr personalizat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <ComboBox
+                        x:Name="numarPersonalizat"
+                            materialDesign:ColorZoneAssist.Mode="Custom"   
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                            <ComboBoxItem Content="Da" />
+                            <ComboBoxItem Content="Nu" />
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="6">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=numarPersonalizat, Path=SelectedValue}" Value="Da">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock Text="Număr personalizat" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,0"/>
+                        <TextBox
+                            x:Name="numarPersonalizatText"
+                            MaxLength="9"
+                        Style="{StaticResource TextBoxCustom}"  Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                        </TextBox>
+                    </StackPanel>
+
 
                     <StackPanel Grid.Row="7"
                         Margin="0 0 0 10"

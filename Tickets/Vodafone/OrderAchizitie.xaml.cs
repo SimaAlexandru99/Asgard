@@ -15125,7 +15125,9 @@ namespace Asgard.Tickets.Vodafone
                         "Asigurare: " + comboboxAsigurare.Text + "\r\n" +
                         "Agent: " + email + "\r\n" +
                         "eSim: " + eSim.Text + "\r\n" +
-                        "Departament: " + departament,
+                        "Departament: " + departament + "\r\n" +
+                        "Numar personalizat: " + numarPersonalizat.Text + "\r\n" +
+                        "Numar personalizat text: " + numarPersonalizatText.Text,
                 };
                 SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                 try
@@ -15188,8 +15190,9 @@ namespace Asgard.Tickets.Vodafone
                     {
                         case "Activare noua":
                             comboboxAbonament.Items.Add("Red 9");
-                            comboboxAbonament.Items.Add("Red 15");
                             comboboxAbonament.Items.Add("Red 12");
+                            comboboxAbonament.Items.Add("Red 15");
+
                             serie_sim.Clear();
                             break;
                         case "Migrare":
@@ -15276,6 +15279,7 @@ namespace Asgard.Tickets.Vodafone
                     switch (selectedItem)
                     {
                         case "Red 15":
+                            comboboxCostAbonament.Items.Add("2 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
@@ -15290,6 +15294,7 @@ namespace Asgard.Tickets.Vodafone
                     switch (selectedItem)
                     {
                         case "Red 15":
+                            comboboxCostAbonament.Items.Add("2 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
@@ -15304,6 +15309,7 @@ namespace Asgard.Tickets.Vodafone
                     switch (selectedItem)
                     {
                         case "Red 15":
+                            comboboxCostAbonament.Items.Add("2 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
@@ -15318,6 +15324,7 @@ namespace Asgard.Tickets.Vodafone
                     switch (selectedItem)
                     {
                         case "Red 15":
+                            comboboxCostAbonament.Items.Add("2 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
@@ -15332,6 +15339,7 @@ namespace Asgard.Tickets.Vodafone
                     switch (selectedItem)
                     {
                         case "Red 15":
+                            comboboxCostAbonament.Items.Add("2 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");
@@ -15346,6 +15354,7 @@ namespace Asgard.Tickets.Vodafone
                     switch (selectedItem)
                     {
                         case "Red 15":
+                            comboboxCostAbonament.Items.Add("2 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO");
                             comboboxCostAbonament.Items.Add("5 EURO + 3 LUNI GRATIS");
                             comboboxCostAbonament.Items.Add("5 EURO + 6 LUNI LA 2 EURO");

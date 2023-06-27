@@ -200,7 +200,7 @@ namespace Asgard
         {
             string username = user.CurrentUserAccount.Username;
             string displayname = user.CurrentUserAccount.DisplayName;
-            string email = user.CurrentUserAccount.LastName +" "+user.CurrentUserAccount.Name;
+            string email = user.CurrentUserAccount.LastName + " " + user.CurrentUserAccount.Name;
             string proiect = user.CurrentUserAccount.Proiect;
 
             int rows_count = 0;
