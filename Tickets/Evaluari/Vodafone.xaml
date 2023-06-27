@@ -53,6 +53,7 @@
 							x:Name="emailSuperior"
 							Style="{StaticResource TextBoxCustom2}" 
 							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					IsReadOnly="True"
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="3" Grid.Column="0">

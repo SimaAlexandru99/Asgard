@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Asgard.Repositories;
+using Asgard.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +25,11 @@ namespace Asgard.Tickets.Evaluari
         public Vodafone()
         {
             InitializeComponent();
+            var user = new MainViewModel();
+            emailSuperior.Text = user.CurrentUserAccount.Email;
         }
 
+        
         private void TrimiteEvaluarea_Click(object sender, RoutedEventArgs e)
         {
 
