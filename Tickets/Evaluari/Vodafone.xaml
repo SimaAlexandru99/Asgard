@@ -118,7 +118,7 @@
 				</ComboBox>
 			</StackPanel>
 			<StackPanel Grid.Row="7" Grid.Column="0">
-				<TextBlock Text="DESCHIDERE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="DESCHIDERE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Formula de salut/prezentare agent si companie/motiv apel/verifica disponibilitate, nu foloseste: va retin, va deranjez" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare1"
@@ -147,7 +147,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="8" Grid.Column="0">
-				<TextBlock Text="GDPR" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="GDPR" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Identificare corecta titular/Verificare permisiuni/informatii de pe cont transmise doar pentru titular/ verificare si adaugare corectitudine adresa mail trimitere contract)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare2"
@@ -176,7 +176,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="9" Grid.Column="0">
-				<TextBlock Text="IDENTIFICARE NEVOI" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="IDENTIFICARE NEVOI" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Foloseste minim 2 intrebari deschise de identificare relevante, are ascultare active, clarifica oportunitati de vanzare" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare3"
@@ -205,7 +205,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="10" Grid.Column="0">
-				<TextBlock Text="PROPUNERE SOLUTIE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="PROPUNERE SOLUTIE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Foloseste fraze positive, recomandare si incurajare, prezinta avantaje si beneficii. Ofera informatii corecte in negociere fara a lasa loc de interpretare." Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare4"
@@ -234,7 +234,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="11" Grid.Column="0">
-				<TextBlock Text="TRATARE OBIECTII" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="TRATARE OBIECTII" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Sondeaza si trateaza corect motivele de refuz, asculta activ, ofera solutii logice si dezvoltate." Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare5"
@@ -263,7 +263,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="12" Grid.Column="0">
-				<TextBlock Text="FINALIZARE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="FINALIZARE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Inchidere amabila intr-o nota pozitiva" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare6"
@@ -292,7 +292,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="13" Grid.Column="0">
-				<TextBlock Text="ATITUDINE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="ATITUDINE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Profesionalism, asertivitate, empatie, ton energic, exprima optimism." Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare7"
@@ -321,7 +321,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="14" Grid.Column="0">
-				<TextBlock Text="APLICATII" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="APLICATII" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Utilizare corecta a aplicatiilor de lucru, implementari, rezolutii, codare Mediatel" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare8"
@@ -350,7 +350,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="15" Grid.Column="0">
-				<TextBlock Text="REZOLUTIE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="REZOLUTIE APEL" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="ACCEPTED  (Acord verbal corect si complet care sa cuprinda obligatoriu toate elementele mandatorii, fara a lasa loc de interpretare, transmitere fraza sondaj de opinie NPS)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<TextBlock Text="REFUSED (S-au parcurs corect etapele procesului de vanzare si s-au respectat regulile de business in cadrul intregului apel)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
@@ -380,9 +380,9 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="16" Grid.Column="0">
-				<TextBlock Text="RETENTIE - ACHIZITIE IN RETENTIE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="RETENTIE - ACHIZITIE IN RETENTIE" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Identificarea oportunitatii si propunerea ofertei de Achiziti" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
-				<TextBlock Text="ACHIZITIE - PERMISIUNI GDPR" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="ACHIZITIE - PERMISIUNI GDPR" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 				<TextBlock Text="Inregistrarea corecta a persmisiunilor GDPR" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,0,0,10" TextWrapping="Wrap"/>
 				<ComboBox
 						x:Name="notaIntrebare10"
@@ -411,7 +411,7 @@
 				/>
 			</StackPanel>
 			<StackPanel Grid.Row="17" Grid.Column="0">
-				<TextBlock Text="Observatii generale." Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="22" Margin="0,20,0,10"/>
+				<TextBlock Text="Observatii generale." Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="22" Margin="0,20,0,10" FontWeight="Bold"/>
 
 				<TextBox
 							x:Name="observatiiIntrebare11"
