@@ -161,10 +161,29 @@
 								<TextBlock Style="{StaticResource MenuButtonText}">Rapoarte</TextBlock>
 							</StackPanel>
 						</RadioButton>
-                        <RadioButton
+						<RadioButton
 						x:Name="HRButton" Visibility="Collapsed"
 						Style="{StaticResource NavigationButton}"
 						Tag="{StaticResource TextColor}" Click="HRButton_Click">
+							<StackPanel
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Orientation="Horizontal">
+								<iconPacks:PackIconBoxIcons
+								MinWidth="15"
+								MaxWidth="30"
+								MinHeight="15"
+								MaxHeight="30"
+								Margin="25 0 0 0"
+								VerticalAlignment="Center"
+								Kind="SolidEnvelopeOpen" />
+								<TextBlock Style="{StaticResource MenuButtonText}">Contracte</TextBlock>
+							</StackPanel>
+						</RadioButton>
+                        <RadioButton
+						x:Name="EvaluariButton" Visibility="Collapsed"
+						Style="{StaticResource NavigationButton}"
+						Tag="{StaticResource TextColor}" Click="EvaluariButton_Click">
                             <StackPanel
 							HorizontalAlignment="Center"
 							VerticalAlignment="Center"
@@ -176,10 +195,11 @@
 								MaxHeight="30"
 								Margin="25 0 0 0"
 								VerticalAlignment="Center"
-								Kind="SolidEnvelopeOpen" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">Contracte</TextBlock>
+								Kind="RegularQuestionMark" />
+                                <TextBlock Style="{StaticResource MenuButtonText}">Evaluări</TextBlock>
                             </StackPanel>
                         </RadioButton>
+
 
                     </StackPanel>
 					<Grid VerticalAlignment="Bottom">

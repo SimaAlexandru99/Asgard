@@ -141,6 +141,9 @@
     <Compile Include="Pages\EditAccount.xaml.cs">
       <DependentUpon>EditAccount.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EvaluariPage.xaml.cs">
+      <DependentUpon>EvaluariPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FrontPage.xaml.cs">
       <DependentUpon>FrontPage.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,9 @@
     </Compile>
     <Compile Include="Tickets\EON\TicketContracte.xaml.cs">
       <DependentUpon>TicketContracte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets\EvaluariTab.xaml.cs">
+      <DependentUpon>EvaluariTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tickets\Evaluari\Vodafone.xaml.cs">
       <DependentUpon>Vodafone.xaml</DependentUpon>
@@ -295,6 +301,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EvaluariPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FrontPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -346,6 +356,10 @@
     <Page Include="Tickets\EON\TicketContracte.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tickets\EvaluariTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tickets\Evaluari\Vodafone.xaml">
       <SubType>Designer</SubType>

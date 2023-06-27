@@ -38,7 +38,7 @@
         <KeyBinding Command="{Binding LoginCommand}" Gesture="ENTER" />
     </Window.InputBindings>
 
-    <Border x:Name="Border" Background="{DynamicResource BackgroundThirdColor}" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource TextColor}">
+    <Border x:Name="Border" Background="{DynamicResource BackgroundThirdColor}" CornerRadius="10" BorderThickness="3" BorderBrush="{DynamicResource TextColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -53,13 +53,14 @@
                     VerticalAlignment="Top"
                     Panel.ZIndex="99" MouseLeftButtonDown="TopPanel_MouseLeftButtonDown">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="127*"/>
+                    <ColumnDefinition Width="133*"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2">
                     <Image Source="/Assets/LogoNewBackgroundRemoved.png" Height="30" Width="30" Margin="20 10 0 0"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft" >
+                <StackPanel Orientation="Horizontal" Grid.Column="2" FlowDirection="RightToLeft" >
                     <Button 
                         Height="40"
                         x:Name="CloseButton"

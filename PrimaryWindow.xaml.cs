@@ -224,6 +224,7 @@ namespace Asgard
                 GestiuneButton.Visibility = Visibility.Visible;
                 RaportsButton.Visibility = Visibility.Visible;
                 HRButton.Visibility = Visibility.Visible;
+                EvaluariButton.Visibility = Visibility.Visible;
             }
             else if (username == "simona.scutaru" || username == "ana.stere")
             {
@@ -317,6 +318,12 @@ namespace Asgard
         private void PoliticaClick(object sender, RoutedEventArgs e)
         {
             Main.Content = new Pages.Politica();
+        }
+
+        private void EvaluariButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Navigate(new Pages.EvaluariPage());
+
         }
     }
 }
