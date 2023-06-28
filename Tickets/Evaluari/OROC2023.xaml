@@ -158,6 +158,382 @@
 					<DatePicker x:Name="dataApel" Height="40" Width="500" BorderBrush="Black" BorderThickness="1" Background="White" Foreground="Black" FontSize="14"/>
 				</Border>
 			</StackPanel>
+			<StackPanel
+						Grid.Row="11"
+						Grid.Column="0">
+				<TextBlock Text="Tip Apel" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,20,0,10"/>
+				<ComboBox
+						x:Name="ComboTipApel"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="50"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}"
+					Width="500"
+					HorizontalAlignment="Left" PreviewMouseWheel="ComboProiect_PreviewMouseWheel">
+					<ComboBoxItem Content="Accept" />
+					<ComboBoxItem Content="Refuz" />
+					<ComboBoxItem Content="Revenire" />
+				</ComboBox>
+			</StackPanel>
+			<StackPanel
+						Grid.Row="12"
+						Grid.Column="0">
+				<TextBlock Text="Motiv Apel" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,20,0,10"/>
+				<ComboBox
+						x:Name="ComboMotivApel"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="50"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}"
+					Width="500"
+					HorizontalAlignment="Left" PreviewMouseWheel="ComboProiect_PreviewMouseWheel">
+					<ComboBoxItem Content="Anulare cerere scrisa" />
+					<ComboBoxItem Content="Campanie Second Wash" />
+					<ComboBoxItem Content="Campanii Outbound" />
+					<ComboBoxItem Content="Clientul Renunta La Desfiintare" />
+					<ComboBoxItem Content="Clientul Renunta La Oferta" />
+					<ComboBoxItem Content="Clientul Sol Sa Fie Contactat" />
+					<ComboBoxItem Content="Portare" />
+					<ComboBoxItem Content="Renewal Proactiv" />
+					<ComboBoxItem Content="Second wash" />
+					<ComboBoxItem Content="Solicitare Desfiintare" />
+					<ComboBoxItem Content="Trimitere oferta pe mail" />
+					<ComboBoxItem Content="Verificare Stadiu Cerere" />
+				</ComboBox>
+			</StackPanel>
+			<StackPanel
+						Grid.Row="13"
+						Grid.Column="0">
+				<TextBlock Text="Motiv desfiintare / refuz" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="18" Margin="0,20,0,10"/>
+				<ComboBox
+						x:Name="ComboMotivDesfintare"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="50"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}"
+					Width="500"
+					HorizontalAlignment="Left" PreviewMouseWheel="ComboProiect_PreviewMouseWheel">
+					<ComboBoxItem Content="Lipsa semnal" />
+					<ComboBoxItem Content="Pret" />
+					<ComboBoxItem Content="Nu vrea perioada contractuala" />
+					<ComboBoxItem Content="Nu vrea actualizare prin telefon" />
+					<ComboBoxItem Content="Nemultumit de companie" />
+					<ComboBoxItem Content="Nu are incredere" />
+					<ComboBoxItem Content="Se muta la alta companie" />
+					<ComboBoxItem Content="Nu foloseste" />
+					<ComboBoxItem Content="Instalare alt operator" />
+					<ComboBoxItem Content="Instalare ORO" />
+					<ComboBoxItem Content="Retragere cupru" />
+					<ComboBoxItem Content="Pleaca din tara" />
+					<ComboBoxItem Content="Nu foloseste" />
+					<ComboBoxItem Content="Nu foloseste toate serviciile din pachet" />
+					<ComboBoxItem Content="Nu recunoaste produsul" />
+					<ComboBoxItem Content="Mutare la o alta adresa" />
+				</ComboBox>
+			</StackPanel>
+			<StackPanel Grid.Row="14" Grid.Column="0">
+				<TextBlock Text="Deschid apelul / Deschid conversatia (Non-critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare1"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare1"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="15" Grid.Column="0">
+				<TextBlock Text="Adaptez identificarea clientului (Compliance critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare2"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare2"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="16" Grid.Column="0">
+				<TextBlock Text="Tratez situatia clientului cu interes si profesionalism (Customer Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare3"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare3"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="17" Grid.Column="0">
+				<TextBlock Text="Aleg cuvintele potrivite (Non-critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare4"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare4"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="18" Grid.Column="0">
+				<TextBlock Text="Rezolv toate solicitarile (Customer Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare5"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare5"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="19" Grid.Column="0">
+				<TextBlock Text="Ofertez clientul, adaptand procesul de vanzare (Business Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare6"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare6"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="20" Grid.Column="0">
+				<TextBlock Text="Adaptez tratarea situatiilor de revenire (Business Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare7"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare7"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="21" Grid.Column="0">
+				<TextBlock Text="Promovez serviciile automate (Business Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare8"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare8"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="22" Grid.Column="0">
+				<TextBlock Text="Comunic toate informatiile obligatorii (Compliance critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare9"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare9"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="23" Grid.Column="0">
+				<TextBlock Text="Inregistrez corect situatia (Non-Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare10"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare10"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="24" Grid.Column="0">
+				<TextBlock Text="Scorange (Non-Critical)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" TextWrapping="Wrap"/>
+				<ComboBox 
+						x:Name="notaIntrebare11"
+						Style="{StaticResource MaterialDesignOutlinedComboBox}"
+						materialDesign:ColorZoneAssist.Mode="Custom"      
+						SelectedValuePath="Content"
+						Cursor="Hand"
+						Height="45"
+						FontFamily="/Fonts/#Rubik Regular"
+						BorderThickness="1"
+						BorderBrush="{DynamicResource TextColor}"
+						Background="{DynamicResource InputColor}"
+						Foreground="{DynamicResource TextColor}" Width="118"
+					HorizontalAlignment="Left">
+					<ComboBoxItem Content="Yes" />
+					<ComboBoxItem Content="No" />
+				</ComboBox>
+				<TextBox
+							x:Name="observatiiIntrebare11"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0"
+				/>
+			</StackPanel>
+			<StackPanel Grid.Row="25" Grid.Column="0">
+				<TextBlock Text="Observatii generale." Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik-Bold" FontSize="18" Margin="0,30,0,10" FontWeight="Bold"/>
+
+				<TextBox
+							x:Name="observatiiIntrebare12"
+							Style="{StaticResource TextBoxCustom2}" 
+							Validation.ErrorTemplate="{StaticResource errorTemplate}"
+					Margin="0 10 0 0" Height="150"
+				/>
+			</StackPanel>
 
 		</Grid>
 	</ScrollViewer>

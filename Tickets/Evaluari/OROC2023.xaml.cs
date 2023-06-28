@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Asgard.ViewModels;
+using MySql.Data.MySqlClient;
 
 namespace Asgard.Tickets.Evaluari
 {
@@ -23,11 +25,18 @@ namespace Asgard.Tickets.Evaluari
         public OROC2023()
         {
             InitializeComponent();
+            var user = new MainViewModel();
+            emailSuperior.Text = user.CurrentUserAccount.Email;
         }
 
         private void ComboProiect_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void TrimiteEvaluarea_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
