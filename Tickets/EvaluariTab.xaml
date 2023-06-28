@@ -85,5 +85,37 @@
 				</Button>
 			</StackPanel>
 		</Border>
+		<Border  Grid.Column="2" Style="{StaticResource BorderItems}" Margin="10,0,5,0">
+			<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Ellipse Width="45" Height="45" VerticalAlignment="Center">
+					<Ellipse.Fill>
+						<ImageBrush ImageSource="/Assets/orange_logo.png" Stretch="UniformToFill" />
+					</Ellipse.Fill>
+				</Ellipse>
+				<TextBlock Text="Evaluare Apel Orange" Margin="0,15,0,0" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource TextColor}" FontSize="12" HorizontalAlignment="Center"/>
+				<TextBlock Text="" Margin="0,5,0,0" FontFamily="/Fonts/#Rubik Regular" Foreground="{DynamicResource TextColor}" FontSize="8" HorizontalAlignment="Center"/>
+				<Button x:Name="ButtonGoOrange2"   
+                                HorizontalAlignment="Left"
+                                Panel.ZIndex="1"                            
+                                Style="{StaticResource OrangeButton}" 
+                                Height="30" 
+                                Width="130" 
+                                
+                                Margin="0,25,0,0"
+                                Click="ButtonGoOrange2_Click">
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+						<iconPacks:PackIconBootstrapIcons
+                                VerticalAlignment="Center"
+                                Height="10"
+                                Width="10"
+                                Kind="ArrowRightCircle" />
+						<TextBlock VerticalAlignment="Center" 
+                                Margin="5,0,0,0" 
+                                FontFamily="/Fonts/#Rubik Semibold" 
+                                FontSize="10"> Evaluează</TextBlock>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+		</Border>
 	</Grid>
 </Page>
