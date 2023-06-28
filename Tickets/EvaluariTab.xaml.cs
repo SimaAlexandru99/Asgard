@@ -22,5 +22,11 @@ namespace Asgard.Tickets
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
             window.Main.Navigate(new Evaluari.Vodafone());
         }
+
+        private void ButtonGoOrange_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new Evaluari.OROC2023());
+        }
     }
 }
