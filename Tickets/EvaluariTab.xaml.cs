@@ -34,5 +34,11 @@ namespace Asgard.Tickets
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
             window.Main.Navigate(new Evaluari.Orange());
         }
+
+        private void ButtonGoEon_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new Evaluari.EON());
+        }
     }
 }

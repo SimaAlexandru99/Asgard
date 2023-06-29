@@ -181,6 +181,9 @@
     <Compile Include="Tickets\EvaluariTab.xaml.cs">
       <DependentUpon>EvaluariTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tickets\Evaluari\EON.xaml.cs">
+      <DependentUpon>EON.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tickets\Evaluari\Orange.xaml.cs">
       <DependentUpon>Orange.xaml</DependentUpon>
     </Compile>
@@ -364,6 +367,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Tickets\EvaluariTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tickets\Evaluari\EON.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
