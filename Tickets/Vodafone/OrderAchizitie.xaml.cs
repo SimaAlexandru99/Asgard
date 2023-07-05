@@ -89,36 +89,45 @@ namespace Asgard.Tickets.Vodafone
                         dialog.ShowDialog();
                         return;
                     }
+                    else if (cnp.Text.Length < 13)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "CNP invalid";
+                            dialog.Descriere.Text = "CNP-ul nu contine 13 caractere";
+                        };
+                        dialog.ShowDialog();
+                        return;
+                    }
+                    else if (numar_existent.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Numărul nu conține 9 caractere";
+                            dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
+                        };
+                        dialog.ShowDialog();
+                        return;
+                    }
+                    else if (!numar_existent.Text.StartsWith("7"))
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Numărul de contact este incorect";
+                            dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
+                        };
+                        dialog.ShowDialog();
+                    }
                     else
                     {
-                        if (numar_existent.Text.Length < 9)
-                        {
-                            CustomControls.Prompt dialog = new CustomControls.Prompt();
-                            dialog.Loaded += (s, ea) =>
-                            {
-                                dialog.Title = "Eroare";
-                                dialog.Status.Text = "Numărul nu conține 9 caractere";
-                                dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
-                            };
-                            dialog.ShowDialog();
-                            return;
-                        }
-                        else if (!numar_existent.Text.StartsWith("7"))
-                        {
-                            CustomControls.Prompt dialog = new CustomControls.Prompt();
-                            dialog.Loaded += (s, ea) =>
-                            {
-                                dialog.Title = "Eroare";
-                                dialog.Status.Text = "Numărul de contact este incorect";
-                                dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
-                            };
-                            dialog.ShowDialog();
-                        }
-                        else
-                        {
                             step1Panel.Visibility = Visibility.Collapsed;
                             stepInfoAdress.Visibility = Visibility.Visible;
-                        }
                     }
                 }
                 else
@@ -145,6 +154,18 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Numărul nu conține 9 caractere";
                                 dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (cnp.Text.Length < 13)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "CNP invalid";
+                                dialog.Descriere.Text = "CNP-ul nu contine 13 caractere";
                             };
                             dialog.ShowDialog();
                             return;
@@ -803,6 +824,75 @@ namespace Asgard.Tickets.Vodafone
                     step5Panel.Visibility = Visibility.Visible;
                 }
             }
+            else if (step5Panel.Visibility == Visibility.Visible)
+            {
+                if (numar_contact_text.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Numărul de contact este gol";
+                        dialog.Descriere.Text = "Te rog să treci și numărul de contact, acesta este obligatoriu.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else if (!numar_contact_text.Text.StartsWith("7"))
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Numărul de contact este incorect";
+                        dialog.Descriere.Text = "Numărul de contact trebuie să înceapă cu 7.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else
+                {
+                    step5Panel.Visibility = Visibility.Collapsed;
+                    step6Panel.Visibility = Visibility.Visible;
+
+                    if (comboboxClient.Text == "Client existent")
+                    {
+                        SerieStackPanel.Visibility = Visibility.Collapsed;
+                        EmisStackPanel.Visibility = Visibility.Collapsed;
+                        TipStradaStackPanel.Visibility = Visibility.Collapsed;
+                        NumeStradaStackPanel.Visibility = Visibility.Collapsed;
+                        NumarStradaStackPanel.Visibility = Visibility.Collapsed;
+                        BlocStackPanel.Visibility = Visibility.Collapsed;
+                        ScaraStackPanel.Visibility = Visibility.Collapsed;
+                        EtajStackPanel.Visibility = Visibility.Collapsed;
+                        ApartamentStackPanel.Visibility = Visibility.Collapsed;
+                    }
+
+                    if (client_comun_combo.Text == "Nu")
+                    {
+                        IDClientComunStackPanel.Visibility = Visibility.Collapsed;
+                    }
+
+                    if (comboboxDevice.Text == "Da")
+                    {
+                        DeviceStackPanel.Visibility = Visibility.Collapsed;
+                        RataStackPanel.Visibility = Visibility.Collapsed;
+                        PretStackPanel.Visibility = Visibility.Collapsed;
+                        CodDiscountStackPanel.Visibility = Visibility.Collapsed;
+                        AvansStackPanel.Visibility = Visibility.Collapsed;
+
+                    }
+
+                    if (tip_semnatura.Text == "Digital")
+                    {
+                        EmailStackPanel.Visibility = Visibility.Visible;
+                        PostaStackPanel.Visibility = Visibility.Collapsed;
+                    }
+                    else
+                    {
+                        EmailStackPanel.Visibility = Visibility.Collapsed;
+                        PostaStackPanel.Visibility = Visibility.Visible;
+                    }
+                }
+            }
         }
 
         private void PreviousButtonClick(object sender, RoutedEventArgs e)
@@ -871,6 +961,11 @@ namespace Asgard.Tickets.Vodafone
                         step4Panel.Visibility = Visibility.Visible;
                     }
                 }
+            }
+            else if (step6Panel.Visibility == Visibility.Visible)
+            {
+                step6Panel.Visibility = Visibility.Collapsed;
+                step5Panel.Visibility = Visibility.Visible;
             }
         }
 
@@ -15149,7 +15244,7 @@ namespace Asgard.Tickets.Vodafone
 
                     Clear();
 
-                    step5Panel.Visibility = Visibility.Collapsed;
+                    step6Panel.Visibility = Visibility.Collapsed;
                     step1Panel.Visibility = Visibility.Visible;
                 }
                 catch (Exception ex)
