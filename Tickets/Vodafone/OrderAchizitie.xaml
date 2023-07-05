@@ -1368,6 +1368,31 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                     </StackPanel>
 
                     <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="0">
+                        <TextBlock Text="Alege Backoffice" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <ComboBox
+                        x:Name="SelectBO"
+                            materialDesign:ColorZoneAssist.Mode="Custom"   
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                            <ComboBoxItem Content="Andreia Vijian" />
+                            <ComboBoxItem Content="Cristina Olteanu" />
+                            <ComboBoxItem Content="Evelina Chirvase" />
+                            <ComboBoxItem Content="Alice Alice" />
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel
                         Grid.Row="1"
                         Grid.Column="2">
                         <TextBlock Text="Adresa facturare" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,0"/>
