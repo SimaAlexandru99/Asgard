@@ -89,9 +89,8 @@
                         <ComboBoxItem >Desecurizare</ComboBoxItem>
                         <ComboBoxItem >Anulare order</ComboBoxItem>
                         <ComboBoxItem >Solicitare refund</ComboBoxItem>
-                        <ComboBoxItem >Activare/dezactivare opțiuni</ComboBoxItem>
-                        <ComboBoxItem >Ajustări</ComboBoxItem>
-                        <ComboBoxItem >Autorizări</ComboBoxItem>
+						<ComboBoxItem >Activare/dezactivare opțiuni</ComboBoxItem>
+						<ComboBoxItem >Autorizări</ComboBoxItem>
                         <ComboBoxItem >Scoatere numere din grup</ComboBoxItem>
                         <ComboBoxItem >Implementare manuală</ComboBoxItem>
                         <ComboBoxItem >Actualizare RMA</ComboBoxItem>
