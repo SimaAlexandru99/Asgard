@@ -475,81 +475,81 @@ namespace Asgard.Tickets.Vodafone
                     }
                 }
             }
-            else if (comboboxTicketeRetentie.Text == "Ajustări")
-            {
-                if (phoneClient.Text == string.Empty || NumeClient.Text == string.Empty || CNP.Text == string.Empty || SumaAjustari.Text == string.Empty || MotivAjustare.Text == string.Empty || comboboxFacturaAjustare.Text == string.Empty)
-                {
-                    CustomControls.Prompt dialog = new CustomControls.Prompt();
-                    dialog.Loaded += (s, ea) =>
-                    {
-                        dialog.Title = "Eroare";
-                        dialog.Status.Text = "Ticket-ul nu a fost trimis";
-                        dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-                    };
-                    dialog.ShowDialog();
-                }
-                else
-                {
-                    MimeMessage message = new MimeMessage
-                    {
-                        Subject = "Ticket Ajustare: " + phoneClient.Text,
-                    };
-                    message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
-                    message.To.Add(MailboxAddress.Parse(email));
-                    message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
-                    message.To.Add(MailboxAddress.Parse("backoffice@optimacall.ro"));
-                    message.Body = new TextPart("plain")
-                    {
-                        Text = "Client: " + phoneClient.Text + "\r\n" +
-                               "Nume si prenume: " + NumeClient.Text + "\r\n" +
-                               "CNP: " + CNP.Text + "\r\n" +
-                               "Suma de ajustat: " + SumaAjustari.Text + "\r\n" +
-                               "Motiv ajustare: " + MotivAjustare.Text + "\r\n" +
-                               "Impact la factura?: " + comboboxFacturaAjustare.Text + "\r\n" +
-                               "Descriere: " + "Va rog sa ma ajutati cu ajustare",
-                    };
-                    string emailAddress = "asgard@optimacall.ro";
-                    string password = "Optima#321";
-                    SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
-                    try
-                    {
-                        client.CheckCertificateRevocation = false;
-                        client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback;
-                        client.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Ssl2 | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
-                        client.Connect("zmail.optimacall.ro", 465, true);
-                        client.Authenticate(emailAddress, password);
-                        client.Send(message);
+            /* else if (comboboxTicketeRetentie.Text == "Ajustări")
+             {
+                 if (phoneClient.Text == string.Empty || NumeClient.Text == string.Empty || CNP.Text == string.Empty || SumaAjustari.Text == string.Empty || MotivAjustare.Text == string.Empty || comboboxFacturaAjustare.Text == string.Empty)
+                 {
+                     CustomControls.Prompt dialog = new CustomControls.Prompt();
+                     dialog.Loaded += (s, ea) =>
+                     {
+                         dialog.Title = "Eroare";
+                         dialog.Status.Text = "Ticket-ul nu a fost trimis";
+                         dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
+                     };
+                     dialog.ShowDialog();
+                 } 
+                 else
+                 {
+                     MimeMessage message = new MimeMessage
+                     {
+                         Subject = "Ticket Ajustare: " + phoneClient.Text,
+                     };
+                     message.From.Add(new MailboxAddress("ASGARD", "asgard@optimacall.ro"));
+                     message.To.Add(MailboxAddress.Parse(email));
+                     message.To.Add(MailboxAddress.Parse("odin@optimacall.ro"));
+                     message.To.Add(MailboxAddress.Parse("backoffice@optimacall.ro"));
+                     message.Body = new TextPart("plain")
+                     {
+                         Text = "Client: " + phoneClient.Text + "\r\n" +
+                                "Nume si prenume: " + NumeClient.Text + "\r\n" +
+                                "CNP: " + CNP.Text + "\r\n" +
+                                "Suma de ajustat: " + SumaAjustari.Text + "\r\n" +
+                                "Motiv ajustare: " + MotivAjustare.Text + "\r\n" +
+                                "Impact la factura?: " + comboboxFacturaAjustare.Text + "\r\n" +
+                                "Descriere: " + "Va rog sa ma ajutati cu ajustare",
+                     };
+                     string emailAddress = "asgard@optimacall.ro";
+                     string password = "Optima#321";
+                     SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
+                     try
+                     {
+                         client.CheckCertificateRevocation = false;
+                         client.ServerCertificateValidationCallback = Mail.MySslCertificateValidationCallback;
+                         client.SslProtocols = SslProtocols.Ssl3 | SslProtocols.Tls | SslProtocols.Ssl2 | SslProtocols.Tls11 | SslProtocols.Tls12 | SslProtocols.Tls13;
+                         client.Connect("zmail.optimacall.ro", 465, true);
+                         client.Authenticate(emailAddress, password);
+                         client.Send(message);
 
-                        CustomControls.Prompt dialog = new CustomControls.Prompt();
-                        dialog.Loaded += (s, ea) =>
-                        {
-                            dialog.Title = "Succes";
-                            dialog.Status.Text = "Ticket-ul a fost trimis";
-                            dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
-                        };
-                        dialog.ShowDialog();
-                        Clear();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
+                         CustomControls.Prompt dialog = new CustomControls.Prompt();
+                         dialog.Loaded += (s, ea) =>
+                         {
+                             dialog.Title = "Succes";
+                             dialog.Status.Text = "Ticket-ul a fost trimis";
+                             dialog.Descriere.Text = "Ticket-ul a fost trimis cu succes, verifică-ți email-ul pentru a fi la curent cu statusul lui.";
+                         };
+                         dialog.ShowDialog();
+                         Clear();
+                     }
+                     catch (Exception ex)
+                     {
+                         Console.WriteLine(ex.Message);
 
-                        CustomControls.Prompt dialog = new CustomControls.Prompt();
-                        dialog.Loaded += (s, ea) =>
-                        {
-                            dialog.Title = "Eroare";
-                            dialog.Status.Text = "Ticket-ul nu a fost trimis";
-                            dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
-                        };
-                        dialog.ShowDialog();
-                    }
-                    finally
-                    {
-                        client.Disconnect(true);
-                        client.Dispose();
-                    }
-                }
-            }
+                         CustomControls.Prompt dialog = new CustomControls.Prompt();
+                         dialog.Loaded += (s, ea) =>
+                         {
+                             dialog.Title = "Eroare";
+                             dialog.Status.Text = "Ticket-ul nu a fost trimis";
+                             dialog.Descriere.Text = "Ticket-ul nu a putut fi trimis, verifică toate câmpurile înainte de a reîncerca";
+                         };
+                         dialog.ShowDialog();
+                     }
+                     finally
+                     {
+                         client.Disconnect(true);
+                         client.Dispose();
+                     }
+                 }
+             } */
             else if (comboboxTicketeRetentie.Text == "Autorizări")
             {
                 if (phoneClient.Text == string.Empty || NumeClient.Text == string.Empty || CNP.Text == string.Empty)
