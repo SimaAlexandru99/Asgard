@@ -35,7 +35,7 @@ namespace Asgard.Tickets.Vodafone
 
         public void Clear()
         {
-            nameClient.Text = surnameClient.Text = cnp.Text = serie.Text = comboboxJudet.Text = comboboxLocalitate.Text = emis.Text = numar_existent.Text = combobox_strada.Text = nume_strada_text.Text = numar_strada_text.Text = bloc_text.Text = scara_text.Text = etaj_text.Text = apartament_text.Text = client_comun_combo.Text = id_client_comun.Text = tipAbonament.Text = serie_sim.Text = cod_abonat.Text = numar_impactat.Text = comboboxKid.Text = comboboxAbonament.Text = comboboxCostAbonament.Text = comboboxDeviceChoice.Text = comboboxDevice.Text = cost_rata.Text = cost_total.Text = discount_code.Text = avans.Text = comboboxGDPR1.Text = comboboxGDPR1_1.Text = comboboxGDPR1_2.Text = comboboxGDPR1_3.Text = comboboxGDPR1_4.Text = comboboxGDPR2.Text = comboboxGDPR3.Text = comboboxGDPR3_1.Text = comboboxGDPR4.Text = comboboxGDPR4_1.Text = comboboxGDPR4_2.Text = comboboxGDPR4_3.Text = comboboxGDPR4_4.Text = comboboxGDPR5.Text = comboboxGDPR6.Text = comboboxGDPR6_1.Text = tip_semnatura.Text = email_text.Text = adresa_postala_text.Text = adresa_factura_text.Text = adresa_livrare_text.Text = numar_contact_text.Text = comboboxClient.Text = comboboxAsigurare.Text = eSim.Text = string.Empty;
+            nameClient.Text = surnameClient.Text = cnp.Text = serie.Text = comboboxJudet.Text = comboboxLocalitate.Text = emis.Text = numar_existent.Text = combobox_strada.Text = nume_strada_text.Text = numar_strada_text.Text = bloc_text.Text = scara_text.Text = etaj_text.Text = apartament_text.Text = client_comun_combo.Text = id_client_comun.Text = tipAbonament.Text = serie_sim.Text = cod_abonat.Text = numar_impactat.Text = comboboxKid.Text = comboboxAbonament.Text = comboboxCostAbonament.Text = comboboxDeviceChoice.Text = comboboxDevice.Text = cost_rata.Text = cost_total.Text = discount_code.Text = avans.Text = comboboxGDPR1.Text = comboboxGDPR1_1.Text = comboboxGDPR1_2.Text = comboboxGDPR1_3.Text = comboboxGDPR1_4.Text = comboboxGDPR2.Text = comboboxGDPR3.Text = comboboxGDPR3_1.Text = comboboxGDPR4.Text = comboboxGDPR4_1.Text = comboboxGDPR4_2.Text = comboboxGDPR4_3.Text = comboboxGDPR4_4.Text = comboboxGDPR5.Text = comboboxGDPR6.Text = comboboxGDPR6_1.Text = tip_semnatura.Text = email_text.Text = adresa_postala_text.Text = adresa_factura_text.Text = adresa_livrare_text.Text = numar_contact_text.Text = comboboxClient.Text = comboboxAsigurare.Text = eSim.Text = SelectBO.Text = string.Empty;
         }
 
         public void Clear2()
@@ -113,14 +113,14 @@ namespace Asgard.Tickets.Vodafone
                         dialog.ShowDialog();
                         return;
                     }
-                    else if (!numar_existent.Text.StartsWith("7"))
+                    else if (!numar_existent.Text.StartsWith("7") && !numar_existent.Text.StartsWith("3"))
                     {
                         CustomControls.Prompt dialog = new CustomControls.Prompt();
                         dialog.Loaded += (s, ea) =>
                         {
                             dialog.Title = "Eroare";
-                            dialog.Status.Text = "Numărul de contact este incorect";
-                            dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
+                            dialog.Status.Text = "Numărul existent este incorect";
+                            dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7 sau 3.";
                         };
                         dialog.ShowDialog();
                     }
@@ -170,17 +170,18 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
-                        else if (!numar_existent.Text.StartsWith("7"))
+                        else if (!numar_existent.Text.StartsWith("7") && !numar_existent.Text.StartsWith("3"))
                         {
                             CustomControls.Prompt dialog = new CustomControls.Prompt();
                             dialog.Loaded += (s, ea) =>
                             {
                                 dialog.Title = "Eroare";
-                                dialog.Status.Text = "Numărul de contact este incorect";
-                                dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
+                                dialog.Status.Text = "Numărul existent este incorect";
+                                dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7 sau 3.";
                             };
                             dialog.ShowDialog();
                         }
+
                         else
                         {
                             step1Panel.Visibility = Visibility.Collapsed;
@@ -15652,7 +15653,8 @@ namespace Asgard.Tickets.Vodafone
                         "eSim: " + eSim.Text + "\r\n" +
                         "Departament: " + departament + "\r\n" +
                         "Numar personalizat: " + numarPersonalizat.Text + "\r\n" +
-                        "Numar personalizat text: " + numarPersonalizatText.Text,
+                        "Numar personalizat text: " + numarPersonalizatText.Text + "\r\n" +
+                        "Backoffice: " + SelectBO.Text,
                 };
                 SmtpClient client = new SmtpClient(new ProtocolLogger("imap.log"));
                 try

@@ -1385,10 +1385,11 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                         Foreground="{DynamicResource TextColor}"
                         Validation.ErrorTemplate="{StaticResource errorTemplate}"
                         >
-                            <ComboBoxItem Content="Andreia Vijian" />
-                            <ComboBoxItem Content="Cristina Olteanu" />
-                            <ComboBoxItem Content="Evelina Chirvase" />
-                            <ComboBoxItem Content="Alice Alice" />
+                            <ComboBoxItem Content="RETENTIE" />
+                            <ComboBoxItem Content="Andreia Vijian - MNP1" />
+                            <ComboBoxItem Content="Cristina Olteanu - Xsell2" />
+                            <ComboBoxItem Content="Evelina Chirvase - Xsell1" />
+                            <ComboBoxItem Content="Alice Alice - MNP2" />
                         </ComboBox>
                     </StackPanel>
 
@@ -2425,6 +2426,11 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                         <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
                             <TextBlock Text="Numar personalizat text: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
                             <TextBlock Text="{Binding ElementName=numarPersonalizatText, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Backoffice: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=SelectBO, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
                         </StackPanel>
                     </StackPanel>
 
