@@ -30,8 +30,8 @@
     <SupportUrl>https://eoverart.ro/</SupportUrl>
     <ProductName>Asgard</ProductName>
     <PublisherName>Asgard</PublisherName>
-    <MinimumRequiredVersion>2.0.1.2</MinimumRequiredVersion>
-    <ApplicationRevision>3</ApplicationRevision>
+    <MinimumRequiredVersion>2.0.1.3</MinimumRequiredVersion>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>2.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
