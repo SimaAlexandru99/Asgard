@@ -89,36 +89,45 @@ namespace Asgard.Tickets.Vodafone
                         dialog.ShowDialog();
                         return;
                     }
+                    else if (cnp.Text.Length < 13)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "CNP invalid";
+                            dialog.Descriere.Text = "CNP-ul nu contine 13 caractere";
+                        };
+                        dialog.ShowDialog();
+                        return;
+                    }
+                    else if (numar_existent.Text.Length < 9)
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Numărul nu conține 9 caractere";
+                            dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
+                        };
+                        dialog.ShowDialog();
+                        return;
+                    }
+                    else if (!numar_existent.Text.StartsWith("7"))
+                    {
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Eroare";
+                            dialog.Status.Text = "Numărul de contact este incorect";
+                            dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
+                        };
+                        dialog.ShowDialog();
+                    }
                     else
                     {
-                        if (numar_existent.Text.Length < 9)
-                        {
-                            CustomControls.Prompt dialog = new CustomControls.Prompt();
-                            dialog.Loaded += (s, ea) =>
-                            {
-                                dialog.Title = "Eroare";
-                                dialog.Status.Text = "Numărul nu conține 9 caractere";
-                                dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
-                            };
-                            dialog.ShowDialog();
-                            return;
-                        }
-                        else if (!numar_existent.Text.StartsWith("7"))
-                        {
-                            CustomControls.Prompt dialog = new CustomControls.Prompt();
-                            dialog.Loaded += (s, ea) =>
-                            {
-                                dialog.Title = "Eroare";
-                                dialog.Status.Text = "Numărul de contact este incorect";
-                                dialog.Descriere.Text = "Numărul existent trebuie să înceapă cu 7.";
-                            };
-                            dialog.ShowDialog();
-                        }
-                        else
-                        {
                             step1Panel.Visibility = Visibility.Collapsed;
                             stepInfoAdress.Visibility = Visibility.Visible;
-                        }
                     }
                 }
                 else
@@ -145,6 +154,18 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Numărul nu conține 9 caractere";
                                 dialog.Descriere.Text = "Nu ai putut înainta, verifică numarul de telefon, acesta trebuie să aibă 9 caractere";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (cnp.Text.Length < 13)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "CNP invalid";
+                                dialog.Descriere.Text = "CNP-ul nu contine 13 caractere";
                             };
                             dialog.ShowDialog();
                             return;
@@ -287,6 +308,62 @@ namespace Asgard.Tickets.Vodafone
                                 }
                             }
                         }
+                        else if (tipAbonament.Text == "Portare Abonament Orange")
+                        {
+                            if (cod_abonat.Text.Length < 3 || cod_abonat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Cod abonat incomplet";
+                                    dialog.Descriere.Text = "Fiindca ai ales Portare Abonament Orange, codul de client și numărul impactat sunt obligatorii.";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Numărul de telefon nu este complet";
+                                    dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else
+                            {
+                                if (comboboxDeviceChoice.Text == "Da")
+                                {
+                                    if (comboboxKid.Text == "Da")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step3Panel.Visibility = Visibility.Visible;
+                                    }
+                                    else if (comboboxKid.Text == "Nu")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step3Panel.Visibility = Visibility.Visible;
+                                    }
+                                }
+                                else if (comboboxDeviceChoice.Text == "Nu")
+                                {
+                                    if (comboboxKid.Text == "Da")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step5Panel.Visibility = Visibility.Visible;
+                                    }
+                                    else if (comboboxKid.Text == "Nu")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step4Panel.Visibility = Visibility.Visible;
+                                    }
+                                }
+                            }
+                        }
                         else if (tipAbonament.Text == "Portare PrePay Telekom")
                         {
                             if (serie_sim.Text.Length < 19 || serie_sim.Text == string.Empty)
@@ -309,6 +386,74 @@ namespace Asgard.Tickets.Vodafone
                                     dialog.Title = "Eroare";
                                     dialog.Status.Text = "Serie SIM eronată";
                                     dialog.Descriere.Text = "Fiindca ai ales Prepay Telekom, seria SIM trebuie să înceapă cu 8940090.";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Numărul de telefon nu este complet";
+                                    dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else
+                            {
+                                if (comboboxDeviceChoice.Text == "Da")
+                                {
+                                    if (comboboxKid.Text == "Da")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step3Panel.Visibility = Visibility.Visible;
+                                    }
+                                    else if (comboboxKid.Text == "Nu")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step3Panel.Visibility = Visibility.Visible;
+                                    }
+                                }
+                                else if (comboboxDeviceChoice.Text == "Nu")
+                                {
+                                    if (comboboxKid.Text == "Da")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step5Panel.Visibility = Visibility.Visible;
+                                    }
+                                    else if (comboboxKid.Text == "Nu")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step4Panel.Visibility = Visibility.Visible;
+                                    }
+                                }
+                            }
+                        }
+                        else if (tipAbonament.Text == "Portare Abonament Telekom")
+                        {
+                            if (cod_abonat.Text.Length < 3 || cod_abonat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Cod abonat incomplet";
+                                    dialog.Descriere.Text = "Fiindca ai ales Portare Abonament Telekom, codul de client și numărul impactat sunt obligatorii.";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Numărul de telefon nu este complet";
+                                    dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
                                 };
                                 dialog.ShowDialog();
                                 return;
@@ -369,6 +514,74 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.ShowDialog();
                                 return;
                             }
+                            else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Numărul de telefon nu este complet";
+                                    dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else
+                            {
+                                if (comboboxDeviceChoice.Text == "Da")
+                                {
+                                    if (comboboxKid.Text == "Da")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step3Panel.Visibility = Visibility.Visible;
+                                    }
+                                    else if (comboboxKid.Text == "Nu")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step3Panel.Visibility = Visibility.Visible;
+                                    }
+                                }
+                                else if (comboboxDeviceChoice.Text == "Nu")
+                                {
+                                    if (comboboxKid.Text == "Da")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step5Panel.Visibility = Visibility.Visible;
+                                    }
+                                    else if (comboboxKid.Text == "Nu")
+                                    {
+                                        step2Panel.Visibility = Visibility.Collapsed;
+                                        step4Panel.Visibility = Visibility.Visible;
+                                    }
+                                }
+                            }
+                        }
+                        else if (tipAbonament.Text == "Portare Abonament Digi")
+                        {
+                            if (cod_abonat.Text.Length < 3 || cod_abonat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Cod abonat incomplet";
+                                    dialog.Descriere.Text = "Fiindca ai ales Portare Abonament Digi, codul de client și numărul impactat sunt obligatorii.";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Numărul de telefon nu este complet";
+                                    dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
                             else
                             {
                                 if (comboboxDeviceChoice.Text == "Da")
@@ -421,6 +634,18 @@ namespace Asgard.Tickets.Vodafone
                                     dialog.Title = "Eroare";
                                     dialog.Status.Text = "Serie SIM eronată";
                                     dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 894001.";
+                                };
+                                dialog.ShowDialog();
+                                return;
+                            }
+                            else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                            {
+                                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                                dialog.Loaded += (s, ea) =>
+                                {
+                                    dialog.Title = "Eroare";
+                                    dialog.Status.Text = "Numărul de telefon nu este complet";
+                                    dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
                                 };
                                 dialog.ShowDialog();
                                 return;
@@ -556,6 +781,62 @@ namespace Asgard.Tickets.Vodafone
                             }
                         }
                     }
+                    else if (tipAbonament.Text == "Portare Abonament Orange")
+                    {
+                        if (cod_abonat.Text.Length < 3 || cod_abonat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Cod abonat incomplet";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Abonament Orange, codul de client și numărul impactat sunt obligatorii.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                        }
+                    }
                     else if (tipAbonament.Text == "Portare PrePay Telekom")
                     {
                         if (serie_sim.Text.Length < 19 || serie_sim.Text == string.Empty)
@@ -578,6 +859,74 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM eronată";
                                 dialog.Descriere.Text = "Fiindca ai ales Prepay Telekom, seria SIM trebuie să înceapă cu 8940090.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                        }
+                    }
+                    else if (tipAbonament.Text == "Portare Abonament Telekom")
+                    {
+                        if (cod_abonat.Text.Length < 3 || cod_abonat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Cod abonat incomplet";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Abonament Telekom, codul de client și numărul impactat sunt obligatorii.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
                             };
                             dialog.ShowDialog();
                             return;
@@ -638,6 +987,74 @@ namespace Asgard.Tickets.Vodafone
                             dialog.ShowDialog();
                             return;
                         }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            if (comboboxDeviceChoice.Text == "Da")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step3Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                            else if (comboboxDeviceChoice.Text == "Nu")
+                            {
+                                if (comboboxKid.Text == "Da")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step5Panel.Visibility = Visibility.Visible;
+                                }
+                                else if (comboboxKid.Text == "Nu")
+                                {
+                                    step2Panel.Visibility = Visibility.Collapsed;
+                                    step4Panel.Visibility = Visibility.Visible;
+                                }
+                            }
+                        }
+                    }
+                    else if (tipAbonament.Text == "Portare Abonament Digi")
+                    {
+                        if (cod_abonat.Text.Length < 3 || cod_abonat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Cod abonat incomplet";
+                                dialog.Descriere.Text = "Fiindca ai ales Portare Abonament Digi, codul de client și numărul impactat sunt obligatorii.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
                         else
                         {
                             if (comboboxDeviceChoice.Text == "Da")
@@ -690,6 +1107,18 @@ namespace Asgard.Tickets.Vodafone
                                 dialog.Title = "Eroare";
                                 dialog.Status.Text = "Serie SIM eronată";
                                 dialog.Descriere.Text = "Fiindca ai ales Migrare, seria SIM trebuie să înceapă cu 894001.";
+                            };
+                            dialog.ShowDialog();
+                            return;
+                        }
+                        else if (numar_impactat.Text.Length < 9 || numar_impactat.Text == string.Empty)
+                        {
+                            CustomControls.Prompt dialog = new CustomControls.Prompt();
+                            dialog.Loaded += (s, ea) =>
+                            {
+                                dialog.Title = "Eroare";
+                                dialog.Status.Text = "Numărul de telefon nu este complet";
+                                dialog.Descriere.Text = "Numărul de telefon trebuie să aibă 9 caractere pentru a putea continua";
                             };
                             dialog.ShowDialog();
                             return;
@@ -803,6 +1232,97 @@ namespace Asgard.Tickets.Vodafone
                     step5Panel.Visibility = Visibility.Visible;
                 }
             }
+            else if (step5Panel.Visibility == Visibility.Visible)
+            {
+                if (numar_contact_text.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Numărul de contact este gol";
+                        dialog.Descriere.Text = "Te rog să treci și numărul de contact, acesta este obligatoriu.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else if (!numar_contact_text.Text.StartsWith("7"))
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Numărul de contact este incorect";
+                        dialog.Descriere.Text = "Numărul de contact trebuie să înceapă cu 7.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else if (SelectBO.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Nu ai ales BO-ul";
+                        dialog.Descriere.Text = "Te rog să alegi un backoffice înainte de a trece mai departe.";
+                    };
+                    dialog.ShowDialog();
+                }
+                else if (adresa_factura_text.Text == string.Empty)
+                {
+                    CustomControls.Prompt dialog = new CustomControls.Prompt();
+                    dialog.Loaded += (s, ea) =>
+                    {
+                        dialog.Title = "Eroare";
+                        dialog.Status.Text = "Eroare adresa facturare";
+                        dialog.Descriere.Text = "Adresa de facturare este goala, te rog să introduci adresa";
+                    };
+                    dialog.ShowDialog();
+                }
+                else
+                {
+                    step5Panel.Visibility = Visibility.Collapsed;
+                    step6Panel.Visibility = Visibility.Visible;
+
+                    if (comboboxClient.Text == "Client existent")
+                    {
+                        SerieStackPanel.Visibility = Visibility.Collapsed;
+                        EmisStackPanel.Visibility = Visibility.Collapsed;
+                        TipStradaStackPanel.Visibility = Visibility.Collapsed;
+                        NumeStradaStackPanel.Visibility = Visibility.Collapsed;
+                        NumarStradaStackPanel.Visibility = Visibility.Collapsed;
+                        BlocStackPanel.Visibility = Visibility.Collapsed;
+                        ScaraStackPanel.Visibility = Visibility.Collapsed;
+                        EtajStackPanel.Visibility = Visibility.Collapsed;
+                        ApartamentStackPanel.Visibility = Visibility.Collapsed;
+                    }
+
+                    if (client_comun_combo.Text == "Nu")
+                    {
+                        IDClientComunStackPanel.Visibility = Visibility.Collapsed;
+                    }
+
+                    if (comboboxDevice.Text == "Da")
+                    {
+                        DeviceStackPanel.Visibility = Visibility.Collapsed;
+                        RataStackPanel.Visibility = Visibility.Collapsed;
+                        PretStackPanel.Visibility = Visibility.Collapsed;
+                        CodDiscountStackPanel.Visibility = Visibility.Collapsed;
+                        AvansStackPanel.Visibility = Visibility.Collapsed;
+
+                    }
+
+                    if (tip_semnatura.Text == "Digital")
+                    {
+                        EmailStackPanel.Visibility = Visibility.Visible;
+                        PostaStackPanel.Visibility = Visibility.Collapsed;
+                    }
+                    else
+                    {
+                        EmailStackPanel.Visibility = Visibility.Collapsed;
+                        PostaStackPanel.Visibility = Visibility.Visible;
+                    }
+                }
+            }
         }
 
         private void PreviousButtonClick(object sender, RoutedEventArgs e)
@@ -871,6 +1391,11 @@ namespace Asgard.Tickets.Vodafone
                         step4Panel.Visibility = Visibility.Visible;
                     }
                 }
+            }
+            else if (step6Panel.Visibility == Visibility.Visible)
+            {
+                step6Panel.Visibility = Visibility.Collapsed;
+                step5Panel.Visibility = Visibility.Visible;
             }
         }
 
@@ -15149,7 +15674,7 @@ namespace Asgard.Tickets.Vodafone
 
                     Clear();
 
-                    step5Panel.Visibility = Visibility.Collapsed;
+                    step6Panel.Visibility = Visibility.Collapsed;
                     step1Panel.Visibility = Visibility.Visible;
                 }
                 catch (Exception ex)

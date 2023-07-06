@@ -71,7 +71,7 @@
                     <StackPanel
                         Grid.Row="1"
                         Grid.Column="0">
-                        <TextBlock Text="Nume client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <TextBlock Text="Nume client (ex. Popa)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                             x:Name="nameClient"
                             Style="{StaticResource TextBoxCustom}" 
@@ -92,7 +92,7 @@
                     <StackPanel
                         Grid.Row="3"
                         Grid.Column="0">
-                        <TextBlock Text="Prenume client" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <TextBlock Text="Prenume client (ex. Gheorghe)" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
                         <TextBox
                             x:Name="surnameClient"
                             Style="{StaticResource TextBoxCustom}" 
@@ -1368,6 +1368,31 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                     </StackPanel>
 
                     <StackPanel
+                        Grid.Row="5"
+                        Grid.Column="0">
+                        <TextBlock Text="Alege Backoffice" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,5"/>
+                        <ComboBox
+                        x:Name="SelectBO"
+                            materialDesign:ColorZoneAssist.Mode="Custom"   
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        SelectedValuePath="Content"
+                        Height="50"
+                        Cursor="Hand"                       
+                        FontFamily="/Fonts/#Rubik Regular"
+                        BorderThickness="0"
+                        BorderBrush="{DynamicResource TextColor}"
+                        Background="{DynamicResource InputColor}"
+                        Foreground="{DynamicResource TextColor}"
+                        Validation.ErrorTemplate="{StaticResource errorTemplate}"
+                        >
+                            <ComboBoxItem Content="Andreia Vijian" />
+                            <ComboBoxItem Content="Cristina Olteanu" />
+                            <ComboBoxItem Content="Evelina Chirvase" />
+                            <ComboBoxItem Content="Alice Alice" />
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel
                         Grid.Row="1"
                         Grid.Column="2">
                         <TextBlock Text="Adresa facturare" Foreground="{DynamicResource TextColor}" FontFamily="/Fonts/#Rubik Regular" FontSize="12" Margin="0,0,0,0"/>
@@ -1496,7 +1521,7 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                     <StackPanel Grid.Row="7"
                         Margin="0 0 0 10"
                         Grid.Column="4" VerticalAlignment="Center">
-                        <Button x:Name="SendButton" Content="Trimite" Style="{StaticResource SendButton}" Click="SendButton_Click" />
+                        <Button x:Name="NextButton5" Content="Verifică" Style="{StaticResource SendButton}" Click="NextButtonClick" />
                     </StackPanel>
 
 
@@ -2102,6 +2127,317 @@ contactarea pentru transmiterea de mesaje de marketing privind produsele si serv
                         Margin="0 0 0 10"
                         Grid.Column="0" VerticalAlignment="Center">
                         <Button x:Name="CloseMultiple2" Content="Inchide" Style="{StaticResource SendButton}" Click="CloseMultiple2_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid x:Name="step6Panel" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Grid.ColumnSpan="4">
+                        <StackPanel >
+                            <TextBlock Text="Verifică cu atenție toate informațiile introduse de tine, pentru ca robotul asignat proiectului tău să poată procesa comanda. Orice informație introdusă de tine va fi interpretată conform regulilor de interpretare din robot." TextWrapping="Wrap" FontFamily="/Fonts/#Inter Bold" FontSize="20"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="După ce ai verificat informațiile du-te în jos-ul pagini și apasă 'Trimite' dacă informațiile sunt corecte" TextWrapping="Wrap" FontFamily="/Fonts/#Inter Bold" FontSize="20"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                            <TextBlock Text="Nume client: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=nameClient, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Prenume client: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=surnameClient, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="CNP: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=cnp, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="SerieStackPanel">
+                            <TextBlock Text="Serie si numar buletin: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=serie, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="EmisStackPanel">
+                            <TextBlock Text="Emis de: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=emis, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Judet: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxJudet, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Localitate: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxLocalitate, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <!-- Add TextBlocks for other fields -->
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Numar existent:" FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=numar_existent, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="TipStradaStackPanel">
+                            <TextBlock Text="Tip strada: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=combobox_strada, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="NumeStradaStackPanel">
+                            <TextBlock Text="Nume strada: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=nume_strada_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="NumarStradaStackPanel">
+                            <TextBlock Text="Numar strada: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=numar_strada_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="BlocStackPanel">
+                            <TextBlock Text="Bloc: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=bloc_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="ScaraStackPanel">
+                            <TextBlock Text="Scara: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=scara_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="EtajStackPanel">
+                            <TextBlock Text="Etaj: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=etaj_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="ApartamentStackPanel">
+                            <TextBlock Text="Apartament: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=apartament_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Client comun: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=client_comun_combo, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="IDClientComunStackPanel">
+                            <TextBlock Text="ID Client comun: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=id_client_comun, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Tip abonament: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=tipAbonament, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Serie SIM/ Cod abonat: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=serie_sim, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=cod_abonat, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Numar impactat: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=numar_impactat, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Numarul este folosit de un copil? " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxKid, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Abonament:" FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxAbonament, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Cost servicii: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxCostAbonament, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Se doreste device? " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxDeviceChoice, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="DeviceStackPanel">
+                            <TextBlock Text="Device: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxDevice, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="RataStackPanel">
+                            <TextBlock Text="Valoare rata: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=cost_rata, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="PretStackPanel">
+                            <TextBlock Text="Preț listă: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=cost_total, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="CodDiscountStackPanel">
+                            <TextBlock Text="Cod discount: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=discount_code, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="AvansStackPanel">
+                            <TextBlock Text="Avans: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=avans, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 1: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR1, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 1_1: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR1_1, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 1_2: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR1_2, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 1_3:" FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR1_3, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 1_4: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR1_4, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 2: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR2, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 3: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR3, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 3_1:" FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR3_1, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 4:" FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR4, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 4_1: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR4_1, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 4_2: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR4_2, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 4_3: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR4_3, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 4_4: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR4_4, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 5: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR5, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 6: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR6, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="GDPR 6_1: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxGDPR6_1, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Tip semnatura: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=tip_semnatura, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="EmailStackPanel">
+                            <TextBlock Text="Email: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=email_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Name="PostaStackPanel">
+                            <TextBlock Text="Adresa postala: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=adresa_postala_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Adresa facturare: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=adresa_factura_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Adresa livrare: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=adresa_livrare_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Numar contact: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=numar_contact_text, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Tip client: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxClient, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Asigurare: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=comboboxAsigurare, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="eSim: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=eSim, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Numar personalizat: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=numarPersonalizat, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Numar personalizat text: " FontFamily="/Fonts/#Inter Normal" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                            <TextBlock Text="{Binding ElementName=numarPersonalizatText, Path=Text}" FontFamily="/Fonts/#Inter Semibold" FontSize="14"  Foreground="{DynamicResource TextColor}" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="7"
+                        Margin="0 0 0 10"
+                        Grid.Column="4" VerticalAlignment="Center">
+                        <Button Content="Trimite" Style="{StaticResource SendButton}" Click="SendButton_Click" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="7"
+                        Margin="0 0 0 10"
+                        Grid.Column="2" VerticalAlignment="Center">
+                        <Button Content="Inapoi" Style="{StaticResource SendButton}" Click="PreviousButtonClick"/>
                     </StackPanel>
                 </Grid>
             </Grid>

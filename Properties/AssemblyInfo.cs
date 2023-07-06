@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyTitle("Asgard")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Optima Solutions Services")]
+[assembly: AssemblyCompany("eOverArt Marketing Agency")]
 [assembly: AssemblyProduct("Asgard")]
 [assembly: AssemblyCopyright("eOverArt Marketing Agency ©  2023")]
 [assembly: AssemblyTrademark("eOverArt Marketing Agency")]
