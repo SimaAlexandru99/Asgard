@@ -219,12 +219,18 @@ namespace Asgard
             UsernameText.Text = email;
             ProjectText.Text = proiect;
 
-            if (proiect == "IT")
+            if (proiect == "Developer")
+            {
+                EvaluariButton.Visibility = Visibility.Visible;
+                HRButton.Visibility = Visibility.Visible;
+                RaportsButton.Visibility = Visibility.Visible;
+                GestiuneButton.Visibility = Visibility.Visible;
+            }
+
+            else if (proiect == "IT")
             {
                 GestiuneButton.Visibility = Visibility.Visible;
-                RaportsButton.Visibility = Visibility.Visible;
-                HRButton.Visibility = Visibility.Visible;
-                EvaluariButton.Visibility = Visibility.Visible;
+                
             }
             else if (username == "simona.scutaru" || username == "ana.stere")
             {
