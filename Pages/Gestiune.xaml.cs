@@ -1,5 +1,5 @@
-﻿// <copyright file="Gestiune.xaml.cs" company="eOverArt Marketing Agency">
-// Copyright (c) eOverArt Marketing Agency. All rights reserved.
+﻿// <copyright file="Gestiune.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace Asgard.Pages

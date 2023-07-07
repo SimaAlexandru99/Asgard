@@ -180,15 +180,15 @@
 								<TextBlock Style="{StaticResource MenuButtonText}">Contracte</TextBlock>
 							</StackPanel>
 						</RadioButton>
-                        <RadioButton
+						<RadioButton
 						x:Name="EvaluariButton" Visibility="Collapsed"
 						Style="{StaticResource NavigationButton}"
 						Tag="{StaticResource TextColor}" Click="EvaluariButton_Click">
-                            <StackPanel
+							<StackPanel
 							HorizontalAlignment="Center"
 							VerticalAlignment="Center"
 							Orientation="Horizontal">
-                                <iconPacks:PackIconBoxIcons
+								<iconPacks:PackIconBoxIcons
 								MinWidth="15"
 								MaxWidth="30"
 								MinHeight="15"
@@ -196,12 +196,12 @@
 								Margin="25 0 0 0"
 								VerticalAlignment="Center"
 								Kind="RegularQuestionMark" />
-                                <TextBlock Style="{StaticResource MenuButtonText}">Evaluări</TextBlock>
-                            </StackPanel>
-                        </RadioButton>
+								<TextBlock Style="{StaticResource MenuButtonText}">Evaluări</TextBlock>
+							</StackPanel>
+						</RadioButton>
 
 
-                    </StackPanel>
+					</StackPanel>
 					<Grid VerticalAlignment="Bottom">
 					</Grid>
 				</Grid>

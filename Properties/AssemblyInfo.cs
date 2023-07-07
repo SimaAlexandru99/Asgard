@@ -14,7 +14,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("eOverArt Marketing Agency")]
 [assembly: AssemblyProduct("Asgard")]
-[assembly: AssemblyCopyright("eOverArt Marketing Agency ©  2023")]
+[assembly: AssemblyCopyright("eOverArt Marketing Agency")]
 [assembly: AssemblyTrademark("eOverArt Marketing Agency")]
 [assembly: AssemblyCulture("")]
 

@@ -59,6 +59,9 @@ namespace Asgard.Pages
                 case "Trainer":
                     MainTickets.Content = new Tickets.TicketsAdmin();
                     break;
+                case "Developer":
+                    MainTickets.Content = new Tickets.TicketsAdmin();
+                    break;
             }
         }
 

@@ -9,12 +9,15 @@ namespace Asgard.Tickets
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Navigation;
+    using Asgard.ViewModels;
 
     /// <summary>
     /// Interaction logic for TicketeVodafone.xaml.
     /// </summary>
     public partial class TicketeVodafone : Page
     {
+        private readonly MainViewModel user;
+
         // Retrieve the current date and time
         private readonly DateTime currentDate = DateTime.Now;
 
@@ -22,9 +25,17 @@ namespace Asgard.Tickets
         {
             InitializeComponent();
 
+            user = new MainViewModel();
+
+            string username = user.CurrentUserAccount.Username.ToString();
             // Set the TextBlock's Text property to display the date in a specific format
             DateDayTextBlock.Text = currentDate.ToString("dd");
             /*DateMonthTextBlock.Text = currentDate.ToString("MMMM");*/
+
+            if (username == "ana.coca" || username == "florentina.tanase" || username == "florin.raus" || username == "teodor.postolache")
+            {
+                EON.Visibility = Visibility.Visible;
+            }
         }
 
         private void ButtonDex_Click(object sender, RoutedEventArgs e)
@@ -64,6 +75,12 @@ namespace Asgard.Tickets
         {
             PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
             window.Main.Navigate(new Vodafone.OrderAchizitie());
+        }
+
+        private void ButtonContract_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new EON.TicketContracte());
         }
     }
 }

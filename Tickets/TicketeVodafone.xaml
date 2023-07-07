@@ -112,6 +112,39 @@
                 </Button>
             </StackPanel>
         </Border>
+
+        <Border x:Name="EON"  Grid.Column="1" Grid.Row="1" Style="{StaticResource BorderItems}" Margin="0,5,5,0" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Ellipse Width="45" Height="45" VerticalAlignment="Center">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Assets/eonlogo.png" Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Text="Creare contract" Margin="0,15,0,0" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource TextColor}" FontSize="12" HorizontalAlignment="Center"/>
+                <TextBlock Text="Eon" Margin="0,5,0,0" FontFamily="/Fonts/#Rubik Regular" Foreground="{DynamicResource TextColor}" FontSize="8" HorizontalAlignment="Center"/>
+                <Button x:Name="ButtonContract"   
+                                HorizontalAlignment="Left"
+                                Panel.ZIndex="1"                            
+                                Style="{StaticResource VodafoneButton}"
+                                Height="30" 
+                                Width="130" 
+                                
+                                Margin="0,25,0,0"
+                                Click="ButtonContract_Click">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <iconPacks:PackIconBootstrapIcons
+                                VerticalAlignment="Center"
+                                Height="10"
+                                Width="10"
+                                Kind="ArrowRightCircle" />
+                        <TextBlock VerticalAlignment="Center" 
+                                Margin="5,0,0,0" 
+                                FontFamily="/Fonts/#Rubik Semibold" 
+                                FontSize="10"> Creează contract</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
         <Border  Grid.Column="2" Style="{StaticResource BorderItems}" Margin="5,0,5,0">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Ellipse Width="45" Height="45" VerticalAlignment="Center">
