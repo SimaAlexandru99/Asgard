@@ -16,11 +16,11 @@
 		</ResourceDictionary>
 	</Window.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition MinWidth="280" MaxWidth="500" />
-        </Grid.ColumnDefinitions>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition MinWidth="280" MaxWidth="500" />
+		</Grid.ColumnDefinitions>
 
 		<Grid Grid.Column="0">
 			<Grid.RowDefinitions>
