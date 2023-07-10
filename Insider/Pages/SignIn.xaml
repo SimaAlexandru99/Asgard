@@ -33,7 +33,7 @@
 				<Viewbox Width="25" Height="25">
 					<Image x:Name="logoImage" Source="/Assets/AsgardLogoNew.png" VerticalAlignment="Center" />
 				</Viewbox>
-				<TextBlock Text="Asgard app." FontFamily="/Fonts/#Inter Bold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" Margin="5,0,0,0" />
+				<TextBlock Text="Asgard app" FontFamily="/Fonts/#Inter Bold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" Margin="5,0,0,0" />
 			</StackPanel>
 		</Grid>
 	</Grid>
