@@ -16,11 +16,11 @@
 		</ResourceDictionary>
 	</Window.Resources>
 
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="280" />
-		</Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition MinWidth="280" MaxWidth="500" />
+        </Grid.ColumnDefinitions>
 
 		<Grid Grid.Column="0">
 			<Grid.RowDefinitions>
@@ -29,22 +29,12 @@
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
-			<Grid Margin="30,20,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal" Grid.Column="0">
+			<StackPanel Orientation="Horizontal" Margin="30,20,0,0">
 				<Viewbox Width="25" Height="25">
 					<Image x:Name="logoImage" Source="/Assets/AsgardLogoNew.png" VerticalAlignment="Center" />
 				</Viewbox>
 				<TextBlock Text="Asgard app" FontFamily="/Fonts/#Inter Bold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" Margin="5,0,0,0" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
-                    <TextBlock Text="Showcase" FontFamily="/Fonts/#Inter Semibold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="#B6B9BF" Margin="5,0,0,0" />
-                    <TextBlock Text="Chatgpt" FontFamily="/Fonts/#Inter Semibold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="#B6B9BF" Margin="35,0,0,0" />
-                </StackPanel>
-            </Grid>
+			</StackPanel>
 		</Grid>
 	</Grid>
 </Window>
