@@ -29,12 +29,22 @@
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
-			<StackPanel Orientation="Horizontal" Margin="30,20,0,0">
+			<Grid Margin="30,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
 				<Viewbox Width="25" Height="25">
 					<Image x:Name="logoImage" Source="/Assets/AsgardLogoNew.png" VerticalAlignment="Center" />
 				</Viewbox>
 				<TextBlock Text="Asgard app" FontFamily="/Fonts/#Inter Bold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="Black" Margin="5,0,0,0" />
-			</StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                    <TextBlock Text="Showcase" FontFamily="/Fonts/#Inter Semibold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="#B6B9BF" Margin="5,0,0,0" />
+                    <TextBlock Text="Chatgpt" FontFamily="/Fonts/#Inter Semibold" FontSize="10" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="#B6B9BF" Margin="35,0,0,0" />
+                </StackPanel>
+            </Grid>
 		</Grid>
 	</Grid>
 </Window>
