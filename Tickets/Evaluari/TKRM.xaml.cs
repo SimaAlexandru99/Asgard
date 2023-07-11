@@ -76,6 +76,24 @@ namespace Asgard.Tickets.Evaluari
                             insertCommand.Parameters.AddWithValue("@numar_client", numarClient.Text);
                             insertCommand.Parameters.AddWithValue("@data_apel", dataApel.Text);
                             insertCommand.Parameters.AddWithValue("@tip_apel", tipApel.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare1", notaIntrebare1.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare2", notaIntrebare2.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare3", notaIntrebare3.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare4", notaIntrebare4.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare5", notaIntrebare5.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare6", notaIntrebare6.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare1", notaIntrebare7.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare2", notaIntrebare8.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare3", notaIntrebare9.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare4", notaIntrebare10.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare5", notaIntrebare11.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare6", notaIntrebare12.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare7", notaIntrebare13.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare8", notaIntrebare14.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare9", notaIntrebare15.Text);
+                            insertCommand.Parameters.AddWithValue("@promovarea", notaIntrebare16.Text);
+                            insertCommand.Parameters.AddWithValue("@observatii_genarale", notaIntrebare17.Text);
+
 
                             insertCommand.ExecuteNonQuery();
                         }
