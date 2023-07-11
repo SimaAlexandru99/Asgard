@@ -187,6 +187,9 @@
     <Compile Include="Tickets\Evaluari\BCR.xaml.cs">
       <DependentUpon>BCR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tickets\Evaluari\CEC.xaml.cs">
+      <DependentUpon>CEC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tickets\Evaluari\EON.xaml.cs">
       <DependentUpon>EON.xaml</DependentUpon>
     </Compile>
@@ -385,6 +388,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tickets\Evaluari\BCR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tickets\Evaluari\CEC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
