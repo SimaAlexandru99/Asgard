@@ -1,0 +1,133 @@
+﻿using Asgard.ViewModels;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Asgard.Tickets.Evaluari
+{
+    /// <summary>
+    /// Interaction logic for ANTICHURN.xaml
+    /// </summary>
+    public partial class ANTICHURN : Page
+    {
+        public ANTICHURN()
+        {
+            InitializeComponent();
+            var user = new MainViewModel();
+            emailSuperior.Text = user.CurrentUserAccount.Email;
+        }
+
+        private void Clear()
+        {
+            emailAngajat.Text = string.Empty;
+            emailSuperior.Text = string.Empty;
+            numarClient.Text = string.Empty;
+            dataApel.Text = string.Empty;
+            tipApel.Text = string.Empty;
+            notaIntrebare1.Text = string.Empty;
+            notaIntrebare2.Text = string.Empty;
+            notaIntrebare3.Text = string.Empty;
+            notaIntrebare4.Text = string.Empty;
+            notaIntrebare5.Text = string.Empty;
+            notaIntrebare6.Text = string.Empty;
+            notaIntrebare7.Text = string.Empty;
+            notaIntrebare8.Text = string.Empty;
+            notaIntrebare9.Text = string.Empty;
+            notaIntrebare10.Text = string.Empty;
+            notaIntrebare11.Text = string.Empty;
+            notaIntrebare12.Text = string.Empty;
+            notaIntrebare13.Text = string.Empty;
+            notaIntrebare14.Text = string.Empty;
+            notaIntrebare15.Text = string.Empty;
+        }
+
+        private void TrimiteEvaluarea_Click(object sender, RoutedEventArgs e)
+        {
+            if (emailAngajat.Text != string.Empty && emailSuperior.Text != string.Empty && numarClient.Text != string.Empty && dataApel.Text != string.Empty && tipApel.Text != string.Empty)
+            {
+                string connectionString = "server=192.168.100.18;port=3306;user=eoverart;password=P3CZV4pgc7jtT4z;database=asgard";
+                string insertQuery = "INSERT INTO evaluari_antichurn VALUES (NULL, @email_agent, @email_evaluator, @numar_client, @data_apel, @tip_apel, @comunicare1, @comunicare2, @comunicare3, @comunicare4, @comunicare5, @comunicare6, @rezolvare1, @rezolvare2, @rezolvare3, @rezolvare4, @rezolvare5, @rezolvare6, @rezolvare7, @promovarea, @observatii_genarale,NULL)";
+
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@email_agent", emailAngajat.Text);
+                            insertCommand.Parameters.AddWithValue("@email_evaluator", emailSuperior.Text);
+                            insertCommand.Parameters.AddWithValue("@numar_client", numarClient.Text);
+                            insertCommand.Parameters.AddWithValue("@data_apel", dataApel.Text);
+                            insertCommand.Parameters.AddWithValue("@tip_apel", tipApel.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare1", notaIntrebare1.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare2", notaIntrebare2.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare3", notaIntrebare3.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare4", notaIntrebare4.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare5", notaIntrebare5.Text);
+                            insertCommand.Parameters.AddWithValue("@comunicare6", notaIntrebare6.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare1", notaIntrebare7.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare2", notaIntrebare8.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare3", notaIntrebare9.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare4", notaIntrebare10.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare5", notaIntrebare11.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare6", notaIntrebare12.Text);
+                            insertCommand.Parameters.AddWithValue("@rezolvare7", notaIntrebare13.Text);
+                            insertCommand.Parameters.AddWithValue("@promovarea", notaIntrebare14.Text);
+                            insertCommand.Parameters.AddWithValue("@observatii_genarale", notaIntrebare15.Text);
+
+
+                            insertCommand.ExecuteNonQuery();
+                        }
+
+                        connection.Close();
+                        CustomControls.Prompt dialog = new CustomControls.Prompt();
+                        dialog.Loaded += (s, ea) =>
+                        {
+                            dialog.Title = "Felicitări";
+                            dialog.Status.Text = "Ai înregistrat o evaluare cu succes";
+                            dialog.Descriere.Text = "Felicitari, evaluare ta a fost inregistrata cu succes \n Apasa butonul de mai jos pentru a introduce o alta evaluare.";
+                        };
+                        dialog.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while inserting data into the database: " + ex.Message);
+                }
+
+                Clear();
+            }
+            else
+            {
+                CustomControls.Prompt dialog = new CustomControls.Prompt();
+                dialog.Loaded += (s, ea) =>
+                {
+                    dialog.Title = "Eroare";
+                    dialog.Status.Text = "Evaluare nu a fost trimisa";
+                    dialog.Descriere.Text = "Te rog sa verifici toate campurile, ai uitat sa completezi ceva.";
+                };
+                dialog.ShowDialog();
+            }
+
+        }
+
+        private void tipApel_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            e.Handled = true;
+        }
+    }
+}

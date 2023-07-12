@@ -59,5 +59,11 @@ namespace Asgard.Tickets
             window.Main.Navigate(new Evaluari.TKRM());
 
         }
+
+        private void ButtonGoANTICHURN_Click(object sender, RoutedEventArgs e)
+        {
+            PrimaryWindow window = Window.GetWindow(this) as PrimaryWindow;
+            window.Main.Navigate(new Evaluari.ANTICHURN());
+        }
     }
 }

@@ -250,5 +250,38 @@
 			</StackPanel>
 		</Border>
 
+		<Border  Grid.Column="3" Grid.Row="1" Style="{StaticResource BorderItems}" Margin="0,15,5,0">
+			<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Ellipse Width="45" Height="45" VerticalAlignment="Center">
+					<Ellipse.Fill>
+						<ImageBrush ImageSource="/Assets/telekomlogo2.jpg" Stretch= "Uniform" />
+					</Ellipse.Fill>
+				</Ellipse>
+				<TextBlock Text="Evaluare Apel ANTICHURN" Margin="0,15,0,0" FontFamily="/Fonts/#Rubik Semibold" Foreground="{DynamicResource TextColor}" FontSize="12" HorizontalAlignment="Center"/>
+				<TextBlock Text="" Margin="0,5,0,0" FontFamily="/Fonts/#Rubik Regular" Foreground="{DynamicResource TextColor}" FontSize="8" HorizontalAlignment="Center"/>
+				<Button x:Name="ButtonGoANTICHURN"   
+                                HorizontalAlignment="Left"
+                                Panel.ZIndex="1"                            
+                                Style="{StaticResource TelekomButton}" 
+                                Height="30" 
+                                Width="130" 
+                                
+                                Margin="0,25,0,0"
+                                Click="ButtonGoANTICHURN_Click">
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+						<iconPacks:PackIconBootstrapIcons
+                                VerticalAlignment="Center"
+                                Height="10"
+                                Width="10"
+                                Kind="ArrowRightCircle" />
+						<TextBlock VerticalAlignment="Center" 
+                                Margin="5,0,0,0" 
+                                FontFamily="/Fonts/#Rubik Semibold" 
+                                FontSize="10"> Evaluează</TextBlock>
+					</StackPanel>
+				</Button>
+			</StackPanel>
+		</Border>
+
 	</Grid>
 </Page>
